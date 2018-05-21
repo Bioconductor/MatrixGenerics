@@ -1,0 +1,12 @@
+Package: MatrixGenerics
+Title: S4 generic functions that operate on matrix-like objects
+Description: S4 generic functions needed by many packages that define 
+  matrix-like classes.
+Version: 0.0.99
+Authors@R: c(person("Peter", "Hickey", role = c("aut", "cre"),
+    email = "peter.hickey@gmail.com"))
+Imports: methods
+Suggests: matrixStats
+License: MIT + file LICENSE
+Encoding: UTF-8
+RoxygenNote: 6.0.1

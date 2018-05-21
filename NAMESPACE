@@ -1,0 +1,13 @@
+# Imports ----------------------------------------------------------------------
+
+# For simplicity, import entire 'methods' package
+import(methods)
+
+# Export S4 generics defined in MatrixGenerics ---------------------------------
+
+export(
+  # rowMedians.R:
+  colMedians, rowMedians,
+  # rowWeightedMedians.R:
+  colWeightedMedians, rowWeightedMedians
+)
