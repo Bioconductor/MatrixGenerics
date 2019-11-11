@@ -24,21 +24,13 @@
 #' @keywords array iteration robust univar
 #'
 #' @name rowMedians
+#' @export
 setGeneric("rowMedians", function(x, na.rm=FALSE, ...) standardGeneric("rowMedians"),
            signature = "x",
 )
 
-setMethod("rowMedians", "ANY", function(x, na.rm = FALSE, ...) {
-  stop("colVars() is not defined for x of class: ", paste0(class(x), collapse = ", "))  
-})
-
 setMethod("rowMedians", signature = "matrix", function(x, na.rm=FALSE, ...){
-  if(requireNamespace("matrixStats", quietly = TRUE)){
-    matrixStats::rowMedians(x, na.rm=na.rm, ...)
-  }else{
-    stop("rowMedians() for x of class matrix, requires the 'matrixStats' package.\n",
-         "You can install it with 'install.packages(\"matrixStats\")'.")
-  }
+  matrixStats::rowMedians(x, na.rm=na.rm, ...)
 })
 
 
@@ -50,17 +42,8 @@ setGeneric("colMedians", function(x, na.rm=FALSE, ...) standardGeneric("colMedia
            signature = "x",
 )
 
-setMethod("colMedians", "ANY", function(x, na.rm = FALSE, ...) {
-  stop("colVars() is not defined for x of class: ", paste0(class(x), collapse = ", "))  
-})
-
 setMethod("colMedians", signature = "matrix", function(x, na.rm=FALSE, ...){
-  if(requireNamespace("matrixStats", quietly = TRUE)){
-    matrixStats::colMedians(x, na.rm=na.rm, ...)
-  }else{
-    stop("colMedians() for x of class matrix, requires the 'matrixStats' package.\n",
-         "You can install it with 'install.packages(\"matrixStats\")'.")
-  }
+  matrixStats::colMedians(x, na.rm=na.rm, ...)
 })
 
 

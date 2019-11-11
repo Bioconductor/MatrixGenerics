@@ -5,8 +5,8 @@ Description: S4 generic functions needed by many packages that define
 Version: 0.0.99
 Authors@R: c(person("Peter", "Hickey", role = c("aut", "cre"),
     email = "peter.hickey@gmail.com"))
-Imports: methods
-Suggests: matrixStats
+Imports: methods, 
+    matrixStats
 License: MIT + file LICENSE
 Encoding: UTF-8
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.1
