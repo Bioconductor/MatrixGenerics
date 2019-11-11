@@ -8,6 +8,9 @@
 #' is done.
 #' @param na.rm If \code{\link[base:logical]{TRUE}}, \code{\link[base]{NA}}s
 #' are excluded first, otherwise not.
+#' @param dim. An \code{\link[base]{integer}} \code{\link[base]{vector}} of
+#' length two specifying the dimension of \code{x}, important when x is a
+#' \code{\link[base]{numeric}} vector.
 #' @param ... Additional arguments passed to specific methods.
 #'
 #' @return Returns a \code{\link[base]{numeric}} \code{\link[base]{vector}} of
@@ -36,6 +39,10 @@ setGeneric("rowMedians", function(x, rows = NULL, cols = NULL, na.rm=FALSE, ...)
 setMethod("rowMedians", signature = "matrix", function(x, rows = NULL, cols = NULL, na.rm=FALSE, ...){
   matrixStats::rowMedians(x, rows = rows, cols = cols, na.rm=na.rm, ...)
 })
+
+#' @rdname rowMedians
+setMethod("rowMedians", signature = "numeric", function(x, rows = NULL, cols = NULL, na.rm=FALSE, dim., ...){
+  matrixStats::rowMedians(x, rows = rows, cols = cols, na.rm=na.rm, dim.=dim., ...)
 })
 
 
@@ -51,5 +58,11 @@ setGeneric("colMedians", function(x, rows = NULL, cols = NULL, na.rm=FALSE, ...)
 setMethod("colMedians", signature = "matrix", function(x, rows = NULL, cols = NULL, na.rm=FALSE, ...){
   matrixStats::colMedians(x, rows = rows, cols = cols, na.rm=na.rm, ...)
 })
+
+#' @rdname rowMedians
+setMethod("colMedians", signature = "numeric", function(x, rows = NULL, cols = NULL, na.rm=FALSE, dim., ...){
+  matrixStats::colMedians(x, rows = rows, cols = cols, na.rm=na.rm, dim. = dim., ...)
+})
+
 
 
