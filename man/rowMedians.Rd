@@ -10,28 +10,20 @@
 \alias{colMedians,numeric-method}
 \title{Calculates the median for each row (column) of a matrix-like object}
 \usage{
-rowMedians(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+rowMedians(x, na.rm = FALSE, ...)
 
-\S4method{rowMedians}{matrix}(x, rows = NULL, cols = NULL,
-  na.rm = FALSE, ...)
+\S4method{rowMedians}{matrix}(x, na.rm = FALSE, ...)
 
-\S4method{rowMedians}{numeric}(x, rows = NULL, cols = NULL,
-  na.rm = FALSE, dim., ...)
+\S4method{rowMedians}{numeric}(x, na.rm = FALSE, dim., ...)
 
-colMedians(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+colMedians(x, na.rm = FALSE, ...)
 
-\S4method{colMedians}{matrix}(x, rows = NULL, cols = NULL,
-  na.rm = FALSE, ...)
+\S4method{colMedians}{matrix}(x, na.rm = FALSE, ...)
 
-\S4method{colMedians}{numeric}(x, rows = NULL, cols = NULL,
-  na.rm = FALSE, dim., ...)
+\S4method{colMedians}{numeric}(x, na.rm = FALSE, dim., ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
-
-\item{rows, cols}{A \code{\link[base]{vector}} indicating subset of rows
-(and/or columns) to operate over. If \code{\link[base]{NULL}}, no subsetting
-is done.}
 
 \item{na.rm}{If \code{\link[base:logical]{TRUE}}, \code{\link[base]{NA}}s
 are excluded first, otherwise not.}
