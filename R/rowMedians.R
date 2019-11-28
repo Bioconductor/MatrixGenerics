@@ -29,7 +29,7 @@
 #' @name rowMedians
 #' @export
 setGeneric("rowMedians", function(x, na.rm=FALSE, ...) standardGeneric("rowMedians"),
-           signature = "x",
+           signature = "x"
 )
 
 #' @rdname rowMedians
@@ -48,7 +48,7 @@ setMethod("rowMedians", signature = "numeric", function(x, na.rm=FALSE, dim., ..
 #' @rdname rowMedians
 #' @name colMedians
 setGeneric("colMedians", function(x, na.rm=FALSE, ...) standardGeneric("colMedians"),
-           signature = "x",
+           signature = "x"
 )
 
 #' @rdname rowMedians
