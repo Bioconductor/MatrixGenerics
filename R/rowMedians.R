@@ -1,12 +1,20 @@
 #' Calculates the median for each row (column) of a matrix-like object
 #'
 #' Calculates the median for each row (column) of a matrix-like object.
+#' 
+#' The S4 methods for \code{x} of type \code{\link[base]{matrix}} or 
+#' \code{\link[base]{numeric}} are dispatched to \code{matrixStats::\link[matrixStats]{rowMedians}}
+#' 
+#' Methods that provide an implemention for the S4 for generic are encouraged
+#' to handle the \code{rows}/code{cols} subsetting.
 #'
 #' @param x An NxK matrix-like object.
 #' @param na.rm If \code{\link[base:logical]{TRUE}}, \code{\link[base]{NA}}s
 #' are excluded first, otherwise not.
+#' @param rows,cols A \code{\link[base]{vector}} indicating the subset (and/or 
+#'   columns) to operate over. If \code{\link[base]{NULL}}, no subsetting is done.
 #' @param dim. An \code{\link[base]{integer}} \code{\link[base]{vector}} of
-#' length two specifying the dimension of \code{x}, important when x is a
+#' length two specifying the dimension of \code{x}, essential when x is a
 #' \code{\link[base]{numeric}} vector.
 #' @param ... Additional arguments passed to specific methods.
 #'
@@ -33,13 +41,13 @@ setGeneric("rowMedians", function(x, na.rm=FALSE, ...) standardGeneric("rowMedia
 )
 
 #' @rdname rowMedians
-setMethod("rowMedians", signature = "matrix", function(x, na.rm=FALSE, ...){
-  matrixStats::rowMedians(x, na.rm=na.rm, ...)
+setMethod("rowMedians", signature = "matrix", function(x, na.rm=FALSE, rows = NULL, cols = NULL, dim. = dim(x)){
+  matrixStats::rowMedians(x, na.rm=na.rm, rows = rows, cols = cols, dim. = dim.)
 })
 
 #' @rdname rowMedians
-setMethod("rowMedians", signature = "numeric", function(x, na.rm=FALSE, dim., ...){
-  matrixStats::rowMedians(x, na.rm=na.rm, dim.=dim., ...)
+setMethod("rowMedians", signature = "numeric", function(x, na.rm=FALSE, rows = NULL, cols = NULL, dim. = dim(x)){
+  matrixStats::rowMedians(x, na.rm=na.rm, rows = rows, cols = cols, dim. = dim.)
 })
 
 
@@ -52,13 +60,13 @@ setGeneric("colMedians", function(x, na.rm=FALSE, ...) standardGeneric("colMedia
 )
 
 #' @rdname rowMedians
-setMethod("colMedians", signature = "matrix", function(x, na.rm=FALSE, ...){
-  matrixStats::colMedians(x, na.rm=na.rm, ...)
+setMethod("colMedians", signature = "matrix", function(x, na.rm=FALSE, rows = NULL, cols = NULL, dim. = dim(x)){
+  matrixStats::colMedians(x, na.rm=na.rm, rows = rows, cols = cols, dim. = dim.)
 })
 
 #' @rdname rowMedians
-setMethod("colMedians", signature = "numeric", function(x, na.rm=FALSE, dim., ...){
-  matrixStats::colMedians(x, na.rm=na.rm, dim. = dim., ...)
+setMethod("colMedians", signature = "numeric", function(x, na.rm=FALSE, rows = NULL, cols = NULL, dim. = dim(x)){
+  matrixStats::colMedians(x, na.rm=na.rm, rows = rows, cols = cols, dim. = dim.)
 })
 
 

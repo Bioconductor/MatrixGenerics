@@ -12,15 +12,19 @@
 \usage{
 rowMedians(x, na.rm = FALSE, ...)
 
-\S4method{rowMedians}{matrix}(x, na.rm = FALSE, ...)
+\S4method{rowMedians}{matrix}(x, na.rm = FALSE, rows = NULL,
+  cols = NULL, dim. = dim(x))
 
-\S4method{rowMedians}{numeric}(x, na.rm = FALSE, dim., ...)
+\S4method{rowMedians}{numeric}(x, na.rm = FALSE, rows = NULL,
+  cols = NULL, dim. = dim(x))
 
 colMedians(x, na.rm = FALSE, ...)
 
-\S4method{colMedians}{matrix}(x, na.rm = FALSE, ...)
+\S4method{colMedians}{matrix}(x, na.rm = FALSE, rows = NULL,
+  cols = NULL, dim. = dim(x))
 
-\S4method{colMedians}{numeric}(x, na.rm = FALSE, dim., ...)
+\S4method{colMedians}{numeric}(x, na.rm = FALSE, rows = NULL,
+  cols = NULL, dim. = dim(x))
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
@@ -30,8 +34,11 @@ are excluded first, otherwise not.}
 
 \item{...}{Additional arguments passed to specific methods.}
 
+\item{rows, cols}{A \code{\link[base]{vector}} indicating the subset (and/or 
+columns) to operate over. If \code{\link[base]{NULL}}, no subsetting is done.}
+
 \item{dim.}{An \code{\link[base]{integer}} \code{\link[base]{vector}} of
-length two specifying the dimension of \code{x}, important when x is a
+length two specifying the dimension of \code{x}, essential when x is a
 \code{\link[base]{numeric}} vector.}
 }
 \value{
@@ -40,6 +47,13 @@ length N (K).
 }
 \description{
 Calculates the median for each row (column) of a matrix-like object.
+}
+\details{
+The S4 methods for \code{x} of type \code{\link[base]{matrix}} or 
+\code{\link[base]{numeric}} are dispatched to \code{matrixStats::\link[matrixStats]{rowMedians}}
+
+Methods that provide an implemention for the S4 for generic are encouraged
+to handle the \code{rows}/code{cols} subsetting.
 }
 \seealso{
 \itemize{
