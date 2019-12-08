@@ -50,18 +50,21 @@ Calculates the median for each row (column) of a matrix-like object.
 }
 \details{
 The S4 methods for \code{x} of type \code{\link[base]{matrix}} or 
-\code{\link[base]{numeric}} are dispatched to \code{matrixStats::\link[matrixStats]{rowMedians}}
+\code{\link[base]{numeric}} call \code{matrixStats::\link[matrixStats]{rowMedians}}
+/ \code{matrixStats::\link[matrixStats]{colMedians}}.
 
-Methods that provide an implemention for the S4 for generic are encouraged
-to handle the \code{rows}/code{cols} subsetting.
+When implementing a method for their own matrix-like objects, developers
+are encouraged to support the \code{rows} and \code{cols} arguments.
 }
 \seealso{
 \itemize{
 \item \code{matrixStats::\link[matrixStats]{rowMedians}()} and
-  \code{matrixStats::\link[matrixStats]{colMedians}()} which are used for
-  \code{matrix} input.
+  \code{matrixStats::\link[matrixStats]{colMedians}()} which are used when
+  the input is a \code{matrix} or \code{numeric} vector.
 \item See \code{\link{rowWeightedMedians}()} and \code{colWeightedMedians()}
   for weighted medians.
+\item For mean estimates, see \code{\link{rowMeans2}()} and
+  \code{\link[base:colSums]{rowMeans}()}.
 }
 }
 \keyword{array}
