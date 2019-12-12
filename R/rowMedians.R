@@ -51,6 +51,7 @@ setMethod("rowMedians", signature = "numeric", function(x, rows = NULL, cols = N
 
 #' @rdname rowMedians
 #' @name colMedians
+#' @export
 setGeneric("colMedians", function(x, rows = NULL, cols = NULL, na.rm=FALSE, ...) standardGeneric("colMedians"),
            signature = "x"
 )
