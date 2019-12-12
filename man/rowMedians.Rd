@@ -10,32 +10,32 @@
 \alias{colMedians,numeric-method}
 \title{Calculates the median for each row (column) of a matrix-like object}
 \usage{
-rowMedians(x, na.rm = FALSE, ...)
+rowMedians(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{rowMedians}{matrix}(x, na.rm = FALSE, rows = NULL,
-  cols = NULL, dim. = dim(x))
+\S4method{rowMedians}{matrix}(x, rows = NULL, cols = NULL,
+  na.rm = FALSE, dim. = dim(x))
 
-\S4method{rowMedians}{numeric}(x, na.rm = FALSE, rows = NULL,
-  cols = NULL, dim. = dim(x))
+\S4method{rowMedians}{numeric}(x, rows = NULL, cols = NULL,
+  na.rm = FALSE, dim. = dim(x))
 
-colMedians(x, na.rm = FALSE, ...)
+colMedians(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{colMedians}{matrix}(x, na.rm = FALSE, rows = NULL,
-  cols = NULL, dim. = dim(x))
+\S4method{colMedians}{matrix}(x, rows = NULL, cols = NULL,
+  na.rm = FALSE, dim. = dim(x))
 
-\S4method{colMedians}{numeric}(x, na.rm = FALSE, rows = NULL,
-  cols = NULL, dim. = dim(x))
+\S4method{colMedians}{numeric}(x, rows = NULL, cols = NULL,
+  na.rm = FALSE, dim. = dim(x))
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
+
+\item{rows, cols}{A \code{\link[base]{vector}} indicating the subset (and/or 
+columns) to operate over. If \code{\link[base]{NULL}}, no subsetting is done.}
 
 \item{na.rm}{If \code{\link[base:logical]{TRUE}}, \code{\link[base]{NA}}s
 are excluded first, otherwise not.}
 
 \item{...}{Additional arguments passed to specific methods.}
-
-\item{rows, cols}{A \code{\link[base]{vector}} indicating the subset (and/or 
-columns) to operate over. If \code{\link[base]{NULL}}, no subsetting is done.}
 
 \item{dim.}{An \code{\link[base]{integer}} \code{\link[base]{vector}} of
 length two specifying the dimension of \code{x}, essential when x is a
@@ -52,17 +52,12 @@ Calculates the median for each row (column) of a matrix-like object.
 The S4 methods for \code{x} of type \code{\link[base]{matrix}} or 
 \code{\link[base]{numeric}} call \code{matrixStats::\link[matrixStats]{rowMedians}}
 / \code{matrixStats::\link[matrixStats]{colMedians}}.
-
-When implementing a method for their own matrix-like objects, developers
-are encouraged to support the \code{rows} and \code{cols} arguments.
 }
 \seealso{
 \itemize{
 \item \code{matrixStats::\link[matrixStats]{rowMedians}()} and
   \code{matrixStats::\link[matrixStats]{colMedians}()} which are used when
   the input is a \code{matrix} or \code{numeric} vector.
-\item See \code{\link{rowWeightedMedians}()} and \code{colWeightedMedians()}
-  for weighted medians.
 \item For mean estimates, see \code{\link{rowMeans2}()} and
   \code{\link[base:colSums]{rowMeans}()}.
 }

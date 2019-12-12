@@ -6,14 +6,11 @@
 #' \code{\link[base]{numeric}} call \code{matrixStats::\link[matrixStats]{rowMedians}}
 #' / \code{matrixStats::\link[matrixStats]{colMedians}}.
 #' 
-#' When implementing a method for their own matrix-like objects, developers
-#' are encouraged to support the \code{rows} and \code{cols} arguments.
-#' 
 #' @param x An NxK matrix-like object.
-#' @param na.rm If \code{\link[base:logical]{TRUE}}, \code{\link[base]{NA}}s
-#' are excluded first, otherwise not.
 #' @param rows,cols A \code{\link[base]{vector}} indicating the subset (and/or 
 #'   columns) to operate over. If \code{\link[base]{NULL}}, no subsetting is done.
+#' @param na.rm If \code{\link[base:logical]{TRUE}}, \code{\link[base]{NA}}s
+#' are excluded first, otherwise not.
 #' @param dim. An \code{\link[base]{integer}} \code{\link[base]{vector}} of
 #' length two specifying the dimension of \code{x}, essential when x is a
 #' \code{\link[base]{numeric}} vector.
@@ -27,8 +24,6 @@
 #' \item \code{matrixStats::\link[matrixStats]{rowMedians}()} and
 #'   \code{matrixStats::\link[matrixStats]{colMedians}()} which are used when
 #'   the input is a \code{matrix} or \code{numeric} vector.
-#' \item See \code{\link{rowWeightedMedians}()} and \code{colWeightedMedians()}
-#'   for weighted medians.
 #' \item For mean estimates, see \code{\link{rowMeans2}()} and
 #'   \code{\link[base:colSums]{rowMeans}()}.
 #' }
@@ -37,18 +32,18 @@
 #'
 #' @name rowMedians
 #' @export
-setGeneric("rowMedians", function(x, na.rm=FALSE, ...) standardGeneric("rowMedians"),
+setGeneric("rowMedians", function(x, rows = NULL, cols = NULL, na.rm=FALSE, ...) standardGeneric("rowMedians"),
            signature = "x"
 )
 
 #' @rdname rowMedians
-setMethod("rowMedians", signature = "matrix", function(x, na.rm=FALSE, rows = NULL, cols = NULL, dim. = dim(x)){
-  matrixStats::rowMedians(x, na.rm=na.rm, rows = rows, cols = cols, dim. = dim.)
+setMethod("rowMedians", signature = "matrix", function(x, rows = NULL, cols = NULL, na.rm=FALSE, dim. = dim(x)){
+  matrixStats::rowMedians(x, rows = rows, cols = cols, na.rm=na.rm, dim. = dim.)
 })
 
 #' @rdname rowMedians
-setMethod("rowMedians", signature = "numeric", function(x, na.rm=FALSE, rows = NULL, cols = NULL, dim. = dim(x)){
-  matrixStats::rowMedians(x, na.rm=na.rm, rows = rows, cols = cols, dim. = dim.)
+setMethod("rowMedians", signature = "numeric", function(x, rows = NULL, cols = NULL, na.rm=FALSE, dim. = dim(x)){
+  matrixStats::rowMedians(x, rows = rows, cols = cols, na.rm=na.rm, dim. = dim.)
 })
 
 
@@ -56,18 +51,18 @@ setMethod("rowMedians", signature = "numeric", function(x, na.rm=FALSE, rows = N
 
 #' @rdname rowMedians
 #' @name colMedians
-setGeneric("colMedians", function(x, na.rm=FALSE, ...) standardGeneric("colMedians"),
+setGeneric("colMedians", function(x, rows = NULL, cols = NULL, na.rm=FALSE, ...) standardGeneric("colMedians"),
            signature = "x"
 )
 
 #' @rdname rowMedians
-setMethod("colMedians", signature = "matrix", function(x, na.rm=FALSE, rows = NULL, cols = NULL, dim. = dim(x)){
-  matrixStats::colMedians(x, na.rm=na.rm, rows = rows, cols = cols, dim. = dim.)
+setMethod("colMedians", signature = "matrix", function(x, rows = NULL, cols = NULL, na.rm=FALSE, dim. = dim(x)){
+  matrixStats::colMedians(x, rows = rows, cols = cols, na.rm=na.rm, dim. = dim.)
 })
 
 #' @rdname rowMedians
-setMethod("colMedians", signature = "numeric", function(x, na.rm=FALSE, rows = NULL, cols = NULL, dim. = dim(x)){
-  matrixStats::colMedians(x, na.rm=na.rm, rows = rows, cols = cols, dim. = dim.)
+setMethod("colMedians", signature = "numeric", function(x, rows = NULL, cols = NULL, na.rm=FALSE, dim. = dim(x)){
+  matrixStats::colMedians(x, rows = rows, cols = cols, na.rm=na.rm, dim. = dim.)
 })
 
 
