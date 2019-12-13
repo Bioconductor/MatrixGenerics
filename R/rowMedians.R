@@ -2,22 +2,15 @@
 #'
 #' Calculates the median for each row (column) of a matrix-like object.
 #' 
-#' The S4 methods for \code{x} of type \code{\link[base]{matrix}} or 
-#' \code{\link[base]{numeric}} call \code{matrixStats::\link[matrixStats]{rowMedians}}
-#' / \code{matrixStats::\link[matrixStats]{colMedians}}.
+#' @templateVar rowName rowMedians
+#' @templateVar colName colMedians
 #' 
-#' @param x An NxK matrix-like object.
-#' @param rows,cols A \code{\link[base]{vector}} indicating the subset (and/or 
-#'   columns) to operate over. If \code{\link[base]{NULL}}, no subsetting is done.
-#' @param na.rm If \code{\link[base:logical]{TRUE}}, \code{\link[base]{NA}}s
-#' are excluded first, otherwise not.
-#' @param dim. An \code{\link[base]{integer}} \code{\link[base]{vector}} of
-#' length two specifying the dimension of \code{x}, essential when x is a
-#' \code{\link[base]{numeric}} vector.
-#' @param ... Additional arguments passed to specific methods.
+#' @template matrixStatsLink
+#' 
+#' @template standardParameters
+#' @template na_rmParameter
 #'
-#' @return Returns a \code{\link[base]{numeric}} \code{\link[base]{vector}} of
-#' length N (K).
+#' @template returnVector
 #'
 #' @seealso
 #' \itemize{
@@ -27,6 +20,8 @@
 #' \item For mean estimates, see \code{\link{rowMeans2}()} and
 #'   \code{\link[base:colSums]{rowMeans}()}.
 #' }
+#' 
+#' @template standardExamples
 #'
 #' @keywords array iteration robust univar
 #'
