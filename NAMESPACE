@@ -2,8 +2,10 @@
 
 export(colMeans2)
 export(colMedians)
+export(colSds)
 export(colVars)
 export(rowMeans2)
 export(rowMedians)
+export(rowSds)
 export(rowVars)
 import(methods)
