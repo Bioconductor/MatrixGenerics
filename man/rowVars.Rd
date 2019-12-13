@@ -30,7 +30,7 @@ colVars(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL,
 \arguments{
 \item{x}{An NxK matrix-like object.}
 
-\item{rows, cols}{A \code{\link[base]{vector}} indicating the subset (and/or 
+\item{rows, cols}{A \code{\link[base]{vector}} indicating the subset (and/or
 columns) to operate over. If \code{\link[base]{NULL}}, no subsetting is done.}
 
 \item{na.rm}{If \code{\link[base:logical]{TRUE}}, \code{\link[base]{NA}}s
@@ -52,9 +52,21 @@ length N (K).
 Calculates the variance for each row (column) of a matrix-like object.
 }
 \details{
-The S4 methods for \code{x} of type \code{\link[base]{matrix}} or 
+The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
 \code{\link[base]{numeric}} call \code{matrixStats::\link[matrixStats]{rowVars}}
 / \code{matrixStats::\link[matrixStats]{colVars}}.
+}
+\examples{
+  mat <- matrix(rnorm(15), nrow = 5, ncol = 3)
+  mat[2, 1] <- NA
+  mat[3, 3] <- Inf
+  mat[4, 1] <- 0
+  
+  print(mat)
+  
+  rowVars(mat)
+  colVars(mat)
+  
 }
 \seealso{
 \itemize{

@@ -1,23 +1,17 @@
 #' Calculates the mean for each row (column) of a matrix-like object
 #'
 #' Calculates the mean for each row (column) of a matrix-like object.
-#' 
-#' The S4 methods for \code{x} of type \code{\link[base]{matrix}} or 
-#' \code{\link[base]{numeric}} call \code{matrixStats::\link[matrixStats]{rowMeans2}}
-#' / \code{matrixStats::\link[matrixStats]{colMeans2}}.
-#' 
-#' @param x An NxK matrix-like object.
-#' @param rows,cols A \code{\link[base]{vector}} indicating the subset (and/or 
-#'   columns) to operate over. If \code{\link[base]{NULL}}, no subsetting is done.
-#' @param na.rm If \code{\link[base:logical]{TRUE}}, \code{\link[base]{NA}}s
-#' are excluded first, otherwise not.
-#' @param dim. An \code{\link[base]{integer}} \code{\link[base]{vector}} of
-#' length two specifying the dimension of \code{x}, essential when x is a
-#' \code{\link[base]{numeric}} vector.
-#' @param ... Additional arguments passed to specific methods.
 #'
-#' @return Returns a \code{\link[base]{numeric}} \code{\link[base]{vector}} of
-#' length N (K).
+#' 
+#' @templateVar rowName rowMeans2
+#' @templateVar colName colMeans2
+#' 
+#' @template matrixStatsLink
+#' 
+#' @template standardParameters
+#' @template na_rmParameter
+#'
+#' @template returnVector
 #'
 #' @seealso
 #' \itemize{
@@ -28,7 +22,10 @@
 #'   corresponding function in base R.
 #' \item For variance estimates, see \code{\link{rowVars}()}.
 #' }
-#'
+#' 
+#' @template standardExamples
+#'   
+#' 
 #' @keywords array iteration robust univar
 #'
 #' @name rowMeans2
