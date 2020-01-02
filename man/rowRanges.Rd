@@ -77,4 +77,3 @@ The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
 \keyword{array}
 \keyword{iteration}
 \keyword{robust}
-\keyword{univar}
