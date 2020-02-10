@@ -34,15 +34,18 @@ setGeneric("rowMeans2", function(x, rows = NULL, cols = NULL, na.rm=FALSE, ...) 
            signature = "x"
 )
 
-#' @rdname rowMeans2
-setMethod("rowMeans2", signature = "matrix", function(x, rows = NULL, cols = NULL, na.rm=FALSE, dim. = dim(x)){
+.default_rowMeans2 <- function(x, rows = NULL, cols = NULL, na.rm=FALSE, dim. = dim(x)){
   matrixStats::rowMeans2(x, rows = rows, cols = cols, na.rm=na.rm, dim. = dim.)
-})
+}
 
 #' @rdname rowMeans2
-setMethod("rowMeans2", signature = "numeric", function(x, rows = NULL, cols = NULL, na.rm=FALSE, dim. = dim(x)){
-  matrixStats::rowMeans2(x, rows = rows, cols = cols, na.rm=na.rm, dim. = dim.)
-})
+setMethod("rowMeans2", signature = "matrix", .default_rowMeans2)
+
+#' @rdname rowMeans2
+setMethod("rowMeans2", signature = "numeric", .default_rowMeans2)
+
+#' @rdname rowMeans2
+setMethod("rowMeans2", signature = "array", .default_rowMeans2)
 
 
 
@@ -54,15 +57,18 @@ setGeneric("colMeans2", function(x, rows = NULL, cols = NULL, na.rm=FALSE, ...) 
            signature = "x"
 )
 
-#' @rdname rowMeans2
-setMethod("colMeans2", signature = "matrix", function(x, rows = NULL, cols = NULL, na.rm=FALSE, dim. = dim(x)){
+.default_colMeans2 <- function(x, rows = NULL, cols = NULL, na.rm=FALSE, dim. = dim(x)){
   matrixStats::colMeans2(x, rows = rows, cols = cols, na.rm=na.rm, dim. = dim.)
-})
+}
 
 #' @rdname rowMeans2
-setMethod("colMeans2", signature = "numeric", function(x, rows = NULL, cols = NULL, na.rm=FALSE, dim. = dim(x)){
-  matrixStats::colMeans2(x, rows = rows, cols = cols, na.rm=na.rm, dim. = dim.)
-})
+setMethod("colMeans2", signature = "matrix", .default_colMeans2)
+
+#' @rdname rowMeans2
+setMethod("colMeans2", signature = "numeric", .default_colMeans2)
+
+#' @rdname rowMeans2
+setMethod("colMeans2", signature = "array", .default_colMeans2)
 
 
 

@@ -5,9 +5,11 @@
 \alias{rowRanges}
 \alias{rowRanges,matrix-method}
 \alias{rowRanges,numeric-method}
+\alias{rowRanges,array-method}
 \alias{colRanges}
 \alias{colRanges,matrix-method}
 \alias{colRanges,numeric-method}
+\alias{colRanges,array-method}
 \title{Calculates the mininum and maximum for each row (column) of a matrix-like object}
 \usage{
 rowRanges(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
@@ -18,12 +20,18 @@ rowRanges(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 \S4method{rowRanges}{numeric}(x, rows = NULL, cols = NULL,
   na.rm = FALSE, dim. = dim(x))
 
+\S4method{rowRanges}{array}(x, rows = NULL, cols = NULL,
+  na.rm = FALSE, dim. = dim(x))
+
 colRanges(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
 \S4method{colRanges}{matrix}(x, rows = NULL, cols = NULL,
   na.rm = FALSE, dim. = dim(x))
 
 \S4method{colRanges}{numeric}(x, rows = NULL, cols = NULL,
+  na.rm = FALSE, dim. = dim(x))
+
+\S4method{colRanges}{array}(x, rows = NULL, cols = NULL,
   na.rm = FALSE, dim. = dim(x))
 }
 \arguments{

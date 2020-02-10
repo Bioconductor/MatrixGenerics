@@ -32,15 +32,18 @@ setGeneric("rowRanges", function(x, rows = NULL, cols = NULL, na.rm=FALSE, ...) 
            signature = "x"
 )
 
-#' @rdname rowRanges
-setMethod("rowRanges", signature = "matrix", function(x, rows = NULL, cols = NULL, na.rm=FALSE, dim. = dim(x)){
+.default_rowRanges <- function(x, rows = NULL, cols = NULL, na.rm=FALSE, dim. = dim(x)){
   matrixStats::rowRanges(x, rows = rows, cols = cols, na.rm=na.rm, dim. = dim.)
-})
+}
 
 #' @rdname rowRanges
-setMethod("rowRanges", signature = "numeric", function(x, rows = NULL, cols = NULL, na.rm=FALSE, dim. = dim(x)){
-  matrixStats::rowRanges(x, rows = rows, cols = cols, na.rm=na.rm, dim. = dim.)
-})
+setMethod("rowRanges", signature = "matrix", .default_rowRanges)
+
+#' @rdname rowRanges
+setMethod("rowRanges", signature = "numeric", .default_rowRanges)
+
+#' @rdname rowRanges
+setMethod("rowRanges", signature = "array", .default_rowRanges)
 
 
 
@@ -52,15 +55,18 @@ setGeneric("colRanges", function(x, rows = NULL, cols = NULL, na.rm=FALSE, ...) 
            signature = "x"
 )
 
-#' @rdname rowRanges
-setMethod("colRanges", signature = "matrix", function(x, rows = NULL, cols = NULL, na.rm=FALSE, dim. = dim(x)){
+.default_colRanges <- function(x, rows = NULL, cols = NULL, na.rm=FALSE, dim. = dim(x)){
   matrixStats::colRanges(x, rows = rows, cols = cols, na.rm=na.rm, dim. = dim.)
-})
+}
 
 #' @rdname rowRanges
-setMethod("colRanges", signature = "numeric", function(x, rows = NULL, cols = NULL, na.rm=FALSE, dim. = dim(x)){
-  matrixStats::colRanges(x, rows = rows, cols = cols, na.rm=na.rm, dim. = dim.)
-})
+setMethod("colRanges", signature = "matrix", .default_colRanges)
+
+#' @rdname rowRanges
+setMethod("colRanges", signature = "numeric", .default_colRanges)
+
+#' @rdname rowRanges
+setMethod("colRanges", signature = "array", .default_colRanges)
 
 
 

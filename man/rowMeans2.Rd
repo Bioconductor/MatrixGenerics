@@ -5,9 +5,11 @@
 \alias{rowMeans2}
 \alias{rowMeans2,matrix-method}
 \alias{rowMeans2,numeric-method}
+\alias{rowMeans2,array-method}
 \alias{colMeans2}
 \alias{colMeans2,matrix-method}
 \alias{colMeans2,numeric-method}
+\alias{colMeans2,array-method}
 \title{Calculates the mean for each row (column) of a matrix-like object}
 \usage{
 rowMeans2(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
@@ -18,12 +20,18 @@ rowMeans2(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 \S4method{rowMeans2}{numeric}(x, rows = NULL, cols = NULL,
   na.rm = FALSE, dim. = dim(x))
 
+\S4method{rowMeans2}{array}(x, rows = NULL, cols = NULL,
+  na.rm = FALSE, dim. = dim(x))
+
 colMeans2(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
 \S4method{colMeans2}{matrix}(x, rows = NULL, cols = NULL,
   na.rm = FALSE, dim. = dim(x))
 
 \S4method{colMeans2}{numeric}(x, rows = NULL, cols = NULL,
+  na.rm = FALSE, dim. = dim(x))
+
+\S4method{colMeans2}{array}(x, rows = NULL, cols = NULL,
   na.rm = FALSE, dim. = dim(x))
 }
 \arguments{

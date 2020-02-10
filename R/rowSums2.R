@@ -31,15 +31,18 @@ setGeneric("rowSums2", function(x, rows = NULL, cols = NULL, na.rm=FALSE, ...) s
            signature = "x"
 )
 
-#' @rdname rowSums2
-setMethod("rowSums2", signature = "matrix", function(x, rows = NULL, cols = NULL, na.rm=FALSE, dim. = dim(x)){
+.default_rowSums2 <- function(x, rows = NULL, cols = NULL, na.rm=FALSE, dim. = dim(x)){
   matrixStats::rowSums2(x, rows = rows, cols = cols, na.rm=na.rm, dim. = dim.)
-})
+}
 
 #' @rdname rowSums2
-setMethod("rowSums2", signature = "numeric", function(x, rows = NULL, cols = NULL, na.rm=FALSE, dim. = dim(x)){
-  matrixStats::rowSums2(x, rows = rows, cols = cols, na.rm=na.rm, dim. = dim.)
-})
+setMethod("rowSums2", signature = "matrix", .default_rowSums2)
+
+#' @rdname rowSums2
+setMethod("rowSums2", signature = "numeric", .default_rowSums2)
+
+#' @rdname rowSums2
+setMethod("rowSums2", signature = "array", .default_rowSums2)
 
 
 
@@ -51,15 +54,18 @@ setGeneric("colSums2", function(x, rows = NULL, cols = NULL, na.rm=FALSE, ...) s
            signature = "x"
 )
 
-#' @rdname rowSums2
-setMethod("colSums2", signature = "matrix", function(x, rows = NULL, cols = NULL, na.rm=FALSE, dim. = dim(x)){
+.default_colSums2 <- function(x, rows = NULL, cols = NULL, na.rm=FALSE, dim. = dim(x)){
   matrixStats::colSums2(x, rows = rows, cols = cols, na.rm=na.rm, dim. = dim.)
-})
+}
 
 #' @rdname rowSums2
-setMethod("colSums2", signature = "numeric", function(x, rows = NULL, cols = NULL, na.rm=FALSE, dim. = dim(x)){
-  matrixStats::colSums2(x, rows = rows, cols = cols, na.rm=na.rm, dim. = dim.)
-})
+setMethod("colSums2", signature = "matrix", .default_colSums2)
+
+#' @rdname rowSums2
+setMethod("colSums2", signature = "numeric", .default_colSums2)
+
+#' @rdname rowSums2
+setMethod("colSums2", signature = "array", .default_colSums2)
 
 
 

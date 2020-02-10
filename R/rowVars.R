@@ -33,15 +33,18 @@ setGeneric("rowVars", function(x, rows = NULL, cols = NULL, na.rm=FALSE, ...) st
            signature = "x"
 )
 
-#' @rdname rowVars
-setMethod("rowVars", signature = "matrix", function(x, rows = NULL, cols = NULL, na.rm=FALSE, center = NULL, dim. = dim(x)){
+.default_rowVars <- function(x, rows = NULL, cols = NULL, na.rm=FALSE, center = NULL, dim. = dim(x)){
   matrixStats::rowVars(x, rows = rows, cols = cols, na.rm=na.rm, center = center, dim. = dim.)
-})
+}
 
 #' @rdname rowVars
-setMethod("rowVars", signature = "numeric", function(x, rows = NULL, cols = NULL, na.rm=FALSE, center = NULL, dim. = dim(x)){
-  matrixStats::rowVars(x, rows = rows, cols = cols, na.rm=na.rm, center = center, dim. = dim.)
-})
+setMethod("rowVars", signature = "matrix", .default_rowVars)
+
+#' @rdname rowVars
+setMethod("rowVars", signature = "numeric", .default_rowVars)
+
+#' @rdname rowVars
+setMethod("rowVars", signature = "array", .default_rowVars)
 
 
 
@@ -53,15 +56,18 @@ setGeneric("colVars", function(x, rows = NULL, cols = NULL, na.rm=FALSE, center 
            signature = "x"
 )
 
-#' @rdname rowVars
-setMethod("colVars", signature = "matrix", function(x, rows = NULL, cols = NULL, na.rm=FALSE, center = NULL, dim. = dim(x)){
+.default_colVars <- function(x, rows = NULL, cols = NULL, na.rm=FALSE, center = NULL, dim. = dim(x)){
   matrixStats::colVars(x, rows = rows, cols = cols, na.rm=na.rm, center = center, dim. = dim.)
-})
+}
 
 #' @rdname rowVars
-setMethod("colVars", signature = "numeric", function(x, rows = NULL, cols = NULL, na.rm=FALSE, center = NULL, dim. = dim(x)){
-  matrixStats::colVars(x, rows = rows, cols = cols, na.rm=na.rm, center = center, dim. = dim.)
-})
+setMethod("colVars", signature = "matrix", .default_colVars)
+
+#' @rdname rowVars
+setMethod("colVars", signature = "numeric", .default_colVars)
+
+#' @rdname rowVars
+setMethod("colVars", signature = "array", .default_colVars)
 
 
 
