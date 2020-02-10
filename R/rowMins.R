@@ -30,15 +30,18 @@ setGeneric("rowMins", function(x, rows = NULL, cols = NULL, na.rm=FALSE, ...) st
            signature = "x"
 )
 
-#' @rdname rowMins
-setMethod("rowMins", signature = "matrix", function(x, rows = NULL, cols = NULL, na.rm=FALSE, dim. = dim(x)){
+.default_rowMins <- function(x, rows = NULL, cols = NULL, na.rm=FALSE, dim. = dim(x)){
   matrixStats::rowMins(x, rows = rows, cols = cols, na.rm=na.rm, dim. = dim.)
-})
+}
 
 #' @rdname rowMins
-setMethod("rowMins", signature = "numeric", function(x, rows = NULL, cols = NULL, na.rm=FALSE, dim. = dim(x)){
-  matrixStats::rowMins(x, rows = rows, cols = cols, na.rm=na.rm, dim. = dim.)
-})
+setMethod("rowMins", signature = "matrix", .default_rowMins)
+
+#' @rdname rowMins
+setMethod("rowMins", signature = "numeric", .default_rowMins)
+
+#' @rdname rowMins
+setMethod("rowMins", signature = "array", .default_rowMins)
 
 
 
@@ -50,15 +53,18 @@ setGeneric("colMins", function(x, rows = NULL, cols = NULL, na.rm=FALSE, ...) st
            signature = "x"
 )
 
-#' @rdname rowMins
-setMethod("colMins", signature = "matrix", function(x, rows = NULL, cols = NULL, na.rm=FALSE, dim. = dim(x)){
+.default_colMins <- function(x, rows = NULL, cols = NULL, na.rm=FALSE, dim. = dim(x)){
   matrixStats::colMins(x, rows = rows, cols = cols, na.rm=na.rm, dim. = dim.)
-})
+}
 
 #' @rdname rowMins
-setMethod("colMins", signature = "numeric", function(x, rows = NULL, cols = NULL, na.rm=FALSE, dim. = dim(x)){
-  matrixStats::colMins(x, rows = rows, cols = cols, na.rm=na.rm, dim. = dim.)
-})
+setMethod("colMins", signature = "matrix", .default_colMins)
+
+#' @rdname rowMins
+setMethod("colMins", signature = "numeric", .default_colMins)
+
+#' @rdname rowMins
+setMethod("colMins", signature = "array", .default_colMins)
 
 
 

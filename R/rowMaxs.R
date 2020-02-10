@@ -30,15 +30,18 @@ setGeneric("rowMaxs", function(x, rows = NULL, cols = NULL, na.rm=FALSE, ...) st
            signature = "x"
 )
 
-#' @rdname rowMaxs
-setMethod("rowMaxs", signature = "matrix", function(x, rows = NULL, cols = NULL, na.rm=FALSE, dim. = dim(x)){
+.default_rowMaxs <- function(x, rows = NULL, cols = NULL, na.rm=FALSE, dim. = dim(x)){
   matrixStats::rowMaxs(x, rows = rows, cols = cols, na.rm=na.rm, dim. = dim.)
-})
+}
 
 #' @rdname rowMaxs
-setMethod("rowMaxs", signature = "numeric", function(x, rows = NULL, cols = NULL, na.rm=FALSE, dim. = dim(x)){
-  matrixStats::rowMaxs(x, rows = rows, cols = cols, na.rm=na.rm, dim. = dim.)
-})
+setMethod("rowMaxs", signature = "matrix", .default_rowMaxs)
+
+#' @rdname rowMaxs
+setMethod("rowMaxs", signature = "numeric", .default_rowMaxs)
+
+#' @rdname rowMaxs
+setMethod("rowMaxs", signature = "array", .default_rowMaxs)
 
 
 
@@ -50,15 +53,18 @@ setGeneric("colMaxs", function(x, rows = NULL, cols = NULL, na.rm=FALSE, ...) st
            signature = "x"
 )
 
-#' @rdname rowMaxs
-setMethod("colMaxs", signature = "matrix", function(x, rows = NULL, cols = NULL, na.rm=FALSE, dim. = dim(x)){
+.default_colMaxs <- function(x, rows = NULL, cols = NULL, na.rm=FALSE, dim. = dim(x)){
   matrixStats::colMaxs(x, rows = rows, cols = cols, na.rm=na.rm, dim. = dim.)
-})
+}
 
 #' @rdname rowMaxs
-setMethod("colMaxs", signature = "numeric", function(x, rows = NULL, cols = NULL, na.rm=FALSE, dim. = dim(x)){
-  matrixStats::colMaxs(x, rows = rows, cols = cols, na.rm=na.rm, dim. = dim.)
-})
+setMethod("colMaxs", signature = "matrix", .default_colMaxs)
+
+#' @rdname rowMaxs
+setMethod("colMaxs", signature = "numeric", .default_colMaxs)
+
+#' @rdname rowMaxs
+setMethod("colMaxs", signature = "array", .default_colMaxs)
 
 
 

@@ -5,9 +5,11 @@
 \alias{rowVars}
 \alias{rowVars,matrix-method}
 \alias{rowVars,numeric-method}
+\alias{rowVars,array-method}
 \alias{colVars}
 \alias{colVars,matrix-method}
 \alias{colVars,numeric-method}
+\alias{colVars,array-method}
 \title{Calculates the variance for each row (column) of a matrix-like object}
 \usage{
 rowVars(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
@@ -18,6 +20,9 @@ rowVars(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 \S4method{rowVars}{numeric}(x, rows = NULL, cols = NULL,
   na.rm = FALSE, center = NULL, dim. = dim(x))
 
+\S4method{rowVars}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE,
+  center = NULL, dim. = dim(x))
+
 colVars(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL,
   ...)
 
@@ -26,6 +31,9 @@ colVars(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL,
 
 \S4method{colVars}{numeric}(x, rows = NULL, cols = NULL,
   na.rm = FALSE, center = NULL, dim. = dim(x))
+
+\S4method{colVars}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE,
+  center = NULL, dim. = dim(x))
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
