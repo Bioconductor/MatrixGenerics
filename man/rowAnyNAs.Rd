@@ -71,6 +71,6 @@ The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
 \item \code{matrixStats::\link[matrixStats]{rowAnyNAs}()} and
   \code{matrixStats::\link[matrixStats]{colAnyNAs}()} which are used when
   the input is a \code{matrix} or \code{numeric} vector.
-\item For checks if any element is equal to a value, see \code{\link{rowAnyNAs}()}.
+\item For checks if any element is equal to a value, see \code{\link{rowAnys}()}.
 }
 }
