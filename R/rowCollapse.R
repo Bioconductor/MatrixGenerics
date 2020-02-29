@@ -65,7 +65,7 @@ setGeneric("colCollapse", function(x, idxs = idxs, rows = NULL, cols = NULL, ...
 )
 
 .default_colCollapse <- function(x, idxs, rows = NULL, cols = NULL, dim. = dim(x)){
-  matrixStats::colCollapse(x, idxs = idxs, rows = rows, cols = cols, na.rm=na.rm, dim. = dim.)
+  matrixStats::colCollapse(x, idxs = idxs, rows = rows, cols = cols, dim. = dim.)
 }
 
 #' @rdname rowCollapse
