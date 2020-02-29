@@ -3,10 +3,14 @@ Title: S4 generic functions that operate on matrix-like objects
 Description: S4 generic functions needed by many packages that define 
   matrix-like classes.
 Version: 0.0.99
-Authors@R: c(person("Peter", "Hickey", role = c("aut", "cre"),
-    email = "peter.hickey@gmail.com"))
+Authors@R: c(person("Constantin", "Ahlmann-Eltze", email = "artjom31415@googlemail.com", 
+                  role = c("aut"), comment = c(ORCID = "0000-0002-3762-068X")),
+             person("Peter", "Hickey", role = c("aut", "cre"),
+                    email = "peter.hickey@gmail.com"))
 Imports: methods, 
     matrixStats
-License: MIT + file LICENSE
+License: Artistic-2.0
 Encoding: UTF-8
+URL: https://github.com/Bioconductor/MatrixGenerics
+BugReports: https://github.com/Bioconductor/MatrixGenerics/issues
 RoxygenNote: 6.1.1
