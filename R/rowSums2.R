@@ -9,6 +9,7 @@
 #' 
 #' @template standardParameters
 #' @template na_rmParameter
+#' @template dimParameter
 #'
 #' @template returnVector
 #'

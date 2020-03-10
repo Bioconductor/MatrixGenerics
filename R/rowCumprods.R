@@ -8,6 +8,7 @@
 #' @template matrixStatsLink
 #' 
 #' @template standardParameters
+#' @template dimParameter
 #'
 #' @template returnMatrix_SameDimX
 #'
