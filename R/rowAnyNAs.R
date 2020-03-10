@@ -29,8 +29,8 @@ setGeneric("rowAnyNAs", function(x, rows = NULL, cols = NULL, na.rm=FALSE, ...) 
            signature = "x"
 )
 
-.default_rowAnyNAs <- function(x, rows = NULL, cols = NULL, na.rm=FALSE, dim. = dim(x)){
-  matrixStats::rowAnyNAs(x, rows = rows, cols = cols, na.rm=na.rm, dim. = dim.)
+.default_rowAnyNAs <- function(x, rows = NULL, cols = NULL, na.rm=FALSE){
+  matrixStats::rowAnyNAs(x, rows = rows, cols = cols, na.rm=na.rm)
 }
 
 #' @rdname rowAnyNAs
@@ -52,8 +52,8 @@ setGeneric("colAnyNAs", function(x, rows = NULL, cols = NULL, na.rm=FALSE, ...) 
            signature = "x"
 )
 
-.default_colAnyNAs <- function(x, rows = NULL, cols = NULL, na.rm=FALSE, dim. = dim(x)){
-  matrixStats::colAnyNAs(x, rows = rows, cols = cols, na.rm=na.rm, dim. = dim.)
+.default_colAnyNAs <- function(x, rows = NULL, cols = NULL, na.rm=FALSE){
+  matrixStats::colAnyNAs(x, rows = rows, cols = cols, na.rm=na.rm)
 }
 
 #' @rdname rowAnyNAs

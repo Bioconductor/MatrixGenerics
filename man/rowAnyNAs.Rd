@@ -13,19 +13,19 @@
 \usage{
 rowAnyNAs(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{rowAnyNAs}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x))
+\S4method{rowAnyNAs}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE)
 
-\S4method{rowAnyNAs}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x))
+\S4method{rowAnyNAs}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE)
 
-\S4method{rowAnyNAs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x))
+\S4method{rowAnyNAs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE)
 
 colAnyNAs(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{colAnyNAs}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x))
+\S4method{colAnyNAs}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE)
 
-\S4method{colAnyNAs}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x))
+\S4method{colAnyNAs}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE)
 
-\S4method{colAnyNAs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x))
+\S4method{colAnyNAs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
@@ -37,10 +37,6 @@ columns) to operate over. If \code{\link[base]{NULL}}, no subsetting is done.}
 are excluded first, otherwise not.}
 
 \item{...}{Additional arguments passed to specific methods.}
-
-\item{dim.}{An \code{\link[base]{integer}} \code{\link[base]{vector}} of
-length two specifying the dimension of \code{x}, essential when x is a
-\code{\link[base]{numeric}} vector.}
 }
 \value{
 Returns a \code{\link[base]{logical}} \code{\link[base]{vector}} of

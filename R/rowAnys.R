@@ -9,6 +9,7 @@
 #' 
 #' @template standardParameters
 #' @template valueParameter
+#' @template dimParameter
 #' @template na_rmParameter
 #'
 #' @template returnVectorLgl

@@ -8,6 +8,7 @@
 #' @template matrixStatsLink
 #' 
 #' @template standardParameters
+#' @template dimParameter
 #' @param idxs An index \code{\link[base]{vector}} with the position to extract.
 #'   It is recycled to match the number of rows (colum)
 #'

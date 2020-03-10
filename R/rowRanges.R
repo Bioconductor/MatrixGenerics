@@ -9,6 +9,7 @@
 #' 
 #' @template standardParameters
 #' @template na_rmParameter
+#' @template dimParameter
 #' 
 #' @return a \code{\link[base]{numeric}} \code{Nx2} (\code{Kx2}) \code{\link{matrix}}, where
 #'   N (K) is the number of rows (columns) for which the ranges are calculated. 

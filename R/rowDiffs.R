@@ -10,6 +10,7 @@
 #' @template standardParameters
 #' @param lag An integer specifying the lag.
 #' @param differences An integer specifying the order of difference.
+#' @template dimParameter
 #'
 #' @md
 #' @return Returns a \code{\link[base]{numeric}} \code{\link[base]{matrix}} with one

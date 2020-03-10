@@ -10,6 +10,7 @@
 #' @template standardParameters
 #' @template na_rmParameter
 #' @param center (optional) the center, defaults to the row means
+#' @template dimParameter
 #'
 #' @template returnVector
 #'
