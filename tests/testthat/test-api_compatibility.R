@@ -208,7 +208,7 @@ test_that("colDiffs works ", {
 
 
 test_that("colIQRDiffs works ", {
-	skip("colIQRDiffs not yet implemented")
+	
 	mg_res_def_1 <- colIQRDiffs(x = mat)
 	ms_res_def_1 <- matrixStats::colIQRDiffs(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
@@ -228,7 +228,7 @@ test_that("colIQRDiffs works ", {
 
 
 test_that("colIQRs works ", {
-	skip("colIQRs not yet implemented")
+	
 	mg_res_def_1 <- colIQRs(x = mat)
 	ms_res_def_1 <- matrixStats::colIQRs(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
@@ -264,7 +264,7 @@ test_that("colLogSumExps works ", {
 
 
 test_that("colMadDiffs works ", {
-	skip("colMadDiffs not yet implemented")
+	
 	mg_res_def_1 <- colMadDiffs(x = mat)
 	ms_res_def_1 <- matrixStats::colMadDiffs(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
@@ -452,7 +452,7 @@ test_that("colRanks works ", {
 
 
 test_that("colSdDiffs works ", {
-	skip("colSdDiffs not yet implemented")
+	
 	mg_res_def_1 <- colSdDiffs(x = mat)
 	ms_res_def_1 <- matrixStats::colSdDiffs(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
@@ -520,7 +520,7 @@ test_that("colTabulates works ", {
 
 
 test_that("colVarDiffs works ", {
-	skip("colVarDiffs not yet implemented")
+	
 	mg_res_def_1 <- colVarDiffs(x = mat)
 	ms_res_def_1 <- matrixStats::colVarDiffs(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
@@ -828,7 +828,7 @@ test_that("rowDiffs works ", {
 
 
 test_that("rowIQRDiffs works ", {
-	skip("rowIQRDiffs not yet implemented")
+	
 	mg_res_def_1 <- rowIQRDiffs(x = mat)
 	ms_res_def_1 <- matrixStats::rowIQRDiffs(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
@@ -848,7 +848,7 @@ test_that("rowIQRDiffs works ", {
 
 
 test_that("rowIQRs works ", {
-	skip("rowIQRs not yet implemented")
+	
 	mg_res_def_1 <- rowIQRs(x = mat)
 	ms_res_def_1 <- matrixStats::rowIQRs(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
@@ -884,7 +884,7 @@ test_that("rowLogSumExps works ", {
 
 
 test_that("rowMadDiffs works ", {
-	skip("rowMadDiffs not yet implemented")
+	
 	mg_res_def_1 <- rowMadDiffs(x = mat)
 	ms_res_def_1 <- matrixStats::rowMadDiffs(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
@@ -1072,7 +1072,7 @@ test_that("rowRanks works ", {
 
 
 test_that("rowSdDiffs works ", {
-	skip("rowSdDiffs not yet implemented")
+	
 	mg_res_def_1 <- rowSdDiffs(x = mat)
 	ms_res_def_1 <- matrixStats::rowSdDiffs(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
@@ -1140,7 +1140,7 @@ test_that("rowTabulates works ", {
 
 
 test_that("rowVarDiffs works ", {
-	skip("rowVarDiffs not yet implemented")
+	
 	mg_res_def_1 <- rowVarDiffs(x = mat)
 	ms_res_def_1 <- matrixStats::rowVarDiffs(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
