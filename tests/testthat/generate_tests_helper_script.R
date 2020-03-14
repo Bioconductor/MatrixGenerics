@@ -60,7 +60,11 @@ extra_statements<- list(
   rowTabulates = "mat <- array(suppressWarnings(as.integer(mat)), dim(mat))",
   colOrderStats = "mat[is.na(mat)] <- 4.1",
   rowOrderStats = "mat[is.na(mat)] <- 4.1",
-  rowWeightedMeans = "mat <- array(mat, dim(t(mat)))"
+  rowWeightedMeans = "mat <- array(mat, dim(t(mat)))",
+  rowWeightedMedians = "mat <- array(mat, dim(t(mat)))",
+  rowWeightedMads = "mat <- array(mat, dim(t(mat)))",
+  rowWeightedSds = "mat <- array(mat, dim(t(mat)))",
+  rowWeightedVars = "mat <- array(mat, dim(t(mat)))"
 )
 
 testable_functions <- c(all_col_functions, all_row_functions)
