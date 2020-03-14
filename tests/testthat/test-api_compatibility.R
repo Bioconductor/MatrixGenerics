@@ -400,7 +400,7 @@ test_that("colProds works ", {
 
 
 test_that("colQuantiles works ", {
-	skip("colQuantiles not yet implemented")
+	
 	mg_res_def_1 <- colQuantiles(x = mat)
 	ms_res_def_1 <- matrixStats::colQuantiles(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
@@ -1020,7 +1020,7 @@ test_that("rowProds works ", {
 
 
 test_that("rowQuantiles works ", {
-	skip("rowQuantiles not yet implemented")
+
 	mg_res_def_1 <- rowQuantiles(x = mat)
 	ms_res_def_1 <- matrixStats::rowQuantiles(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
