@@ -46,11 +46,11 @@ function_args <- list(x = list("mat"),
                       center = list(NULL, 3.1),
                       constant = list(1.4826, 5),
                       which = list(0, 2),
-                      method = list("direct", "expSumLog"),
+                      method = list("'direct'", "'expSumLog'"),
                       probs = list("seq(from = 0, to = 1, by = 0.25)", "0.1"),
                       type = list(7L, 3L),  # Type of quantile estimator see  `?quantile`
                       drop = list(TRUE, FALSE),
-                      ties.method = list("max", "first", "dense"),
+                      ties.method = list("'max'", "'first'", "'dense'"),
                       preserveShape = list(FALSE, TRUE),
                       values = list(0, c(0, 1)),
                       w = list(NULL, 1:8))

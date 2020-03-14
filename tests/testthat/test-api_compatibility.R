@@ -389,12 +389,12 @@ test_that("colProds works ", {
 	ms_res_def_1 <- matrixStats::colProds(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colProds(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, method = direct)
-	ms_res_1 <- matrixStats::colProds(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, method = direct)
+	mg_res_1 <- colProds(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, method = 'direct')
+	ms_res_1 <- matrixStats::colProds(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, method = 'direct')
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colProds(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, method = expSumLog)
-	ms_res_2 <- matrixStats::colProds(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, method = expSumLog)
+	mg_res_2 <- colProds(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, method = 'expSumLog')
+	ms_res_2 <- matrixStats::colProds(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, method = 'expSumLog')
 	expect_equal(mg_res_2, ms_res_2)
 })
 
@@ -437,16 +437,16 @@ test_that("colRanks works ", {
 	ms_res_def_1 <- matrixStats::colRanks(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colRanks(x = mat, rows = NULL, cols = NULL, ties.method = max, dim. = dim(mat), preserveShape = FALSE)
-	ms_res_1 <- matrixStats::colRanks(x = mat, rows = NULL, cols = NULL, ties.method = max, dim. = dim(mat), preserveShape = FALSE)
+	mg_res_1 <- colRanks(x = mat, rows = NULL, cols = NULL, ties.method = 'max', dim. = dim(mat), preserveShape = FALSE)
+	ms_res_1 <- matrixStats::colRanks(x = mat, rows = NULL, cols = NULL, ties.method = 'max', dim. = dim(mat), preserveShape = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colRanks(x = mat, rows = 1:3, cols = 2, ties.method = first, dim. = c(12L, 8L), preserveShape = TRUE)
-	ms_res_2 <- matrixStats::colRanks(x = mat, rows = 1:3, cols = 2, ties.method = first, dim. = c(12L, 8L), preserveShape = TRUE)
+	mg_res_2 <- colRanks(x = mat, rows = 1:3, cols = 2, ties.method = 'first', dim. = c(12L, 8L), preserveShape = TRUE)
+	ms_res_2 <- matrixStats::colRanks(x = mat, rows = 1:3, cols = 2, ties.method = 'first', dim. = c(12L, 8L), preserveShape = TRUE)
 	expect_equal(mg_res_2, ms_res_2)
 
-	mg_res_3 <- colRanks(x = mat, rows = NULL, cols = NULL, ties.method = dense, dim. = dim(mat), preserveShape = FALSE)
-	ms_res_3 <- matrixStats::colRanks(x = mat, rows = NULL, cols = NULL, ties.method = dense, dim. = dim(mat), preserveShape = FALSE)
+	mg_res_3 <- colRanks(x = mat, rows = NULL, cols = NULL, ties.method = 'dense', dim. = dim(mat), preserveShape = FALSE)
+	ms_res_3 <- matrixStats::colRanks(x = mat, rows = NULL, cols = NULL, ties.method = 'dense', dim. = dim(mat), preserveShape = FALSE)
 	expect_equal(mg_res_3, ms_res_3)
 })
 
@@ -1009,12 +1009,12 @@ test_that("rowProds works ", {
 	ms_res_def_1 <- matrixStats::rowProds(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowProds(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, method = direct)
-	ms_res_1 <- matrixStats::rowProds(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, method = direct)
+	mg_res_1 <- rowProds(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, method = 'direct')
+	ms_res_1 <- matrixStats::rowProds(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, method = 'direct')
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowProds(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, method = expSumLog)
-	ms_res_2 <- matrixStats::rowProds(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, method = expSumLog)
+	mg_res_2 <- rowProds(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, method = 'expSumLog')
+	ms_res_2 <- matrixStats::rowProds(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, method = 'expSumLog')
 	expect_equal(mg_res_2, ms_res_2)
 })
 
@@ -1057,16 +1057,16 @@ test_that("rowRanks works ", {
 	ms_res_def_1 <- matrixStats::rowRanks(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowRanks(x = mat, rows = NULL, cols = NULL, ties.method = max, dim. = dim(mat))
-	ms_res_1 <- matrixStats::rowRanks(x = mat, rows = NULL, cols = NULL, ties.method = max, dim. = dim(mat))
+	mg_res_1 <- rowRanks(x = mat, rows = NULL, cols = NULL, ties.method = 'max', dim. = dim(mat))
+	ms_res_1 <- matrixStats::rowRanks(x = mat, rows = NULL, cols = NULL, ties.method = 'max', dim. = dim(mat))
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowRanks(x = mat, rows = 1:3, cols = 2, ties.method = first, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::rowRanks(x = mat, rows = 1:3, cols = 2, ties.method = first, dim. = c(12L, 8L))
+	mg_res_2 <- rowRanks(x = mat, rows = 1:3, cols = 2, ties.method = 'first', dim. = c(12L, 8L))
+	ms_res_2 <- matrixStats::rowRanks(x = mat, rows = 1:3, cols = 2, ties.method = 'first', dim. = c(12L, 8L))
 	expect_equal(mg_res_2, ms_res_2)
 
-	mg_res_3 <- rowRanks(x = mat, rows = NULL, cols = NULL, ties.method = dense, dim. = dim(mat))
-	ms_res_3 <- matrixStats::rowRanks(x = mat, rows = NULL, cols = NULL, ties.method = dense, dim. = dim(mat))
+	mg_res_3 <- rowRanks(x = mat, rows = NULL, cols = NULL, ties.method = 'dense', dim. = dim(mat))
+	ms_res_3 <- matrixStats::rowRanks(x = mat, rows = NULL, cols = NULL, ties.method = 'dense', dim. = dim(mat))
 	expect_equal(mg_res_3, ms_res_3)
 })
 
