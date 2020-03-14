@@ -72,7 +72,7 @@ colRanks(x, rows = NULL, cols = NULL, ties.method = c("max", "average"), ...)
 \item{rows, cols}{A \code{\link[base]{vector}} indicating the subset (and/or
 columns) to operate over. If \code{\link[base]{NULL}}, no subsetting is done.}
 
-\item{ties.method}{A character string specifying how ties are treated. Note that the default specifies 
+\item{ties.method}{A character string specifying how ties are treated. Note that the default specifies
 fewer options than the original matrixStats package.}
 
 \item{...}{Additional arguments passed to specific methods.}
@@ -81,14 +81,14 @@ fewer options than the original matrixStats package.}
 length two specifying the dimension of \code{x}, essential when x is a
 \code{\link[base]{numeric}} vector.}
 
-\item{preserveShape}{If `TRUE` the output matrix has the same shape as the input x.
+\item{preserveShape}{If \code{TRUE} the output matrix has the same shape as the input x.
 Note, that this is not a generic srgument and not all implementation of this function have to
 provide it.}
 }
 \value{
-a matrix of type \code{\link[base]{integer}} is returned unlesss `ties.method = "average"`. It
- has dimesions` \code{NxJ} (\code{KxJ}) \code{\link{matrix}}, where
- N (K) is the number of rows (columns) of the input x.
+a matrix of type \code{\link[base]{integer}} is returned unlesss \code{ties.method = "average"}. It
+has dimesions` \code{NxJ} (\code{KxJ}) \code{\link{matrix}}, where
+N (K) is the number of rows (columns) of the input x.
 }
 \description{
 Calculates the rank of the elements for each row (column) of a matrix-like object
@@ -98,14 +98,14 @@ The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
 \code{\link[base]{numeric}} call \code{matrixStats::\link[matrixStats]{rowRanks}}
 / \code{matrixStats::\link[matrixStats]{colRanks}}.
 
-The `matrixStats::rowRanks()` function can handle a lot of different values for the `ties.method`
-   argument. Users of the generic function should however only rely on those two because the other
-   ones are not guaranteed to be implemented:
-   \describe{
-     \item{`max`}{for values with identical values the maximum rank is returned}
-     \item{`average`}{for values with identical values the average of the ranks they cover
-     is returned. Note, that in this case the return value is of type `numeric`.}
-   }
+The \code{matrixStats::rowRanks()} function can handle a lot of different values for the \code{ties.method}
+argument. Users of the generic function should however only rely on those two because the other
+ones are not guaranteed to be implemented:
+\describe{
+\item{\code{max}}{for values with identical values the maximum rank is returned}
+\item{\code{average}}{for values with identical values the average of the ranks they cover
+is returned. Note, that in this case the return value is of type \code{numeric}.}
+}
 }
 \examples{
   mat <- matrix(rnorm(15), nrow = 5, ncol = 3)
@@ -122,9 +122,9 @@ The `matrixStats::rowRanks()` function can handle a lot of different values for 
 \seealso{
 \itemize{
 \item \code{matrixStats::\link[matrixStats]{rowRanks}()} and
-  \code{matrixStats::\link[matrixStats]{colRanks}()} which are used when
-  the input is a \code{matrix} or \code{numeric} vector.
-\item [stats::ranks]
+\code{matrixStats::\link[matrixStats]{colRanks}()} which are used when
+the input is a \code{matrix} or \code{numeric} vector.
+\item \link[stats:ranks]{stats::ranks}
 }
 }
 \keyword{array}

@@ -99,7 +99,7 @@ columns) to operate over. If \code{\link[base]{NULL}}, no subsetting is done.}
 
 \item{center}{(optional) the center, defaults to the row means}
 
-\item{constant}{A scale factor. See [base::mad] for details.}
+\item{constant}{A scale factor. See \link[base:mad]{base::mad} for details.}
 
 \item{na.rm}{If \code{\link[base:logical]{TRUE}}, \code{\link[base]{NA}}s
 are excluded first, otherwise not.}
@@ -137,10 +137,10 @@ The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
 \seealso{
 \itemize{
 \item \code{matrixStats::\link[matrixStats]{rowMads}()} and
-  \code{matrixStats::\link[matrixStats]{colMads}()} which are used when
-  the input is a \code{matrix} or \code{numeric} vector.
+\code{matrixStats::\link[matrixStats]{colMads}()} which are used when
+the input is a \code{matrix} or \code{numeric} vector.
 \item For mean estimates, see \code{\link{rowMeans2}()} and
-  \code{\link[base:colSums]{rowMeans}()}.
+\code{\link[base:colSums]{rowMeans}()}.
 \item For non-robust standard deviation estimates, see \code{\link{rowSds}()}.
 }
 }
