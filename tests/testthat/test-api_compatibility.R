@@ -192,7 +192,7 @@ test_that("colCumsums works ", {
 
 
 test_that("colDiffs works ", {
-	
+
 	mg_res_def_1 <- colDiffs(x = mat)
 	ms_res_def_1 <- matrixStats::colDiffs(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
@@ -208,7 +208,7 @@ test_that("colDiffs works ", {
 
 
 test_that("colIQRDiffs works ", {
-	
+
 	mg_res_def_1 <- colIQRDiffs(x = mat)
 	ms_res_def_1 <- matrixStats::colIQRDiffs(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
@@ -228,7 +228,7 @@ test_that("colIQRDiffs works ", {
 
 
 test_that("colIQRs works ", {
-	
+
 	mg_res_def_1 <- colIQRs(x = mat)
 	ms_res_def_1 <- matrixStats::colIQRs(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
@@ -244,27 +244,23 @@ test_that("colIQRs works ", {
 
 
 test_that("colLogSumExps works ", {
-	skip("colLogSumExps not yet implemented")
+
 	mg_res_def_1 <- colLogSumExps(lx = mat)
 	ms_res_def_1 <- matrixStats::colLogSumExps(lx = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
-
-	mg_res_def_2 <- colLogSumExps(lx = c(mat))
-	ms_res_def_2 <- matrixStats::colLogSumExps(lx = c(mat))
-	expect_equal(mg_res_def_2, ms_res_def_2)
 
 	mg_res_1 <- colLogSumExps(lx = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat))
 	ms_res_1 <- matrixStats::colLogSumExps(lx = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat))
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colLogSumExps(lx = c(mat), rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::colLogSumExps(lx = c(mat), rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L))
+	mg_res_2 <- colLogSumExps(lx = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L))
+	ms_res_2 <- matrixStats::colLogSumExps(lx = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L))
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
 test_that("colMadDiffs works ", {
-	
+
 	mg_res_def_1 <- colMadDiffs(x = mat)
 	ms_res_def_1 <- matrixStats::colMadDiffs(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
@@ -400,7 +396,7 @@ test_that("colProds works ", {
 
 
 test_that("colQuantiles works ", {
-	
+
 	mg_res_def_1 <- colQuantiles(x = mat)
 	ms_res_def_1 <- matrixStats::colQuantiles(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
@@ -452,7 +448,7 @@ test_that("colRanks works ", {
 
 
 test_that("colSdDiffs works ", {
-	
+
 	mg_res_def_1 <- colSdDiffs(x = mat)
 	ms_res_def_1 <- matrixStats::colSdDiffs(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
@@ -520,7 +516,7 @@ test_that("colTabulates works ", {
 
 
 test_that("colVarDiffs works ", {
-	
+
 	mg_res_def_1 <- colVarDiffs(x = mat)
 	ms_res_def_1 <- matrixStats::colVarDiffs(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
@@ -828,7 +824,7 @@ test_that("rowDiffs works ", {
 
 
 test_that("rowIQRDiffs works ", {
-	
+
 	mg_res_def_1 <- rowIQRDiffs(x = mat)
 	ms_res_def_1 <- matrixStats::rowIQRDiffs(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
@@ -848,7 +844,7 @@ test_that("rowIQRDiffs works ", {
 
 
 test_that("rowIQRs works ", {
-	
+
 	mg_res_def_1 <- rowIQRs(x = mat)
 	ms_res_def_1 <- matrixStats::rowIQRs(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
@@ -864,27 +860,23 @@ test_that("rowIQRs works ", {
 
 
 test_that("rowLogSumExps works ", {
-	skip("rowLogSumExps not yet implemented")
+
 	mg_res_def_1 <- rowLogSumExps(lx = mat)
 	ms_res_def_1 <- matrixStats::rowLogSumExps(lx = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
-
-	mg_res_def_2 <- rowLogSumExps(lx = c(mat))
-	ms_res_def_2 <- matrixStats::rowLogSumExps(lx = c(mat))
-	expect_equal(mg_res_def_2, ms_res_def_2)
 
 	mg_res_1 <- rowLogSumExps(lx = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat))
 	ms_res_1 <- matrixStats::rowLogSumExps(lx = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat))
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowLogSumExps(lx = c(mat), rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::rowLogSumExps(lx = c(mat), rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L))
+	mg_res_2 <- rowLogSumExps(lx = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L))
+	ms_res_2 <- matrixStats::rowLogSumExps(lx = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L))
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
 test_that("rowMadDiffs works ", {
-	
+
 	mg_res_def_1 <- rowMadDiffs(x = mat)
 	ms_res_def_1 <- matrixStats::rowMadDiffs(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
@@ -1072,7 +1064,7 @@ test_that("rowRanks works ", {
 
 
 test_that("rowSdDiffs works ", {
-	
+
 	mg_res_def_1 <- rowSdDiffs(x = mat)
 	ms_res_def_1 <- matrixStats::rowSdDiffs(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
@@ -1140,7 +1132,7 @@ test_that("rowTabulates works ", {
 
 
 test_that("rowVarDiffs works ", {
-	
+
 	mg_res_def_1 <- rowVarDiffs(x = mat)
 	ms_res_def_1 <- matrixStats::rowVarDiffs(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
