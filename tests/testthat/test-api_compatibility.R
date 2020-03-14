@@ -432,7 +432,7 @@ test_that("colRanges works ", {
 
 
 test_that("colRanks works ", {
-	skip("colRanks not yet implemented")
+
 	mg_res_def_1 <- colRanks(x = mat)
 	ms_res_def_1 <- matrixStats::colRanks(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
@@ -1052,7 +1052,7 @@ test_that("rowRanges works ", {
 
 
 test_that("rowRanks works ", {
-	skip("rowRanks not yet implemented")
+
 	mg_res_def_1 <- rowRanks(x = mat)
 	ms_res_def_1 <- matrixStats::rowRanks(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
