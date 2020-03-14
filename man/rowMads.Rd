@@ -9,7 +9,7 @@
 \alias{colMads,matrix-method}
 \alias{colMads,numeric-method}
 \alias{colMads,array-method}
-\title{Calculates the standard deviation for each row (column) of a matrix-like object}
+\title{Calculates the median absolute deviation for each row (column) of a matrix-like object}
 \usage{
 rowMads(
   x,
@@ -115,7 +115,7 @@ Returns a \code{\link[base]{numeric}} \code{\link[base]{vector}} of
 length N (K).
 }
 \description{
-Calculates the standard deviation for each row (column) of a matrix-like object.
+Calculates the median absolute deviation for each row (column) of a matrix-like object.
 }
 \details{
 The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
