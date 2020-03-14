@@ -28,7 +28,14 @@ colOrderStats(x, rows = NULL, cols = NULL, which, ...)
 \S4method{colOrderStats}{array}(x, rows = NULL, cols = NULL, which, dim. = dim(x))
 }
 \arguments{
+\item{x}{An NxK matrix-like object.}
+
+\item{rows, cols}{A \code{\link[base]{vector}} indicating the subset (and/or
+columns) to operate over. If \code{\link[base]{NULL}}, no subsetting is done.}
+
 \item{which}{An integer index in \[1,K\] (\[1,N\]) indicating which order statistic to be returned}
+
+\item{...}{Additional arguments passed to specific methods.}
 
 \item{dim.}{An \code{\link[base]{integer}} \code{\link[base]{vector}} of
 length two specifying the dimension of \code{x}, essential when x is a
