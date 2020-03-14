@@ -1,6 +1,6 @@
-#' Calculates the standard deviation for each row (column) of a matrix-like object
+#' Calculates the median absolute deviation for each row (column) of a matrix-like object
 #'
-#' Calculates the standard deviation for each row (column) of a matrix-like object.
+#' Calculates the median absolute deviation for each row (column) of a matrix-like object.
 #' 
 #' @templateVar rowName rowMads
 #' @templateVar colName colMads
