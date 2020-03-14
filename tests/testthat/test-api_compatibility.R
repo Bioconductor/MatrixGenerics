@@ -500,7 +500,8 @@ test_that("colSums2 works ", {
 
 
 test_that("colTabulates works ", {
-	skip("colTabulates not yet implemented")
+
+	mat <- array(suppressWarnings(as.integer(mat)), dim(mat))
 	mg_res_def_1 <- colTabulates(x = mat)
 	ms_res_def_1 <- matrixStats::colTabulates(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
@@ -1116,7 +1117,8 @@ test_that("rowSums2 works ", {
 
 
 test_that("rowTabulates works ", {
-	skip("rowTabulates not yet implemented")
+
+	mat <- array(suppressWarnings(as.integer(mat)), dim(mat))
 	mg_res_def_1 <- rowTabulates(x = mat)
 	ms_res_def_1 <- matrixStats::rowTabulates(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)

@@ -55,6 +55,11 @@ function_args <- list(x = list("mat"),
                       values = list(0, c(0, 1)),
                       w = list(NULL, 1:8))
 
+special_mat_for_functions <- list(
+  colTabulates = "array(suppressWarnings(as.integer(mat)), dim(mat))",
+  rowTabulates = "array(suppressWarnings(as.integer(mat)), dim(mat))"
+)
+
 testable_functions <- c(all_col_functions, all_row_functions)
 testable_functions <- setdiff(testable_functions, c("colAnyMissings", "rowAnyMissings"))
 
@@ -93,8 +98,14 @@ res <- paste0(sapply(testable_functions, function(fnc_name){
            "\texpect_equal(mg_res_", idx, ", ms_res_", idx, ")")
   }), collapse = "\n\n")
   
+  conv_mat <- ""
+  if(fnc_name %in% names(special_mat_for_functions)){
+    # Do special stuff for those functions
+    conv_mat <- paste0("\tmat <- ", special_mat_for_functions[[fnc_name]], "\n")
+  }
+  
   full_test <- paste0('test_that("', fnc_name,  ' works ", {\n',
-                      skip, "\n", default_tests, "\n\n", param_tests, "\n})")
+                      skip, "\n", conv_mat, default_tests, "\n\n", param_tests, "\n})")
 
   full_test
 }), collapse = "\n\n\n")
