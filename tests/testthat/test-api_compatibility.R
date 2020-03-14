@@ -554,7 +554,7 @@ test_that("colVars works ", {
 
 
 test_that("colWeightedMads works ", {
-	skip("colWeightedMads not yet implemented")
+
 	mg_res_def_1 <- colWeightedMads(x = mat)
 	ms_res_def_1 <- matrixStats::colWeightedMads(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
@@ -586,7 +586,7 @@ test_that("colWeightedMeans works ", {
 
 
 test_that("colWeightedMedians works ", {
-	skip("colWeightedMedians not yet implemented")
+
 	mg_res_def_1 <- colWeightedMedians(x = mat)
 	ms_res_def_1 <- matrixStats::colWeightedMedians(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
@@ -602,7 +602,7 @@ test_that("colWeightedMedians works ", {
 
 
 test_that("colWeightedSds works ", {
-	skip("colWeightedSds not yet implemented")
+
 	mg_res_def_1 <- colWeightedSds(x = mat)
 	ms_res_def_1 <- matrixStats::colWeightedSds(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
@@ -618,7 +618,7 @@ test_that("colWeightedSds works ", {
 
 
 test_that("colWeightedVars works ", {
-	skip("colWeightedVars not yet implemented")
+
 	mg_res_def_1 <- colWeightedVars(x = mat)
 	ms_res_def_1 <- matrixStats::colWeightedVars(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
@@ -1172,7 +1172,8 @@ test_that("rowVars works ", {
 
 
 test_that("rowWeightedMads works ", {
-	skip("rowWeightedMads not yet implemented")
+
+	mat <- array(mat, dim(t(mat)))
 	mg_res_def_1 <- rowWeightedMads(x = mat)
 	ms_res_def_1 <- matrixStats::rowWeightedMads(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
@@ -1205,7 +1206,8 @@ test_that("rowWeightedMeans works ", {
 
 
 test_that("rowWeightedMedians works ", {
-	skip("rowWeightedMedians not yet implemented")
+
+	mat <- array(mat, dim(t(mat)))
 	mg_res_def_1 <- rowWeightedMedians(x = mat)
 	ms_res_def_1 <- matrixStats::rowWeightedMedians(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
@@ -1221,7 +1223,8 @@ test_that("rowWeightedMedians works ", {
 
 
 test_that("rowWeightedSds works ", {
-	skip("rowWeightedSds not yet implemented")
+
+	mat <- array(mat, dim(t(mat)))
 	mg_res_def_1 <- rowWeightedSds(x = mat)
 	ms_res_def_1 <- matrixStats::rowWeightedSds(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
@@ -1237,7 +1240,8 @@ test_that("rowWeightedSds works ", {
 
 
 test_that("rowWeightedVars works ", {
-	skip("rowWeightedVars not yet implemented")
+
+	mat <- array(mat, dim(t(mat)))
 	mg_res_def_1 <- rowWeightedVars(x = mat)
 	ms_res_def_1 <- matrixStats::rowWeightedVars(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
