@@ -559,28 +559,28 @@ test_that("colWeightedMads works ", {
 	ms_res_def_1 <- matrixStats::colWeightedMads(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colWeightedMads(x = mat, w = NULL, rows = NULL, cols = NULL, na.rm = TRUE, constant = 1.4826, center = NULL)
-	ms_res_1 <- matrixStats::colWeightedMads(x = mat, w = NULL, rows = NULL, cols = NULL, na.rm = TRUE, constant = 1.4826, center = NULL)
+	mg_res_1 <- colWeightedMads(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE, constant = 1.4826, center = NULL)
+	ms_res_1 <- matrixStats::colWeightedMads(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE, constant = 1.4826, center = NULL)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colWeightedMads(x = mat, w = 1:8, rows = 1:3, cols = 2, na.rm = FALSE, constant = 5, center = 3.1)
-	ms_res_2 <- matrixStats::colWeightedMads(x = mat, w = 1:8, rows = 1:3, cols = 2, na.rm = FALSE, constant = 5, center = 3.1)
+	mg_res_2 <- colWeightedMads(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE, constant = 5, center = 3.1)
+	ms_res_2 <- matrixStats::colWeightedMads(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE, constant = 5, center = 3.1)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
 test_that("colWeightedMeans works ", {
-	skip("colWeightedMeans not yet implemented")
+
 	mg_res_def_1 <- colWeightedMeans(x = mat)
 	ms_res_def_1 <- matrixStats::colWeightedMeans(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colWeightedMeans(x = mat, w = NULL, rows = NULL, cols = NULL, na.rm = TRUE)
-	ms_res_1 <- matrixStats::colWeightedMeans(x = mat, w = NULL, rows = NULL, cols = NULL, na.rm = TRUE)
+	mg_res_1 <- colWeightedMeans(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE)
+	ms_res_1 <- matrixStats::colWeightedMeans(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colWeightedMeans(x = mat, w = 1:8, rows = 1:3, cols = 2, na.rm = FALSE)
-	ms_res_2 <- matrixStats::colWeightedMeans(x = mat, w = 1:8, rows = 1:3, cols = 2, na.rm = FALSE)
+	mg_res_2 <- colWeightedMeans(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE)
+	ms_res_2 <- matrixStats::colWeightedMeans(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
@@ -591,12 +591,12 @@ test_that("colWeightedMedians works ", {
 	ms_res_def_1 <- matrixStats::colWeightedMedians(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colWeightedMedians(x = mat, w = NULL, rows = NULL, cols = NULL, na.rm = TRUE)
-	ms_res_1 <- matrixStats::colWeightedMedians(x = mat, w = NULL, rows = NULL, cols = NULL, na.rm = TRUE)
+	mg_res_1 <- colWeightedMedians(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE)
+	ms_res_1 <- matrixStats::colWeightedMedians(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colWeightedMedians(x = mat, w = 1:8, rows = 1:3, cols = 2, na.rm = FALSE)
-	ms_res_2 <- matrixStats::colWeightedMedians(x = mat, w = 1:8, rows = 1:3, cols = 2, na.rm = FALSE)
+	mg_res_2 <- colWeightedMedians(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE)
+	ms_res_2 <- matrixStats::colWeightedMedians(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
@@ -607,12 +607,12 @@ test_that("colWeightedSds works ", {
 	ms_res_def_1 <- matrixStats::colWeightedSds(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colWeightedSds(x = mat, w = NULL, rows = NULL, cols = NULL, na.rm = TRUE)
-	ms_res_1 <- matrixStats::colWeightedSds(x = mat, w = NULL, rows = NULL, cols = NULL, na.rm = TRUE)
+	mg_res_1 <- colWeightedSds(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE)
+	ms_res_1 <- matrixStats::colWeightedSds(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colWeightedSds(x = mat, w = 1:8, rows = 1:3, cols = 2, na.rm = FALSE)
-	ms_res_2 <- matrixStats::colWeightedSds(x = mat, w = 1:8, rows = 1:3, cols = 2, na.rm = FALSE)
+	mg_res_2 <- colWeightedSds(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE)
+	ms_res_2 <- matrixStats::colWeightedSds(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
@@ -623,12 +623,12 @@ test_that("colWeightedVars works ", {
 	ms_res_def_1 <- matrixStats::colWeightedVars(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colWeightedVars(x = mat, w = NULL, rows = NULL, cols = NULL, na.rm = TRUE)
-	ms_res_1 <- matrixStats::colWeightedVars(x = mat, w = NULL, rows = NULL, cols = NULL, na.rm = TRUE)
+	mg_res_1 <- colWeightedVars(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE)
+	ms_res_1 <- matrixStats::colWeightedVars(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colWeightedVars(x = mat, w = 1:8, rows = 1:3, cols = 2, na.rm = FALSE)
-	ms_res_2 <- matrixStats::colWeightedVars(x = mat, w = 1:8, rows = 1:3, cols = 2, na.rm = FALSE)
+	mg_res_2 <- colWeightedVars(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE)
+	ms_res_2 <- matrixStats::colWeightedVars(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
@@ -1177,28 +1177,29 @@ test_that("rowWeightedMads works ", {
 	ms_res_def_1 <- matrixStats::rowWeightedMads(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowWeightedMads(x = mat, w = NULL, rows = NULL, cols = NULL, na.rm = TRUE, constant = 1.4826, center = NULL)
-	ms_res_1 <- matrixStats::rowWeightedMads(x = mat, w = NULL, rows = NULL, cols = NULL, na.rm = TRUE, constant = 1.4826, center = NULL)
+	mg_res_1 <- rowWeightedMads(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE, constant = 1.4826, center = NULL)
+	ms_res_1 <- matrixStats::rowWeightedMads(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE, constant = 1.4826, center = NULL)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowWeightedMads(x = mat, w = 1:8, rows = 1:3, cols = 2, na.rm = FALSE, constant = 5, center = 3.1)
-	ms_res_2 <- matrixStats::rowWeightedMads(x = mat, w = 1:8, rows = 1:3, cols = 2, na.rm = FALSE, constant = 5, center = 3.1)
+	mg_res_2 <- rowWeightedMads(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE, constant = 5, center = 3.1)
+	ms_res_2 <- matrixStats::rowWeightedMads(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE, constant = 5, center = 3.1)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
 test_that("rowWeightedMeans works ", {
-	skip("rowWeightedMeans not yet implemented")
+
+	mat <- array(mat, dim(t(mat)))
 	mg_res_def_1 <- rowWeightedMeans(x = mat)
 	ms_res_def_1 <- matrixStats::rowWeightedMeans(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowWeightedMeans(x = mat, w = NULL, rows = NULL, cols = NULL, na.rm = TRUE)
-	ms_res_1 <- matrixStats::rowWeightedMeans(x = mat, w = NULL, rows = NULL, cols = NULL, na.rm = TRUE)
+	mg_res_1 <- rowWeightedMeans(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE)
+	ms_res_1 <- matrixStats::rowWeightedMeans(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowWeightedMeans(x = mat, w = 1:8, rows = 1:3, cols = 2, na.rm = FALSE)
-	ms_res_2 <- matrixStats::rowWeightedMeans(x = mat, w = 1:8, rows = 1:3, cols = 2, na.rm = FALSE)
+	mg_res_2 <- rowWeightedMeans(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE)
+	ms_res_2 <- matrixStats::rowWeightedMeans(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
@@ -1209,12 +1210,12 @@ test_that("rowWeightedMedians works ", {
 	ms_res_def_1 <- matrixStats::rowWeightedMedians(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowWeightedMedians(x = mat, w = NULL, rows = NULL, cols = NULL, na.rm = TRUE)
-	ms_res_1 <- matrixStats::rowWeightedMedians(x = mat, w = NULL, rows = NULL, cols = NULL, na.rm = TRUE)
+	mg_res_1 <- rowWeightedMedians(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE)
+	ms_res_1 <- matrixStats::rowWeightedMedians(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowWeightedMedians(x = mat, w = 1:8, rows = 1:3, cols = 2, na.rm = FALSE)
-	ms_res_2 <- matrixStats::rowWeightedMedians(x = mat, w = 1:8, rows = 1:3, cols = 2, na.rm = FALSE)
+	mg_res_2 <- rowWeightedMedians(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE)
+	ms_res_2 <- matrixStats::rowWeightedMedians(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
@@ -1225,12 +1226,12 @@ test_that("rowWeightedSds works ", {
 	ms_res_def_1 <- matrixStats::rowWeightedSds(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowWeightedSds(x = mat, w = NULL, rows = NULL, cols = NULL, na.rm = TRUE)
-	ms_res_1 <- matrixStats::rowWeightedSds(x = mat, w = NULL, rows = NULL, cols = NULL, na.rm = TRUE)
+	mg_res_1 <- rowWeightedSds(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE)
+	ms_res_1 <- matrixStats::rowWeightedSds(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowWeightedSds(x = mat, w = 1:8, rows = 1:3, cols = 2, na.rm = FALSE)
-	ms_res_2 <- matrixStats::rowWeightedSds(x = mat, w = 1:8, rows = 1:3, cols = 2, na.rm = FALSE)
+	mg_res_2 <- rowWeightedSds(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE)
+	ms_res_2 <- matrixStats::rowWeightedSds(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
@@ -1241,11 +1242,11 @@ test_that("rowWeightedVars works ", {
 	ms_res_def_1 <- matrixStats::rowWeightedVars(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowWeightedVars(x = mat, w = NULL, rows = NULL, cols = NULL, na.rm = TRUE)
-	ms_res_1 <- matrixStats::rowWeightedVars(x = mat, w = NULL, rows = NULL, cols = NULL, na.rm = TRUE)
+	mg_res_1 <- rowWeightedVars(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE)
+	ms_res_1 <- matrixStats::rowWeightedVars(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowWeightedVars(x = mat, w = 1:8, rows = 1:3, cols = 2, na.rm = FALSE)
-	ms_res_2 <- matrixStats::rowWeightedVars(x = mat, w = 1:8, rows = 1:3, cols = 2, na.rm = FALSE)
+	mg_res_2 <- rowWeightedVars(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE)
+	ms_res_2 <- matrixStats::rowWeightedVars(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
