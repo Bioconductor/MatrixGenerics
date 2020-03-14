@@ -30,7 +30,7 @@
 #'
 #' @name rowSds
 #' @export
-setGeneric("rowSds", function(x, rows = NULL, cols = NULL, na.rm=FALSE, ...) standardGeneric("rowSds"),
+setGeneric("rowSds", function(x, rows = NULL, cols = NULL, na.rm=FALSE, center = NULL, ...) standardGeneric("rowSds"),
            signature = "x"
 )
 

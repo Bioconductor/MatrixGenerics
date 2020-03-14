@@ -11,7 +11,7 @@
 \alias{colVars,array-method}
 \title{Calculates the variance for each row (column) of a matrix-like object}
 \usage{
-rowVars(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+rowVars(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, ...)
 
 \S4method{rowVars}{matrix}(
   x,
@@ -78,9 +78,9 @@ columns) to operate over. If \code{\link[base]{NULL}}, no subsetting is done.}
 \item{na.rm}{If \code{\link[base:logical]{TRUE}}, \code{\link[base]{NA}}s
 are excluded first, otherwise not.}
 
-\item{...}{Additional arguments passed to specific methods.}
-
 \item{center}{(optional) the center, defaults to the row means}
+
+\item{...}{Additional arguments passed to specific methods.}
 
 \item{dim.}{An \code{\link[base]{integer}} \code{\link[base]{vector}} of
 length two specifying the dimension of \code{x}, essential when x is a
