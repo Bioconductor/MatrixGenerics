@@ -15,8 +15,8 @@
 #'   have to provide it.
 #' @param drop If `TRUE` a vector is returned if `J == 1`.
 #' 
-#' @return a \code{\link[base]{numeric}} \code{Nx2} (\code{Kx2}) \code{\link{matrix}}, where
-#'   N (K) is the number of rows (columns) for which the Quantiles are calculated. 
+#' @return a \code{\link[base]{numeric}} \code{NxJ} (\code{KxJ}) \code{\link{matrix}}, where
+#'   N (K) is the number of rows (columns) for which the J quantiles are calculated. 
 #'
 #' @seealso
 #' \itemize{

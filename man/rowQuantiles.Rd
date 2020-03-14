@@ -115,8 +115,8 @@ have to provide it.}
 \item{drop}{If `TRUE` a vector is returned if `J == 1`.}
 }
 \value{
-a \code{\link[base]{numeric}} \code{Nx2} (\code{Kx2}) \code{\link{matrix}}, where
-  N (K) is the number of rows (columns) for which the Quantiles are calculated.
+a \code{\link[base]{numeric}} \code{NxJ} (\code{KxJ}) \code{\link{matrix}}, where
+  N (K) is the number of rows (columns) for which the J quantiles are calculated.
 }
 \description{
 Calculates the mininum and maximum for each row (column) of a matrix-like object.
