@@ -113,10 +113,10 @@ The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
 \seealso{
 \itemize{
 \item \code{matrixStats::\link[matrixStats]{rowVars}()} and
-  \code{matrixStats::\link[matrixStats]{colVars}()} which are used when
-  the input is a \code{matrix} or \code{numeric} vector.
+\code{matrixStats::\link[matrixStats]{colVars}()} which are used when
+the input is a \code{matrix} or \code{numeric} vector.
 \item For mean estimates, see \code{\link{rowMeans2}()} and
-  \code{\link[base:colSums]{rowMeans}()}.
+\code{\link[base:colSums]{rowMeans}()}.
 \item For standard deviation estimates, see \code{\link{rowSds}()}.
 }
 }

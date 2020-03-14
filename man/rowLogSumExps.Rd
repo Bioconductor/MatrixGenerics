@@ -28,9 +28,9 @@ colLogSumExps(lx, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 \S4method{colLogSumExps}{array}(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx))
 }
 \arguments{
-\item{lx}{An NxK matrix-like object. Typically `lx` are `log(x)` values.}
+\item{lx}{An NxK matrix-like object. Typically \code{lx} are \code{log(x)} values.}
 
-\item{rows, cols}{A \code{\link[base]{vector}} indicating the subset (and/or 
+\item{rows, cols}{A \code{\link[base]{vector}} indicating the subset (and/or
 columns) to operate over. If \code{\link[base]{NULL}}, no subsetting is done.}
 
 \item{na.rm}{If \code{\link[base:logical]{TRUE}}, \code{\link[base]{NA}}s
@@ -69,9 +69,9 @@ The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
 \seealso{
 \itemize{
 \item \code{matrixStats::\link[matrixStats]{rowLogSumExps}()} and
-  \code{matrixStats::\link[matrixStats]{colLogSumExps}()} which are used when
-  the input is a \code{matrix} or \code{numeric} vector.
-\item [rowSums2()]
+\code{matrixStats::\link[matrixStats]{colLogSumExps}()} which are used when
+the input is a \code{matrix} or \code{numeric} vector.
+\item \code{\link[=rowSums2]{rowSums2()}}
 }
 }
 \keyword{array}

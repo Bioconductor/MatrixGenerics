@@ -66,8 +66,8 @@ The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
 \seealso{
 \itemize{
 \item \code{matrixStats::\link[matrixStats]{rowCumsums}()} and
-  \code{matrixStats::\link[matrixStats]{colCumsums}()} which are used when
-  the input is a \code{matrix} or \code{numeric} vector.
+\code{matrixStats::\link[matrixStats]{colCumsums}()} which are used when
+the input is a \code{matrix} or \code{numeric} vector.
 }
 }
 \keyword{array}

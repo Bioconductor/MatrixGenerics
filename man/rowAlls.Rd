@@ -113,8 +113,8 @@ The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
 \seealso{
 \itemize{
 \item \code{matrixStats::\link[matrixStats]{rowAlls}()} and
-  \code{matrixStats::\link[matrixStats]{colAlls}()} which are used when
-  the input is a \code{matrix} or \code{numeric} vector.
+\code{matrixStats::\link[matrixStats]{colAlls}()} which are used when
+the input is a \code{matrix} or \code{numeric} vector.
 \item For checks if any element is equal to a value, see \code{\link{rowAnys}()}.
 }
 }

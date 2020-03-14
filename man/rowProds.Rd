@@ -74,8 +74,8 @@ are excluded first, otherwise not.}
 
 \item{...}{Additional arguments passed to specific methods.}
 
-\item{method}{A character vector of length one that specifies the 
-how the product is calculated. Note, that this is not a generic 
+\item{method}{A character vector of length one that specifies the
+how the product is calculated. Note, that this is not a generic
 argument and not all implementation have to provide it.}
 }
 \value{
@@ -105,10 +105,10 @@ The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
 \seealso{
 \itemize{
 \item \code{matrixStats::\link[matrixStats]{rowProds}()} and
-  \code{matrixStats::\link[matrixStats]{colProds}()} which are used when
-  the input is a \code{matrix} or \code{numeric} vector.
+\code{matrixStats::\link[matrixStats]{colProds}()} which are used when
+the input is a \code{matrix} or \code{numeric} vector.
 \item For mean estimates, see \code{\link{rowMeans2}()} and
-  \code{\link[base:colSums]{rowMeans}()}.
+\code{\link[base:colSums]{rowMeans}()}.
 }
 }
 \keyword{array}

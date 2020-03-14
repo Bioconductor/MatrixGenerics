@@ -33,7 +33,7 @@ colOrderStats(x, rows = NULL, cols = NULL, which, ...)
 \item{rows, cols}{A \code{\link[base]{vector}} indicating the subset (and/or
 columns) to operate over. If \code{\link[base]{NULL}}, no subsetting is done.}
 
-\item{which}{An integer index in \[1,K\] (\[1,N\]) indicating which order statistic to be returned}
+\item{which}{An integer index in [1,K] ([1,N]) indicating which order statistic to be returned}
 
 \item{...}{Additional arguments passed to specific methods.}
 
@@ -68,8 +68,8 @@ The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
 \seealso{
 \itemize{
 \item \code{matrixStats::\link[matrixStats]{rowOrderStats}()} and
-  \code{matrixStats::\link[matrixStats]{colOrderStats}()} which are used when
-  the input is a \code{matrix} or \code{numeric} vector.
+\code{matrixStats::\link[matrixStats]{colOrderStats}()} which are used when
+the input is a \code{matrix} or \code{numeric} vector.
 }
 }
 \keyword{array}

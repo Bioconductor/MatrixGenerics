@@ -95,18 +95,18 @@ colQuantiles(
 \item{rows, cols}{A \code{\link[base]{vector}} indicating the subset (and/or
 columns) to operate over. If \code{\link[base]{NULL}}, no subsetting is done.}
 
-\item{probs}{A numeric vector of J probilities in \[0, 1\].}
+\item{probs}{A numeric vector of J probilities in [0, 1].}
 
 \item{na.rm}{If \code{\link[base:logical]{TRUE}}, \code{\link[base]{NA}}s
 are excluded first, otherwise not.}
 
 \item{...}{Additional arguments passed to specific methods.}
 
-\item{type}{An integer specifying the type of estimator. See [stats::quantile] for more details.
-Note, that this is not a generic srgument and not all implementation of this function 
+\item{type}{An integer specifying the type of estimator. See \link[stats:quantile]{stats::quantile} for more details.
+Note, that this is not a generic srgument and not all implementation of this function
 have to provide it.}
 
-\item{drop}{If `TRUE` a vector is returned if `J == 1`.}
+\item{drop}{If \code{TRUE} a vector is returned if \code{J == 1}.}
 }
 \value{
 a \code{\link[base]{numeric}} \code{NxJ} (\code{KxJ}) \code{\link{matrix}}, where
@@ -135,9 +135,9 @@ The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
 \seealso{
 \itemize{
 \item \code{matrixStats::\link[matrixStats]{rowQuantiles}()} and
-  \code{matrixStats::\link[matrixStats]{colQuantiles}()} which are used when
-  the input is a \code{matrix} or \code{numeric} vector.
-\item [stats::quantile]
+\code{matrixStats::\link[matrixStats]{colQuantiles}()} which are used when
+the input is a \code{matrix} or \code{numeric} vector.
+\item \link[stats:quantile]{stats::quantile}
 }
 }
 \keyword{array}

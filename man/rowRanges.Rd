@@ -44,7 +44,7 @@ length two specifying the dimension of \code{x}, essential when x is a
 }
 \value{
 a \code{\link[base]{numeric}} \code{Nx2} (\code{Kx2}) \code{\link{matrix}}, where
-  N (K) is the number of rows (columns) for which the ranges are calculated.
+N (K) is the number of rows (columns) for which the ranges are calculated.
 }
 \description{
 Calculates the mininum and maximum for each row (column) of a matrix-like object.
@@ -69,8 +69,8 @@ The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
 \seealso{
 \itemize{
 \item \code{matrixStats::\link[matrixStats]{rowRanges}()} and
-  \code{matrixStats::\link[matrixStats]{colRanges}()} which are used when
-  the input is a \code{matrix} or \code{numeric} vector.
+\code{matrixStats::\link[matrixStats]{colRanges}()} which are used when
+the input is a \code{matrix} or \code{numeric} vector.
 \item For max estimates, see \code{\link{rowMaxs}()}.
 \item For min estimates, see \code{\link{rowMins}()}.
 }
