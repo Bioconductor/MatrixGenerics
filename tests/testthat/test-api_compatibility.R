@@ -284,7 +284,7 @@ test_that("colMadDiffs works ", {
 
 
 test_that("colMads works ", {
-	skip("colMads not yet implemented")
+
 	mg_res_def_1 <- colMads(x = mat)
 	ms_res_def_1 <- matrixStats::colMads(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
@@ -904,7 +904,7 @@ test_that("rowMadDiffs works ", {
 
 
 test_that("rowMads works ", {
-	skip("rowMads not yet implemented")
+
 	mg_res_def_1 <- rowMads(x = mat)
 	ms_res_def_1 <- matrixStats::rowMads(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
