@@ -360,21 +360,22 @@ test_that("colMins works ", {
 
 
 test_that("colOrderStats works ", {
-	skip("colOrderStats not yet implemented")
-	mg_res_def_1 <- colOrderStats(x = mat, which = 0)
-	ms_res_def_1 <- matrixStats::colOrderStats(x = mat, which = 0)
+
+	mat[is.na(mat)] <- 4.1
+	mg_res_def_1 <- colOrderStats(x = mat, which = 2)
+	ms_res_def_1 <- matrixStats::colOrderStats(x = mat, which = 2)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_def_2 <- colOrderStats(x = mat, which = 2)
-	ms_res_def_2 <- matrixStats::colOrderStats(x = mat, which = 2)
+	mg_res_def_2 <- colOrderStats(x = mat, which = 1)
+	ms_res_def_2 <- matrixStats::colOrderStats(x = mat, which = 1)
 	expect_equal(mg_res_def_2, ms_res_def_2)
 
-	mg_res_1 <- colOrderStats(x = mat, rows = NULL, cols = NULL, which = 0, dim. = dim(mat))
-	ms_res_1 <- matrixStats::colOrderStats(x = mat, rows = NULL, cols = NULL, which = 0, dim. = dim(mat))
+	mg_res_1 <- colOrderStats(x = mat, rows = NULL, cols = NULL, which = 2, dim. = dim(mat))
+	ms_res_1 <- matrixStats::colOrderStats(x = mat, rows = NULL, cols = NULL, which = 2, dim. = dim(mat))
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colOrderStats(x = mat, rows = 1:3, cols = 2, which = 2, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::colOrderStats(x = mat, rows = 1:3, cols = 2, which = 2, dim. = c(12L, 8L))
+	mg_res_2 <- colOrderStats(x = mat, rows = 1:3, cols = 2, which = 1, dim. = c(12L, 8L))
+	ms_res_2 <- matrixStats::colOrderStats(x = mat, rows = 1:3, cols = 2, which = 1, dim. = c(12L, 8L))
 	expect_equal(mg_res_2, ms_res_2)
 })
 
@@ -977,21 +978,22 @@ test_that("rowMins works ", {
 
 
 test_that("rowOrderStats works ", {
-	skip("rowOrderStats not yet implemented")
-	mg_res_def_1 <- rowOrderStats(x = mat, which = 0)
-	ms_res_def_1 <- matrixStats::rowOrderStats(x = mat, which = 0)
+
+	mat[is.na(mat)] <- 4.1
+	mg_res_def_1 <- rowOrderStats(x = mat, which = 2)
+	ms_res_def_1 <- matrixStats::rowOrderStats(x = mat, which = 2)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_def_2 <- rowOrderStats(x = mat, which = 2)
-	ms_res_def_2 <- matrixStats::rowOrderStats(x = mat, which = 2)
+	mg_res_def_2 <- rowOrderStats(x = mat, which = 1)
+	ms_res_def_2 <- matrixStats::rowOrderStats(x = mat, which = 1)
 	expect_equal(mg_res_def_2, ms_res_def_2)
 
-	mg_res_1 <- rowOrderStats(x = mat, rows = NULL, cols = NULL, which = 0, dim. = dim(mat))
-	ms_res_1 <- matrixStats::rowOrderStats(x = mat, rows = NULL, cols = NULL, which = 0, dim. = dim(mat))
+	mg_res_1 <- rowOrderStats(x = mat, rows = NULL, cols = NULL, which = 2, dim. = dim(mat))
+	ms_res_1 <- matrixStats::rowOrderStats(x = mat, rows = NULL, cols = NULL, which = 2, dim. = dim(mat))
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowOrderStats(x = mat, rows = 1:3, cols = 2, which = 2, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::rowOrderStats(x = mat, rows = 1:3, cols = 2, which = 2, dim. = c(12L, 8L))
+	mg_res_2 <- rowOrderStats(x = mat, rows = 1:3, cols = 2, which = 1, dim. = c(12L, 8L))
+	ms_res_2 <- matrixStats::rowOrderStats(x = mat, rows = 1:3, cols = 2, which = 1, dim. = c(12L, 8L))
 	expect_equal(mg_res_2, ms_res_2)
 })
 

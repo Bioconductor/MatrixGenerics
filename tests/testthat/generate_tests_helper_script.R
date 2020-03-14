@@ -45,7 +45,7 @@ function_args <- list(x = list("mat"),
                       lx = list("mat"),
                       center = list(NULL, 3.1),
                       constant = list(1.4826, 5),
-                      which = list(0, 2),
+                      which = list(2, 1),
                       method = list("'direct'", "'expSumLog'"),
                       probs = list("seq(from = 0, to = 1, by = 0.25)", "0.1"),
                       type = list(7L, 3L),  # Type of quantile estimator see  `?quantile`
@@ -55,9 +55,11 @@ function_args <- list(x = list("mat"),
                       values = list(0, c(0, 1)),
                       w = list(NULL, 1:8))
 
-special_mat_for_functions <- list(
-  colTabulates = "array(suppressWarnings(as.integer(mat)), dim(mat))",
-  rowTabulates = "array(suppressWarnings(as.integer(mat)), dim(mat))"
+extra_statements<- list(
+  colTabulates = "mat <- array(suppressWarnings(as.integer(mat)), dim(mat))",
+  rowTabulates = "mat <- array(suppressWarnings(as.integer(mat)), dim(mat))",
+  colOrderStats = "mat[is.na(mat)] <- 4.1",
+  rowOrderStats = "mat[is.na(mat)] <- 4.1"
 )
 
 testable_functions <- c(all_col_functions, all_row_functions)
@@ -98,14 +100,14 @@ res <- paste0(sapply(testable_functions, function(fnc_name){
            "\texpect_equal(mg_res_", idx, ", ms_res_", idx, ")")
   }), collapse = "\n\n")
   
-  conv_mat <- ""
-  if(fnc_name %in% names(special_mat_for_functions)){
+  extra_stat <- ""
+  if(fnc_name %in% names(extra_statements)){
     # Do special stuff for those functions
-    conv_mat <- paste0("\tmat <- ", special_mat_for_functions[[fnc_name]], "\n")
+    extra_stat <- paste0(paste0("\t", extra_statements[[fnc_name]], collapse = "\n"), "\n")
   }
   
   full_test <- paste0('test_that("', fnc_name,  ' works ", {\n',
-                      skip, "\n", conv_mat, default_tests, "\n\n", param_tests, "\n})")
+                      skip, "\n", extra_stat, default_tests, "\n\n", param_tests, "\n})")
 
   full_test
 }), collapse = "\n\n\n")
