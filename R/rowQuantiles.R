@@ -36,7 +36,10 @@ setGeneric("rowQuantiles", function(x, rows = NULL, cols = NULL, probs = seq(fro
            signature = "x"
 )
 
-.default_rowQuantiles <- matrixStats::rowQuantiles
+.default_rowQuantiles <- function(x, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), 
+                                  na.rm = FALSE, type = 7L, drop = TRUE) {
+  matrixStats::rowQuantiles(x = x, rows = rows, cols = cols, probs = probs, na.rm = na.rm, type = type, drop = drop)
+}
 
 #' @rdname rowQuantiles
 setMethod("rowQuantiles", signature = "matrix", .default_rowQuantiles)
@@ -57,7 +60,10 @@ setGeneric("colQuantiles", function(x, rows = NULL, cols = NULL, probs = seq(fro
            signature = "x"
 )
 
-.default_colQuantiles <- matrixStats::colQuantiles
+.default_colQuantiles <- function(x, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), 
+                                  na.rm = FALSE, type = 7L, drop = TRUE) {
+  matrixStats::colQuantiles(x = x, rows = rows, cols = cols, probs = probs, na.rm = na.rm, type = type, drop = drop)
+}
 
 #' @rdname rowQuantiles
 setMethod("colQuantiles", signature = "matrix", .default_colQuantiles)

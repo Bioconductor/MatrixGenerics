@@ -27,7 +27,6 @@ rowQuantiles(
   probs = seq(from = 0, to = 1, by = 0.25),
   na.rm = FALSE,
   type = 7L,
-  ...,
   drop = TRUE
 )
 
@@ -38,7 +37,6 @@ rowQuantiles(
   probs = seq(from = 0, to = 1, by = 0.25),
   na.rm = FALSE,
   type = 7L,
-  ...,
   drop = TRUE
 )
 
@@ -49,7 +47,6 @@ rowQuantiles(
   probs = seq(from = 0, to = 1, by = 0.25),
   na.rm = FALSE,
   type = 7L,
-  ...,
   drop = TRUE
 )
 
@@ -69,7 +66,6 @@ colQuantiles(
   probs = seq(from = 0, to = 1, by = 0.25),
   na.rm = FALSE,
   type = 7L,
-  ...,
   drop = TRUE
 )
 
@@ -80,7 +76,6 @@ colQuantiles(
   probs = seq(from = 0, to = 1, by = 0.25),
   na.rm = FALSE,
   type = 7L,
-  ...,
   drop = TRUE
 )
 
@@ -91,7 +86,6 @@ colQuantiles(
   probs = seq(from = 0, to = 1, by = 0.25),
   na.rm = FALSE,
   type = 7L,
-  ...,
   drop = TRUE
 )
 }
