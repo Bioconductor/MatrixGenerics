@@ -384,7 +384,7 @@ test_that("colOrderStats works ", {
 
 
 test_that("colProds works ", {
-	skip("colProds not yet implemented")
+
 	mg_res_def_1 <- colProds(x = mat)
 	ms_res_def_1 <- matrixStats::colProds(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
@@ -812,7 +812,7 @@ test_that("rowCumsums works ", {
 
 
 test_that("rowDiffs works ", {
-	skip("rowDiffs not yet implemented")
+
 	mg_res_def_1 <- rowDiffs(x = mat)
 	ms_res_def_1 <- matrixStats::rowDiffs(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
@@ -1004,7 +1004,7 @@ test_that("rowOrderStats works ", {
 
 
 test_that("rowProds works ", {
-	skip("rowProds not yet implemented")
+
 	mg_res_def_1 <- rowProds(x = mat)
 	ms_res_def_1 <- matrixStats::rowProds(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
