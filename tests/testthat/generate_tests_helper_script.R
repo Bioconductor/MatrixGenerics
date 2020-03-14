@@ -53,13 +53,14 @@ function_args <- list(x = list("mat"),
                       ties.method = list("'max'", "'first'", "'dense'"),
                       preserveShape = list(FALSE, TRUE),
                       values = list(0, c(0, 1)),
-                      w = list(NULL, 1:8))
+                      w = list(1:16, NULL))
 
 extra_statements<- list(
   colTabulates = "mat <- array(suppressWarnings(as.integer(mat)), dim(mat))",
   rowTabulates = "mat <- array(suppressWarnings(as.integer(mat)), dim(mat))",
   colOrderStats = "mat[is.na(mat)] <- 4.1",
-  rowOrderStats = "mat[is.na(mat)] <- 4.1"
+  rowOrderStats = "mat[is.na(mat)] <- 4.1",
+  rowWeightedMeans = "mat <- array(mat, dim(t(mat)))"
 )
 
 testable_functions <- c(all_col_functions, all_row_functions)
