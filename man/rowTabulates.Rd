@@ -33,9 +33,9 @@ colTabulates(x, rows = NULL, cols = NULL, values = NULL, ...)
 \item{rows, cols}{A \code{\link[base]{vector}} indicating the subset (and/or
 columns) to operate over. If \code{\link[base]{NULL}}, no subsetting is done.}
 
-\item{...}{Additional arguments passed to specific methods.}
+\item{values}{the values to search for.}
 
-\item{value}{the value to search for.}
+\item{...}{Additional arguments passed to specific methods.}
 }
 \value{
 a \code{\link[base]{numeric}} \code{NxJ} (\code{KxJ}) \code{\link{matrix}}, where
