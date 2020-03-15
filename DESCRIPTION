@@ -1,7 +1,12 @@
 Package: MatrixGenerics
-Title: S4 generic functions that operate on matrix-like objects
-Description: S4 generic functions needed by many packages that define 
-  matrix-like classes.
+Title: S4 Generic Summary Statistic Functions that Operate on Matrix-Like Objects
+Description: S4 generic functions modeled after the 'matrixStats' API
+    for alternative matrix implementations. Packages with alternative matrix
+    implementation can depend on this package and implement the generic 
+    functions that are defined here for a useful set of row and column
+    summary statistics. Other package developers can import this package
+    and handle a different matrix implementations without worrying
+    about incompatibilities.
 Version: 0.0.99
 Authors@R: c(person("Constantin", "Ahlmann-Eltze", email = "artjom31415@googlemail.com", 
                   role = c("aut"), comment = c(ORCID = "0000-0002-3762-068X")),
@@ -17,3 +22,4 @@ RoxygenNote: 7.0.2
 Roxygen: list(markdown = TRUE)
 Suggests: 
     testthat (>= 2.1.0)
+biocViews: Infrastructure, Software
