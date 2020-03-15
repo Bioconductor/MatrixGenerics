@@ -53,7 +53,12 @@ function_args <- list(x = list("mat"),
                       ties.method = list("'max'", "'first'", "'dense'"),
                       preserveShape = list(FALSE, TRUE),
                       values = list(0, c(0, 1)),
-                      w = list(1:16, NULL))
+                      w = list(1:16, NULL),
+                      X = list("mat"),
+                      S = list("S"),
+                      FUN = list("rowMeans", "rowVars"),
+                      W = list("NULL"),
+                      tFUN = list("FALSE"))
 
 extra_statements<- list(
   colTabulates = "mat <- array(suppressWarnings(as.integer(mat)), dim(mat))",
@@ -64,11 +69,12 @@ extra_statements<- list(
   rowWeightedMedians = "mat <- array(mat, dim(t(mat)))",
   rowWeightedMads = "mat <- array(mat, dim(t(mat)))",
   rowWeightedSds = "mat <- array(mat, dim(t(mat)))",
-  rowWeightedVars = "mat <- array(mat, dim(t(mat)))"
+  rowWeightedVars = "mat <- array(mat, dim(t(mat)))",
+  rowAvgsPerColSet = "S <- matrix(1:ncol(mat), ncol = 2)"
 )
 
 testable_functions <- c(all_col_functions, all_row_functions)
-testable_functions <- setdiff(testable_functions, c("colAnyMissings", "rowAnyMissings"))
+testable_functions <- setdiff(testable_functions, c("colAnyMissings", "rowAnyMissings", "colAvgsPerRowSet"))
 
 res <- paste0(sapply(testable_functions, function(fnc_name){
   can_load <- tryCatch({eval(parse(text = fnc_name))}, error = function(error) error)

@@ -71,22 +71,6 @@ test_that("colAnys works ", {
 })
 
 
-test_that("colAvgsPerRowSet works ", {
-	skip("colAvgsPerRowSet not yet implemented")
-	mg_res_def_1 <- colAvgsPerRowSet(X = , S = , FUN = )
-	ms_res_def_1 <- matrixStats::colAvgsPerRowSet(X = , S = , FUN = )
-	expect_equal(mg_res_def_1, ms_res_def_1)
-
-	mg_res_1 <- colAvgsPerRowSet(X = , W = , cols = NULL, S = , FUN = , tFUN = )
-	ms_res_1 <- matrixStats::colAvgsPerRowSet(X = , W = , cols = NULL, S = , FUN = , tFUN = )
-	expect_equal(mg_res_1, ms_res_1)
-
-	mg_res_2 <- colAvgsPerRowSet(X = , W = , cols = 2, S = , FUN = , tFUN = )
-	ms_res_2 <- matrixStats::colAvgsPerRowSet(X = , W = , cols = 2, S = , FUN = , tFUN = )
-	expect_equal(mg_res_2, ms_res_2)
-})
-
-
 test_that("colCollapse works ", {
 
 	mg_res_def_1 <- colCollapse(x = mat, idxs = 1)
@@ -690,17 +674,22 @@ test_that("rowAnys works ", {
 
 
 test_that("rowAvgsPerColSet works ", {
-	skip("rowAvgsPerColSet not yet implemented")
-	mg_res_def_1 <- rowAvgsPerColSet(X = , S = , FUN = )
-	ms_res_def_1 <- matrixStats::rowAvgsPerColSet(X = , S = , FUN = )
+
+	S <- matrix(1:ncol(mat), ncol = 2)
+	mg_res_def_1 <- rowAvgsPerColSet(X = mat, S = S, FUN = rowMeans)
+	ms_res_def_1 <- matrixStats::rowAvgsPerColSet(X = mat, S = S, FUN = rowMeans)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowAvgsPerColSet(X = , W = , rows = NULL, S = , FUN = , tFUN = )
-	ms_res_1 <- matrixStats::rowAvgsPerColSet(X = , W = , rows = NULL, S = , FUN = , tFUN = )
+	mg_res_def_2 <- rowAvgsPerColSet(X = mat, S = S, FUN = rowVars)
+	ms_res_def_2 <- matrixStats::rowAvgsPerColSet(X = mat, S = S, FUN = rowVars)
+	expect_equal(mg_res_def_2, ms_res_def_2)
+
+	mg_res_1 <- rowAvgsPerColSet(X = mat, W = NULL, rows = NULL, S = S, FUN = rowMeans, tFUN = FALSE)
+	ms_res_1 <- matrixStats::rowAvgsPerColSet(X = mat, W = NULL, rows = NULL, S = S, FUN = rowMeans, tFUN = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowAvgsPerColSet(X = , W = , rows = 1:3, S = , FUN = , tFUN = )
-	ms_res_2 <- matrixStats::rowAvgsPerColSet(X = , W = , rows = 1:3, S = , FUN = , tFUN = )
+	mg_res_2 <- rowAvgsPerColSet(X = mat, W = NULL, rows = 1:3, S = S, FUN = rowVars, tFUN = FALSE)
+	ms_res_2 <- matrixStats::rowAvgsPerColSet(X = mat, W = NULL, rows = 1:3, S = S, FUN = rowVars, tFUN = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
