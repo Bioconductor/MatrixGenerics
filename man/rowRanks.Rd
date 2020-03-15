@@ -124,7 +124,7 @@ is returned. Note, that in this case the return value is of type \code{numeric}.
 \item \code{matrixStats::\link[matrixStats]{rowRanks}()} and
 \code{matrixStats::\link[matrixStats]{colRanks}()} which are used when
 the input is a \code{matrix} or \code{numeric} vector.
-\item \link[stats:ranks]{stats::ranks}
+\item \link[base:rank]{base::rank}
 }
 }
 \keyword{array}

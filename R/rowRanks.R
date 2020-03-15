@@ -34,7 +34,7 @@
 #' \item \code{matrixStats::\link[matrixStats]{rowRanks}()} and
 #'   \code{matrixStats::\link[matrixStats]{colRanks}()} which are used when
 #'   the input is a \code{matrix} or \code{numeric} vector.
-#' \item [stats::ranks]
+#' \item [base::rank]
 #' }
 #' 
 #' @template standardExamples
