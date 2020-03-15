@@ -9,7 +9,7 @@
 \alias{colLogSumExps,matrix-method}
 \alias{colLogSumExps,numeric-method}
 \alias{colLogSumExps,array-method}
-\title{Accurately calculates the logaritm of the sum of exponentials for each row (column) of a matrix-like object}
+\title{Accurately calculates the logarithm of the sum of exponentials for each row (column) of a matrix-like object}
 \usage{
 rowLogSumExps(lx, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
@@ -49,7 +49,7 @@ Returns a \code{\link[base]{numeric}} \code{\link[base]{vector}} of
 length N (K).
 }
 \description{
-Accurately calculates the logaritm of the sum of exponentials for each row (column) of a matrix-like object
+Accurately calculates the logarithm of the sum of exponentials for each row (column) of a matrix-like object
 }
 \details{
 The S4 methods for \code{x} of type \code{\link[base]{matrix}} or

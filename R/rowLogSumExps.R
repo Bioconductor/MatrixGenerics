@@ -1,6 +1,6 @@
-#' Accurately calculates the logaritm of the sum of exponentials for each row (column) of a matrix-like object
+#' Accurately calculates the logarithm of the sum of exponentials for each row (column) of a matrix-like object
 #'
-#' Accurately calculates the logaritm of the sum of exponentials for each row (column) of a matrix-like object
+#' Accurately calculates the logarithm of the sum of exponentials for each row (column) of a matrix-like object
 #' 
 #' @templateVar rowName rowLogSumExps
 #' @templateVar colName colLogSumExps

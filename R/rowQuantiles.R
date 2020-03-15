@@ -8,10 +8,10 @@
 #' @template matrixStatsLink
 #' 
 #' @template standardParameters
-#' @param probs A numeric vector of J probilities in \[0, 1\].
+#' @param probs A numeric vector of J probabilities in \[0, 1\].
 #' @template na_rmParameter
 #' @param type An integer specifying the type of estimator. See [stats::quantile] for more details.
-#'   Note, that this is not a generic srgument and not all implementation of this function 
+#'   Note, that this is not a generic argument and not all implementation of this function 
 #'   have to provide it.
 #' @param drop If `TRUE` a vector is returned if `J == 1`.
 #'   Note, that this is not a generic argument and not all implementation of this function 
