@@ -8,7 +8,7 @@
 #' @template matrixStatsLink
 #' 
 #' @template standardParameters
-#' @template valueParameter
+#' @param values the values to search for.
 #'
 #' @template returnMatrix_JDim
 #'
