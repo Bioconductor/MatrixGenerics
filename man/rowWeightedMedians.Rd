@@ -9,7 +9,7 @@
 \alias{colWeightedMedians,matrix-method}
 \alias{colWeightedMedians,numeric-method}
 \alias{colWeightedMedians,array-method}
-\title{Calculates the weighted medioan for each row (column) of a matrix-like object}
+\title{Calculates the weighted median for each row (column) of a matrix-like object}
 \usage{
 rowWeightedMedians(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
@@ -46,7 +46,7 @@ Returns a \code{\link[base]{numeric}} \code{\link[base]{vector}} of
 length N (K).
 }
 \description{
-Calculates the weighted medioan for each row (column) of a matrix-like object.
+Calculates the weighted median for each row (column) of a matrix-like object.
 }
 \details{
 The S4 methods for \code{x} of type \code{\link[base]{matrix}} or

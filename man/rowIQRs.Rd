@@ -67,7 +67,9 @@ The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
 \item \code{matrixStats::\link[matrixStats]{rowIQRs}()} and
 \code{matrixStats::\link[matrixStats]{colIQRs}()} which are used when
 the input is a \code{matrix} or \code{numeric} vector.
-\item For a non-robust analog, see \code{\link{rowSds}()}.
+\item For a non-robust analog, see \code{\link{rowSds}()}. For a more
+robust version see \code{\link[=rowMads]{rowMads()}}
+\item \link[stats:IQR]{stats::IQR}
 }
 }
 \keyword{array}

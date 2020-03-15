@@ -73,6 +73,8 @@ The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
 the input is a \code{matrix} or \code{numeric} vector.
 \item For mean estimates, see \code{\link{rowMeans2}()} and
 \code{\link[base:colSums]{rowMeans}()}.
+
+\item \link{sum}
 }
 }
 \keyword{array}

@@ -9,7 +9,7 @@
 \alias{colQuantiles,matrix-method}
 \alias{colQuantiles,numeric-method}
 \alias{colQuantiles,array-method}
-\title{Calculates the mininum and maximum for each row (column) of a matrix-like object}
+\title{Calculates quantiles for each row (column) of a matrix-like object}
 \usage{
 rowQuantiles(
   x,
@@ -106,14 +106,16 @@ are excluded first, otherwise not.}
 Note, that this is not a generic srgument and not all implementation of this function
 have to provide it.}
 
-\item{drop}{If \code{TRUE} a vector is returned if \code{J == 1}.}
+\item{drop}{If \code{TRUE} a vector is returned if \code{J == 1}.
+Note, that this is not a generic srgument and not all implementation of this function
+have to provide it.}
 }
 \value{
 a \code{\link[base]{numeric}} \code{NxJ} (\code{KxJ}) \code{\link{matrix}}, where
 N (K) is the number of rows (columns) for which the J values are calculated.
 }
 \description{
-Calculates the mininum and maximum for each row (column) of a matrix-like object.
+Calculates quantiles for each row (column) of a matrix-like object.
 }
 \details{
 The S4 methods for \code{x} of type \code{\link[base]{matrix}} or

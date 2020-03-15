@@ -1,6 +1,6 @@
-#' Calculates the cumulative maxima for each row (column) of a matrix-like object
+#' Calculates the cumulative sum for each row (column) of a matrix-like object
 #'
-#' Calculates the cumulative maxima for each row (column) of a matrix-like object
+#' Calculates the cumulative sum for each row (column) of a matrix-like object
 #' 
 #' @templateVar rowName rowCumsums
 #' @templateVar colName colCumsums
@@ -17,6 +17,7 @@
 #' \item \code{matrixStats::\link[matrixStats]{rowCumsums}()} and
 #'   \code{matrixStats::\link[matrixStats]{colCumsums}()} which are used when
 #'   the input is a \code{matrix} or \code{numeric} vector.
+#' \item [cumsum]
 #' }
 #' 
 #' @template standardExamples

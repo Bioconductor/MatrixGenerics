@@ -9,7 +9,7 @@
 \alias{colCumsums,matrix-method}
 \alias{colCumsums,numeric-method}
 \alias{colCumsums,array-method}
-\title{Calculates the cumulative maxima for each row (column) of a matrix-like object}
+\title{Calculates the cumulative sum for each row (column) of a matrix-like object}
 \usage{
 rowCumsums(x, rows = NULL, cols = NULL, ...)
 
@@ -44,7 +44,7 @@ Returns a \code{\link[base]{numeric}} \code{\link[base]{matrix}} with the
 same dimensions as \code{x}.
 }
 \description{
-Calculates the cumulative maxima for each row (column) of a matrix-like object
+Calculates the cumulative sum for each row (column) of a matrix-like object
 }
 \details{
 The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
@@ -68,6 +68,7 @@ The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
 \item \code{matrixStats::\link[matrixStats]{rowCumsums}()} and
 \code{matrixStats::\link[matrixStats]{colCumsums}()} which are used when
 the input is a \code{matrix} or \code{numeric} vector.
+\item \link{cumsum}
 }
 }
 \keyword{array}

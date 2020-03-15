@@ -18,6 +18,7 @@
 #'   \code{matrixStats::\link[matrixStats]{colAnyNAs}()} which are used when
 #'   the input is a \code{matrix} or \code{numeric} vector.
 #' \item For checks if any element is equal to a value, see \code{\link{rowAnys}()}.
+#' \item [is.na] and [any]
 #' }
 #' 
 #' @template standardExamples

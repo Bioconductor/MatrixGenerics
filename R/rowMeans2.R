@@ -22,6 +22,7 @@
 #' \item See also \code{\link[base:colSums]{rowMeans}()} for the
 #'   corresponding function in base R.
 #' \item For variance estimates, see \code{\link{rowVars}()}.
+#' \item See also the base R version [rowMeans].
 #' }
 #' 
 #' @template standardExamples

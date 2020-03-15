@@ -18,6 +18,7 @@
 #' \item \code{matrixStats::\link[matrixStats]{rowIQRDiffs}()} and
 #'   \code{matrixStats::\link[matrixStats]{colIQRDiffs}()} which are used when
 #'   the input is a \code{matrix} or \code{numeric} vector.
+#' \item For the direct interquartile range see also [rowIQRs].
 #' }
 #' 
 #' @template standardExamples

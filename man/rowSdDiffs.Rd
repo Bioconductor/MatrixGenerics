@@ -88,6 +88,7 @@ The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
 \item \code{matrixStats::\link[matrixStats]{rowSdDiffs}()} and
 \code{matrixStats::\link[matrixStats]{colSdDiffs}()} which are used when
 the input is a \code{matrix} or \code{numeric} vector.
+\item for the direct standard deviation see \code{\link[=rowSds]{rowSds()}}.
 }
 }
 \keyword{array}

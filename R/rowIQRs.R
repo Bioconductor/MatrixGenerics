@@ -17,7 +17,9 @@
 #' \item \code{matrixStats::\link[matrixStats]{rowIQRs}()} and
 #'   \code{matrixStats::\link[matrixStats]{colIQRs}()} which are used when
 #'   the input is a \code{matrix} or \code{numeric} vector.
-#' \item For a non-robust analog, see \code{\link{rowSds}()}.
+#' \item For a non-robust analog, see \code{\link{rowSds}()}. For a more
+#'  robust version see [rowMads()]
+#' \item [stats::IQR]
 #' }
 #' 
 #' @template standardExamples

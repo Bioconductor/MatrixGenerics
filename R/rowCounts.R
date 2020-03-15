@@ -12,7 +12,8 @@
 #' @template dimParameter
 #' @template na_rmParameter
 #'
-#' @template returnVectorLgl
+#' @template returnVectorInt
+
 #'
 #' @seealso
 #' \itemize{

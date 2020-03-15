@@ -20,8 +20,8 @@
 #' \item \code{matrixStats::\link[matrixStats]{rowProds}()} and
 #'   \code{matrixStats::\link[matrixStats]{colProds}()} which are used when
 #'   the input is a \code{matrix} or \code{numeric} vector.
-#' \item For mean estimates, see \code{\link{rowMeans2}()} and
-#'   \code{\link[base:colSums]{rowMeans}()}.
+#' \item For sums across rows (columns), see \code{\link{rowSums2}()} ([colSums2()])
+#' \item [prod()]
 #' }
 #' 
 #' @template standardExamples

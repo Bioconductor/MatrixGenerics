@@ -69,6 +69,7 @@ The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
 \code{matrixStats::\link[matrixStats]{colCummaxs}()} which are used when
 the input is a \code{matrix} or \code{numeric} vector.
 \item For single maximum estimates, see \code{\link{rowMaxs}()}.
+\item \link{cummax}
 }
 }
 \keyword{array}
