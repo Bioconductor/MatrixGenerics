@@ -87,7 +87,7 @@ length two specifying the dimension of \code{x}, essential when x is a
 \code{\link[base]{numeric}} vector.}
 }
 \value{
-Returns a \code{\link[base]{logical}} \code{\link[base]{vector}} of
+Returns a \code{\link[base]{integer}} \code{\link[base]{vector}} of
 length N (K).
 }
 \description{

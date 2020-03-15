@@ -21,6 +21,7 @@
 #' \item \code{matrixStats::\link[matrixStats]{rowDiffs}()} and
 #'   \code{matrixStats::\link[matrixStats]{colDiffs}()} which are used when
 #'   the input is a \code{matrix} or \code{numeric} vector.
+#' \item [diff]
 #' }
 #' 
 #' @template standardExamples

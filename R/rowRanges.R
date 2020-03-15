@@ -21,6 +21,7 @@
 #'   the input is a \code{matrix} or \code{numeric} vector.
 #' \item For max estimates, see \code{\link{rowMaxs}()}.
 #' \item For min estimates, see \code{\link{rowMins}()}.
+#' \item [range]
 #' }
 #' 
 #' @template standardExamples

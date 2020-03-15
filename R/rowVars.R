@@ -22,6 +22,7 @@
 #' \item For mean estimates, see \code{\link{rowMeans2}()} and
 #'   \code{\link[base:colSums]{rowMeans}()}.
 #' \item For standard deviation estimates, see \code{\link{rowSds}()}.
+#' \item [var]
 #' }
 #' 
 #' @template standardExamples

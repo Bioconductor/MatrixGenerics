@@ -20,6 +20,7 @@
 #'   \code{matrixStats::\link[matrixStats]{colAnys}()} which are used when
 #'   the input is a \code{matrix} or \code{numeric} vector.
 #' \item For checks if any element is equal to a value, see \code{\link{rowAnys}()}.
+#' \item [any]
 #' }
 #' 
 #' @template standardExamples

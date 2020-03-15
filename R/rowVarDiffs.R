@@ -18,6 +18,7 @@
 #' \item \code{matrixStats::\link[matrixStats]{rowVarDiffs}()} and
 #'   \code{matrixStats::\link[matrixStats]{colVarDiffs}()} which are used when
 #'   the input is a \code{matrix} or \code{numeric} vector.
+#' \item for the direct variance see [rowVars()].
 #' }
 #' 
 #' @template standardExamples

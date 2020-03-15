@@ -73,6 +73,7 @@ The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
 the input is a \code{matrix} or \code{numeric} vector.
 \item For max estimates, see \code{\link{rowMaxs}()}.
 \item For min estimates, see \code{\link{rowMins}()}.
+\item \link{range}
 }
 }
 \keyword{array}

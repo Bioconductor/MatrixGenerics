@@ -88,6 +88,7 @@ The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
 \item \code{matrixStats::\link[matrixStats]{rowVarDiffs}()} and
 \code{matrixStats::\link[matrixStats]{colVarDiffs}()} which are used when
 the input is a \code{matrix} or \code{numeric} vector.
+\item for the direct variance see \code{\link[=rowVars]{rowVars()}}.
 }
 }
 \keyword{array}

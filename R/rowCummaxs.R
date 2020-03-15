@@ -18,6 +18,7 @@
 #'   \code{matrixStats::\link[matrixStats]{colCummaxs}()} which are used when
 #'   the input is a \code{matrix} or \code{numeric} vector.
 #' \item For single maximum estimates, see \code{\link{rowMaxs}()}.
+#' \item [cummax]
 #' }
 #' 
 #' @template standardExamples

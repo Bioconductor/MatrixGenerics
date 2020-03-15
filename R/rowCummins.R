@@ -18,6 +18,7 @@
 #'   \code{matrixStats::\link[matrixStats]{colCummins}()} which are used when
 #'   the input is a \code{matrix} or \code{numeric} vector.
 #' \item For single minimum estimates, see \code{\link{rowMins}()}.
+#' \item [cummin]
 #' }
 #' 
 #' @template standardExamples

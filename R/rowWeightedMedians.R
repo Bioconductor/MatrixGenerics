@@ -1,6 +1,6 @@
-#' Calculates the weighted medioan for each row (column) of a matrix-like object
+#' Calculates the weighted median for each row (column) of a matrix-like object
 #'
-#' Calculates the weighted medioan for each row (column) of a matrix-like object.
+#' Calculates the weighted median for each row (column) of a matrix-like object.
 #'
 #' 
 #' @templateVar rowName rowWeightedMedians

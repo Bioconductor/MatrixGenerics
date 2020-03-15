@@ -114,6 +114,7 @@ The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
 \item \code{matrixStats::\link[matrixStats]{rowDiffs}()} and
 \code{matrixStats::\link[matrixStats]{colDiffs}()} which are used when
 the input is a \code{matrix} or \code{numeric} vector.
+\item \link{diff}
 }
 }
 \keyword{array}

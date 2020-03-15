@@ -100,7 +100,8 @@ colAvgsPerRowSet(
 columns) to operate over. If \code{\link[base]{NULL}}, no subsetting is done.}
 
 \item{S}{An \link{integer} \code{KxJ} matrix that specifying the \code{J} subsets. Each colunn
-hold \code{K} column (row) indices for the corresponding subset.}
+hold \code{K} column (row) indices for the corresponding subset. The range of values
+is [1, M] ([1,N]).}
 
 \item{FUN}{A row-by-row (column-by-column) summary statistic function. It is
 applied to to each column (row) subset of \code{X} that is specified by \code{S}.}

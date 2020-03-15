@@ -1,6 +1,6 @@
-#' Calculates the mininum and maximum for each row (column) of a matrix-like object
+#' Calculates quantiles for each row (column) of a matrix-like object
 #'
-#' Calculates the mininum and maximum for each row (column) of a matrix-like object.
+#' Calculates quantiles for each row (column) of a matrix-like object.
 #' 
 #' @templateVar rowName rowQuantiles
 #' @templateVar colName colQuantiles
@@ -14,6 +14,8 @@
 #'   Note, that this is not a generic srgument and not all implementation of this function 
 #'   have to provide it.
 #' @param drop If `TRUE` a vector is returned if `J == 1`.
+#'   Note, that this is not a generic srgument and not all implementation of this function 
+#'   have to provide it.
 #' 
 #' @template returnMatrix_JDim
 #' 
