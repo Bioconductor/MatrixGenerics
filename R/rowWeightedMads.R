@@ -12,7 +12,7 @@
 #' @template weightParam
 #' @template na_rmParameter
 #' @param center (optional) the center, defaults to the row means
-#' @param constant A scale factor. See [base::mad] for details.
+#' @param constant A scale factor. See [stats::mad] for details.
 #' 
 #'
 #' @template returnVector

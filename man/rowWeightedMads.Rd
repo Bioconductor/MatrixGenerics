@@ -105,7 +105,7 @@ columns) to operate over. If \code{\link[base]{NULL}}, no subsetting is done.}
 \item{na.rm}{If \code{\link[base:logical]{TRUE}}, \code{\link[base]{NA}}s
 are excluded first, otherwise not.}
 
-\item{constant}{A scale factor. See \link[base:mad]{base::mad} for details.}
+\item{constant}{A scale factor. See \link[stats:mad]{stats::mad} for details.}
 
 \item{center}{(optional) the center, defaults to the row means}
 
