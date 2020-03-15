@@ -10,7 +10,7 @@
 #' @template standardParameters
 #' @template dimParameter
 #' @param idxs An index \code{\link[base]{vector}} with the position to extract.
-#'   It is recycled to match the number of rows (colum)
+#'   It is recycled to match the number of rows (column)
 #'
 #' @template returnVector
 #'

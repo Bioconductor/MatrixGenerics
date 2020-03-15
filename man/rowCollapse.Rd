@@ -31,7 +31,7 @@ colCollapse(x, idxs = idxs, rows = NULL, cols = NULL, ...)
 \item{x}{An NxK matrix-like object.}
 
 \item{idxs}{An index \code{\link[base]{vector}} with the position to extract.
-It is recycled to match the number of rows (colum)}
+It is recycled to match the number of rows (column)}
 
 \item{rows, cols}{A \code{\link[base]{vector}} indicating the subset (and/or
 columns) to operate over. If \code{\link[base]{NULL}}, no subsetting is done.}

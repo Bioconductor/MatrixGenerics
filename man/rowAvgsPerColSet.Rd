@@ -99,7 +99,7 @@ colAvgsPerRowSet(
 \item{rows, cols}{A \code{\link[base]{vector}} indicating the subset (and/or
 columns) to operate over. If \code{\link[base]{NULL}}, no subsetting is done.}
 
-\item{S}{An \link{integer} \code{KxJ} matrix that specifying the \code{J} subsets. Each colunn
+\item{S}{An \link{integer} \code{KxJ} matrix that specifying the \code{J} subsets. Each column
 hold \code{K} column (row) indices for the corresponding subset. The range of values
 is [1, M] ([1,N]).}
 

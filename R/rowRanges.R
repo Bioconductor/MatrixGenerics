@@ -1,6 +1,6 @@
-#' Calculates the mininum and maximum for each row (column) of a matrix-like object
+#' Calculates the minimum and maximum for each row (column) of a matrix-like object
 #'
-#' Calculates the mininum and maximum for each row (column) of a matrix-like object.
+#' Calculates the minimum and maximum for each row (column) of a matrix-like object.
 #' 
 #' @templateVar rowName rowRanges
 #' @templateVar colName colRanges

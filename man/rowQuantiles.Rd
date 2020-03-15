@@ -95,7 +95,7 @@ colQuantiles(
 \item{rows, cols}{A \code{\link[base]{vector}} indicating the subset (and/or
 columns) to operate over. If \code{\link[base]{NULL}}, no subsetting is done.}
 
-\item{probs}{A numeric vector of J probilities in [0, 1].}
+\item{probs}{A numeric vector of J probabilities in [0, 1].}
 
 \item{na.rm}{If \code{\link[base:logical]{TRUE}}, \code{\link[base]{NA}}s
 are excluded first, otherwise not.}
@@ -103,7 +103,7 @@ are excluded first, otherwise not.}
 \item{...}{Additional arguments passed to specific methods.}
 
 \item{type}{An integer specifying the type of estimator. See \link[stats:quantile]{stats::quantile} for more details.
-Note, that this is not a generic srgument and not all implementation of this function
+Note, that this is not a generic argument and not all implementation of this function
 have to provide it.}
 
 \item{drop}{If \code{TRUE} a vector is returned if \code{J == 1}.

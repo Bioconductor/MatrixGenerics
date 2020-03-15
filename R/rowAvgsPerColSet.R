@@ -11,7 +11,7 @@
 #' @param W An optional numeric `NxM` matrix of weights.
 #' @param rows,cols A \code{\link[base]{vector}} indicating the subset (and/or 
 #'   columns) to operate over. If \code{\link[base]{NULL}}, no subsetting is done.
-#' @param S An [integer] `KxJ` matrix that specifying the `J` subsets. Each colunn
+#' @param S An [integer] `KxJ` matrix that specifying the `J` subsets. Each column
 #'   hold `K` column (row) indices for the corresponding subset. The range of values
 #'   is \[1, M\] (\[1,N\]).
 #' @param FUN A row-by-row (column-by-column) summary statistic function. It is 

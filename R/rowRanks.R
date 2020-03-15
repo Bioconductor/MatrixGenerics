@@ -12,11 +12,11 @@
 #'   fewer options than the original matrixStats package.
 #' @template dimParameter
 #' @param preserveShape If `TRUE` the output matrix has the same shape as the input x.
-#'   Note, that this is not a generic srgument and not all implementation of this function have to
+#'   Note, that this is not a generic argument and not all implementation of this function have to
 #'   provide it.
 #' 
-#' @return a matrix of type \code{\link[base]{integer}} is returned unlesss `ties.method = "average"`. It
-#'  has dimesions` \code{NxJ} (\code{KxJ}) \code{\link{matrix}}, where
+#' @return a matrix of type \code{\link[base]{integer}} is returned unless `ties.method = "average"`. It
+#'  has dimensions` \code{NxJ} (\code{KxJ}) \code{\link{matrix}}, where
 #'  N (K) is the number of rows (columns) of the input x.
 #'  
 #' @details 

@@ -9,7 +9,7 @@
 \alias{colRanges,matrix-method}
 \alias{colRanges,numeric-method}
 \alias{colRanges,array-method}
-\title{Calculates the mininum and maximum for each row (column) of a matrix-like object}
+\title{Calculates the minimum and maximum for each row (column) of a matrix-like object}
 \usage{
 rowRanges(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
@@ -49,7 +49,7 @@ a \code{\link[base]{numeric}} \code{Nx2} (\code{Kx2}) \code{\link{matrix}}, wher
 N (K) is the number of rows (columns) for which the ranges are calculated.
 }
 \description{
-Calculates the mininum and maximum for each row (column) of a matrix-like object.
+Calculates the minimum and maximum for each row (column) of a matrix-like object.
 }
 \details{
 The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
