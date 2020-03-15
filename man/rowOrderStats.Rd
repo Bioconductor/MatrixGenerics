@@ -54,16 +54,16 @@ The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
 / \code{matrixStats::\link[matrixStats]{colOrderStats}}.
 }
 \examples{
-  mat <- matrix(rnorm(15), nrow = 5, ncol = 3)
-  mat[2, 1] <- NA
-  mat[3, 3] <- Inf
-  mat[4, 1] <- 0
-  
-  print(mat)
-  
-  rowOrderStats(mat)
-  colOrderStats(mat)
-  
+    mat <- matrix(rnorm(15), nrow = 5, ncol = 3)
+    mat[2, 1] <- 2
+    mat[3, 3] <- Inf
+    mat[4, 1] <- 0
+    
+    print(mat)
+    
+    rowOrderStats(mat, which = 1)
+    colOrderStats(mat, which = 3)
+
 }
 \seealso{
 \itemize{
