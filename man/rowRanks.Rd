@@ -79,7 +79,9 @@ fewer options than the original matrixStats package.}
 
 \item{dim.}{An \code{\link[base]{integer}} \code{\link[base]{vector}} of
 length two specifying the dimension of \code{x}, essential when x is a
-\code{\link[base]{numeric}} vector.}
+\code{\link[base]{numeric}} vector.
+Note, that this is not a generic argument and not all implementation of this function
+have to provide it.}
 
 \item{preserveShape}{If \code{TRUE} the output matrix has the same shape as the input x.
 Note, that this is not a generic srgument and not all implementation of this function have to

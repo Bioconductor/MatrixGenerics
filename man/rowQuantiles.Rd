@@ -107,7 +107,7 @@ Note, that this is not a generic srgument and not all implementation of this fun
 have to provide it.}
 
 \item{drop}{If \code{TRUE} a vector is returned if \code{J == 1}.
-Note, that this is not a generic srgument and not all implementation of this function
+Note, that this is not a generic argument and not all implementation of this function
 have to provide it.}
 }
 \value{

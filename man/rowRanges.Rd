@@ -40,7 +40,9 @@ are excluded first, otherwise not.}
 
 \item{dim.}{An \code{\link[base]{integer}} \code{\link[base]{vector}} of
 length two specifying the dimension of \code{x}, essential when x is a
-\code{\link[base]{numeric}} vector.}
+\code{\link[base]{numeric}} vector.
+Note, that this is not a generic argument and not all implementation of this function
+have to provide it.}
 }
 \value{
 a \code{\link[base]{numeric}} \code{Nx2} (\code{Kx2}) \code{\link{matrix}}, where
