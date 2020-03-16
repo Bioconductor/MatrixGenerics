@@ -11,21 +11,21 @@
 \alias{colCollapse,array-method}
 \title{Extract one cell from each row (column) of a matrix-like object}
 \usage{
-rowCollapse(x, idxs, rows = NULL, cols = NULL, ...)
+rowCollapse(x, idxs, rows = NULL, ...)
 
-\S4method{rowCollapse}{matrix}(x, idxs, rows = NULL, cols = NULL, dim. = dim(x))
+\S4method{rowCollapse}{matrix}(x, idxs, rows = NULL, dim. = dim(x))
 
-\S4method{rowCollapse}{numeric}(x, idxs, rows = NULL, cols = NULL, dim. = dim(x))
+\S4method{rowCollapse}{numeric}(x, idxs, rows = NULL, dim. = dim(x))
 
-\S4method{rowCollapse}{array}(x, idxs, rows = NULL, cols = NULL, dim. = dim(x))
+\S4method{rowCollapse}{array}(x, idxs, rows = NULL, dim. = dim(x))
 
-colCollapse(x, idxs = idxs, rows = NULL, cols = NULL, ...)
+colCollapse(x, idxs = idxs, cols = NULL, ...)
 
-\S4method{colCollapse}{matrix}(x, idxs, rows = NULL, cols = NULL, dim. = dim(x))
+\S4method{colCollapse}{matrix}(x, idxs, cols = NULL, dim. = dim(x))
 
-\S4method{colCollapse}{numeric}(x, idxs, rows = NULL, cols = NULL, dim. = dim(x))
+\S4method{colCollapse}{numeric}(x, idxs, cols = NULL, dim. = dim(x))
 
-\S4method{colCollapse}{array}(x, idxs, rows = NULL, cols = NULL, dim. = dim(x))
+\S4method{colCollapse}{array}(x, idxs, cols = NULL, dim. = dim(x))
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
