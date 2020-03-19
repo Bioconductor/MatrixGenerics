@@ -1,2 +1,2 @@
 #' @md
-#' @param value the value to search for.
+#' @param value The value to search for.

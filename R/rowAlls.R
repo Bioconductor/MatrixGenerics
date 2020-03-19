@@ -1,6 +1,8 @@
-#' Check if all elements in a row (column) of a matrix-like object are equal to a value
+#' Check if all elements in a row (column) of a matrix-like object are equal to 
+#' a value
 #'
-#' Check if all elements in a row (column) of a matrix-like object are equal to a value
+#' Check if all elements in a row (column) of a matrix-like object are equal to 
+#' a value.
 #' 
 #' @templateVar rowName rowAlls
 #' @templateVar colName colAlls
@@ -18,9 +20,11 @@
 #' \itemize{
 #' \item \code{matrixStats::\link[matrixStats]{rowAlls}()} and
 #'   \code{matrixStats::\link[matrixStats]{colAlls}()} which are used when
-#'   the input is a \code{matrix} or \code{numeric} vector.
-#' \item For checks if any element is equal to a value, see \code{\link{rowAnys}()}.
-#' \item [base::all]
+#'   the input is a \code{\link[base]{matrix}}, \code{\link[base]{array}}, or 
+#'   \code{\link[base]{numeric}} vector.
+#' \item For checks if \emph{any} element is equal to a value, see 
+#'   \code{\link{rowAnys}()}.
+#' \item \code{base::\link[base]{all}()}
 #' }
 #' 
 #' @template standardExamples
