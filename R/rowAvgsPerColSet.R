@@ -74,7 +74,7 @@ setGeneric("colAvgsPerRowSet", function(X, W = NULL, cols = NULL, S, FUN = rowMe
            signature = "X"
 )
 
-.default_colAvgsPerRowSet <- function(X, W = NULL, cols = NULL, S, FUN = rowMeans,  ..., tFUN = FALSE){
+.default_colAvgsPerRowSet <- function(X, W = NULL, cols = NULL, S, FUN = colMeans,  ..., tFUN = FALSE){
   matrixStats::colAvgsPerRowSet(X = X, W = W, cols = cols, S = S, FUN = FUN, ..., tFUN = tFUN)
 }
 

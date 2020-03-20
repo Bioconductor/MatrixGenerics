@@ -66,7 +66,7 @@ colAvgsPerRowSet(
   W = NULL,
   cols = NULL,
   S,
-  FUN = rowMeans,
+  FUN = colMeans,
   ...,
   tFUN = FALSE
 )
@@ -76,7 +76,7 @@ colAvgsPerRowSet(
   W = NULL,
   cols = NULL,
   S,
-  FUN = rowMeans,
+  FUN = colMeans,
   ...,
   tFUN = FALSE
 )
@@ -86,7 +86,7 @@ colAvgsPerRowSet(
   W = NULL,
   cols = NULL,
   S,
-  FUN = rowMeans,
+  FUN = colMeans,
   ...,
   tFUN = FALSE
 )
