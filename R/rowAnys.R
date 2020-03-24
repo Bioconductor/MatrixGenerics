@@ -1,6 +1,6 @@
 #' Check if any elements in a row (column) of a matrix-like object is equal to a value
 #'
-#' Check if any elements in a row (column) of a matrix-like object is equal to a value
+#' Check if any elements in a row (column) of a matrix-like object is equal to a value.
 #' 
 #' @templateVar rowName rowAnys
 #' @templateVar colName colAnys
@@ -28,11 +28,11 @@
 #'
 #' @name rowAnys
 #' @export
-setGeneric("rowAnys", function(x, rows = NULL, cols = NULL, value = TRUE, na.rm=FALSE, ...) standardGeneric("rowAnys"),
+setGeneric("rowAnys", function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...) standardGeneric("rowAnys"),
            signature = "x"
 )
 
-.default_rowAnys <- function(x, rows = NULL, cols = NULL, value = TRUE, na.rm=FALSE, dim. = dim(x)){
+.default_rowAnys <- function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x)){
   matrixStats::rowAnys(x, rows = rows, cols = cols, value = value, na.rm=na.rm, dim. = dim.)
 }
 
@@ -51,12 +51,12 @@ setMethod("rowAnys", signature = "array", .default_rowAnys)
 #' @rdname rowAnys
 #' @name colAnys
 #' @export
-setGeneric("colAnys", function(x, rows = NULL, cols = NULL, value = TRUE, na.rm=FALSE, ...) standardGeneric("colAnys"),
+setGeneric("colAnys", function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...) standardGeneric("colAnys"),
            signature = "x"
 )
 
-.default_colAnys <- function(x, rows = NULL, cols = NULL, value = TRUE, na.rm=FALSE, dim. = dim(x)){
-  matrixStats::colAnys(x, rows = rows, cols = cols, value = value, na.rm=na.rm, dim. = dim.)
+.default_colAnys <- function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x)){
+  matrixStats::colAnys(x, rows = rows, cols = cols, value = value, na.rm = na.rm, dim. = dim.)
 }
 
 #' @rdname rowAnys
