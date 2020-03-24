@@ -32,12 +32,12 @@
 #'
 #' @name rowAlls
 #' @export
-setGeneric("rowAlls", function(x, rows = NULL, cols = NULL, value = TRUE, na.rm=FALSE, ...) standardGeneric("rowAlls"),
+setGeneric("rowAlls", function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...) standardGeneric("rowAlls"),
            signature = "x"
 )
 
-.default_rowAlls <- function(x, rows = NULL, cols = NULL, value = TRUE, na.rm=FALSE, dim. = dim(x)){
-  matrixStats::rowAlls(x, rows = rows, cols = cols, value = value, na.rm=na.rm, dim. = dim.)
+.default_rowAlls <- function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x)){
+  matrixStats::rowAlls(x, rows = rows, cols = cols, value = value, na.rm = na.rm, dim. = dim.)
 }
 
 #' @rdname rowAlls
@@ -55,12 +55,12 @@ setMethod("rowAlls", signature = "array", .default_rowAlls)
 #' @rdname rowAlls
 #' @name colAlls
 #' @export
-setGeneric("colAlls", function(x, rows = NULL, cols = NULL, value = TRUE, na.rm=FALSE, ...) standardGeneric("colAlls"),
+setGeneric("colAlls", function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...) standardGeneric("colAlls"),
            signature = "x"
 )
 
-.default_colAlls <- function(x, rows = NULL, cols = NULL, value = TRUE, na.rm=FALSE, dim. = dim(x)){
-  matrixStats::colAlls(x, rows = rows, cols = cols, value = value, na.rm=na.rm, dim. = dim.)
+.default_colAlls <- function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x)){
+  matrixStats::colAlls(x, rows = rows, cols = cols, value = value, na.rm = na.rm, dim. = dim.)
 }
 
 #' @rdname rowAlls
