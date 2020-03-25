@@ -1,6 +1,6 @@
 #' Extract one cell from each row (column) of a matrix-like object
 #'
-#' Extract one cell from each row (column) of a matrix-like object
+#' Extract one cell from each row (column) of a matrix-like object.
 #' 
 #' @templateVar rowName rowCollapse
 #' @templateVar colName colCollapse

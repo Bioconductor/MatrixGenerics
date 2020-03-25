@@ -24,7 +24,7 @@
 #'   \code{\link[base]{numeric}} vector.
 #' \item For checks if \emph{any} element is equal to a value, see 
 #'   \code{\link{rowAnys}()}.
-#' \item \code{base::\link[base]{all}()}
+#' \item \code{base::\link[base]{all}()}.
 #' }
 #' 
 #' @template standardExamples

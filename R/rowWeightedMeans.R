@@ -18,8 +18,8 @@
 #' @seealso
 #' \itemize{
 #' \item \code{matrixStats::\link[matrixStats]{rowWeightedMeans}()} and
-#'   \code{matrixStats::\link[matrixStats]{colWeightedMeans}()} which are used when
-#'   the input is a \code{matrix} or \code{numeric} vector.
+#'   \code{matrixStats::\link[matrixStats]{colWeightedMeans}()} which are used
+#'   when the input is a \code{matrix} or \code{numeric} vector.
 #' \item See also [rowMeans2] for the corresponding unweighted function.
 #' }
 #' 
@@ -30,12 +30,12 @@
 #'
 #' @name rowWeightedMeans
 #' @export
-setGeneric("rowWeightedMeans", function(x, w = NULL, rows = NULL, cols = NULL, na.rm=FALSE, ...) standardGeneric("rowWeightedMeans"),
+setGeneric("rowWeightedMeans", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("rowWeightedMeans"),
            signature = "x"
 )
 
-.default_rowWeightedMeans <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm=FALSE){
-  matrixStats::rowWeightedMeans(x, w = w, rows = rows, cols = cols, na.rm=na.rm)
+.default_rowWeightedMeans <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE){
+  matrixStats::rowWeightedMeans(x, w = w, rows = rows, cols = cols, na.rm = na.rm)
 }
 
 #' @rdname rowWeightedMeans
@@ -53,12 +53,12 @@ setMethod("rowWeightedMeans", signature = "array", .default_rowWeightedMeans)
 #' @rdname rowWeightedMeans
 #' @name colWeightedMeans
 #' @export
-setGeneric("colWeightedMeans", function(x, w = NULL, rows = NULL, cols = NULL, na.rm=FALSE, ...) standardGeneric("colWeightedMeans"),
+setGeneric("colWeightedMeans", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("colWeightedMeans"),
            signature = "x"
 )
 
-.default_colWeightedMeans <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm=FALSE){
-  matrixStats::colWeightedMeans(x, w = w, rows = rows, cols = cols, na.rm=na.rm)
+.default_colWeightedMeans <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE){
+  matrixStats::colWeightedMeans(x, w = w, rows = rows, cols = cols, na.rm = na.rm)
 }
 
 #' @rdname rowWeightedMeans

@@ -1,6 +1,8 @@
-#' Calculates the standard deviation for each row (column) of a matrix-like object
+#' Calculates the standard deviation for each row (column) of a matrix-like
+#' object
 #'
-#' Calculates the standard deviation for each row (column) of a matrix-like object.
+#' Calculates the standard deviation for each row (column) of a matrix-like
+#' object.
 #' 
 #' @templateVar rowName rowSds
 #' @templateVar colName colSds
@@ -34,8 +36,8 @@ setGeneric("rowSds", function(x, rows = NULL, cols = NULL, na.rm=FALSE, center =
            signature = "x"
 )
 
-.default_rowSds <- function(x, rows = NULL, cols = NULL, na.rm=FALSE, center = NULL, dim. = dim(x)){
-  matrixStats::rowSds(x, rows = rows, cols = cols, na.rm=na.rm, center = center, dim. = dim.)
+.default_rowSds <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, dim. = dim(x)){
+  matrixStats::rowSds(x, rows = rows, cols = cols, na.rm = na.rm, center = center, dim. = dim.)
 }
 
 #' @rdname rowSds
@@ -53,12 +55,12 @@ setMethod("rowSds", signature = "array", .default_rowSds)
 #' @rdname rowSds
 #' @name colSds
 #' @export
-setGeneric("colSds", function(x, rows = NULL, cols = NULL, na.rm=FALSE, center = NULL, ...) standardGeneric("colSds"),
+setGeneric("colSds", function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, ...) standardGeneric("colSds"),
            signature = "x"
 )
 
-.default_colSds <- function(x, rows = NULL, cols = NULL, na.rm=FALSE, center = NULL, dim. = dim(x)){
-  matrixStats::colSds(x, rows = rows, cols = cols, na.rm=na.rm, center = center, dim. = dim.)
+.default_colSds <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, dim. = dim(x)){
+  matrixStats::colSds(x, rows = rows, cols = cols, na.rm = na.rm, center = center, dim. = dim.)
 }
 
 #' @rdname rowSds

@@ -1,6 +1,8 @@
-#' Calculates the rank of the elements for each row (column) of a matrix-like object
+#' Calculates the rank of the elements for each row (column) of a matrix-like
+#' object
 #'
-#' Calculates the rank of the elements for each row (column) of a matrix-like object
+#' Calculates the rank of the elements for each row (column) of a matrix-like
+#' object.
 #' 
 #' @templateVar rowName rowRanks
 #' @templateVar colName colRanks
@@ -8,25 +10,30 @@
 #' @template matrixStatsLink
 #' 
 #' @template standardParameters
-#' @param ties.method A character string specifying how ties are treated. Note that the default specifies 
-#'   fewer options than the original matrixStats package.
+#' @param ties.method A character string specifying how ties are treated. Note
+#'   that the default specifies fewer options than the original matrixStats
+#'   package.
 #' @template dimParameter
-#' @param preserveShape If `TRUE` the output matrix has the same shape as the input x.
-#'   Note, that this is not a generic argument and not all implementation of this function have to
-#'   provide it.
+#' @param preserveShape If `TRUE` the output matrix has the same shape as the
+#'   input x. Note, that this is not a generic argument and not all 
+#'   implementation of this function have to provide it.
 #' 
-#' @return a matrix of type \code{\link[base]{integer}} is returned unless `ties.method = "average"`. It
-#'  has dimensions` \code{NxJ} (\code{KxJ}) \code{\link{matrix}}, where
-#'  N (K) is the number of rows (columns) of the input x.
+#' @return a matrix of type \code{\link[base]{integer}} is returned unless 
+#'   `ties.method = "average"`. Ithas dimensions` \code{NxJ} (\code{KxJ}) 
+#'   \code{\link{matrix}}, where N (K) is the number of rows (columns) of the
+#'   input x.
 #'  
 #' @details 
-#'    The `matrixStats::rowRanks()` function can handle a lot of different values for the `ties.method`
-#'    argument. Users of the generic function should however only rely on those two because the other
-#'    ones are not guaranteed to be implemented:
+#'    The `matrixStats::rowRanks()` function can handle a lot of different 
+#'    values for the `ties.method` argument. Users of the generic function
+#'    should however only rely on `max` and `average` because the other ones
+#'    are not guaranteed to be implemented:
 #'    \describe{
-#'      \item{`max`}{for values with identical values the maximum rank is returned}
-#'      \item{`average`}{for values with identical values the average of the ranks they cover
-#'      is returned. Note, that in this case the return value is of type `numeric`.}
+#'      \item{`max`}{for values with identical values the maximum rank is 
+#'        returned}
+#'      \item{`average`}{for values with identical values the average of the
+#'        ranks they cover is returned. Note, that in this case the return
+#'        value is of type `numeric`.}
 #'    }
 #'
 #' @seealso

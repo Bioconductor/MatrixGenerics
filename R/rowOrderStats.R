@@ -1,6 +1,6 @@
 #' Calculates an order statistic for each row (column) of a matrix-like object
 #'
-#' Calculates an order statistic for each row (column) of a matrix-like object
+#' Calculates an order statistic for each row (column) of a matrix-like object.
 #' 
 #' @templateVar rowName rowOrderStats
 #' @templateVar colName colOrderStats
@@ -8,7 +8,8 @@
 #' @template matrixStatsLink
 #' 
 #' @template standardParameters
-#' @param which An integer index in \[1,K\] (\[1,N\]) indicating which order statistic to be returned
+#' @param which An integer index in \[1,K\] (\[1,N\]) indicating which order
+#'   statistic to be returned
 #' @template dimParameter
 #'
 #' @template returnVector

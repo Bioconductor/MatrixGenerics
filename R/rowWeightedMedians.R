@@ -18,8 +18,8 @@
 #' @seealso
 #' \itemize{
 #' \item \code{matrixStats::\link[matrixStats]{rowWeightedMedians}()} and
-#'   \code{matrixStats::\link[matrixStats]{colWeightedMedians}()} which are used when
-#'   the input is a \code{matrix} or \code{numeric} vector.
+#'   \code{matrixStats::\link[matrixStats]{colWeightedMedians}()} which are
+#'   used when the input is a \code{matrix} or \code{numeric} vector.
 #' \item See also [rowMedians] for the corresponding unweighted function.
 #' }
 #' 
@@ -30,12 +30,12 @@
 #'
 #' @name rowWeightedMedians
 #' @export
-setGeneric("rowWeightedMedians", function(x, w = NULL, rows = NULL, cols = NULL, na.rm=FALSE, ...) standardGeneric("rowWeightedMedians"),
+setGeneric("rowWeightedMedians", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("rowWeightedMedians"),
            signature = "x"
 )
 
-.default_rowWeightedMedians <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm=FALSE){
-  matrixStats::rowWeightedMedians(x, w = w, rows = rows, cols = cols, na.rm=na.rm)
+.default_rowWeightedMedians <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE){
+  matrixStats::rowWeightedMedians(x, w = w, rows = rows, cols = cols, na.rm = na.rm)
 }
 
 #' @rdname rowWeightedMedians
@@ -53,12 +53,12 @@ setMethod("rowWeightedMedians", signature = "array", .default_rowWeightedMedians
 #' @rdname rowWeightedMedians
 #' @name colWeightedMedians
 #' @export
-setGeneric("colWeightedMedians", function(x, w = NULL, rows = NULL, cols = NULL, na.rm=FALSE, ...) standardGeneric("colWeightedMedians"),
+setGeneric("colWeightedMedians", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("colWeightedMedians"),
            signature = "x"
 )
 
-.default_colWeightedMedians <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm=FALSE){
-  matrixStats::colWeightedMedians(x, w = w, rows = rows, cols = cols, na.rm=na.rm)
+.default_colWeightedMedians <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE){
+  matrixStats::colWeightedMedians(x, w = w, rows = rows, cols = cols, na.rm = na.rm)
 }
 
 #' @rdname rowWeightedMedians

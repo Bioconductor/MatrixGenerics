@@ -1,6 +1,8 @@
-#' Calculates the mean absolute deviation of the difference between each element of a row (column) of a matrix-like object
+#' Calculates the mean absolute deviation of the difference between each
+#' element of a row (column) of a matrix-like object
 #'
-#' Calculates the mean absolute deviation of the difference between each element of a row (column) of a matrix-like object
+#' Calculates the mean absolute deviation of the difference between each
+#' element of a row (column) of a matrix-like object.
 #' 
 #' @templateVar rowName rowMadDiffs
 #' @templateVar colName colMadDiffs

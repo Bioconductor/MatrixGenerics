@@ -1,6 +1,6 @@
 #' Tabulates the values in a matrix-like object by row (column)
 #'
-#' Tabulates the values in a matrix-like object by row (column)
+#' Tabulates the values in a matrix-like object by row (column).
 #' 
 #' @templateVar rowName rowTabulates
 #' @templateVar colName colTabulates

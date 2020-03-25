@@ -1,6 +1,8 @@
-#' Calculates the minimum and maximum for each row (column) of a matrix-like object
+#' Calculates the minimum and maximum for each row (column) of a matrix-like
+#' object
 #'
-#' Calculates the minimum and maximum for each row (column) of a matrix-like object.
+#' Calculates the minimum and maximum for each row (column) of a matrix-like
+#' object.
 #' 
 #' @templateVar rowName rowRanges
 #' @templateVar colName colRanges
@@ -11,8 +13,9 @@
 #' @template na_rmParameter
 #' @template dimParameter
 #' 
-#' @return a \code{\link[base]{numeric}} \code{Nx2} (\code{Kx2}) \code{\link{matrix}}, where
-#'   N (K) is the number of rows (columns) for which the ranges are calculated. 
+#' @return a \code{\link[base]{numeric}} \code{Nx2} (\code{Kx2}) 
+#'   \code{\link{matrix}}, where N (K) is the number of rows (columns) for
+#'   which the ranges are calculated. 
 #'
 #' @seealso
 #' \itemize{
@@ -21,7 +24,7 @@
 #'   the input is a \code{matrix} or \code{numeric} vector.
 #' \item For max estimates, see \code{\link{rowMaxs}()}.
 #' \item For min estimates, see \code{\link{rowMins}()}.
-#' \item [range]
+#' \item \code{base::\link[base]{range}()}.
 #' }
 #' 
 #' @template standardExamples
@@ -30,12 +33,12 @@
 #'
 #' @name rowRanges
 #' @export
-setGeneric("rowRanges", function(x, rows = NULL, cols = NULL, na.rm=FALSE, ...) standardGeneric("rowRanges"),
+setGeneric("rowRanges", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("rowRanges"),
            signature = "x"
 )
 
-.default_rowRanges <- function(x, rows = NULL, cols = NULL, na.rm=FALSE, dim. = dim(x)){
-  matrixStats::rowRanges(x, rows = rows, cols = cols, na.rm=na.rm, dim. = dim.)
+.default_rowRanges <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x)){
+  matrixStats::rowRanges(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim.)
 }
 
 #' @rdname rowRanges
@@ -53,12 +56,12 @@ setMethod("rowRanges", signature = "array", .default_rowRanges)
 #' @rdname rowRanges
 #' @name colRanges
 #' @export
-setGeneric("colRanges", function(x, rows = NULL, cols = NULL, na.rm=FALSE, ...) standardGeneric("colRanges"),
+setGeneric("colRanges", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("colRanges"),
            signature = "x"
 )
 
-.default_colRanges <- function(x, rows = NULL, cols = NULL, na.rm=FALSE, dim. = dim(x)){
-  matrixStats::colRanges(x, rows = rows, cols = cols, na.rm=na.rm, dim. = dim.)
+.default_colRanges <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x)){
+  matrixStats::colRanges(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim.)
 }
 
 #' @rdname rowRanges

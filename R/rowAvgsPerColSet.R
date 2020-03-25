@@ -1,6 +1,8 @@
-#' Calculates for each row (column) a summary statistic for equally sized subsets of columns (rows)
+#' Calculates for each row (column) a summary statistic for equally sized
+#' subsets of columns (rows)
 #' 
-#' Calculates for each row (column) a summary statistic for equally sized subsets of columns (rows)
+#' Calculates for each row (column) a summary statistic for equally sized
+#' subsets of columns (rows).
 #' 
 #' @templateVar rowName rowAvgsPerColSet
 #' @templateVar colName colAvgsPerRowSet
@@ -10,10 +12,11 @@
 #' @param X An `NxM` matrix-like object.
 #' @param W An optional numeric `NxM` matrix of weights.
 #' @param rows,cols A \code{\link[base]{vector}} indicating the subset (and/or 
-#'   columns) to operate over. If \code{\link[base]{NULL}}, no subsetting is done.
-#' @param S An [integer] `KxJ` matrix that specifying the `J` subsets. Each column
-#'   hold `K` column (row) indices for the corresponding subset. The range of values
-#'   is \[1, M\] (\[1,N\]).
+#'   columns) to operate over. If \code{\link[base]{NULL}}, no subsetting is
+#'   done.
+#' @param S An [integer] `KxJ` matrix that specifying the `J` subsets. Each 
+#'   column hold `K` column (row) indices for the corresponding subset. The 
+#'   range of values is \[1, M\] (\[1,N\]).
 #' @param FUN A row-by-row (column-by-column) summary statistic function. It is 
 #'   applied to to each column (row) subset of `X` that is specified by `S`.
 #' @param ... Additional arguments passed to `FUN`.
@@ -25,8 +28,8 @@
 #' @seealso
 #' \itemize{
 #' \item \code{matrixStats::\link[matrixStats]{rowAvgsPerColSet}()} and
-#'   \code{matrixStats::\link[matrixStats]{colAvgsPerRowSet}()} which are used when
-#'   the input is a \code{matrix} or \code{numeric} vector.
+#'   \code{matrixStats::\link[matrixStats]{colAvgsPerRowSet}()} which are used
+#'   when the input is a \code{matrix} or \code{numeric} vector.
 #' }
 #' 
 #' @examples 

@@ -22,7 +22,7 @@
 #' \item See also \code{\link[base:colSums]{rowMeans}()} for the
 #'   corresponding function in base R.
 #' \item For variance estimates, see \code{\link{rowVars}()}.
-#' \item See also the base R version [rowMeans].
+#' \item See also the base R version \code{base::\link[base]{rowMeans}()}.
 #' }
 #' 
 #' @template standardExamples
@@ -32,12 +32,12 @@
 #'
 #' @name rowMeans2
 #' @export
-setGeneric("rowMeans2", function(x, rows = NULL, cols = NULL, na.rm=FALSE, ...) standardGeneric("rowMeans2"),
+setGeneric("rowMeans2", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("rowMeans2"),
            signature = "x"
 )
 
-.default_rowMeans2 <- function(x, rows = NULL, cols = NULL, na.rm=FALSE, dim. = dim(x)){
-  matrixStats::rowMeans2(x, rows = rows, cols = cols, na.rm=na.rm, dim. = dim.)
+.default_rowMeans2 <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x)){
+  matrixStats::rowMeans2(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim.)
 }
 
 #' @rdname rowMeans2
@@ -55,12 +55,12 @@ setMethod("rowMeans2", signature = "array", .default_rowMeans2)
 #' @rdname rowMeans2
 #' @name colMeans2
 #' @export
-setGeneric("colMeans2", function(x, rows = NULL, cols = NULL, na.rm=FALSE, ...) standardGeneric("colMeans2"),
+setGeneric("colMeans2", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("colMeans2"),
            signature = "x"
 )
 
-.default_colMeans2 <- function(x, rows = NULL, cols = NULL, na.rm=FALSE, dim. = dim(x)){
-  matrixStats::colMeans2(x, rows = rows, cols = cols, na.rm=na.rm, dim. = dim.)
+.default_colMeans2 <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x)){
+  matrixStats::colMeans2(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim.)
 }
 
 #' @rdname rowMeans2

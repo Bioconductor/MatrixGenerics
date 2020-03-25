@@ -1,6 +1,8 @@
-#' Calculates the weighted variance for each row (column) of a matrix-like object
+#' Calculates the weighted variance for each row (column) of a matrix-like
+#' object
 #'
-#' Calculates the weighted variance for each row (column) of a matrix-like object.
+#' Calculates the weighted variance for each row (column) of a matrix-like
+#' object.
 #'
 #' 
 #' @templateVar rowName rowWeightedVars
@@ -18,8 +20,8 @@
 #' @seealso
 #' \itemize{
 #' \item \code{matrixStats::\link[matrixStats]{rowWeightedVars}()} and
-#'   \code{matrixStats::\link[matrixStats]{colWeightedVars}()} which are used when
-#'   the input is a \code{matrix} or \code{numeric} vector.
+#'   \code{matrixStats::\link[matrixStats]{colWeightedVars}()} which are used
+#'   when the input is a \code{matrix} or \code{numeric} vector.
 #' \item See also [rowVars] for the corresponding unweighted function.
 #' }
 #' 
@@ -30,12 +32,12 @@
 #'
 #' @name rowWeightedVars
 #' @export
-setGeneric("rowWeightedVars", function(x, w = NULL, rows = NULL, cols = NULL, na.rm=FALSE, ...) standardGeneric("rowWeightedVars"),
+setGeneric("rowWeightedVars", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("rowWeightedVars"),
            signature = "x"
 )
 
-.default_rowWeightedVars <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm=FALSE){
-  matrixStats::rowWeightedVars(x, w = w, rows = rows, cols = cols, na.rm=na.rm)
+.default_rowWeightedVars <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE){
+  matrixStats::rowWeightedVars(x, w = w, rows = rows, cols = cols, na.rm = na.rm)
 }
 
 #' @rdname rowWeightedVars
@@ -53,12 +55,12 @@ setMethod("rowWeightedVars", signature = "array", .default_rowWeightedVars)
 #' @rdname rowWeightedVars
 #' @name colWeightedVars
 #' @export
-setGeneric("colWeightedVars", function(x, w = NULL, rows = NULL, cols = NULL, na.rm=FALSE, ...) standardGeneric("colWeightedVars"),
+setGeneric("colWeightedVars", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("colWeightedVars"),
            signature = "x"
 )
 
-.default_colWeightedVars <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm=FALSE){
-  matrixStats::colWeightedVars(x, w = w, rows = rows, cols = cols, na.rm=na.rm)
+.default_colWeightedVars <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE){
+  matrixStats::colWeightedVars(x, w = w, rows = rows, cols = cols, na.rm = na.rm)
 }
 
 #' @rdname rowWeightedVars

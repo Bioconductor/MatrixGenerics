@@ -1,6 +1,8 @@
-#' Calculates the weighted standard deviation for each row (column) of a matrix-like object
+#' Calculates the weighted standard deviation for each row (column) of a
+#' matrix-like object
 #'
-#' Calculates the weighted standard deviation for each row (column) of a matrix-like object.
+#' Calculates the weighted standard deviation for each row (column) of a
+#' matrix-like object.
 #'
 #' 
 #' @templateVar rowName rowWeightedSds
@@ -18,8 +20,8 @@
 #' @seealso
 #' \itemize{
 #' \item \code{matrixStats::\link[matrixStats]{rowWeightedSds}()} and
-#'   \code{matrixStats::\link[matrixStats]{colWeightedSds}()} which are used when
-#'   the input is a \code{matrix} or \code{numeric} vector.
+#'   \code{matrixStats::\link[matrixStats]{colWeightedSds}()} which are used
+#'   when the input is a \code{matrix} or \code{numeric} vector.
 #' \item See also [rowSds] for the corresponding unweighted function.
 #' }
 #' 
@@ -30,12 +32,12 @@
 #'
 #' @name rowWeightedSds
 #' @export
-setGeneric("rowWeightedSds", function(x, w = NULL, rows = NULL, cols = NULL, na.rm=FALSE, ...) standardGeneric("rowWeightedSds"),
+setGeneric("rowWeightedSds", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("rowWeightedSds"),
            signature = "x"
 )
 
-.default_rowWeightedSds <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm=FALSE){
-  matrixStats::rowWeightedSds(x, w = w, rows = rows, cols = cols, na.rm=na.rm)
+.default_rowWeightedSds <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE){
+  matrixStats::rowWeightedSds(x, w = w, rows = rows, cols = cols, na.rm = na.rm)
 }
 
 #' @rdname rowWeightedSds
@@ -53,12 +55,12 @@ setMethod("rowWeightedSds", signature = "array", .default_rowWeightedSds)
 #' @rdname rowWeightedSds
 #' @name colWeightedSds
 #' @export
-setGeneric("colWeightedSds", function(x, w = NULL, rows = NULL, cols = NULL, na.rm=FALSE, ...) standardGeneric("colWeightedSds"),
+setGeneric("colWeightedSds", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("colWeightedSds"),
            signature = "x"
 )
 
-.default_colWeightedSds <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm=FALSE){
-  matrixStats::colWeightedSds(x, w = w, rows = rows, cols = cols, na.rm=na.rm)
+.default_colWeightedSds <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE){
+  matrixStats::colWeightedSds(x, w = w, rows = rows, cols = cols, na.rm = na.rm)
 }
 
 #' @rdname rowWeightedSds

@@ -1,6 +1,8 @@
-#' Calculates the standard deviation of the difference between each element of a row (column) of a matrix-like object
+#' Calculates the standard deviation of the difference between each element of
+#' a row (column) of a matrix-like object
 #'
-#' Calculates the standard deviation of the difference between each element of a row (column) of a matrix-like object
+#' Calculates the standard deviation of the difference between each element of
+#' a row (column) of a matrix-like object.
 #' 
 #' @templateVar rowName rowSdDiffs
 #' @templateVar colName colSdDiffs

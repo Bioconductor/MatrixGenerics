@@ -1,6 +1,8 @@
-#' Calculates the cumulative minima for each row (column) of a matrix-like object
+#' Calculates the cumulative minima for each row (column) of a matrix-like
+#' object
 #'
-#' Calculates the cumulative minima for each row (column) of a matrix-like object
+#' Calculates the cumulative minima for each row (column) of a matrix-like
+#' object.
 #' 
 #' @templateVar rowName rowCummins
 #' @templateVar colName colCummins
@@ -18,7 +20,7 @@
 #'   \code{matrixStats::\link[matrixStats]{colCummins}()} which are used when
 #'   the input is a \code{matrix} or \code{numeric} vector.
 #' \item For single minimum estimates, see \code{\link{rowMins}()}.
-#' \item [cummin]
+#' \item \code{base::\link[base]{cummin}()}.
 #' }
 #' 
 #' @template standardExamples

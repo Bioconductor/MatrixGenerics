@@ -1,6 +1,8 @@
-#' Calculates the cumulative product for each row (column) of a matrix-like object
+#' Calculates the cumulative product for each row (column) of a matrix-like
+#' object
 #'
-#' Calculates the cumulative product for each row (column) of a matrix-like object
+#' Calculates the cumulative product for each row (column) of a matrix-like
+#' object.
 #' 
 #' @templateVar rowName rowCumprods
 #' @templateVar colName colCumprods
@@ -17,7 +19,7 @@
 #' \item \code{matrixStats::\link[matrixStats]{rowCumprods}()} and
 #'   \code{matrixStats::\link[matrixStats]{colCumprods}()} which are used when
 #'   the input is a \code{matrix} or \code{numeric} vector.
-#'  \item [cumprod]
+#'  \item \code{base::\link[base]{cumprod}()}.
 #' }
 #' 
 #' @template standardExamples
