@@ -1,13 +1,14 @@
 if(FALSE){
 # Make sure that nothing bad happens if the file is accidentally sourced
 
-all_statements <- readLines(system.file("NAMESPACE", package = "matrixStats"))
-exported_functions <- grep("^export\\(", all_statements, value = TRUE)
-function_names <- gsub("^export\\((.+)\\)", "\\1", exported_functions)
-all_col_functions <- grep("^col.+", function_names, value = TRUE)
-all_row_functions <- grep("^row.+", function_names, value = TRUE)
+matrix_stats_functions <- sort(
+  grep(
+    "^(col|row)", 
+    getNamespaceExports("matrixStats"), 
+    value = TRUE))
 
-fnc_list <- lapply(c(all_col_functions, all_row_functions), function(fnc_name) eval(parse(text = paste0("matrixStats::", fnc_name))))
+
+fnc_list <- lapply(matrix_stats_functions, function(fnc_name) eval(parse(text = paste0("matrixStats::", fnc_name))))
 # fnc_args <- lapply(fnc_list, function(fnc) names(formals(fnc)))
 # unique(unlist(lapply(fnc_list, function(fnc) as.list(formals(fnc)))))
 # unlist(fnc_args)
@@ -23,13 +24,12 @@ default_args <-  unlist(lapply(lapply(fnc_list, function(fnc) as.list(formals(fn
 }))
 
 parsed_matrix_stats_api <- data.frame(function_name = unlist(lapply(seq_along(fnc_list), function(idx) 
-  rep(c(all_col_functions, all_row_functions)[[idx]], length((formals(fnc_list[[idx]])))))),
+  rep(matrix_stats_functions[[idx]], length((formals(fnc_list[[idx]])))))),
            function_arg = unlist(lapply(fnc_list, function(fnc) names(formals(fnc)))),
            default_value = default_args)
 
-library(tidyverse)
-parsed_matrix_stats_api %>%
-  distinct(function_arg, default_value, .keep_all = TRUE) 
+parsed_matrix_stats_api[
+  !duplicated(parsed_matrix_stats_api[, c("function_arg", "default_value")]), ]
 
 function_args <- list(x = list("mat"),
                       rows = list(NULL, 1:3),
@@ -56,11 +56,13 @@ function_args <- list(x = list("mat"),
                       w = list(1:16, NULL),
                       X = list("mat"),
                       S = list("S"),
-                      FUN = list("rowMeans", "rowVars"),
+                      FUN = list("rowMeans", "rowVars", "colMeans", "colVars"),
                       W = list("NULL"),
                       tFUN = list("FALSE"))
 
 extra_statements<- list(
+  colAvgsPerRowSet = "S <- matrix(1:nrow(mat), ncol = 2)",
+  rowAvgsPerColSet = "S <- matrix(1:ncol(mat), ncol = 2)",
   colTabulates = "mat <- array(suppressWarnings(as.integer(mat)), dim(mat))",
   rowTabulates = "mat <- array(suppressWarnings(as.integer(mat)), dim(mat))",
   colOrderStats = "mat[is.na(mat)] <- 4.1",
@@ -69,12 +71,14 @@ extra_statements<- list(
   rowWeightedMedians = "mat <- array(mat, dim(t(mat)))",
   rowWeightedMads = "mat <- array(mat, dim(t(mat)))",
   rowWeightedSds = "mat <- array(mat, dim(t(mat)))",
-  rowWeightedVars = "mat <- array(mat, dim(t(mat)))",
-  rowAvgsPerColSet = "S <- matrix(1:ncol(mat), ncol = 2)"
+  rowWeightedVars = "mat <- array(mat, dim(t(mat)))"
 )
 
-testable_functions <- c(all_col_functions, all_row_functions)
-testable_functions <- setdiff(testable_functions, c("colAnyMissings", "rowAnyMissings", "colAvgsPerRowSet"))
+# matrixStats recommends colAnyNAs() / colAnyNAs() over 
+# colAnyMissings() / rowAnyMissings(), so the latter aren't implemented.
+testable_functions <- setdiff(
+  matrix_stats_functions,
+  c("colAnyMissings", "rowAnyMissings"))
 
 res <- paste0(sapply(testable_functions, function(fnc_name){
   can_load <- tryCatch({eval(parse(text = fnc_name))}, error = function(error) error)
@@ -87,6 +91,14 @@ res <- paste0(sapply(testable_functions, function(fnc_name){
   default_args <- as.list(formals(fnc_ms))
   arg_missing <- setdiff(names(default_args)[sapply(default_args, function(arg) is.name(arg))], "...")
   filled_in_args <- function_args[arg_missing]
+  # Need special handling of colAvgsPerRowSet / rowAvgsPerColSet
+  if (fnc_name == "colAvgsPerRowSet") {
+    filled_in_args[["FUN"]] <- filled_in_args[["FUN"]][
+      sapply(filled_in_args[["FUN"]], function(x) grepl("^col", x))]
+  } else if (fnc_name == "rowAvgsPerColSet") {
+    filled_in_args[["FUN"]] <- filled_in_args[["FUN"]][
+      sapply(filled_in_args[["FUN"]], function(x) grepl("^row", x))]
+  }
   filled_in_args_str <- lapply(seq_along(arg_missing), function(idx) paste0(arg_missing[idx], " = ", filled_in_args[[idx]]))
   # First call without any additional argument
   default_tests <- paste0(sapply(seq_len(max(lengths(filled_in_args_str))), function(idx){
@@ -101,6 +113,15 @@ res <- paste0(sapply(testable_functions, function(fnc_name){
   # Now all combinations of parameters
   arg_names <- setdiff(names(default_args), "...")
   filled_in_args <- function_args[arg_names]
+  # Need special handling of colAvgsPerRowSet / rowAvgsPerColSet
+  if (fnc_name == "colAvgsPerRowSet") {
+    filled_in_args[["cols"]][[2]] <- 1:2
+    filled_in_args[["FUN"]] <- filled_in_args[["FUN"]][
+      sapply(filled_in_args[["FUN"]], function(x) grepl("^col", x))]
+  } else if (fnc_name == "rowAvgsPerColSet") {
+    filled_in_args[["FUN"]] <- filled_in_args[["FUN"]][
+      sapply(filled_in_args[["FUN"]], function(x) grepl("^row", x))]
+  }
   filled_in_args_str <- lapply(seq_along(arg_names), function(idx) paste0(arg_names[idx], " = ", filled_in_args[[idx]]))
   param_tests <- paste0(sapply(seq_len(max(lengths(filled_in_args_str))), function(idx){
     argument_string <-   paste0( sapply(filled_in_args_str, function(args) {
@@ -123,8 +144,8 @@ res <- paste0(sapply(testable_functions, function(fnc_name){
   full_test
 }), collapse = "\n\n\n")
 
-preamble <- "
-# Generated by tests/testthat/generate_tests_helper_script.R
+preamble <- 
+"# Generated by tests/testthat/generate_tests_helper_script.R
 # do not edit by hand
 
 
