@@ -9,7 +9,8 @@
 \alias{colAlls,matrix-method}
 \alias{colAlls,numeric-method}
 \alias{colAlls,array-method}
-\title{Check if all elements in a row (column) of a matrix-like object are equal to a value}
+\title{Check if all elements in a row (column) of a matrix-like object are equal to
+a value}
 \usage{
 rowAlls(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...)
 
@@ -72,10 +73,11 @@ colAlls(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...)
 \arguments{
 \item{x}{An NxK matrix-like object.}
 
-\item{rows, cols}{A \code{\link[base]{vector}} indicating the subset (and/or
-columns) to operate over. If \code{\link[base]{NULL}}, no subsetting is done.}
+\item{rows, cols}{A \code{\link[base]{vector}} indicating the subset of rows
+(and/or columns) to operate over. If \code{\link[base]{NULL}}, no
+subsetting is done.}
 
-\item{value}{the value to search for.}
+\item{value}{The value to search for.}
 
 \item{na.rm}{If \code{\link[base:logical]{TRUE}}, \code{\link[base]{NA}}s
 are excluded first, otherwise not.}
@@ -84,20 +86,21 @@ are excluded first, otherwise not.}
 
 \item{dim.}{An \code{\link[base]{integer}} \code{\link[base]{vector}} of
 length two specifying the dimension of \code{x}, essential when x is a
-\code{\link[base]{numeric}} vector.
-Note, that this is not a generic argument and not all implementation of this function
-have to provide it.}
+\code{\link[base]{numeric}} vector. Note, that this is not a generic
+argument and not all methods need provide it.}
 }
 \value{
 Returns a \code{\link[base]{logical}} \code{\link[base]{vector}} of
 length N (K).
 }
 \description{
-Check if all elements in a row (column) of a matrix-like object are equal to a value
+Check if all elements in a row (column) of a matrix-like object are equal to
+a value.
 }
 \details{
-The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
-\code{\link[base]{numeric}} call \code{matrixStats::\link[matrixStats]{rowAlls}}
+The S4 methods for \code{x} of type \code{\link[base]{matrix}},
+\code{\link[base]{array}}, or \code{\link[base]{numeric}} call
+\code{matrixStats::\link[matrixStats]{rowAlls}}
 / \code{matrixStats::\link[matrixStats]{colAlls}}.
 }
 \examples{
@@ -116,8 +119,10 @@ The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
 \itemize{
 \item \code{matrixStats::\link[matrixStats]{rowAlls}()} and
 \code{matrixStats::\link[matrixStats]{colAlls}()} which are used when
-the input is a \code{matrix} or \code{numeric} vector.
-\item For checks if any element is equal to a value, see \code{\link{rowAnys}()}.
-\item \link[base:all]{base::all}
+the input is a \code{\link[base]{matrix}}, \code{\link[base]{array}}, or
+\code{\link[base]{numeric}} vector.
+\item For checks if \emph{any} element is equal to a value, see
+\code{\link{rowAnys}()}.
+\item \code{base::\link[base]{all}()}.
 }
 }

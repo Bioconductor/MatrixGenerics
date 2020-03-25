@@ -9,7 +9,8 @@
 \alias{colAvgsPerRowSet,matrix-method}
 \alias{colAvgsPerRowSet,numeric-method}
 \alias{colAvgsPerRowSet,array-method}
-\title{Calculates for each row (column) a summary statistic for equally sized subsets of columns (rows)}
+\title{Calculates for each row (column) a summary statistic for equally sized
+subsets of columns (rows)}
 \usage{
 rowAvgsPerColSet(
   X,
@@ -97,11 +98,12 @@ colAvgsPerRowSet(
 \item{W}{An optional numeric \code{NxM} matrix of weights.}
 
 \item{rows, cols}{A \code{\link[base]{vector}} indicating the subset (and/or
-columns) to operate over. If \code{\link[base]{NULL}}, no subsetting is done.}
+columns) to operate over. If \code{\link[base]{NULL}}, no subsetting is
+done.}
 
-\item{S}{An \link{integer} \code{KxJ} matrix that specifying the \code{J} subsets. Each column
-hold \code{K} column (row) indices for the corresponding subset. The range of values
-is [1, M] ([1,N]).}
+\item{S}{An \link{integer} \code{KxJ} matrix that specifying the \code{J} subsets. Each
+column hold \code{K} column (row) indices for the corresponding subset. The
+range of values is [1, M] ([1,N]).}
 
 \item{FUN}{A row-by-row (column-by-column) summary statistic function. It is
 applied to to each column (row) subset of \code{X} that is specified by \code{S}.}
@@ -114,11 +116,13 @@ applied to to each column (row) subset of \code{X} that is specified by \code{S}
 Returns a numeric \code{JxN} (\code{MxJ}) matrix.
 }
 \description{
-Calculates for each row (column) a summary statistic for equally sized subsets of columns (rows)
+Calculates for each row (column) a summary statistic for equally sized
+subsets of columns (rows).
 }
 \details{
-The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
-\code{\link[base]{numeric}} call \code{matrixStats::\link[matrixStats]{rowAvgsPerColSet}}
+The S4 methods for \code{x} of type \code{\link[base]{matrix}},
+\code{\link[base]{array}}, or \code{\link[base]{numeric}} call
+\code{matrixStats::\link[matrixStats]{rowAvgsPerColSet}}
 / \code{matrixStats::\link[matrixStats]{colAvgsPerRowSet}}.
 }
 \examples{
@@ -139,8 +143,8 @@ The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
 \seealso{
 \itemize{
 \item \code{matrixStats::\link[matrixStats]{rowAvgsPerColSet}()} and
-\code{matrixStats::\link[matrixStats]{colAvgsPerRowSet}()} which are used when
-the input is a \code{matrix} or \code{numeric} vector.
+\code{matrixStats::\link[matrixStats]{colAvgsPerRowSet}()} which are used
+when the input is a \code{matrix} or \code{numeric} vector.
 }
 }
 \keyword{array}

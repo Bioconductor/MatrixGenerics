@@ -9,7 +9,8 @@
 \alias{colWeightedVars,matrix-method}
 \alias{colWeightedVars,numeric-method}
 \alias{colWeightedVars,array-method}
-\title{Calculates the weighted variance for each row (column) of a matrix-like object}
+\title{Calculates the weighted variance for each row (column) of a matrix-like
+object}
 \usage{
 rowWeightedVars(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
@@ -33,8 +34,9 @@ colWeightedVars(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 \item{w}{A \code{\link{numeric}} vector of length K (N) that specifies by
 how much each element is weighted.}
 
-\item{rows, cols}{A \code{\link[base]{vector}} indicating the subset (and/or
-columns) to operate over. If \code{\link[base]{NULL}}, no subsetting is done.}
+\item{rows, cols}{A \code{\link[base]{vector}} indicating the subset of rows
+(and/or columns) to operate over. If \code{\link[base]{NULL}}, no
+subsetting is done.}
 
 \item{na.rm}{If \code{\link[base:logical]{TRUE}}, \code{\link[base]{NA}}s
 are excluded first, otherwise not.}
@@ -46,11 +48,13 @@ Returns a \code{\link[base]{numeric}} \code{\link[base]{vector}} of
 length N (K).
 }
 \description{
-Calculates the weighted variance for each row (column) of a matrix-like object.
+Calculates the weighted variance for each row (column) of a matrix-like
+object.
 }
 \details{
-The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
-\code{\link[base]{numeric}} call \code{matrixStats::\link[matrixStats]{rowWeightedVars}}
+The S4 methods for \code{x} of type \code{\link[base]{matrix}},
+\code{\link[base]{array}}, or \code{\link[base]{numeric}} call
+\code{matrixStats::\link[matrixStats]{rowWeightedVars}}
 / \code{matrixStats::\link[matrixStats]{colWeightedVars}}.
 }
 \examples{
@@ -68,8 +72,8 @@ The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
 \seealso{
 \itemize{
 \item \code{matrixStats::\link[matrixStats]{rowWeightedVars}()} and
-\code{matrixStats::\link[matrixStats]{colWeightedVars}()} which are used when
-the input is a \code{matrix} or \code{numeric} vector.
+\code{matrixStats::\link[matrixStats]{colWeightedVars}()} which are used
+when the input is a \code{matrix} or \code{numeric} vector.
 \item See also \link{rowVars} for the corresponding unweighted function.
 }
 }

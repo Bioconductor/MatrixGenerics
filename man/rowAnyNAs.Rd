@@ -30,8 +30,9 @@ colAnyNAs(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 \arguments{
 \item{x}{An NxK matrix-like object.}
 
-\item{rows, cols}{A \code{\link[base]{vector}} indicating the subset (and/or
-columns) to operate over. If \code{\link[base]{NULL}}, no subsetting is done.}
+\item{rows, cols}{A \code{\link[base]{vector}} indicating the subset of rows
+(and/or columns) to operate over. If \code{\link[base]{NULL}}, no
+subsetting is done.}
 
 \item{na.rm}{If \code{\link[base:logical]{TRUE}}, \code{\link[base]{NA}}s
 are excluded first, otherwise not.}
@@ -43,11 +44,12 @@ Returns a \code{\link[base]{logical}} \code{\link[base]{vector}} of
 length N (K).
 }
 \description{
-Check if any elements in a row (column) of a matrix-like object is missing
+Check if any elements in a row (column) of a matrix-like object is missing.
 }
 \details{
-The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
-\code{\link[base]{numeric}} call \code{matrixStats::\link[matrixStats]{rowAnyNAs}}
+The S4 methods for \code{x} of type \code{\link[base]{matrix}},
+\code{\link[base]{array}}, or \code{\link[base]{numeric}} call
+\code{matrixStats::\link[matrixStats]{rowAnyNAs}}
 / \code{matrixStats::\link[matrixStats]{colAnyNAs}}.
 }
 \examples{
@@ -67,7 +69,8 @@ The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
 \item \code{matrixStats::\link[matrixStats]{rowAnyNAs}()} and
 \code{matrixStats::\link[matrixStats]{colAnyNAs}()} which are used when
 the input is a \code{matrix} or \code{numeric} vector.
-\item For checks if any element is equal to a value, see \code{\link{rowAnys}()}.
-\item \link{is.na} and \link{any}
+\item For checks if any element is equal to a value, see
+\code{\link{rowAnys}()}.
+\item \code{base::\link[base]{is.na}()} and \code{base::\link[base]{any}()}.
 }
 }

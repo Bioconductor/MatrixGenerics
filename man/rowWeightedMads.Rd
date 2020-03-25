@@ -9,7 +9,8 @@
 \alias{colWeightedMads,matrix-method}
 \alias{colWeightedMads,numeric-method}
 \alias{colWeightedMads,array-method}
-\title{Calculates the weighted median absolute deviation for each row (column) of a matrix-like object}
+\title{Calculates the weighted median absolute deviation for each row (column) of a
+matrix-like object}
 \usage{
 rowWeightedMads(
   x,
@@ -99,13 +100,15 @@ colWeightedMads(
 \item{w}{A \code{\link{numeric}} vector of length K (N) that specifies by
 how much each element is weighted.}
 
-\item{rows, cols}{A \code{\link[base]{vector}} indicating the subset (and/or
-columns) to operate over. If \code{\link[base]{NULL}}, no subsetting is done.}
+\item{rows, cols}{A \code{\link[base]{vector}} indicating the subset of rows
+(and/or columns) to operate over. If \code{\link[base]{NULL}}, no
+subsetting is done.}
 
 \item{na.rm}{If \code{\link[base:logical]{TRUE}}, \code{\link[base]{NA}}s
 are excluded first, otherwise not.}
 
-\item{constant}{A scale factor. See \link[stats:mad]{stats::mad} for details.}
+\item{constant}{A scale factor. See \code{stats::\link[stats]{mad}()} for
+details.}
 
 \item{center}{(optional) the center, defaults to the row means}
 
@@ -116,11 +119,13 @@ Returns a \code{\link[base]{numeric}} \code{\link[base]{vector}} of
 length N (K).
 }
 \description{
-Calculates the weighted  median absolute deviation for each row (column) of a matrix-like object.
+Calculates the weighted  median absolute deviation for each row (column) of
+a matrix-like object.
 }
 \details{
-The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
-\code{\link[base]{numeric}} call \code{matrixStats::\link[matrixStats]{rowWeightedMads}}
+The S4 methods for \code{x} of type \code{\link[base]{matrix}},
+\code{\link[base]{array}}, or \code{\link[base]{numeric}} call
+\code{matrixStats::\link[matrixStats]{rowWeightedMads}}
 / \code{matrixStats::\link[matrixStats]{colWeightedMads}}.
 }
 \examples{
@@ -138,8 +143,8 @@ The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
 \seealso{
 \itemize{
 \item \code{matrixStats::\link[matrixStats]{rowWeightedMads}()} and
-\code{matrixStats::\link[matrixStats]{colWeightedMads}()} which are used when
-the input is a \code{matrix} or \code{numeric} vector.
+\code{matrixStats::\link[matrixStats]{colWeightedMads}()} which are used
+when the input is a \code{matrix} or \code{numeric} vector.
 \item See also \link{rowMads} for the corresponding unweighted function.
 }
 }

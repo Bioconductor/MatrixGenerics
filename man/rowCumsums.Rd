@@ -30,27 +30,28 @@ colCumsums(x, rows = NULL, cols = NULL, ...)
 \arguments{
 \item{x}{An NxK matrix-like object.}
 
-\item{rows, cols}{A \code{\link[base]{vector}} indicating the subset (and/or
-columns) to operate over. If \code{\link[base]{NULL}}, no subsetting is done.}
+\item{rows, cols}{A \code{\link[base]{vector}} indicating the subset of rows
+(and/or columns) to operate over. If \code{\link[base]{NULL}}, no
+subsetting is done.}
 
 \item{...}{Additional arguments passed to specific methods.}
 
 \item{dim.}{An \code{\link[base]{integer}} \code{\link[base]{vector}} of
 length two specifying the dimension of \code{x}, essential when x is a
-\code{\link[base]{numeric}} vector.
-Note, that this is not a generic argument and not all implementation of this function
-have to provide it.}
+\code{\link[base]{numeric}} vector. Note, that this is not a generic
+argument and not all methods need provide it.}
 }
 \value{
-Returns a \code{\link[base]{numeric}} \code{\link[base]{matrix}} with the
-same dimensions as \code{x}.
+Returns a \code{\link[base]{numeric}} \code{\link[base]{matrix}}
+with the same dimensions as \code{x}.
 }
 \description{
-Calculates the cumulative sum for each row (column) of a matrix-like object
+Calculates the cumulative sum for each row (column) of a matrix-like object.
 }
 \details{
-The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
-\code{\link[base]{numeric}} call \code{matrixStats::\link[matrixStats]{rowCumsums}}
+The S4 methods for \code{x} of type \code{\link[base]{matrix}},
+\code{\link[base]{array}}, or \code{\link[base]{numeric}} call
+\code{matrixStats::\link[matrixStats]{rowCumsums}}
 / \code{matrixStats::\link[matrixStats]{colCumsums}}.
 }
 \examples{
@@ -70,7 +71,7 @@ The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
 \item \code{matrixStats::\link[matrixStats]{rowCumsums}()} and
 \code{matrixStats::\link[matrixStats]{colCumsums}()} which are used when
 the input is a \code{matrix} or \code{numeric} vector.
-\item \link{cumsum}
+\item \code{base::\link[base]{cumsum}()}.
 }
 }
 \keyword{array}

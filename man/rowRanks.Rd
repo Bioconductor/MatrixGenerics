@@ -9,7 +9,8 @@
 \alias{colRanks,matrix-method}
 \alias{colRanks,numeric-method}
 \alias{colRanks,array-method}
-\title{Calculates the rank of the elements for each row (column) of a matrix-like object}
+\title{Calculates the rank of the elements for each row (column) of a matrix-like
+object}
 \usage{
 rowRanks(x, rows = NULL, cols = NULL, ties.method = c("max", "average"), ...)
 
@@ -69,44 +70,51 @@ colRanks(x, rows = NULL, cols = NULL, ties.method = c("max", "average"), ...)
 \arguments{
 \item{x}{An NxK matrix-like object.}
 
-\item{rows, cols}{A \code{\link[base]{vector}} indicating the subset (and/or
-columns) to operate over. If \code{\link[base]{NULL}}, no subsetting is done.}
+\item{rows, cols}{A \code{\link[base]{vector}} indicating the subset of rows
+(and/or columns) to operate over. If \code{\link[base]{NULL}}, no
+subsetting is done.}
 
-\item{ties.method}{A character string specifying how ties are treated. Note that the default specifies
-fewer options than the original matrixStats package.}
+\item{ties.method}{A character string specifying how ties are treated. Note
+that the default specifies fewer options than the original matrixStats
+package.}
 
 \item{...}{Additional arguments passed to specific methods.}
 
 \item{dim.}{An \code{\link[base]{integer}} \code{\link[base]{vector}} of
 length two specifying the dimension of \code{x}, essential when x is a
-\code{\link[base]{numeric}} vector.
-Note, that this is not a generic argument and not all implementation of this function
-have to provide it.}
+\code{\link[base]{numeric}} vector. Note, that this is not a generic
+argument and not all methods need provide it.}
 
-\item{preserveShape}{If \code{TRUE} the output matrix has the same shape as the input x.
-Note, that this is not a generic argument and not all implementation of this function have to
-provide it.}
+\item{preserveShape}{If \code{TRUE} the output matrix has the same shape as the
+input x. Note, that this is not a generic argument and not all
+implementation of this function have to provide it.}
 }
 \value{
-a matrix of type \code{\link[base]{integer}} is returned unless \code{ties.method = "average"}. It
-has dimensions` \code{NxJ} (\code{KxJ}) \code{\link{matrix}}, where
-N (K) is the number of rows (columns) of the input x.
+a matrix of type \code{\link[base]{integer}} is returned unless
+\code{ties.method = "average"}. Ithas dimensions` \code{NxJ} (\code{KxJ})
+\code{\link{matrix}}, where N (K) is the number of rows (columns) of the
+input x.
 }
 \description{
-Calculates the rank of the elements for each row (column) of a matrix-like object
+Calculates the rank of the elements for each row (column) of a matrix-like
+object.
 }
 \details{
-The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
-\code{\link[base]{numeric}} call \code{matrixStats::\link[matrixStats]{rowRanks}}
+The S4 methods for \code{x} of type \code{\link[base]{matrix}},
+\code{\link[base]{array}}, or \code{\link[base]{numeric}} call
+\code{matrixStats::\link[matrixStats]{rowRanks}}
 / \code{matrixStats::\link[matrixStats]{colRanks}}.
 
-The \code{matrixStats::rowRanks()} function can handle a lot of different values for the \code{ties.method}
-argument. Users of the generic function should however only rely on those two because the other
-ones are not guaranteed to be implemented:
+The \code{matrixStats::rowRanks()} function can handle a lot of different
+values for the \code{ties.method} argument. Users of the generic function
+should however only rely on \code{max} and \code{average} because the other ones
+are not guaranteed to be implemented:
 \describe{
-\item{\code{max}}{for values with identical values the maximum rank is returned}
-\item{\code{average}}{for values with identical values the average of the ranks they cover
-is returned. Note, that in this case the return value is of type \code{numeric}.}
+\item{\code{max}}{for values with identical values the maximum rank is
+returned}
+\item{\code{average}}{for values with identical values the average of the
+ranks they cover is returned. Note, that in this case the return
+value is of type \code{numeric}.}
 }
 }
 \examples{
