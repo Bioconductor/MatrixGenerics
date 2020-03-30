@@ -12,85 +12,29 @@
 \title{Calculates the median absolute deviation for each row (column) of a
 matrix-like object}
 \usage{
-rowMads(
-  x,
-  rows = NULL,
-  cols = NULL,
-  center = NULL,
-  constant = 1.4826,
-  na.rm = FALSE,
-  ...
-)
+rowMads(x, rows = NULL, cols = NULL, center = NULL, constant = 1.4826,
+  na.rm = FALSE, ...)
 
-\S4method{rowMads}{matrix}(
-  x,
-  rows = NULL,
-  cols = NULL,
-  center = NULL,
-  constant = 1.4826,
-  na.rm = FALSE,
-  dim. = dim(x)
-)
+\S4method{rowMads}{matrix}(x, rows = NULL, cols = NULL, center = NULL,
+  constant = 1.4826, na.rm = FALSE, dim. = dim(x))
 
-\S4method{rowMads}{numeric}(
-  x,
-  rows = NULL,
-  cols = NULL,
-  center = NULL,
-  constant = 1.4826,
-  na.rm = FALSE,
-  dim. = dim(x)
-)
+\S4method{rowMads}{numeric}(x, rows = NULL, cols = NULL, center = NULL,
+  constant = 1.4826, na.rm = FALSE, dim. = dim(x))
 
-\S4method{rowMads}{array}(
-  x,
-  rows = NULL,
-  cols = NULL,
-  center = NULL,
-  constant = 1.4826,
-  na.rm = FALSE,
-  dim. = dim(x)
-)
+\S4method{rowMads}{array}(x, rows = NULL, cols = NULL, center = NULL,
+  constant = 1.4826, na.rm = FALSE, dim. = dim(x))
 
-colMads(
-  x,
-  rows = NULL,
-  cols = NULL,
-  center = NULL,
-  constant = 1.4826,
-  na.rm = FALSE,
-  ...
-)
+colMads(x, rows = NULL, cols = NULL, center = NULL, constant = 1.4826,
+  na.rm = FALSE, ...)
 
-\S4method{colMads}{matrix}(
-  x,
-  rows = NULL,
-  cols = NULL,
-  center = NULL,
-  constant = 1.4826,
-  na.rm = FALSE,
-  dim. = dim(x)
-)
+\S4method{colMads}{matrix}(x, rows = NULL, cols = NULL, center = NULL,
+  constant = 1.4826, na.rm = FALSE, dim. = dim(x))
 
-\S4method{colMads}{numeric}(
-  x,
-  rows = NULL,
-  cols = NULL,
-  center = NULL,
-  constant = 1.4826,
-  na.rm = FALSE,
-  dim. = dim(x)
-)
+\S4method{colMads}{numeric}(x, rows = NULL, cols = NULL, center = NULL,
+  constant = 1.4826, na.rm = FALSE, dim. = dim(x))
 
-\S4method{colMads}{array}(
-  x,
-  rows = NULL,
-  cols = NULL,
-  center = NULL,
-  constant = 1.4826,
-  na.rm = FALSE,
-  dim. = dim(x)
-)
+\S4method{colMads}{array}(x, rows = NULL, cols = NULL, center = NULL,
+  constant = 1.4826, na.rm = FALSE, dim. = dim(x))
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

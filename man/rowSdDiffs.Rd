@@ -12,15 +12,8 @@
 \title{Calculates the standard deviation of the difference between each element of
 a row (column) of a matrix-like object}
 \usage{
-rowSdDiffs(
-  x,
-  rows = NULL,
-  cols = NULL,
-  na.rm = FALSE,
-  diff = 1L,
-  trim = 0,
-  ...
-)
+rowSdDiffs(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L,
+  trim = 0, ...)
 
 \S4method{rowSdDiffs}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0)
 
@@ -28,15 +21,8 @@ rowSdDiffs(
 
 \S4method{rowSdDiffs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0)
 
-colSdDiffs(
-  x,
-  rows = NULL,
-  cols = NULL,
-  na.rm = FALSE,
-  diff = 1L,
-  trim = 0,
-  ...
-)
+colSdDiffs(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L,
+  trim = 0, ...)
 
 \S4method{colSdDiffs}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0)
 

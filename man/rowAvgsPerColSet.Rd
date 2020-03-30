@@ -12,85 +12,29 @@
 \title{Calculates for each row (column) a summary statistic for equally sized
 subsets of columns (rows)}
 \usage{
-rowAvgsPerColSet(
-  X,
-  W = NULL,
-  rows = NULL,
-  S,
-  FUN = rowMeans,
-  ...,
-  tFUN = FALSE
-)
+rowAvgsPerColSet(X, W = NULL, rows = NULL, S, FUN = rowMeans, ...,
+  tFUN = FALSE)
 
-\S4method{rowAvgsPerColSet}{matrix}(
-  X,
-  W = NULL,
-  rows = NULL,
-  S,
-  FUN = rowMeans,
-  ...,
-  tFUN = FALSE
-)
+\S4method{rowAvgsPerColSet}{matrix}(X, W = NULL, rows = NULL, S,
+  FUN = rowMeans, ..., tFUN = FALSE)
 
-\S4method{rowAvgsPerColSet}{numeric}(
-  X,
-  W = NULL,
-  rows = NULL,
-  S,
-  FUN = rowMeans,
-  ...,
-  tFUN = FALSE
-)
+\S4method{rowAvgsPerColSet}{numeric}(X, W = NULL, rows = NULL, S,
+  FUN = rowMeans, ..., tFUN = FALSE)
 
-\S4method{rowAvgsPerColSet}{array}(
-  X,
-  W = NULL,
-  rows = NULL,
-  S,
-  FUN = rowMeans,
-  ...,
-  tFUN = FALSE
-)
+\S4method{rowAvgsPerColSet}{array}(X, W = NULL, rows = NULL, S,
+  FUN = rowMeans, ..., tFUN = FALSE)
 
-colAvgsPerRowSet(
-  X,
-  W = NULL,
-  cols = NULL,
-  S,
-  FUN = rowMeans,
-  ...,
-  tFUN = FALSE
-)
+colAvgsPerRowSet(X, W = NULL, cols = NULL, S, FUN = colMeans, ...,
+  tFUN = FALSE)
 
-\S4method{colAvgsPerRowSet}{matrix}(
-  X,
-  W = NULL,
-  cols = NULL,
-  S,
-  FUN = colMeans,
-  ...,
-  tFUN = FALSE
-)
+\S4method{colAvgsPerRowSet}{matrix}(X, W = NULL, cols = NULL, S,
+  FUN = colMeans, ..., tFUN = FALSE)
 
-\S4method{colAvgsPerRowSet}{numeric}(
-  X,
-  W = NULL,
-  cols = NULL,
-  S,
-  FUN = colMeans,
-  ...,
-  tFUN = FALSE
-)
+\S4method{colAvgsPerRowSet}{numeric}(X, W = NULL, cols = NULL, S,
+  FUN = colMeans, ..., tFUN = FALSE)
 
-\S4method{colAvgsPerRowSet}{array}(
-  X,
-  W = NULL,
-  cols = NULL,
-  S,
-  FUN = colMeans,
-  ...,
-  tFUN = FALSE
-)
+\S4method{colAvgsPerRowSet}{array}(X, W = NULL, cols = NULL, S,
+  FUN = colMeans, ..., tFUN = FALSE)
 }
 \arguments{
 \item{X}{An \code{NxM} matrix-like object.}

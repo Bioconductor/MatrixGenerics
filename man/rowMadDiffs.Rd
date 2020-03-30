@@ -12,15 +12,8 @@
 \title{Calculates the mean absolute deviation of the difference between each
 element of a row (column) of a matrix-like object}
 \usage{
-rowMadDiffs(
-  x,
-  rows = NULL,
-  cols = NULL,
-  na.rm = FALSE,
-  diff = 1L,
-  trim = 0,
-  ...
-)
+rowMadDiffs(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L,
+  trim = 0, ...)
 
 \S4method{rowMadDiffs}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0)
 
@@ -28,15 +21,8 @@ rowMadDiffs(
 
 \S4method{rowMadDiffs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0)
 
-colMadDiffs(
-  x,
-  rows = NULL,
-  cols = NULL,
-  na.rm = FALSE,
-  diff = 1L,
-  trim = 0,
-  ...
-)
+colMadDiffs(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L,
+  trim = 0, ...)
 
 \S4method{colMadDiffs}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0)
 

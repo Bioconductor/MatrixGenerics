@@ -14,61 +14,25 @@ matrix-like object}
 \usage{
 rowDiffs(x, rows = NULL, cols = NULL, lag = 1L, differences = 1L, ...)
 
-\S4method{rowDiffs}{matrix}(
-  x,
-  rows = NULL,
-  cols = NULL,
-  lag = 1L,
-  differences = 1L,
-  dim. = dim(x)
-)
+\S4method{rowDiffs}{matrix}(x, rows = NULL, cols = NULL, lag = 1L,
+  differences = 1L, dim. = dim(x))
 
-\S4method{rowDiffs}{numeric}(
-  x,
-  rows = NULL,
-  cols = NULL,
-  lag = 1L,
-  differences = 1L,
-  dim. = dim(x)
-)
+\S4method{rowDiffs}{numeric}(x, rows = NULL, cols = NULL, lag = 1L,
+  differences = 1L, dim. = dim(x))
 
-\S4method{rowDiffs}{array}(
-  x,
-  rows = NULL,
-  cols = NULL,
-  lag = 1L,
-  differences = 1L,
-  dim. = dim(x)
-)
+\S4method{rowDiffs}{array}(x, rows = NULL, cols = NULL, lag = 1L,
+  differences = 1L, dim. = dim(x))
 
 colDiffs(x, rows = NULL, cols = NULL, lag = 1L, differences = 1L, ...)
 
-\S4method{colDiffs}{matrix}(
-  x,
-  rows = NULL,
-  cols = NULL,
-  lag = 1L,
-  differences = 1L,
-  dim. = dim(x)
-)
+\S4method{colDiffs}{matrix}(x, rows = NULL, cols = NULL, lag = 1L,
+  differences = 1L, dim. = dim(x))
 
-\S4method{colDiffs}{numeric}(
-  x,
-  rows = NULL,
-  cols = NULL,
-  lag = 1L,
-  differences = 1L,
-  dim. = dim(x)
-)
+\S4method{colDiffs}{numeric}(x, rows = NULL, cols = NULL, lag = 1L,
+  differences = 1L, dim. = dim(x))
 
-\S4method{colDiffs}{array}(
-  x,
-  rows = NULL,
-  cols = NULL,
-  lag = 1L,
-  differences = 1L,
-  dim. = dim(x)
-)
+\S4method{colDiffs}{array}(x, rows = NULL, cols = NULL, lag = 1L,
+  differences = 1L, dim. = dim(x))
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

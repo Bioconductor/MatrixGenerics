@@ -12,15 +12,8 @@
 \title{Calculates the variance of the difference between each element of a row
 (column) of a matrix-like object}
 \usage{
-rowVarDiffs(
-  x,
-  rows = NULL,
-  cols = NULL,
-  na.rm = FALSE,
-  diff = 1L,
-  trim = 0,
-  ...
-)
+rowVarDiffs(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L,
+  trim = 0, ...)
 
 \S4method{rowVarDiffs}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0)
 
@@ -28,15 +21,8 @@ rowVarDiffs(
 
 \S4method{rowVarDiffs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0)
 
-colVarDiffs(
-  x,
-  rows = NULL,
-  cols = NULL,
-  na.rm = FALSE,
-  diff = 1L,
-  trim = 0,
-  ...
-)
+colVarDiffs(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L,
+  trim = 0, ...)
 
 \S4method{colVarDiffs}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0)
 

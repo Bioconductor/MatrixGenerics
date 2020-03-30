@@ -12,15 +12,8 @@
 \title{Calculates the interquartile range of the difference between each element of
 a row (column) of a matrix-like object}
 \usage{
-rowIQRDiffs(
-  x,
-  rows = NULL,
-  cols = NULL,
-  na.rm = FALSE,
-  diff = 1L,
-  trim = 0,
-  ...
-)
+rowIQRDiffs(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L,
+  trim = 0, ...)
 
 \S4method{rowIQRDiffs}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0)
 
@@ -28,15 +21,8 @@ rowIQRDiffs(
 
 \S4method{rowIQRDiffs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0)
 
-colIQRDiffs(
-  x,
-  rows = NULL,
-  cols = NULL,
-  na.rm = FALSE,
-  diff = 1L,
-  trim = 0,
-  ...
-)
+colIQRDiffs(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L,
+  trim = 0, ...)
 
 \S4method{colIQRDiffs}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0)
 
