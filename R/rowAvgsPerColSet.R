@@ -73,7 +73,7 @@ setMethod("rowAvgsPerColSet", signature = "array", .default_rowAvgsPerColSet)
 #' @rdname rowAvgsPerColSet
 #' @name colAvgsPerRowSet
 #' @export
-setGeneric("colAvgsPerRowSet", function(X, W = NULL, cols = NULL, S, FUN = rowMeans,  ..., tFUN = FALSE) standardGeneric("colAvgsPerRowSet"),
+setGeneric("colAvgsPerRowSet", function(X, W = NULL, cols = NULL, S, FUN = colMeans,  ..., tFUN = FALSE) standardGeneric("colAvgsPerRowSet"),
            signature = "X"
 )
 
