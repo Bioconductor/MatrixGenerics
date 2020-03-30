@@ -8,7 +8,6 @@
 #' @template matrixStatsLink
 #' 
 #' @template standardParameters
-#' @template na_rmParameter
 #'
 #' @template returnVectorLgl
 #'
@@ -27,12 +26,12 @@
 #'
 #' @name rowAnyNAs
 #' @export
-setGeneric("rowAnyNAs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("rowAnyNAs"),
+setGeneric("rowAnyNAs", function(x, rows = NULL, cols = NULL,  ...) standardGeneric("rowAnyNAs"),
            signature = "x"
 )
 
-.default_rowAnyNAs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE){
-  matrixStats::rowAnyNAs(x, rows = rows, cols = cols, na.rm = na.rm)
+.default_rowAnyNAs <- function(x, rows = NULL, cols = NULL, ...){
+  matrixStats::rowAnyNAs(x, rows = rows, cols = cols, ...)
 }
 
 #' @rdname rowAnyNAs
@@ -50,12 +49,12 @@ setMethod("rowAnyNAs", signature = "array", .default_rowAnyNAs)
 #' @rdname rowAnyNAs
 #' @name colAnyNAs
 #' @export
-setGeneric("colAnyNAs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("colAnyNAs"),
+setGeneric("colAnyNAs", function(x, rows = NULL, cols = NULL, ...) standardGeneric("colAnyNAs"),
            signature = "x"
 )
 
-.default_colAnyNAs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE){
-  matrixStats::colAnyNAs(x, rows = rows, cols = cols, na.rm = na.rm)
+.default_colAnyNAs <- function(x, rows = NULL, cols = NULL, ...){
+  matrixStats::colAnyNAs(x, rows = rows, cols = cols, ...)
 }
 
 #' @rdname rowAnyNAs
