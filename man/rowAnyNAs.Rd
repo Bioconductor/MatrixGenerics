@@ -11,21 +11,21 @@
 \alias{colAnyNAs,array-method}
 \title{Check if any elements in a row (column) of a matrix-like object is missing}
 \usage{
-rowAnyNAs(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+rowAnyNAs(x, rows = NULL, cols = NULL, ...)
 
-\S4method{rowAnyNAs}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE)
+\S4method{rowAnyNAs}{matrix}(x, rows = NULL, cols = NULL, ...)
 
-\S4method{rowAnyNAs}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE)
+\S4method{rowAnyNAs}{numeric}(x, rows = NULL, cols = NULL, ...)
 
-\S4method{rowAnyNAs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE)
+\S4method{rowAnyNAs}{array}(x, rows = NULL, cols = NULL, ...)
 
-colAnyNAs(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+colAnyNAs(x, rows = NULL, cols = NULL, ...)
 
-\S4method{colAnyNAs}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE)
+\S4method{colAnyNAs}{matrix}(x, rows = NULL, cols = NULL, ...)
 
-\S4method{colAnyNAs}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE)
+\S4method{colAnyNAs}{numeric}(x, rows = NULL, cols = NULL, ...)
 
-\S4method{colAnyNAs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE)
+\S4method{colAnyNAs}{array}(x, rows = NULL, cols = NULL, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
@@ -33,9 +33,6 @@ colAnyNAs(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 \item{rows, cols}{A \code{\link[base]{vector}} indicating the subset of rows
 (and/or columns) to operate over. If \code{\link[base]{NULL}}, no
 subsetting is done.}
-
-\item{na.rm}{If \code{\link[base:logical]{TRUE}}, \code{\link[base]{NA}}s
-are excluded first, otherwise not.}
 
 \item{...}{Additional arguments passed to specific methods.}
 }
