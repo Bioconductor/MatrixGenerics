@@ -35,7 +35,6 @@
 #' @keywords array iteration robust univar
 #'
 #' @name rowOrderStats
-#' @importFrom matrixStats colOrderStats rowOrderStats
 #' @export
 setGeneric("rowOrderStats", function(x, rows = NULL, cols = NULL, which, ...) standardGeneric("rowOrderStats"),
            signature = "x"

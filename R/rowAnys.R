@@ -28,7 +28,6 @@
 #'
 #'
 #' @name rowAnys
-#' @importFrom matrixStats colAnys rowAnys
 #' @export
 setGeneric("rowAnys", function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...) standardGeneric("rowAnys"),
            signature = "x"

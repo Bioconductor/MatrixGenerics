@@ -30,7 +30,6 @@
 #' @keywords array iteration robust univar
 #'
 #' @name rowVars
-#' @importFrom matrixStats colVars rowVars
 #' @export
 setGeneric("rowVars", function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, ...) standardGeneric("rowVars"),
            signature = "x"

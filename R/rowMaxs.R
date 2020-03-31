@@ -26,7 +26,6 @@
 #' @keywords array iteration robust univar
 #'
 #' @name rowMaxs
-#' @importFrom matrixStats colMaxs rowMaxs
 #' @export
 setGeneric("rowMaxs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("rowMaxs"),
            signature = "x"

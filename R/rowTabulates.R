@@ -37,7 +37,6 @@
 #' @keywords array iteration robust univar
 #'
 #' @name rowTabulates
-#' @importFrom matrixStats colTabulates rowTabulates
 #' @export
 setGeneric("rowTabulates", function(x, rows = NULL, cols = NULL, values = NULL, ...) standardGeneric("rowTabulates"),
            signature = "x"

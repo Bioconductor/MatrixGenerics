@@ -29,7 +29,6 @@
 #' @keywords array iteration robust univar
 #'
 #' @name rowIQRs
-#' @importFrom matrixStats colIQRs rowIQRs
 #' @export
 setGeneric("rowIQRs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("rowIQRs"),
            signature = "x"

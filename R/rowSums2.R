@@ -28,7 +28,6 @@
 #' @keywords array iteration robust univar
 #'
 #' @name rowSums2
-#' @importFrom matrixStats colSums2 rowSums2
 #' @export
 setGeneric("rowSums2", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("rowSums2"),
            signature = "x"

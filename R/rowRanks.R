@@ -49,7 +49,6 @@
 #' @keywords array iteration robust
 #'
 #' @name rowRanks
-#' @importFrom matrixStats colRanks rowRanks
 #' @export
 setGeneric("rowRanks", function(x, rows = NULL, cols = NULL, ties.method = c("max", "average"), ...) standardGeneric("rowRanks"),
            signature = "x"

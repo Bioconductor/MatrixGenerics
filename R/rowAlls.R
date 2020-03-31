@@ -31,7 +31,6 @@
 #'
 #'
 #' @name rowAlls
-#' @importFrom matrixStats colAlls rowAlls
 #' @export
 setGeneric("rowAlls", function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...) standardGeneric("rowAlls"),
            signature = "x"

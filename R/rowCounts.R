@@ -35,7 +35,6 @@
 #'
 #'
 #' @name rowCounts
-#' @importFrom matrixStats colCounts rowCounts
 #' @export
 setGeneric("rowCounts", function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...) standardGeneric("rowCounts"),
            signature = "x"

@@ -26,7 +26,6 @@
 #' @keywords array iteration robust univar
 #'
 #' @name rowMins
-#' @importFrom matrixStats colMins rowMins
 #' @export
 setGeneric("rowMins", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("rowMins"),
            signature = "x"

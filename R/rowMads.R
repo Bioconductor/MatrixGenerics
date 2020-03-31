@@ -34,7 +34,6 @@
 #' @keywords array iteration robust univar
 #'
 #' @name rowMads
-#' @importFrom matrixStats colMads rowMads
 #' @export
 setGeneric("rowMads", function(x, rows = NULL, cols = NULL, center = NULL, constant = 1.4826, na.rm = FALSE, ...) standardGeneric("rowMads"),
            signature = "x"
