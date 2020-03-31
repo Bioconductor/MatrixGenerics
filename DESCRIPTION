@@ -12,8 +12,8 @@ Authors@R: c(person("Constantin", "Ahlmann-Eltze", email = "artjom31415@googlema
                   role = c("aut"), comment = c(ORCID = "0000-0002-3762-068X")),
              person("Peter", "Hickey", role = c("aut", "cre"),
                     email = "peter.hickey@gmail.com"))
-Imports: methods, 
-    matrixStats (>= 0.56.0)
+Imports: methods
+Depends: matrixStats (>= 0.56.0)
 License: Artistic-2.0
 Encoding: UTF-8
 URL: https://github.com/Bioconductor/MatrixGenerics
