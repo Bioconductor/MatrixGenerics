@@ -1,17 +1,14 @@
 if(FALSE){
 # Make sure that nothing bad happens if the file is accidentally sourced
 
-matrix_stats_functions <- sort(
+matrixStats_functions <- sort(
   grep(
     "^(col|row)", 
     getNamespaceExports("matrixStats"), 
     value = TRUE))
 
 
-fnc_list <- lapply(matrix_stats_functions, function(fnc_name) eval(parse(text = paste0("matrixStats::", fnc_name))))
-# fnc_args <- lapply(fnc_list, function(fnc) names(formals(fnc)))
-# unique(unlist(lapply(fnc_list, function(fnc) as.list(formals(fnc)))))
-# unlist(fnc_args)
+fnc_list <- lapply(matrixStats_functions, function(fnc_name) eval(parse(text = paste0("matrixStats::", fnc_name))))
 
 default_args <-  unlist(lapply(lapply(fnc_list, function(fnc) as.list(formals(fnc))), function(args){
   lapply(args, function(arg){
@@ -23,13 +20,13 @@ default_args <-  unlist(lapply(lapply(fnc_list, function(fnc) as.list(formals(fn
   })
 }))
 
-parsed_matrix_stats_api <- data.frame(function_name = unlist(lapply(seq_along(fnc_list), function(idx) 
-  rep(matrix_stats_functions[[idx]], length((formals(fnc_list[[idx]])))))),
+parsed_matrixStats_api <- data.frame(function_name = unlist(lapply(seq_along(fnc_list), function(idx) 
+  rep(matrixStats_functions[[idx]], length((formals(fnc_list[[idx]])))))),
            function_arg = unlist(lapply(fnc_list, function(fnc) names(formals(fnc)))),
            default_value = default_args)
 
-parsed_matrix_stats_api[
-  !duplicated(parsed_matrix_stats_api[, c("function_arg", "default_value")]), ]
+parsed_matrixStats_api[
+  !duplicated(parsed_matrixStats_api[, c("function_arg", "default_value")]), ]
 
 function_args <- list(x = list("mat"),
                       rows = list(NULL, 1:3),
@@ -77,7 +74,7 @@ extra_statements<- list(
 # matrixStats recommends colAnyNAs() / colAnyNAs() over 
 # colAnyMissings() / rowAnyMissings(), so the latter aren't implemented.
 testable_functions <- setdiff(
-  matrix_stats_functions,
+  matrixStats_functions,
   c("colAnyMissings", "rowAnyMissings"))
 
 res <- paste0(sapply(testable_functions, function(fnc_name){
@@ -87,6 +84,12 @@ res <- paste0(sapply(testable_functions, function(fnc_name){
   }else{
     ""
   }
+  
+  generic_tests <- paste0(
+    "\tmatrixStats_formals <- formals(matrixStats::", fnc_name, ")\n",
+    "\tMatrixGenerics_default_method_formals <- formals(", paste0("MatrixGenerics:::.default_", fnc_name), ")\n",
+    "\texpect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)")
+
   fnc_ms <- eval(parse(text = paste0("matrixStats::", fnc_name)))
   default_args <- as.list(formals(fnc_ms))
   arg_missing <- setdiff(names(default_args)[sapply(default_args, function(arg) is.name(arg))], "...")
@@ -131,7 +134,7 @@ res <- paste0(sapply(testable_functions, function(fnc_name){
            "\tms_res_", idx, " <- matrixStats::", fnc_name, "(", argument_string, ")\n",
            "\texpect_equal(mg_res_", idx, ", ms_res_", idx, ")")
   }), collapse = "\n\n")
-  
+
   extra_stat <- ""
   if(fnc_name %in% names(extra_statements)){
     # Do special stuff for those functions
@@ -139,7 +142,11 @@ res <- paste0(sapply(testable_functions, function(fnc_name){
   }
   
   full_test <- paste0('test_that("', fnc_name,  ' works ", {\n',
-                      skip, "\n", extra_stat, default_tests, "\n\n", param_tests, "\n})")
+                      skip, "\n",
+                      generic_tests, "\n\n", 
+                      extra_stat, 
+                      default_tests, "\n\n", 
+                      param_tests, "\n})")
 
   full_test
 }), collapse = "\n\n\n")
