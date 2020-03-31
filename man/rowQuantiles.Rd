@@ -11,89 +11,42 @@
 \alias{colQuantiles,array-method}
 \title{Calculates quantiles for each row (column) of a matrix-like object}
 \usage{
-rowQuantiles(
-  x,
-  rows = NULL,
-  cols = NULL,
-  probs = seq(from = 0, to = 1, by = 0.25),
-  na.rm = FALSE,
-  ...
-)
+rowQuantiles(x, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1,
+  by = 0.25), na.rm = FALSE, ...)
 
-\S4method{rowQuantiles}{matrix}(
-  x,
-  rows = NULL,
-  cols = NULL,
-  probs = seq(from = 0, to = 1, by = 0.25),
-  na.rm = FALSE,
-  type = 7L,
-  drop = TRUE
-)
+\S4method{rowQuantiles}{matrix}(x, rows = NULL, cols = NULL,
+  probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE, type = 7L,
+  ..., drop = TRUE)
 
-\S4method{rowQuantiles}{numeric}(
-  x,
-  rows = NULL,
-  cols = NULL,
-  probs = seq(from = 0, to = 1, by = 0.25),
-  na.rm = FALSE,
-  type = 7L,
-  drop = TRUE
-)
+\S4method{rowQuantiles}{numeric}(x, rows = NULL, cols = NULL,
+  probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE, type = 7L,
+  ..., drop = TRUE)
 
-\S4method{rowQuantiles}{array}(
-  x,
-  rows = NULL,
-  cols = NULL,
-  probs = seq(from = 0, to = 1, by = 0.25),
-  na.rm = FALSE,
-  type = 7L,
-  drop = TRUE
-)
+\S4method{rowQuantiles}{array}(x, rows = NULL, cols = NULL,
+  probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE, type = 7L,
+  ..., drop = TRUE)
 
-colQuantiles(
-  x,
-  rows = NULL,
-  cols = NULL,
-  probs = seq(from = 0, to = 1, by = 0.25),
-  na.rm = FALSE,
-  ...
-)
+colQuantiles(x, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1,
+  by = 0.25), na.rm = FALSE, ...)
 
-\S4method{colQuantiles}{matrix}(
-  x,
-  rows = NULL,
-  cols = NULL,
-  probs = seq(from = 0, to = 1, by = 0.25),
-  na.rm = FALSE,
-  type = 7L,
-  drop = TRUE
-)
+\S4method{colQuantiles}{matrix}(x, rows = NULL, cols = NULL,
+  probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE, type = 7L,
+  ..., drop = TRUE)
 
-\S4method{colQuantiles}{numeric}(
-  x,
-  rows = NULL,
-  cols = NULL,
-  probs = seq(from = 0, to = 1, by = 0.25),
-  na.rm = FALSE,
-  type = 7L,
-  drop = TRUE
-)
+\S4method{colQuantiles}{numeric}(x, rows = NULL, cols = NULL,
+  probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE, type = 7L,
+  ..., drop = TRUE)
 
-\S4method{colQuantiles}{array}(
-  x,
-  rows = NULL,
-  cols = NULL,
-  probs = seq(from = 0, to = 1, by = 0.25),
-  na.rm = FALSE,
-  type = 7L,
-  drop = TRUE
-)
+\S4method{colQuantiles}{array}(x, rows = NULL, cols = NULL,
+  probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE, type = 7L,
+  ..., drop = TRUE)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
 
-\item{rows, cols}{A \code{\link[base]{vector}} indicating the subset (and/or
-columns) to operate over. If \code{\link[base]{NULL}}, no subsetting is done.}
+\item{rows, cols}{A \code{\link[base]{vector}} indicating the subset of rows
+(and/or columns) to operate over. If \code{\link[base]{NULL}}, no
+subsetting is done.}
 
 \item{probs}{A numeric vector of J probabilities in [0, 1].}
 
@@ -102,24 +55,27 @@ are excluded first, otherwise not.}
 
 \item{...}{Additional arguments passed to specific methods.}
 
-\item{type}{An integer specifying the type of estimator. See \link[stats:quantile]{stats::quantile} for more details.
-Note, that this is not a generic argument and not all implementation of this function
-have to provide it.}
+\item{type}{An integer specifying the type of estimator. See
+\code{stats::\link[stats]{quantile}()}. for more details. Note, that this
+is not a generic argument and not all implementation of this function have
+to provide it.}
 
 \item{drop}{If \code{TRUE} a vector is returned if \code{J == 1}.
-Note, that this is not a generic argument and not all implementation of this function
-have to provide it.}
+Note, that this is not a generic argument and not all implementation of
+this function have to provide it.}
 }
 \value{
-a \code{\link[base]{numeric}} \code{NxJ} (\code{KxJ}) \code{\link{matrix}}, where
-N (K) is the number of rows (columns) for which the J values are calculated.
+a \code{\link[base]{numeric}} \code{NxJ} (\code{KxJ})
+\code{\link{matrix}}, where N (K) is the number of rows (columns) for
+which the J values are calculated.
 }
 \description{
 Calculates quantiles for each row (column) of a matrix-like object.
 }
 \details{
-The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
-\code{\link[base]{numeric}} call \code{matrixStats::\link[matrixStats]{rowQuantiles}}
+The S4 methods for \code{x} of type \code{\link[base]{matrix}},
+\code{\link[base]{array}}, or \code{\link[base]{numeric}} call
+\code{matrixStats::\link[matrixStats]{rowQuantiles}}
 / \code{matrixStats::\link[matrixStats]{colQuantiles}}.
 }
 \examples{

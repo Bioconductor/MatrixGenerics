@@ -1,6 +1,6 @@
 #' Calculates the cumulative sum for each row (column) of a matrix-like object
 #'
-#' Calculates the cumulative sum for each row (column) of a matrix-like object
+#' Calculates the cumulative sum for each row (column) of a matrix-like object.
 #' 
 #' @templateVar rowName rowCumsums
 #' @templateVar colName colCumsums
@@ -17,7 +17,7 @@
 #' \item \code{matrixStats::\link[matrixStats]{rowCumsums}()} and
 #'   \code{matrixStats::\link[matrixStats]{colCumsums}()} which are used when
 #'   the input is a \code{matrix} or \code{numeric} vector.
-#' \item [cumsum]
+#' \item \code{base::\link[base]{cumsum}()}.
 #' }
 #' 
 #' @template standardExamples
@@ -30,8 +30,8 @@ setGeneric("rowCumsums", function(x, rows = NULL, cols = NULL,  ...) standardGen
            signature = "x"
 )
 
-.default_rowCumsums <- function(x, rows = NULL, cols = NULL, dim. = dim(x)){
-  matrixStats::rowCumsums(x, rows = rows, cols = cols, dim. = dim.)
+.default_rowCumsums <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ...){
+  matrixStats::rowCumsums(x, rows = rows, cols = cols, dim. = dim., ...)
 }
 
 #' @rdname rowCumsums
@@ -53,8 +53,8 @@ setGeneric("colCumsums", function(x, rows = NULL, cols = NULL, ...) standardGene
            signature = "x"
 )
 
-.default_colCumsums <- function(x, rows = NULL, cols = NULL, dim. = dim(x)){
-  matrixStats::colCumsums(x, rows = rows, cols = cols, dim. = dim.)
+.default_colCumsums <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ...){
+  matrixStats::colCumsums(x, rows = rows, cols = cols, dim. = dim., ...)
 }
 
 #' @rdname rowCumsums

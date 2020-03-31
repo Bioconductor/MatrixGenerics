@@ -1,6 +1,6 @@
 #' Calculates an order statistic for each row (column) of a matrix-like object
 #'
-#' Calculates an order statistic for each row (column) of a matrix-like object
+#' Calculates an order statistic for each row (column) of a matrix-like object.
 #' 
 #' @templateVar rowName rowOrderStats
 #' @templateVar colName colOrderStats
@@ -8,7 +8,8 @@
 #' @template matrixStatsLink
 #' 
 #' @template standardParameters
-#' @param which An integer index in \[1,K\] (\[1,N\]) indicating which order statistic to be returned
+#' @param which An integer index in \[1,K\] (\[1,N\]) indicating which order
+#'   statistic to be returned
 #' @template dimParameter
 #'
 #' @template returnVector
@@ -39,8 +40,8 @@ setGeneric("rowOrderStats", function(x, rows = NULL, cols = NULL, which, ...) st
            signature = "x"
 )
 
-.default_rowOrderStats <- function(x, rows = NULL, cols = NULL, which, dim. = dim(x)){
-  matrixStats::rowOrderStats(x, rows = rows, cols = cols, which = which, dim. = dim.)
+.default_rowOrderStats <- function(x, rows = NULL, cols = NULL, which, dim. = dim(x), ...){
+  matrixStats::rowOrderStats(x, rows = rows, cols = cols, which = which, dim. = dim., ...)
 }
 
 #' @rdname rowOrderStats
@@ -62,8 +63,8 @@ setGeneric("colOrderStats", function(x, rows = NULL, cols = NULL, which, ...) st
            signature = "x"
 )
 
-.default_colOrderStats <- function(x, rows = NULL, cols = NULL, which, dim. = dim(x)){
-  matrixStats::colOrderStats(x, rows = rows, cols = cols, which = which, dim. = dim.)
+.default_colOrderStats <- function(x, rows = NULL, cols = NULL, which, dim. = dim(x), ...){
+  matrixStats::colOrderStats(x, rows = rows, cols = cols, which = which, dim. = dim., ...)
 }
 
 #' @rdname rowOrderStats

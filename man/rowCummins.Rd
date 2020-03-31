@@ -9,48 +9,51 @@
 \alias{colCummins,matrix-method}
 \alias{colCummins,numeric-method}
 \alias{colCummins,array-method}
-\title{Calculates the cumulative minima for each row (column) of a matrix-like object}
+\title{Calculates the cumulative minima for each row (column) of a matrix-like
+object}
 \usage{
 rowCummins(x, rows = NULL, cols = NULL, ...)
 
-\S4method{rowCummins}{matrix}(x, rows = NULL, cols = NULL, dim. = dim(x))
+\S4method{rowCummins}{matrix}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
 
-\S4method{rowCummins}{numeric}(x, rows = NULL, cols = NULL, dim. = dim(x))
+\S4method{rowCummins}{numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
 
-\S4method{rowCummins}{array}(x, rows = NULL, cols = NULL, dim. = dim(x))
+\S4method{rowCummins}{array}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
 
 colCummins(x, rows = NULL, cols = NULL, ...)
 
-\S4method{colCummins}{matrix}(x, rows = NULL, cols = NULL, dim. = dim(x))
+\S4method{colCummins}{matrix}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
 
-\S4method{colCummins}{numeric}(x, rows = NULL, cols = NULL, dim. = dim(x))
+\S4method{colCummins}{numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
 
-\S4method{colCummins}{array}(x, rows = NULL, cols = NULL, dim. = dim(x))
+\S4method{colCummins}{array}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
 
-\item{rows, cols}{A \code{\link[base]{vector}} indicating the subset (and/or
-columns) to operate over. If \code{\link[base]{NULL}}, no subsetting is done.}
+\item{rows, cols}{A \code{\link[base]{vector}} indicating the subset of rows
+(and/or columns) to operate over. If \code{\link[base]{NULL}}, no
+subsetting is done.}
 
 \item{...}{Additional arguments passed to specific methods.}
 
 \item{dim.}{An \code{\link[base]{integer}} \code{\link[base]{vector}} of
 length two specifying the dimension of \code{x}, essential when x is a
-\code{\link[base]{numeric}} vector.
-Note, that this is not a generic argument and not all implementation of this function
-have to provide it.}
+\code{\link[base]{numeric}} vector. Note, that this is not a generic
+argument and not all methods need provide it.}
 }
 \value{
-Returns a \code{\link[base]{numeric}} \code{\link[base]{matrix}} with the
-same dimensions as \code{x}.
+Returns a \code{\link[base]{numeric}} \code{\link[base]{matrix}}
+with the same dimensions as \code{x}.
 }
 \description{
-Calculates the cumulative minima for each row (column) of a matrix-like object
+Calculates the cumulative minima for each row (column) of a matrix-like
+object.
 }
 \details{
-The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
-\code{\link[base]{numeric}} call \code{matrixStats::\link[matrixStats]{rowCummins}}
+The S4 methods for \code{x} of type \code{\link[base]{matrix}},
+\code{\link[base]{array}}, or \code{\link[base]{numeric}} call
+\code{matrixStats::\link[matrixStats]{rowCummins}}
 / \code{matrixStats::\link[matrixStats]{colCummins}}.
 }
 \examples{
@@ -71,7 +74,7 @@ The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
 \code{matrixStats::\link[matrixStats]{colCummins}()} which are used when
 the input is a \code{matrix} or \code{numeric} vector.
 \item For single minimum estimates, see \code{\link{rowMins}()}.
-\item \link{cummin}
+\item \code{base::\link[base]{cummin}()}.
 }
 }
 \keyword{array}

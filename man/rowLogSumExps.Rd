@@ -9,29 +9,31 @@
 \alias{colLogSumExps,matrix-method}
 \alias{colLogSumExps,numeric-method}
 \alias{colLogSumExps,array-method}
-\title{Accurately calculates the logarithm of the sum of exponentials for each row (column) of a matrix-like object}
+\title{Accurately calculates the logarithm of the sum of exponentials for each row
+(column) of a matrix-like object}
 \usage{
 rowLogSumExps(lx, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{rowLogSumExps}{matrix}(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx))
+\S4method{rowLogSumExps}{matrix}(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx), ...)
 
-\S4method{rowLogSumExps}{numeric}(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx))
+\S4method{rowLogSumExps}{numeric}(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx), ...)
 
-\S4method{rowLogSumExps}{array}(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx))
+\S4method{rowLogSumExps}{array}(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx), ...)
 
 colLogSumExps(lx, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{colLogSumExps}{matrix}(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx))
+\S4method{colLogSumExps}{matrix}(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx), ...)
 
-\S4method{colLogSumExps}{numeric}(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx))
+\S4method{colLogSumExps}{numeric}(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx), ...)
 
-\S4method{colLogSumExps}{array}(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx))
+\S4method{colLogSumExps}{array}(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx), ...)
 }
 \arguments{
 \item{lx}{An NxK matrix-like object. Typically \code{lx} are \code{log(x)} values.}
 
 \item{rows, cols}{A \code{\link[base]{vector}} indicating the subset (and/or
-columns) to operate over. If \code{\link[base]{NULL}}, no subsetting is done.}
+columns) to operate over. If \code{\link[base]{NULL}}, no subsetting is
+done.}
 
 \item{na.rm}{If \code{\link[base:logical]{TRUE}}, \code{\link[base]{NA}}s
 are excluded first, otherwise not.}
@@ -40,20 +42,21 @@ are excluded first, otherwise not.}
 
 \item{dim.}{An \code{\link[base]{integer}} \code{\link[base]{vector}} of
 length two specifying the dimension of \code{x}, essential when x is a
-\code{\link[base]{numeric}} vector.
-Note, that this is not a generic argument and not all implementation of this function
-have to provide it.}
+\code{\link[base]{numeric}} vector. Note, that this is not a generic
+argument and not all methods need provide it.}
 }
 \value{
 Returns a \code{\link[base]{numeric}} \code{\link[base]{vector}} of
 length N (K).
 }
 \description{
-Accurately calculates the logarithm of the sum of exponentials for each row (column) of a matrix-like object
+Accurately calculates the logarithm of the sum of exponentials for each row
+(column) of a matrix-like object.
 }
 \details{
-The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
-\code{\link[base]{numeric}} call \code{matrixStats::\link[matrixStats]{rowLogSumExps}}
+The S4 methods for \code{x} of type \code{\link[base]{matrix}},
+\code{\link[base]{array}}, or \code{\link[base]{numeric}} call
+\code{matrixStats::\link[matrixStats]{rowLogSumExps}}
 / \code{matrixStats::\link[matrixStats]{colLogSumExps}}.
 }
 \examples{
@@ -71,8 +74,8 @@ The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
 \seealso{
 \itemize{
 \item \code{matrixStats::\link[matrixStats]{rowLogSumExps}()} and
-\code{matrixStats::\link[matrixStats]{colLogSumExps}()} which are used when
-the input is a \code{matrix} or \code{numeric} vector.
+\code{matrixStats::\link[matrixStats]{colLogSumExps}()} which are used
+when the input is a \code{matrix} or \code{numeric} vector.
 \item \code{\link[=rowSums2]{rowSums2()}}
 }
 }

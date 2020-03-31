@@ -13,80 +13,44 @@
 \usage{
 rowVars(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, ...)
 
-\S4method{rowVars}{matrix}(
-  x,
-  rows = NULL,
-  cols = NULL,
-  na.rm = FALSE,
-  center = NULL,
-  dim. = dim(x)
-)
+\S4method{rowVars}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE,
+  center = NULL, dim. = dim(x), ...)
 
-\S4method{rowVars}{numeric}(
-  x,
-  rows = NULL,
-  cols = NULL,
-  na.rm = FALSE,
-  center = NULL,
-  dim. = dim(x)
-)
+\S4method{rowVars}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE,
+  center = NULL, dim. = dim(x), ...)
 
-\S4method{rowVars}{array}(
-  x,
-  rows = NULL,
-  cols = NULL,
-  na.rm = FALSE,
-  center = NULL,
-  dim. = dim(x)
-)
+\S4method{rowVars}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE,
+  center = NULL, dim. = dim(x), ...)
 
 colVars(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, ...)
 
-\S4method{colVars}{matrix}(
-  x,
-  rows = NULL,
-  cols = NULL,
-  na.rm = FALSE,
-  center = NULL,
-  dim. = dim(x)
-)
+\S4method{colVars}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE,
+  center = NULL, dim. = dim(x), ...)
 
-\S4method{colVars}{numeric}(
-  x,
-  rows = NULL,
-  cols = NULL,
-  na.rm = FALSE,
-  center = NULL,
-  dim. = dim(x)
-)
+\S4method{colVars}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE,
+  center = NULL, dim. = dim(x), ...)
 
-\S4method{colVars}{array}(
-  x,
-  rows = NULL,
-  cols = NULL,
-  na.rm = FALSE,
-  center = NULL,
-  dim. = dim(x)
-)
+\S4method{colVars}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE,
+  center = NULL, dim. = dim(x), ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
 
-\item{rows, cols}{A \code{\link[base]{vector}} indicating the subset (and/or
-columns) to operate over. If \code{\link[base]{NULL}}, no subsetting is done.}
+\item{rows, cols}{A \code{\link[base]{vector}} indicating the subset of rows
+(and/or columns) to operate over. If \code{\link[base]{NULL}}, no
+subsetting is done.}
 
 \item{na.rm}{If \code{\link[base:logical]{TRUE}}, \code{\link[base]{NA}}s
 are excluded first, otherwise not.}
 
-\item{center}{(optional) the center, defaults to the row means}
+\item{center}{(optional) the center, defaults to the row means.}
 
 \item{...}{Additional arguments passed to specific methods.}
 
 \item{dim.}{An \code{\link[base]{integer}} \code{\link[base]{vector}} of
 length two specifying the dimension of \code{x}, essential when x is a
-\code{\link[base]{numeric}} vector.
-Note, that this is not a generic argument and not all implementation of this function
-have to provide it.}
+\code{\link[base]{numeric}} vector. Note, that this is not a generic
+argument and not all methods need provide it.}
 }
 \value{
 Returns a \code{\link[base]{numeric}} \code{\link[base]{vector}} of
@@ -96,8 +60,9 @@ length N (K).
 Calculates the variance for each row (column) of a matrix-like object.
 }
 \details{
-The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
-\code{\link[base]{numeric}} call \code{matrixStats::\link[matrixStats]{rowVars}}
+The S4 methods for \code{x} of type \code{\link[base]{matrix}},
+\code{\link[base]{array}}, or \code{\link[base]{numeric}} call
+\code{matrixStats::\link[matrixStats]{rowVars}}
 / \code{matrixStats::\link[matrixStats]{colVars}}.
 }
 \examples{
@@ -120,7 +85,7 @@ the input is a \code{matrix} or \code{numeric} vector.
 \item For mean estimates, see \code{\link{rowMeans2}()} and
 \code{\link[base:colSums]{rowMeans}()}.
 \item For standard deviation estimates, see \code{\link{rowSds}()}.
-\item \link{var}
+\item \code{stats::\link[stats]{var}()}.
 }
 }
 \keyword{array}

@@ -1,6 +1,8 @@
-#' Calculates the interquartile range for each row (column) of a matrix-like object
+#' Calculates the interquartile range for each row (column) of a matrix-like
+#' object
 #'
-#' Calculates the interquartile range for each row (column) of a matrix-like object.
+#' Calculates the interquartile range for each row (column) of a matrix-like
+#' object.
 #' 
 #' @templateVar rowName rowIQRs
 #' @templateVar colName colIQRs
@@ -19,7 +21,7 @@
 #'   the input is a \code{matrix} or \code{numeric} vector.
 #' \item For a non-robust analog, see \code{\link{rowSds}()}. For a more
 #'  robust version see [rowMads()]
-#' \item [stats::IQR]
+#' \item \code{stats::\link[stats]{IQR}()}.
 #' }
 #' 
 #' @template standardExamples
@@ -28,12 +30,12 @@
 #'
 #' @name rowIQRs
 #' @export
-setGeneric("rowIQRs", function(x, rows = NULL, cols = NULL, na.rm=FALSE, ...) standardGeneric("rowIQRs"),
+setGeneric("rowIQRs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("rowIQRs"),
            signature = "x"
 )
 
-.default_rowIQRs <- function(x, rows = NULL, cols = NULL, na.rm=FALSE){
-  matrixStats::rowIQRs(x, rows = rows, cols = cols, na.rm=na.rm)
+.default_rowIQRs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...){
+  matrixStats::rowIQRs(x, rows = rows, cols = cols, na.rm = na.rm, ...)
 }
 
 #' @rdname rowIQRs
@@ -51,12 +53,12 @@ setMethod("rowIQRs", signature = "array", .default_rowIQRs)
 #' @rdname rowIQRs
 #' @name colIQRs
 #' @export
-setGeneric("colIQRs", function(x, rows = NULL, cols = NULL, na.rm=FALSE, ...) standardGeneric("colIQRs"),
+setGeneric("colIQRs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("colIQRs"),
            signature = "x"
 )
 
-.default_colIQRs <- function(x, rows = NULL, cols = NULL, na.rm=FALSE){
-  matrixStats::colIQRs(x, rows = rows, cols = cols, na.rm=na.rm)
+.default_colIQRs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...){
+  matrixStats::colIQRs(x, rows = rows, cols = cols, na.rm = na.rm, ...)
 }
 
 #' @rdname rowIQRs

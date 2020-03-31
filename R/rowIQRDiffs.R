@@ -1,6 +1,8 @@
-#' Calculates the interquartile range of the difference between each element of a row (column) of a matrix-like object
+#' Calculates the interquartile range of the difference between each element of
+#' a row (column) of a matrix-like object
 #'
-#' Calculates the interquartile range of the difference between each element of a row (column) of a matrix-like object
+#' Calculates the interquartile range of the difference between each element of
+#' a row (column) of a matrix-like object.
 #' 
 #' @templateVar rowName rowIQRDiffs
 #' @templateVar colName colIQRDiffs
@@ -27,12 +29,12 @@
 #'
 #' @name rowIQRDiffs
 #' @export
-setGeneric("rowIQRDiffs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0,  ...) standardGeneric("rowIQRDiffs"),
+setGeneric("rowIQRDiffs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...) standardGeneric("rowIQRDiffs"),
            signature = "x"
 )
 
-.default_rowIQRDiffs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0){
-  matrixStats::rowIQRDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff = diff, trim = trim)
+.default_rowIQRDiffs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...){
+  matrixStats::rowIQRDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff = diff, trim = trim, ...)
 }
 
 #' @rdname rowIQRDiffs
@@ -54,8 +56,8 @@ setGeneric("colIQRDiffs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, d
            signature = "x"
 )
 
-.default_colIQRDiffs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0){
-  matrixStats::colIQRDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff =diff, trim = trim)
+.default_colIQRDiffs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...){
+  matrixStats::colIQRDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff = diff, trim = trim, ...)
 }
 
 #' @rdname rowIQRDiffs

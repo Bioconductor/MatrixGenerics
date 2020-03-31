@@ -1,6 +1,8 @@
-#' Check if all elements in a row (column) of a matrix-like object are equal to a value
+#' Check if all elements in a row (column) of a matrix-like object are equal to 
+#' a value
 #'
-#' Check if all elements in a row (column) of a matrix-like object are equal to a value
+#' Check if all elements in a row (column) of a matrix-like object are equal to 
+#' a value.
 #' 
 #' @templateVar rowName rowAlls
 #' @templateVar colName colAlls
@@ -18,9 +20,11 @@
 #' \itemize{
 #' \item \code{matrixStats::\link[matrixStats]{rowAlls}()} and
 #'   \code{matrixStats::\link[matrixStats]{colAlls}()} which are used when
-#'   the input is a \code{matrix} or \code{numeric} vector.
-#' \item For checks if any element is equal to a value, see \code{\link{rowAnys}()}.
-#' \item [base::all]
+#'   the input is a \code{\link[base]{matrix}}, \code{\link[base]{array}}, or 
+#'   \code{\link[base]{numeric}} vector.
+#' \item For checks if \emph{any} element is equal to a value, see 
+#'   \code{\link{rowAnys}()}.
+#' \item \code{base::\link[base]{all}()}.
 #' }
 #' 
 #' @template standardExamples
@@ -28,12 +32,12 @@
 #'
 #' @name rowAlls
 #' @export
-setGeneric("rowAlls", function(x, rows = NULL, cols = NULL, value = TRUE, na.rm=FALSE, ...) standardGeneric("rowAlls"),
+setGeneric("rowAlls", function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...) standardGeneric("rowAlls"),
            signature = "x"
 )
 
-.default_rowAlls <- function(x, rows = NULL, cols = NULL, value = TRUE, na.rm=FALSE, dim. = dim(x)){
-  matrixStats::rowAlls(x, rows = rows, cols = cols, value = value, na.rm=na.rm, dim. = dim.)
+.default_rowAlls <- function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ...){
+  matrixStats::rowAlls(x, rows = rows, cols = cols, value = value, na.rm = na.rm, dim. = dim., ...)
 }
 
 #' @rdname rowAlls
@@ -51,12 +55,12 @@ setMethod("rowAlls", signature = "array", .default_rowAlls)
 #' @rdname rowAlls
 #' @name colAlls
 #' @export
-setGeneric("colAlls", function(x, rows = NULL, cols = NULL, value = TRUE, na.rm=FALSE, ...) standardGeneric("colAlls"),
+setGeneric("colAlls", function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...) standardGeneric("colAlls"),
            signature = "x"
 )
 
-.default_colAlls <- function(x, rows = NULL, cols = NULL, value = TRUE, na.rm=FALSE, dim. = dim(x)){
-  matrixStats::colAlls(x, rows = rows, cols = cols, value = value, na.rm=na.rm, dim. = dim.)
+.default_colAlls <- function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ...){
+  matrixStats::colAlls(x, rows = rows, cols = cols, value = value, na.rm = na.rm, dim. = dim., ...)
 }
 
 #' @rdname rowAlls

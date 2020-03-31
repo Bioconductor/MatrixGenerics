@@ -9,29 +9,31 @@
 \alias{colIQRs,matrix-method}
 \alias{colIQRs,numeric-method}
 \alias{colIQRs,array-method}
-\title{Calculates the interquartile range for each row (column) of a matrix-like object}
+\title{Calculates the interquartile range for each row (column) of a matrix-like
+object}
 \usage{
 rowIQRs(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{rowIQRs}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE)
+\S4method{rowIQRs}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{rowIQRs}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE)
+\S4method{rowIQRs}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{rowIQRs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE)
+\S4method{rowIQRs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
 colIQRs(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{colIQRs}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE)
+\S4method{colIQRs}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{colIQRs}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE)
+\S4method{colIQRs}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{colIQRs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE)
+\S4method{colIQRs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
 
-\item{rows, cols}{A \code{\link[base]{vector}} indicating the subset (and/or
-columns) to operate over. If \code{\link[base]{NULL}}, no subsetting is done.}
+\item{rows, cols}{A \code{\link[base]{vector}} indicating the subset of rows
+(and/or columns) to operate over. If \code{\link[base]{NULL}}, no
+subsetting is done.}
 
 \item{na.rm}{If \code{\link[base:logical]{TRUE}}, \code{\link[base]{NA}}s
 are excluded first, otherwise not.}
@@ -43,11 +45,13 @@ Returns a \code{\link[base]{numeric}} \code{\link[base]{vector}} of
 length N (K).
 }
 \description{
-Calculates the interquartile range for each row (column) of a matrix-like object.
+Calculates the interquartile range for each row (column) of a matrix-like
+object.
 }
 \details{
-The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
-\code{\link[base]{numeric}} call \code{matrixStats::\link[matrixStats]{rowIQRs}}
+The S4 methods for \code{x} of type \code{\link[base]{matrix}},
+\code{\link[base]{array}}, or \code{\link[base]{numeric}} call
+\code{matrixStats::\link[matrixStats]{rowIQRs}}
 / \code{matrixStats::\link[matrixStats]{colIQRs}}.
 }
 \examples{
@@ -69,7 +73,7 @@ The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
 the input is a \code{matrix} or \code{numeric} vector.
 \item For a non-robust analog, see \code{\link{rowSds}()}. For a more
 robust version see \code{\link[=rowMads]{rowMads()}}
-\item \link[stats:IQR]{stats::IQR}
+\item \code{stats::\link[stats]{IQR}()}.
 }
 }
 \keyword{array}

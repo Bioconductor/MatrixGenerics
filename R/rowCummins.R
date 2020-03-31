@@ -1,6 +1,8 @@
-#' Calculates the cumulative minima for each row (column) of a matrix-like object
+#' Calculates the cumulative minima for each row (column) of a matrix-like
+#' object
 #'
-#' Calculates the cumulative minima for each row (column) of a matrix-like object
+#' Calculates the cumulative minima for each row (column) of a matrix-like
+#' object.
 #' 
 #' @templateVar rowName rowCummins
 #' @templateVar colName colCummins
@@ -18,7 +20,7 @@
 #'   \code{matrixStats::\link[matrixStats]{colCummins}()} which are used when
 #'   the input is a \code{matrix} or \code{numeric} vector.
 #' \item For single minimum estimates, see \code{\link{rowMins}()}.
-#' \item [cummin]
+#' \item \code{base::\link[base]{cummin}()}.
 #' }
 #' 
 #' @template standardExamples
@@ -31,8 +33,8 @@ setGeneric("rowCummins", function(x, rows = NULL, cols = NULL,  ...) standardGen
            signature = "x"
 )
 
-.default_rowCummins <- function(x, rows = NULL, cols = NULL, dim. = dim(x)){
-  matrixStats::rowCummins(x, rows = rows, cols = cols, dim. = dim.)
+.default_rowCummins <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ...){
+  matrixStats::rowCummins(x, rows = rows, cols = cols, dim. = dim., ...)
 }
 
 #' @rdname rowCummins
@@ -54,8 +56,8 @@ setGeneric("colCummins", function(x, rows = NULL, cols = NULL, ...) standardGene
            signature = "x"
 )
 
-.default_colCummins <- function(x, rows = NULL, cols = NULL, dim. = dim(x)){
-  matrixStats::colCummins(x, rows = rows, cols = cols, dim. = dim.)
+.default_colCummins <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ...){
+  matrixStats::colCummins(x, rows = rows, cols = cols, dim. = dim., ...)
 }
 
 #' @rdname rowCummins

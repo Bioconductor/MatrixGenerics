@@ -1,6 +1,6 @@
 #' Extract one cell from each row (column) of a matrix-like object
 #'
-#' Extract one cell from each row (column) of a matrix-like object
+#' Extract one cell from each row (column) of a matrix-like object.
 #' 
 #' @templateVar rowName rowCollapse
 #' @templateVar colName colCollapse
@@ -42,8 +42,8 @@ setGeneric("rowCollapse", function(x, idxs, rows = NULL, ...) standardGeneric("r
            signature = "x"
 )
 
-.default_rowCollapse <- function(x, idxs, rows = NULL, dim. = dim(x)){
-  matrixStats::rowCollapse(x, idxs = idxs, rows = rows, dim. = dim.)
+.default_rowCollapse <- function(x, idxs, rows = NULL, dim. = dim(x), ...){
+  matrixStats::rowCollapse(x, idxs = idxs, rows = rows, dim. = dim., ...)
 }
 
 #' @rdname rowCollapse
@@ -65,8 +65,8 @@ setGeneric("colCollapse", function(x, idxs = idxs, cols = NULL, ...) standardGen
            signature = "x"
 )
 
-.default_colCollapse <- function(x, idxs, cols = NULL, dim. = dim(x)){
-  matrixStats::colCollapse(x, idxs = idxs, cols = cols, dim. = dim.)
+.default_colCollapse <- function(x, idxs, cols = NULL, dim. = dim(x), ...){
+  matrixStats::colCollapse(x, idxs = idxs, cols = cols, dim. = dim., ...)
 }
 
 #' @rdname rowCollapse

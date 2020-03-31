@@ -13,61 +13,32 @@
 \usage{
 rowProds(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{rowProds}{matrix}(
-  x,
-  rows = NULL,
-  cols = NULL,
-  na.rm = FALSE,
-  method = c("direct", "expSumLog")
-)
+\S4method{rowProds}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE,
+  method = c("direct", "expSumLog"), ...)
 
-\S4method{rowProds}{numeric}(
-  x,
-  rows = NULL,
-  cols = NULL,
-  na.rm = FALSE,
-  method = c("direct", "expSumLog")
-)
+\S4method{rowProds}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE,
+  method = c("direct", "expSumLog"), ...)
 
-\S4method{rowProds}{array}(
-  x,
-  rows = NULL,
-  cols = NULL,
-  na.rm = FALSE,
-  method = c("direct", "expSumLog")
-)
+\S4method{rowProds}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE,
+  method = c("direct", "expSumLog"), ...)
 
 colProds(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{colProds}{matrix}(
-  x,
-  rows = NULL,
-  cols = NULL,
-  na.rm = FALSE,
-  method = c("direct", "expSumLog")
-)
+\S4method{colProds}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE,
+  method = c("direct", "expSumLog"), ...)
 
-\S4method{colProds}{numeric}(
-  x,
-  rows = NULL,
-  cols = NULL,
-  na.rm = FALSE,
-  method = c("direct", "expSumLog")
-)
+\S4method{colProds}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE,
+  method = c("direct", "expSumLog"), ...)
 
-\S4method{colProds}{array}(
-  x,
-  rows = NULL,
-  cols = NULL,
-  na.rm = FALSE,
-  method = c("direct", "expSumLog")
-)
+\S4method{colProds}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE,
+  method = c("direct", "expSumLog"), ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
 
-\item{rows, cols}{A \code{\link[base]{vector}} indicating the subset (and/or
-columns) to operate over. If \code{\link[base]{NULL}}, no subsetting is done.}
+\item{rows, cols}{A \code{\link[base]{vector}} indicating the subset of rows
+(and/or columns) to operate over. If \code{\link[base]{NULL}}, no
+subsetting is done.}
 
 \item{na.rm}{If \code{\link[base:logical]{TRUE}}, \code{\link[base]{NA}}s
 are excluded first, otherwise not.}
@@ -86,8 +57,9 @@ length N (K).
 Calculates the product for each row (column) of a matrix-like object.
 }
 \details{
-The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
-\code{\link[base]{numeric}} call \code{matrixStats::\link[matrixStats]{rowProds}}
+The S4 methods for \code{x} of type \code{\link[base]{matrix}},
+\code{\link[base]{array}}, or \code{\link[base]{numeric}} call
+\code{matrixStats::\link[matrixStats]{rowProds}}
 / \code{matrixStats::\link[matrixStats]{colProds}}.
 }
 \examples{
@@ -107,8 +79,9 @@ The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
 \item \code{matrixStats::\link[matrixStats]{rowProds}()} and
 \code{matrixStats::\link[matrixStats]{colProds}()} which are used when
 the input is a \code{matrix} or \code{numeric} vector.
-\item For sums across rows (columns), see \code{\link{rowSums2}()} (\code{\link[=colSums2]{colSums2()}})
-\item \code{\link[=prod]{prod()}}
+\item For sums across rows (columns), see
+\code{\link{rowSums2}()} (\code{\link[=colSums2]{colSums2()}})
+\item \code{base::\link[base]{prod}()}.
 }
 }
 \keyword{array}

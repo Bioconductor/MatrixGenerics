@@ -1,6 +1,8 @@
-#' Calculates the cumulative maxima for each row (column) of a matrix-like object
+#' Calculates the cumulative maxima for each row (column) of a matrix-like
+#' object
 #'
-#' Calculates the cumulative maxima for each row (column) of a matrix-like object
+#' Calculates the cumulative maxima for each row (column) of a matrix-like
+#' object.
 #' 
 #' @templateVar rowName rowCummaxs
 #' @templateVar colName colCummaxs
@@ -18,7 +20,7 @@
 #'   \code{matrixStats::\link[matrixStats]{colCummaxs}()} which are used when
 #'   the input is a \code{matrix} or \code{numeric} vector.
 #' \item For single maximum estimates, see \code{\link{rowMaxs}()}.
-#' \item [cummax]
+#' \item \code{base::\link[base]{cummax}()}.
 #' }
 #' 
 #' @template standardExamples
@@ -31,8 +33,8 @@ setGeneric("rowCummaxs", function(x, rows = NULL, cols = NULL,  ...) standardGen
            signature = "x"
 )
 
-.default_rowCummaxs <- function(x, rows = NULL, cols = NULL, dim. = dim(x)){
-  matrixStats::rowCummaxs(x, rows = rows, cols = cols, dim. = dim.)
+.default_rowCummaxs <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ...){
+  matrixStats::rowCummaxs(x, rows = rows, cols = cols, dim. = dim., ...)
 }
 
 #' @rdname rowCummaxs
@@ -54,8 +56,8 @@ setGeneric("colCummaxs", function(x, rows = NULL, cols = NULL, ...) standardGene
            signature = "x"
 )
 
-.default_colCummaxs <- function(x, rows = NULL, cols = NULL, dim. = dim(x)){
-  matrixStats::colCummaxs(x, rows = rows, cols = cols, dim. = dim.)
+.default_colCummaxs <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ...){
+  matrixStats::colCummaxs(x, rows = rows, cols = cols, dim. = dim., ...)
 }
 
 #' @rdname rowCummaxs

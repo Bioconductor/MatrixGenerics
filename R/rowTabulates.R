@@ -1,6 +1,6 @@
 #' Tabulates the values in a matrix-like object by row (column)
 #'
-#' Tabulates the values in a matrix-like object by row (column)
+#' Tabulates the values in a matrix-like object by row (column).
 #' 
 #' @templateVar rowName rowTabulates
 #' @templateVar colName colTabulates
@@ -42,8 +42,8 @@ setGeneric("rowTabulates", function(x, rows = NULL, cols = NULL, values = NULL, 
            signature = "x"
 )
 
-.default_rowTabulates <- function(x, rows = NULL, cols = NULL, values = NULL){
-  matrixStats::rowTabulates(x, rows = rows, cols = cols, values = values)
+.default_rowTabulates <- function(x, rows = NULL, cols = NULL, values = NULL, ...){
+  matrixStats::rowTabulates(x, rows = rows, cols = cols, values = values, ...)
 }
 
 #' @rdname rowTabulates
@@ -65,8 +65,8 @@ setGeneric("colTabulates", function(x, rows = NULL, cols = NULL, values = NULL, 
            signature = "x"
 )
 
-.default_colTabulates <- function(x, rows = NULL, cols = NULL, values = NULL){
-  matrixStats::colTabulates(x, rows = rows, cols = cols, values = values)
+.default_colTabulates <- function(x, rows = NULL, cols = NULL, values = NULL, ...){
+  matrixStats::colTabulates(x, rows = rows, cols = cols, values = values, ...)
 }
 
 #' @rdname rowTabulates

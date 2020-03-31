@@ -20,8 +20,7 @@
 #'   the input is a \code{matrix} or \code{numeric} vector.
 #' \item For mean estimates, see \code{\link{rowMeans2}()} and
 #'   \code{\link[base:colSums]{rowMeans}()}.
-#' 
-#' \item [sum]
+#' \item \code{base::\link[base]{sum}()}.
 #' }
 #' 
 #' @template standardExamples
@@ -30,12 +29,12 @@
 #'
 #' @name rowSums2
 #' @export
-setGeneric("rowSums2", function(x, rows = NULL, cols = NULL, na.rm=FALSE, ...) standardGeneric("rowSums2"),
+setGeneric("rowSums2", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("rowSums2"),
            signature = "x"
 )
 
-.default_rowSums2 <- function(x, rows = NULL, cols = NULL, na.rm=FALSE, dim. = dim(x)){
-  matrixStats::rowSums2(x, rows = rows, cols = cols, na.rm=na.rm, dim. = dim.)
+.default_rowSums2 <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...){
+  matrixStats::rowSums2(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
 }
 
 #' @rdname rowSums2
@@ -53,12 +52,12 @@ setMethod("rowSums2", signature = "array", .default_rowSums2)
 #' @rdname rowSums2
 #' @name colSums2
 #' @export
-setGeneric("colSums2", function(x, rows = NULL, cols = NULL, na.rm=FALSE, ...) standardGeneric("colSums2"),
+setGeneric("colSums2", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("colSums2"),
            signature = "x"
 )
 
-.default_colSums2 <- function(x, rows = NULL, cols = NULL, na.rm=FALSE, dim. = dim(x)){
-  matrixStats::colSums2(x, rows = rows, cols = cols, na.rm=na.rm, dim. = dim.)
+.default_colSums2 <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...){
+  matrixStats::colSums2(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
 }
 
 #' @rdname rowSums2

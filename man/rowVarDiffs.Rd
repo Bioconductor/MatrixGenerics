@@ -9,53 +9,47 @@
 \alias{colVarDiffs,matrix-method}
 \alias{colVarDiffs,numeric-method}
 \alias{colVarDiffs,array-method}
-\title{Calculates the variance of the difference between each element of a row (column) of a matrix-like object}
+\title{Calculates the variance of the difference between each element of a row
+(column) of a matrix-like object}
 \usage{
-rowVarDiffs(
-  x,
-  rows = NULL,
-  cols = NULL,
-  na.rm = FALSE,
-  diff = 1L,
-  trim = 0,
-  ...
-)
+rowVarDiffs(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L,
+  trim = 0, ...)
 
-\S4method{rowVarDiffs}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0)
+\S4method{rowVarDiffs}{matrix}(x, rows = NULL, cols = NULL,
+  na.rm = FALSE, diff = 1L, trim = 0, ...)
 
-\S4method{rowVarDiffs}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0)
+\S4method{rowVarDiffs}{numeric}(x, rows = NULL, cols = NULL,
+  na.rm = FALSE, diff = 1L, trim = 0, ...)
 
-\S4method{rowVarDiffs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0)
+\S4method{rowVarDiffs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE,
+  diff = 1L, trim = 0, ...)
 
-colVarDiffs(
-  x,
-  rows = NULL,
-  cols = NULL,
-  na.rm = FALSE,
-  diff = 1L,
-  trim = 0,
-  ...
-)
+colVarDiffs(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L,
+  trim = 0, ...)
 
-\S4method{colVarDiffs}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0)
+\S4method{colVarDiffs}{matrix}(x, rows = NULL, cols = NULL,
+  na.rm = FALSE, diff = 1L, trim = 0, ...)
 
-\S4method{colVarDiffs}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0)
+\S4method{colVarDiffs}{numeric}(x, rows = NULL, cols = NULL,
+  na.rm = FALSE, diff = 1L, trim = 0, ...)
 
-\S4method{colVarDiffs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0)
+\S4method{colVarDiffs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE,
+  diff = 1L, trim = 0, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
 
-\item{rows, cols}{A \code{\link[base]{vector}} indicating the subset (and/or
-columns) to operate over. If \code{\link[base]{NULL}}, no subsetting is done.}
+\item{rows, cols}{A \code{\link[base]{vector}} indicating the subset of rows
+(and/or columns) to operate over. If \code{\link[base]{NULL}}, no
+subsetting is done.}
 
 \item{na.rm}{If \code{\link[base:logical]{TRUE}}, \code{\link[base]{NA}}s
 are excluded first, otherwise not.}
 
 \item{diff}{An integer specifying the order of difference.}
 
-\item{trim}{A double in [0,1/2] specifying the fraction of observations to be trimmed from
-each end of (sorted) x before estimation.}
+\item{trim}{A double in [0,1/2] specifying the fraction of observations to
+be trimmed from each end of (sorted) x before estimation.}
 
 \item{...}{Additional arguments passed to specific methods.}
 }
@@ -64,11 +58,13 @@ Returns a \code{\link[base]{numeric}} \code{\link[base]{vector}} of
 length N (K).
 }
 \description{
-Calculates the variance of the difference between each element of a row (column) of a matrix-like object
+Calculates the variance of the difference between each element of a row
+(column) of a matrix-like object.
 }
 \details{
-The S4 methods for \code{x} of type \code{\link[base]{matrix}} or
-\code{\link[base]{numeric}} call \code{matrixStats::\link[matrixStats]{rowVarDiffs}}
+The S4 methods for \code{x} of type \code{\link[base]{matrix}},
+\code{\link[base]{array}}, or \code{\link[base]{numeric}} call
+\code{matrixStats::\link[matrixStats]{rowVarDiffs}}
 / \code{matrixStats::\link[matrixStats]{colVarDiffs}}.
 }
 \examples{
