@@ -27,6 +27,7 @@
 #' @keywords array iteration robust univar
 #'
 #' @name rowMadDiffs
+#' @importFrom matrixStats colMadDiffs rowMadDiffs
 #' @export
 setGeneric("rowMadDiffs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0,  ...) standardGeneric("rowMadDiffs"),
            signature = "x"

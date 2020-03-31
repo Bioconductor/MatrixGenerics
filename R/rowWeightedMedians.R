@@ -29,6 +29,7 @@
 #' @keywords array iteration robust univar
 #'
 #' @name rowWeightedMedians
+#' @importFrom matrixStats colWeightedMedians rowWeightedMedians
 #' @export
 setGeneric("rowWeightedMedians", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("rowWeightedMedians"),
            signature = "x"

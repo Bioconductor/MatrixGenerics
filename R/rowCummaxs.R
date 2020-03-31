@@ -28,6 +28,7 @@
 #' @keywords array iteration robust univar
 #'
 #' @name rowCummaxs
+#' @importFrom matrixStats colCummaxs rowCummaxs
 #' @export
 setGeneric("rowCummaxs", function(x, rows = NULL, cols = NULL,  ...) standardGeneric("rowCummaxs"),
            signature = "x"

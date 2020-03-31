@@ -31,6 +31,7 @@
 #' @keywords array iteration robust univar
 #'
 #' @name rowWeightedVars
+#' @importFrom matrixStats colWeightedVars rowWeightedVars
 #' @export
 setGeneric("rowWeightedVars", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("rowWeightedVars"),
            signature = "x"

@@ -33,6 +33,7 @@
 #' @keywords array iteration robust
 #'
 #' @name rowQuantiles
+#' @importFrom matrixStats colQuantiles rowQuantiles
 #' @export
 setGeneric("rowQuantiles", function(x, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE, ...) standardGeneric("rowQuantiles"),
            signature = "x"

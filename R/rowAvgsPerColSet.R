@@ -49,6 +49,7 @@
 #' @keywords array iteration robust univar2
 #'
 #' @name rowAvgsPerColSet
+#' @importFrom matrixStats colAvgsPerRowSet rowAvgsPerColSet
 #' @export
 setGeneric("rowAvgsPerColSet", function(X, W = NULL, rows = NULL, S, FUN = rowMeans,  ..., tFUN = FALSE) standardGeneric("rowAvgsPerColSet"),
            signature = "X"

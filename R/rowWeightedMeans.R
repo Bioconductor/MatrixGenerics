@@ -29,6 +29,7 @@
 #' @keywords array iteration robust univar
 #'
 #' @name rowWeightedMeans
+#' @importFrom matrixStats colWeightedMeans rowWeightedMeans
 #' @export
 setGeneric("rowWeightedMeans", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("rowWeightedMeans"),
            signature = "x"

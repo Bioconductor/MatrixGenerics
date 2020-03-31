@@ -32,6 +32,7 @@
 #' @keywords array iteration robust univar
 #'
 #' @name rowLogSumExps
+#' @importFrom matrixStats colLogSumExps rowLogSumExps
 #' @export
 setGeneric("rowLogSumExps", function(lx, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("rowLogSumExps"),
            signature = "lx"

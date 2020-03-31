@@ -31,6 +31,7 @@
 #' @keywords array iteration robust univar
 #'
 #' @name rowMeans2
+#' @importFrom matrixStats colMeans2 rowMeans2
 #' @export
 setGeneric("rowMeans2", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("rowMeans2"),
            signature = "x"

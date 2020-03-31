@@ -37,6 +37,7 @@
 #' @keywords array iteration robust univar
 #'
 #' @name rowCollapse
+#' @importFrom matrixStats rowCollapse colCollapse
 #' @export
 setGeneric("rowCollapse", function(x, idxs, rows = NULL, ...) standardGeneric("rowCollapse"),
            signature = "x"

@@ -32,6 +32,7 @@
 #' @keywords array iteration robust
 #'
 #' @name rowRanges
+#' @importFrom matrixStats colRanges rowRanges
 #' @export
 setGeneric("rowRanges", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("rowRanges"),
            signature = "x"

@@ -25,6 +25,7 @@
 #'
 #'
 #' @name rowAnyNAs
+#' @importFrom matrixStats colAnyNAs rowAnyNAs
 #' @export
 setGeneric("rowAnyNAs", function(x, rows = NULL, cols = NULL,  ...) standardGeneric("rowAnyNAs"),
            signature = "x"
