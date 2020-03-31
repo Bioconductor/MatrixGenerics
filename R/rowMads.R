@@ -39,8 +39,8 @@ setGeneric("rowMads", function(x, rows = NULL, cols = NULL, center = NULL, const
            signature = "x"
 )
 
-.default_rowMads <- function(x, rows = NULL, cols = NULL, center = NULL, constant = 1.4826, na.rm = FALSE, dim. = dim(x)){
-  matrixStats::rowMads(x, rows = rows, cols = cols, center = center, constant = constant, na.rm = na.rm, dim. = dim.)
+.default_rowMads <- function(x, rows = NULL, cols = NULL, center = NULL, constant = 1.4826, na.rm = FALSE, dim. = dim(x), ...){
+  matrixStats::rowMads(x, rows = rows, cols = cols, center = center, constant = constant, na.rm = na.rm, dim. = dim., ...)
 }
 
 #' @rdname rowMads
@@ -62,8 +62,8 @@ setGeneric("colMads", function(x, rows = NULL, cols = NULL, center = NULL, const
            signature = "x"
 )
 
-.default_colMads <- function(x, rows = NULL, cols = NULL, center = NULL, constant = 1.4826, na.rm = FALSE, dim. = dim(x)){
-  matrixStats::colMads(x, rows = rows, cols = cols, center = center, constant = constant, na.rm = na.rm, dim. = dim.)
+.default_colMads <- function(x, rows = NULL, cols = NULL, center = NULL, constant = 1.4826, na.rm = FALSE, dim. = dim(x), ...){
+  matrixStats::colMads(x, rows = rows, cols = cols, center = center, constant = constant, na.rm = na.rm, dim. = dim., ...)
 }
 
 #' @rdname rowMads

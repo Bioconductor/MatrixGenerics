@@ -13,19 +13,19 @@
 \usage{
 rowTabulates(x, rows = NULL, cols = NULL, values = NULL, ...)
 
-\S4method{rowTabulates}{matrix}(x, rows = NULL, cols = NULL, values = NULL)
+\S4method{rowTabulates}{matrix}(x, rows = NULL, cols = NULL, values = NULL, ...)
 
-\S4method{rowTabulates}{numeric}(x, rows = NULL, cols = NULL, values = NULL)
+\S4method{rowTabulates}{numeric}(x, rows = NULL, cols = NULL, values = NULL, ...)
 
-\S4method{rowTabulates}{array}(x, rows = NULL, cols = NULL, values = NULL)
+\S4method{rowTabulates}{array}(x, rows = NULL, cols = NULL, values = NULL, ...)
 
 colTabulates(x, rows = NULL, cols = NULL, values = NULL, ...)
 
-\S4method{colTabulates}{matrix}(x, rows = NULL, cols = NULL, values = NULL)
+\S4method{colTabulates}{matrix}(x, rows = NULL, cols = NULL, values = NULL, ...)
 
-\S4method{colTabulates}{numeric}(x, rows = NULL, cols = NULL, values = NULL)
+\S4method{colTabulates}{numeric}(x, rows = NULL, cols = NULL, values = NULL, ...)
 
-\S4method{colTabulates}{array}(x, rows = NULL, cols = NULL, values = NULL)
+\S4method{colTabulates}{array}(x, rows = NULL, cols = NULL, values = NULL, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

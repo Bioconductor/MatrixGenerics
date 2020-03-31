@@ -13,19 +13,19 @@
 \usage{
 rowWeightedMeans(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{rowWeightedMeans}{matrix}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE)
+\S4method{rowWeightedMeans}{matrix}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{rowWeightedMeans}{numeric}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE)
+\S4method{rowWeightedMeans}{numeric}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{rowWeightedMeans}{array}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE)
+\S4method{rowWeightedMeans}{array}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
 colWeightedMeans(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{colWeightedMeans}{matrix}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE)
+\S4method{colWeightedMeans}{matrix}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{colWeightedMeans}{numeric}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE)
+\S4method{colWeightedMeans}{numeric}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{colWeightedMeans}{array}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE)
+\S4method{colWeightedMeans}{array}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

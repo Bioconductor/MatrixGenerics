@@ -35,8 +35,8 @@ setGeneric("rowProds", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
            signature = "x"
 )
 
-.default_rowProds <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, method = c("direct", "expSumLog")){
-  matrixStats::rowProds(x, rows = rows, cols = cols, na.rm = na.rm, method = method)
+.default_rowProds <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, method = c("direct", "expSumLog"), ...){
+  matrixStats::rowProds(x, rows = rows, cols = cols, na.rm = na.rm, method = method, ...)
 }
 
 #' @rdname rowProds
@@ -54,12 +54,12 @@ setMethod("rowProds", signature = "array", .default_rowProds)
 #' @rdname rowProds
 #' @name colProds
 #' @export
-setGeneric("colProds", function(x, rows = NULL, cols = NULL, na.rm=FALSE, ...) standardGeneric("colProds"),
+setGeneric("colProds", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("colProds"),
            signature = "x"
 )
 
-.default_colProds <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, method = c("direct", "expSumLog")){
-  matrixStats::colProds(x, rows = rows, cols = cols, na.rm = na.rm, method = method)
+.default_colProds <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, method = c("direct", "expSumLog"), ...){
+  matrixStats::colProds(x, rows = rows, cols = cols, na.rm = na.rm, method = method, ...)
 }
 
 #' @rdname rowProds

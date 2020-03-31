@@ -31,8 +31,8 @@ setGeneric("rowMins", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) 
            signature = "x"
 )
 
-.default_rowMins <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x)){
-  matrixStats::rowMins(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim.)
+.default_rowMins <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...){
+  matrixStats::rowMins(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
 }
 
 #' @rdname rowMins
@@ -54,8 +54,8 @@ setGeneric("colMins", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) 
            signature = "x"
 )
 
-.default_colMins <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x)){
-  matrixStats::colMins(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim.)
+.default_colMins <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...){
+  matrixStats::colMins(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
 }
 
 #' @rdname rowMins

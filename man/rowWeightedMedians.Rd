@@ -13,19 +13,19 @@
 \usage{
 rowWeightedMedians(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{rowWeightedMedians}{matrix}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE)
+\S4method{rowWeightedMedians}{matrix}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{rowWeightedMedians}{numeric}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE)
+\S4method{rowWeightedMedians}{numeric}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{rowWeightedMedians}{array}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE)
+\S4method{rowWeightedMedians}{array}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
 colWeightedMedians(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{colWeightedMedians}{matrix}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE)
+\S4method{colWeightedMedians}{matrix}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{colWeightedMedians}{numeric}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE)
+\S4method{colWeightedMedians}{numeric}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{colWeightedMedians}{array}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE)
+\S4method{colWeightedMedians}{array}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

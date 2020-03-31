@@ -13,19 +13,19 @@
 \usage{
 rowMedians(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{rowMedians}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x))
+\S4method{rowMedians}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
 
-\S4method{rowMedians}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x))
+\S4method{rowMedians}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
 
-\S4method{rowMedians}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x))
+\S4method{rowMedians}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
 
 colMedians(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{colMedians}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x))
+\S4method{colMedians}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
 
-\S4method{colMedians}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x))
+\S4method{colMedians}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
 
-\S4method{colMedians}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x))
+\S4method{colMedians}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

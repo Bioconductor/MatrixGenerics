@@ -33,8 +33,8 @@ setGeneric("rowCummaxs", function(x, rows = NULL, cols = NULL,  ...) standardGen
            signature = "x"
 )
 
-.default_rowCummaxs <- function(x, rows = NULL, cols = NULL, dim. = dim(x)){
-  matrixStats::rowCummaxs(x, rows = rows, cols = cols, dim. = dim.)
+.default_rowCummaxs <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ...){
+  matrixStats::rowCummaxs(x, rows = rows, cols = cols, dim. = dim., ...)
 }
 
 #' @rdname rowCummaxs
@@ -56,8 +56,8 @@ setGeneric("colCummaxs", function(x, rows = NULL, cols = NULL, ...) standardGene
            signature = "x"
 )
 
-.default_colCummaxs <- function(x, rows = NULL, cols = NULL, dim. = dim(x)){
-  matrixStats::colCummaxs(x, rows = rows, cols = cols, dim. = dim.)
+.default_colCummaxs <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ...){
+  matrixStats::colCummaxs(x, rows = rows, cols = cols, dim. = dim., ...)
 }
 
 #' @rdname rowCummaxs

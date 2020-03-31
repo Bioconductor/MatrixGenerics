@@ -36,8 +36,8 @@ setGeneric("rowWeightedVars", function(x, w = NULL, rows = NULL, cols = NULL, na
            signature = "x"
 )
 
-.default_rowWeightedVars <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE){
-  matrixStats::rowWeightedVars(x, w = w, rows = rows, cols = cols, na.rm = na.rm)
+.default_rowWeightedVars <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...){
+  matrixStats::rowWeightedVars(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ...)
 }
 
 #' @rdname rowWeightedVars
@@ -59,8 +59,8 @@ setGeneric("colWeightedVars", function(x, w = NULL, rows = NULL, cols = NULL, na
            signature = "x"
 )
 
-.default_colWeightedVars <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE){
-  matrixStats::colWeightedVars(x, w = w, rows = rows, cols = cols, na.rm = na.rm)
+.default_colWeightedVars <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...){
+  matrixStats::colWeightedVars(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ...)
 }
 
 #' @rdname rowWeightedVars

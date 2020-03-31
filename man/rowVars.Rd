@@ -14,24 +14,24 @@
 rowVars(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, ...)
 
 \S4method{rowVars}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE,
-  center = NULL, dim. = dim(x))
+  center = NULL, dim. = dim(x), ...)
 
 \S4method{rowVars}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE,
-  center = NULL, dim. = dim(x))
+  center = NULL, dim. = dim(x), ...)
 
 \S4method{rowVars}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE,
-  center = NULL, dim. = dim(x))
+  center = NULL, dim. = dim(x), ...)
 
 colVars(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, ...)
 
 \S4method{colVars}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE,
-  center = NULL, dim. = dim(x))
+  center = NULL, dim. = dim(x), ...)
 
 \S4method{colVars}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE,
-  center = NULL, dim. = dim(x))
+  center = NULL, dim. = dim(x), ...)
 
 \S4method{colVars}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE,
-  center = NULL, dim. = dim(x))
+  center = NULL, dim. = dim(x), ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

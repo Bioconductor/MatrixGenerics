@@ -56,8 +56,8 @@ setGeneric("rowRanks", function(x, rows = NULL, cols = NULL, ties.method = c("ma
 
 .default_rowRanks <-  function(x, rows = NULL, cols = NULL, 
                                ties.method = c("max", "average", "first", "last", "random", "max", "min", "dense"),
-                               dim. = dim(x)){
-  matrixStats::rowRanks(x = x, rows = rows, cols = cols, ties.method = ties.method, dim. = dim.)
+                               dim. = dim(x), ...){
+  matrixStats::rowRanks(x = x, rows = rows, cols = cols, ties.method = ties.method, dim. = dim., ...)
 }
 
 #' @rdname rowRanks
@@ -81,8 +81,8 @@ setGeneric("colRanks", function(x, rows = NULL, cols = NULL, ties.method = c("ma
 
 .default_colRanks <-  function(x, rows = NULL, cols = NULL, 
                                ties.method = c("max", "average", "first", "last", "random", "max", "min", "dense"),
-                               dim. = dim(x), preserveShape = FALSE){
-  matrixStats::colRanks(x = x, rows = rows, cols = cols, ties.method = ties.method, dim. = dim., preserveShape = preserveShape)
+                               dim. = dim(x), preserveShape = FALSE, ...){
+  matrixStats::colRanks(x = x, rows = rows, cols = cols, ties.method = ties.method, dim. = dim., preserveShape = preserveShape, ...)
 }
 
 #' @rdname rowRanks

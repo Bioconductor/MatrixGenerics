@@ -33,8 +33,8 @@ setGeneric("rowCummins", function(x, rows = NULL, cols = NULL,  ...) standardGen
            signature = "x"
 )
 
-.default_rowCummins <- function(x, rows = NULL, cols = NULL, dim. = dim(x)){
-  matrixStats::rowCummins(x, rows = rows, cols = cols, dim. = dim.)
+.default_rowCummins <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ...){
+  matrixStats::rowCummins(x, rows = rows, cols = cols, dim. = dim., ...)
 }
 
 #' @rdname rowCummins
@@ -56,8 +56,8 @@ setGeneric("colCummins", function(x, rows = NULL, cols = NULL, ...) standardGene
            signature = "x"
 )
 
-.default_colCummins <- function(x, rows = NULL, cols = NULL, dim. = dim(x)){
-  matrixStats::colCummins(x, rows = rows, cols = cols, dim. = dim.)
+.default_colCummins <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ...){
+  matrixStats::colCummins(x, rows = rows, cols = cols, dim. = dim., ...)
 }
 
 #' @rdname rowCummins

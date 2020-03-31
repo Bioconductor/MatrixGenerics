@@ -32,12 +32,12 @@
 #'
 #' @name rowSds
 #' @export
-setGeneric("rowSds", function(x, rows = NULL, cols = NULL, na.rm=FALSE, center = NULL, ...) standardGeneric("rowSds"),
+setGeneric("rowSds", function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, ...) standardGeneric("rowSds"),
            signature = "x"
 )
 
-.default_rowSds <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, dim. = dim(x)){
-  matrixStats::rowSds(x, rows = rows, cols = cols, na.rm = na.rm, center = center, dim. = dim.)
+.default_rowSds <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, dim. = dim(x), ...){
+  matrixStats::rowSds(x, rows = rows, cols = cols, na.rm = na.rm, center = center, dim. = dim., ...)
 }
 
 #' @rdname rowSds
@@ -59,8 +59,8 @@ setGeneric("colSds", function(x, rows = NULL, cols = NULL, na.rm = FALSE, center
            signature = "x"
 )
 
-.default_colSds <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, dim. = dim(x)){
-  matrixStats::colSds(x, rows = rows, cols = cols, na.rm = na.rm, center = center, dim. = dim.)
+.default_colSds <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, dim. = dim(x), ...){
+  matrixStats::colSds(x, rows = rows, cols = cols, na.rm = na.rm, center = center, dim. = dim., ...)
 }
 
 #' @rdname rowSds

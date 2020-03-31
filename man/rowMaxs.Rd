@@ -13,19 +13,19 @@
 \usage{
 rowMaxs(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{rowMaxs}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x))
+\S4method{rowMaxs}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
 
-\S4method{rowMaxs}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x))
+\S4method{rowMaxs}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
 
-\S4method{rowMaxs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x))
+\S4method{rowMaxs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
 
 colMaxs(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{colMaxs}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x))
+\S4method{colMaxs}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
 
-\S4method{colMaxs}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x))
+\S4method{colMaxs}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
 
-\S4method{colMaxs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x))
+\S4method{colMaxs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

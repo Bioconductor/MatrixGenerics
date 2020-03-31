@@ -14,24 +14,24 @@
 rowProds(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
 \S4method{rowProds}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE,
-  method = c("direct", "expSumLog"))
+  method = c("direct", "expSumLog"), ...)
 
 \S4method{rowProds}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE,
-  method = c("direct", "expSumLog"))
+  method = c("direct", "expSumLog"), ...)
 
 \S4method{rowProds}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE,
-  method = c("direct", "expSumLog"))
+  method = c("direct", "expSumLog"), ...)
 
 colProds(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
 \S4method{colProds}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE,
-  method = c("direct", "expSumLog"))
+  method = c("direct", "expSumLog"), ...)
 
 \S4method{colProds}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE,
-  method = c("direct", "expSumLog"))
+  method = c("direct", "expSumLog"), ...)
 
 \S4method{colProds}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE,
-  method = c("direct", "expSumLog"))
+  method = c("direct", "expSumLog"), ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

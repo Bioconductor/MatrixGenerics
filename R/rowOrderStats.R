@@ -40,8 +40,8 @@ setGeneric("rowOrderStats", function(x, rows = NULL, cols = NULL, which, ...) st
            signature = "x"
 )
 
-.default_rowOrderStats <- function(x, rows = NULL, cols = NULL, which, dim. = dim(x)){
-  matrixStats::rowOrderStats(x, rows = rows, cols = cols, which = which, dim. = dim.)
+.default_rowOrderStats <- function(x, rows = NULL, cols = NULL, which, dim. = dim(x), ...){
+  matrixStats::rowOrderStats(x, rows = rows, cols = cols, which = which, dim. = dim., ...)
 }
 
 #' @rdname rowOrderStats
@@ -63,8 +63,8 @@ setGeneric("colOrderStats", function(x, rows = NULL, cols = NULL, which, ...) st
            signature = "x"
 )
 
-.default_colOrderStats <- function(x, rows = NULL, cols = NULL, which, dim. = dim(x)){
-  matrixStats::colOrderStats(x, rows = rows, cols = cols, which = which, dim. = dim.)
+.default_colOrderStats <- function(x, rows = NULL, cols = NULL, which, dim. = dim(x), ...){
+  matrixStats::colOrderStats(x, rows = rows, cols = cols, which = which, dim. = dim., ...)
 }
 
 #' @rdname rowOrderStats

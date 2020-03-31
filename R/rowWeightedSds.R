@@ -36,8 +36,8 @@ setGeneric("rowWeightedSds", function(x, w = NULL, rows = NULL, cols = NULL, na.
            signature = "x"
 )
 
-.default_rowWeightedSds <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE){
-  matrixStats::rowWeightedSds(x, w = w, rows = rows, cols = cols, na.rm = na.rm)
+.default_rowWeightedSds <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...){
+  matrixStats::rowWeightedSds(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ...)
 }
 
 #' @rdname rowWeightedSds
@@ -59,8 +59,8 @@ setGeneric("colWeightedSds", function(x, w = NULL, rows = NULL, cols = NULL, na.
            signature = "x"
 )
 
-.default_colWeightedSds <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE){
-  matrixStats::colWeightedSds(x, w = w, rows = rows, cols = cols, na.rm = na.rm)
+.default_colWeightedSds <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...){
+  matrixStats::colWeightedSds(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ...)
 }
 
 #' @rdname rowWeightedSds

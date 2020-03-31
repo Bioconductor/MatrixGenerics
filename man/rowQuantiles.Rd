@@ -16,30 +16,30 @@ rowQuantiles(x, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1,
 
 \S4method{rowQuantiles}{matrix}(x, rows = NULL, cols = NULL,
   probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE, type = 7L,
-  drop = TRUE)
+  ..., drop = TRUE)
 
 \S4method{rowQuantiles}{numeric}(x, rows = NULL, cols = NULL,
   probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE, type = 7L,
-  drop = TRUE)
+  ..., drop = TRUE)
 
 \S4method{rowQuantiles}{array}(x, rows = NULL, cols = NULL,
   probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE, type = 7L,
-  drop = TRUE)
+  ..., drop = TRUE)
 
 colQuantiles(x, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1,
   by = 0.25), na.rm = FALSE, ...)
 
 \S4method{colQuantiles}{matrix}(x, rows = NULL, cols = NULL,
   probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE, type = 7L,
-  drop = TRUE)
+  ..., drop = TRUE)
 
 \S4method{colQuantiles}{numeric}(x, rows = NULL, cols = NULL,
   probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE, type = 7L,
-  drop = TRUE)
+  ..., drop = TRUE)
 
 \S4method{colQuantiles}{array}(x, rows = NULL, cols = NULL,
   probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE, type = 7L,
-  drop = TRUE)
+  ..., drop = TRUE)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

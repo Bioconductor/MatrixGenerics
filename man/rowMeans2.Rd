@@ -13,19 +13,19 @@
 \usage{
 rowMeans2(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{rowMeans2}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x))
+\S4method{rowMeans2}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
 
-\S4method{rowMeans2}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x))
+\S4method{rowMeans2}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
 
-\S4method{rowMeans2}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x))
+\S4method{rowMeans2}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
 
 colMeans2(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{colMeans2}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x))
+\S4method{colMeans2}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
 
-\S4method{colMeans2}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x))
+\S4method{colMeans2}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
 
-\S4method{colMeans2}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x))
+\S4method{colMeans2}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

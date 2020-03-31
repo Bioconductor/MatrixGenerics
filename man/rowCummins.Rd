@@ -14,19 +14,19 @@ object}
 \usage{
 rowCummins(x, rows = NULL, cols = NULL, ...)
 
-\S4method{rowCummins}{matrix}(x, rows = NULL, cols = NULL, dim. = dim(x))
+\S4method{rowCummins}{matrix}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
 
-\S4method{rowCummins}{numeric}(x, rows = NULL, cols = NULL, dim. = dim(x))
+\S4method{rowCummins}{numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
 
-\S4method{rowCummins}{array}(x, rows = NULL, cols = NULL, dim. = dim(x))
+\S4method{rowCummins}{array}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
 
 colCummins(x, rows = NULL, cols = NULL, ...)
 
-\S4method{colCummins}{matrix}(x, rows = NULL, cols = NULL, dim. = dim(x))
+\S4method{colCummins}{matrix}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
 
-\S4method{colCummins}{numeric}(x, rows = NULL, cols = NULL, dim. = dim(x))
+\S4method{colCummins}{numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
 
-\S4method{colCummins}{array}(x, rows = NULL, cols = NULL, dim. = dim(x))
+\S4method{colCummins}{array}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

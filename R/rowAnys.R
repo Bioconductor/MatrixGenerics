@@ -33,8 +33,8 @@ setGeneric("rowAnys", function(x, rows = NULL, cols = NULL, value = TRUE, na.rm 
            signature = "x"
 )
 
-.default_rowAnys <- function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x)){
-  matrixStats::rowAnys(x, rows = rows, cols = cols, value = value, na.rm=na.rm, dim. = dim.)
+.default_rowAnys <- function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ...){
+  matrixStats::rowAnys(x, rows = rows, cols = cols, value = value, na.rm = na.rm, dim. = dim., ...)
 }
 
 #' @rdname rowAnys
@@ -56,8 +56,8 @@ setGeneric("colAnys", function(x, rows = NULL, cols = NULL, value = TRUE, na.rm 
            signature = "x"
 )
 
-.default_colAnys <- function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x)){
-  matrixStats::colAnys(x, rows = rows, cols = cols, value = value, na.rm = na.rm, dim. = dim.)
+.default_colAnys <- function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ...){
+  matrixStats::colAnys(x, rows = rows, cols = cols, value = value, na.rm = na.rm, dim. = dim., ...)
 }
 
 #' @rdname rowAnys

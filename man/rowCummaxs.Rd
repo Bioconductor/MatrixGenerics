@@ -14,19 +14,19 @@ object}
 \usage{
 rowCummaxs(x, rows = NULL, cols = NULL, ...)
 
-\S4method{rowCummaxs}{matrix}(x, rows = NULL, cols = NULL, dim. = dim(x))
+\S4method{rowCummaxs}{matrix}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
 
-\S4method{rowCummaxs}{numeric}(x, rows = NULL, cols = NULL, dim. = dim(x))
+\S4method{rowCummaxs}{numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
 
-\S4method{rowCummaxs}{array}(x, rows = NULL, cols = NULL, dim. = dim(x))
+\S4method{rowCummaxs}{array}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
 
 colCummaxs(x, rows = NULL, cols = NULL, ...)
 
-\S4method{colCummaxs}{matrix}(x, rows = NULL, cols = NULL, dim. = dim(x))
+\S4method{colCummaxs}{matrix}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
 
-\S4method{colCummaxs}{numeric}(x, rows = NULL, cols = NULL, dim. = dim(x))
+\S4method{colCummaxs}{numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
 
-\S4method{colCummaxs}{array}(x, rows = NULL, cols = NULL, dim. = dim(x))
+\S4method{colCummaxs}{array}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

@@ -36,8 +36,8 @@ setGeneric("rowMeans2", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...
            signature = "x"
 )
 
-.default_rowMeans2 <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x)){
-  matrixStats::rowMeans2(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim.)
+.default_rowMeans2 <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...){
+  matrixStats::rowMeans2(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
 }
 
 #' @rdname rowMeans2
@@ -59,8 +59,8 @@ setGeneric("colMeans2", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...
            signature = "x"
 )
 
-.default_colMeans2 <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x)){
-  matrixStats::colMeans2(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim.)
+.default_colMeans2 <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...){
+  matrixStats::colMeans2(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
 }
 
 #' @rdname rowMeans2

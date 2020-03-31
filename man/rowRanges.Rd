@@ -14,19 +14,19 @@ object}
 \usage{
 rowRanges(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{rowRanges}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x))
+\S4method{rowRanges}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
 
-\S4method{rowRanges}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x))
+\S4method{rowRanges}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
 
-\S4method{rowRanges}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x))
+\S4method{rowRanges}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
 
 colRanges(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{colRanges}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x))
+\S4method{colRanges}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
 
-\S4method{colRanges}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x))
+\S4method{colRanges}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
 
-\S4method{colRanges}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x))
+\S4method{colRanges}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

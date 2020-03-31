@@ -34,8 +34,8 @@ setGeneric("rowWeightedMedians", function(x, w = NULL, rows = NULL, cols = NULL,
            signature = "x"
 )
 
-.default_rowWeightedMedians <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE){
-  matrixStats::rowWeightedMedians(x, w = w, rows = rows, cols = cols, na.rm = na.rm)
+.default_rowWeightedMedians <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...){
+  matrixStats::rowWeightedMedians(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ...)
 }
 
 #' @rdname rowWeightedMedians
@@ -57,8 +57,8 @@ setGeneric("colWeightedMedians", function(x, w = NULL, rows = NULL, cols = NULL,
            signature = "x"
 )
 
-.default_colWeightedMedians <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE){
-  matrixStats::colWeightedMedians(x, w = w, rows = rows, cols = cols, na.rm = na.rm)
+.default_colWeightedMedians <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...){
+  matrixStats::colWeightedMedians(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ...)
 }
 
 #' @rdname rowWeightedMedians

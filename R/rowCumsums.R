@@ -30,8 +30,8 @@ setGeneric("rowCumsums", function(x, rows = NULL, cols = NULL,  ...) standardGen
            signature = "x"
 )
 
-.default_rowCumsums <- function(x, rows = NULL, cols = NULL, dim. = dim(x)){
-  matrixStats::rowCumsums(x, rows = rows, cols = cols, dim. = dim.)
+.default_rowCumsums <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ...){
+  matrixStats::rowCumsums(x, rows = rows, cols = cols, dim. = dim., ...)
 }
 
 #' @rdname rowCumsums
@@ -53,8 +53,8 @@ setGeneric("colCumsums", function(x, rows = NULL, cols = NULL, ...) standardGene
            signature = "x"
 )
 
-.default_colCumsums <- function(x, rows = NULL, cols = NULL, dim. = dim(x)){
-  matrixStats::colCumsums(x, rows = rows, cols = cols, dim. = dim.)
+.default_colCumsums <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ...){
+  matrixStats::colCumsums(x, rows = rows, cols = cols, dim. = dim., ...)
 }
 
 #' @rdname rowCumsums

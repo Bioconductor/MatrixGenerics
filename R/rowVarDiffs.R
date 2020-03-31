@@ -33,8 +33,8 @@ setGeneric("rowVarDiffs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, d
            signature = "x"
 )
 
-.default_rowVarDiffs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0){
-  matrixStats::rowVarDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff = diff, trim = trim)
+.default_rowVarDiffs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...){
+  matrixStats::rowVarDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff = diff, trim = trim, ...)
 }
 
 #' @rdname rowVarDiffs
@@ -56,8 +56,8 @@ setGeneric("colVarDiffs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, d
            signature = "x"
 )
 
-.default_colVarDiffs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0){
-  matrixStats::colVarDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff = diff, trim = trim)
+.default_colVarDiffs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...){
+  matrixStats::colVarDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff = diff, trim = trim, ...)
 }
 
 #' @rdname rowVarDiffs

@@ -15,20 +15,26 @@ a row (column) of a matrix-like object}
 rowIQRDiffs(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L,
   trim = 0, ...)
 
-\S4method{rowIQRDiffs}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0)
+\S4method{rowIQRDiffs}{matrix}(x, rows = NULL, cols = NULL,
+  na.rm = FALSE, diff = 1L, trim = 0, ...)
 
-\S4method{rowIQRDiffs}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0)
+\S4method{rowIQRDiffs}{numeric}(x, rows = NULL, cols = NULL,
+  na.rm = FALSE, diff = 1L, trim = 0, ...)
 
-\S4method{rowIQRDiffs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0)
+\S4method{rowIQRDiffs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE,
+  diff = 1L, trim = 0, ...)
 
 colIQRDiffs(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L,
   trim = 0, ...)
 
-\S4method{colIQRDiffs}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0)
+\S4method{colIQRDiffs}{matrix}(x, rows = NULL, cols = NULL,
+  na.rm = FALSE, diff = 1L, trim = 0, ...)
 
-\S4method{colIQRDiffs}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0)
+\S4method{colIQRDiffs}{numeric}(x, rows = NULL, cols = NULL,
+  na.rm = FALSE, diff = 1L, trim = 0, ...)
 
-\S4method{colIQRDiffs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0)
+\S4method{colIQRDiffs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE,
+  diff = 1L, trim = 0, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

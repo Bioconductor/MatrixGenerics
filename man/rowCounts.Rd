@@ -15,24 +15,24 @@ equal to a value}
 rowCounts(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...)
 
 \S4method{rowCounts}{matrix}(x, rows = NULL, cols = NULL, value = TRUE,
-  na.rm = FALSE, dim. = dim(x))
+  na.rm = FALSE, dim. = dim(x), ...)
 
 \S4method{rowCounts}{numeric}(x, rows = NULL, cols = NULL, value = TRUE,
-  na.rm = FALSE, dim. = dim(x))
+  na.rm = FALSE, dim. = dim(x), ...)
 
 \S4method{rowCounts}{array}(x, rows = NULL, cols = NULL, value = TRUE,
-  na.rm = FALSE, dim. = dim(x))
+  na.rm = FALSE, dim. = dim(x), ...)
 
 colCounts(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...)
 
 \S4method{colCounts}{matrix}(x, rows = NULL, cols = NULL, value = TRUE,
-  na.rm = FALSE, dim. = dim(x))
+  na.rm = FALSE, dim. = dim(x), ...)
 
 \S4method{colCounts}{numeric}(x, rows = NULL, cols = NULL, value = TRUE,
-  na.rm = FALSE, dim. = dim(x))
+  na.rm = FALSE, dim. = dim(x), ...)
 
 \S4method{colCounts}{array}(x, rows = NULL, cols = NULL, value = TRUE,
-  na.rm = FALSE, dim. = dim(x))
+  na.rm = FALSE, dim. = dim(x), ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

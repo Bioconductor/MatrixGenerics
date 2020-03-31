@@ -15,20 +15,26 @@ a row (column) of a matrix-like object}
 rowSdDiffs(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L,
   trim = 0, ...)
 
-\S4method{rowSdDiffs}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0)
+\S4method{rowSdDiffs}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE,
+  diff = 1L, trim = 0, ...)
 
-\S4method{rowSdDiffs}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0)
+\S4method{rowSdDiffs}{numeric}(x, rows = NULL, cols = NULL,
+  na.rm = FALSE, diff = 1L, trim = 0, ...)
 
-\S4method{rowSdDiffs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0)
+\S4method{rowSdDiffs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE,
+  diff = 1L, trim = 0, ...)
 
 colSdDiffs(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L,
   trim = 0, ...)
 
-\S4method{colSdDiffs}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0)
+\S4method{colSdDiffs}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE,
+  diff = 1L, trim = 0, ...)
 
-\S4method{colSdDiffs}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0)
+\S4method{colSdDiffs}{numeric}(x, rows = NULL, cols = NULL,
+  na.rm = FALSE, diff = 1L, trim = 0, ...)
 
-\S4method{colSdDiffs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0)
+\S4method{colSdDiffs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE,
+  diff = 1L, trim = 0, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

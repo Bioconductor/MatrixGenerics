@@ -14,19 +14,19 @@ object}
 \usage{
 rowWeightedVars(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{rowWeightedVars}{matrix}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE)
+\S4method{rowWeightedVars}{matrix}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{rowWeightedVars}{numeric}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE)
+\S4method{rowWeightedVars}{numeric}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{rowWeightedVars}{array}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE)
+\S4method{rowWeightedVars}{array}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
 colWeightedVars(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{colWeightedVars}{matrix}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE)
+\S4method{colWeightedVars}{matrix}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{colWeightedVars}{numeric}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE)
+\S4method{colWeightedVars}{numeric}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{colWeightedVars}{array}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE)
+\S4method{colWeightedVars}{array}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

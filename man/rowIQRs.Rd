@@ -14,19 +14,19 @@ object}
 \usage{
 rowIQRs(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{rowIQRs}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE)
+\S4method{rowIQRs}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{rowIQRs}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE)
+\S4method{rowIQRs}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{rowIQRs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE)
+\S4method{rowIQRs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
 colIQRs(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{colIQRs}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE)
+\S4method{colIQRs}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{colIQRs}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE)
+\S4method{colIQRs}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{colIQRs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE)
+\S4method{colIQRs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

@@ -31,8 +31,8 @@ setGeneric("rowMaxs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) 
            signature = "x"
 )
 
-.default_rowMaxs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x)){
-  matrixStats::rowMaxs(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim.)
+.default_rowMaxs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...){
+  matrixStats::rowMaxs(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
 }
 
 #' @rdname rowMaxs
@@ -54,8 +54,8 @@ setGeneric("colMaxs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) 
            signature = "x"
 )
 
-.default_colMaxs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x)){
-  matrixStats::colMaxs(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim.)
+.default_colMaxs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...){
+  matrixStats::colMaxs(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
 }
 
 #' @rdname rowMaxs

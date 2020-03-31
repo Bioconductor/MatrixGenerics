@@ -16,25 +16,25 @@ rowWeightedMads(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE,
   constant = 1.4826, center = NULL, ...)
 
 \S4method{rowWeightedMads}{matrix}(x, w = NULL, rows = NULL, cols = NULL,
-  na.rm = FALSE, constant = 1.4826, center = NULL)
+  na.rm = FALSE, constant = 1.4826, center = NULL, ...)
 
 \S4method{rowWeightedMads}{numeric}(x, w = NULL, rows = NULL,
-  cols = NULL, na.rm = FALSE, constant = 1.4826, center = NULL)
+  cols = NULL, na.rm = FALSE, constant = 1.4826, center = NULL, ...)
 
 \S4method{rowWeightedMads}{array}(x, w = NULL, rows = NULL, cols = NULL,
-  na.rm = FALSE, constant = 1.4826, center = NULL)
+  na.rm = FALSE, constant = 1.4826, center = NULL, ...)
 
 colWeightedMads(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE,
   constant = 1.4826, center = NULL, ...)
 
 \S4method{colWeightedMads}{matrix}(x, w = NULL, rows = NULL, cols = NULL,
-  na.rm = FALSE, constant = 1.4826, center = NULL)
+  na.rm = FALSE, constant = 1.4826, center = NULL, ...)
 
 \S4method{colWeightedMads}{numeric}(x, w = NULL, rows = NULL,
-  cols = NULL, na.rm = FALSE, constant = 1.4826, center = NULL)
+  cols = NULL, na.rm = FALSE, constant = 1.4826, center = NULL, ...)
 
 \S4method{colWeightedMads}{array}(x, w = NULL, rows = NULL, cols = NULL,
-  na.rm = FALSE, constant = 1.4826, center = NULL)
+  na.rm = FALSE, constant = 1.4826, center = NULL, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

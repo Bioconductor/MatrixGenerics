@@ -32,8 +32,8 @@ setGeneric("rowCumprods", function(x, rows = NULL, cols = NULL,  ...) standardGe
            signature = "x"
 )
 
-.default_rowCumprods <- function(x, rows = NULL, cols = NULL, dim. = dim(x)){
-  matrixStats::rowCumprods(x, rows = rows, cols = cols, dim. = dim.)
+.default_rowCumprods <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ...){
+  matrixStats::rowCumprods(x, rows = rows, cols = cols, dim. = dim., ...)
 }
 
 #' @rdname rowCumprods
@@ -55,8 +55,8 @@ setGeneric("colCumprods", function(x, rows = NULL, cols = NULL, ...) standardGen
            signature = "x"
 )
 
-.default_colCumprods <- function(x, rows = NULL, cols = NULL, dim. = dim(x)){
-  matrixStats::colCumprods(x, rows = rows, cols = cols, dim. = dim.)
+.default_colCumprods <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ...){
+  matrixStats::colCumprods(x, rows = rows, cols = cols, dim. = dim., ...)
 }
 
 #' @rdname rowCumprods

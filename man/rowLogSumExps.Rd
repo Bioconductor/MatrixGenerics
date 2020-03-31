@@ -14,19 +14,19 @@
 \usage{
 rowLogSumExps(lx, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{rowLogSumExps}{matrix}(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx))
+\S4method{rowLogSumExps}{matrix}(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx), ...)
 
-\S4method{rowLogSumExps}{numeric}(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx))
+\S4method{rowLogSumExps}{numeric}(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx), ...)
 
-\S4method{rowLogSumExps}{array}(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx))
+\S4method{rowLogSumExps}{array}(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx), ...)
 
 colLogSumExps(lx, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{colLogSumExps}{matrix}(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx))
+\S4method{colLogSumExps}{matrix}(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx), ...)
 
-\S4method{colLogSumExps}{numeric}(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx))
+\S4method{colLogSumExps}{numeric}(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx), ...)
 
-\S4method{colLogSumExps}{array}(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx))
+\S4method{colLogSumExps}{array}(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx), ...)
 }
 \arguments{
 \item{lx}{An NxK matrix-like object. Typically \code{lx} are \code{log(x)} values.}

@@ -35,8 +35,8 @@ setGeneric("rowVars", function(x, rows = NULL, cols = NULL, na.rm = FALSE, cente
            signature = "x"
 )
 
-.default_rowVars <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, dim. = dim(x)){
-  matrixStats::rowVars(x, rows = rows, cols = cols, na.rm = na.rm, center = center, dim. = dim.)
+.default_rowVars <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, dim. = dim(x), ...){
+  matrixStats::rowVars(x, rows = rows, cols = cols, na.rm = na.rm, center = center, dim. = dim., ...)
 }
 
 #' @rdname rowVars
@@ -58,8 +58,8 @@ setGeneric("colVars", function(x, rows = NULL, cols = NULL, na.rm = FALSE, cente
            signature = "x"
 )
 
-.default_colVars <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, dim. = dim(x)){
-  matrixStats::colVars(x, rows = rows, cols = cols, na.rm=na.rm, center = center, dim. = dim.)
+.default_colVars <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, dim. = dim(x), ...){
+  matrixStats::colVars(x, rows = rows, cols = cols, na.rm = na.rm, center = center, dim. = dim., ...)
 }
 
 #' @rdname rowVars

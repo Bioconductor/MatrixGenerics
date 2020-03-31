@@ -38,8 +38,8 @@ setGeneric("rowWeightedMads", function(x, w = NULL, rows = NULL, cols = NULL, na
            signature = "x"
 )
 
-.default_rowWeightedMads <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE,  constant = 1.4826, center = NULL){
-  matrixStats::rowWeightedMads(x, w = w, rows = rows, cols = cols, na.rm = na.rm, constant = constant, center = center)
+.default_rowWeightedMads <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE,  constant = 1.4826, center = NULL, ...){
+  matrixStats::rowWeightedMads(x, w = w, rows = rows, cols = cols, na.rm = na.rm, constant = constant, center = center, ...)
 }
 
 #' @rdname rowWeightedMads
@@ -61,8 +61,8 @@ setGeneric("colWeightedMads", function(x, w = NULL, rows = NULL, cols = NULL, na
            signature = "x"
 )
 
-.default_colWeightedMads <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE,  constant = 1.4826, center = NULL){
-  matrixStats::colWeightedMads(x, w = w, rows = rows, cols = cols, na.rm = na.rm, constant = constant, center = center)
+.default_colWeightedMads <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE,  constant = 1.4826, center = NULL, ...){
+  matrixStats::colWeightedMads(x, w = w, rows = rows, cols = cols, na.rm = na.rm, constant = constant, center = center, ...)
 }
 
 #' @rdname rowWeightedMads

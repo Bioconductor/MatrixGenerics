@@ -15,24 +15,24 @@ a value}
 rowAnys(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...)
 
 \S4method{rowAnys}{matrix}(x, rows = NULL, cols = NULL, value = TRUE,
-  na.rm = FALSE, dim. = dim(x))
+  na.rm = FALSE, dim. = dim(x), ...)
 
 \S4method{rowAnys}{numeric}(x, rows = NULL, cols = NULL, value = TRUE,
-  na.rm = FALSE, dim. = dim(x))
+  na.rm = FALSE, dim. = dim(x), ...)
 
 \S4method{rowAnys}{array}(x, rows = NULL, cols = NULL, value = TRUE,
-  na.rm = FALSE, dim. = dim(x))
+  na.rm = FALSE, dim. = dim(x), ...)
 
 colAnys(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...)
 
 \S4method{colAnys}{matrix}(x, rows = NULL, cols = NULL, value = TRUE,
-  na.rm = FALSE, dim. = dim(x))
+  na.rm = FALSE, dim. = dim(x), ...)
 
 \S4method{colAnys}{numeric}(x, rows = NULL, cols = NULL, value = TRUE,
-  na.rm = FALSE, dim. = dim(x))
+  na.rm = FALSE, dim. = dim(x), ...)
 
 \S4method{colAnys}{array}(x, rows = NULL, cols = NULL, value = TRUE,
-  na.rm = FALSE, dim. = dim(x))
+  na.rm = FALSE, dim. = dim(x), ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

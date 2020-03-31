@@ -32,8 +32,8 @@ setGeneric("rowMedians", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..
            signature = "x"
 )
 
-.default_rowMedians <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x)){
-  matrixStats::rowMedians(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim.)
+.default_rowMedians <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...){
+  matrixStats::rowMedians(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
 }
 
 
@@ -52,12 +52,12 @@ setMethod("rowMedians", signature = "array", .default_rowMedians)
 #' @rdname rowMedians
 #' @name colMedians
 #' @export
-setGeneric("colMedians", function(x, rows = NULL, cols = NULL, na.rm=FALSE, ...) standardGeneric("colMedians"),
+setGeneric("colMedians", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("colMedians"),
            signature = "x"
 )
 
-.default_colMedians <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x)){
-  matrixStats::colMedians(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim.)
+.default_colMedians <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...){
+  matrixStats::colMedians(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
 }
 
 #' @rdname rowMedians

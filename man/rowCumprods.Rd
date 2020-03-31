@@ -14,19 +14,19 @@ object}
 \usage{
 rowCumprods(x, rows = NULL, cols = NULL, ...)
 
-\S4method{rowCumprods}{matrix}(x, rows = NULL, cols = NULL, dim. = dim(x))
+\S4method{rowCumprods}{matrix}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
 
-\S4method{rowCumprods}{numeric}(x, rows = NULL, cols = NULL, dim. = dim(x))
+\S4method{rowCumprods}{numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
 
-\S4method{rowCumprods}{array}(x, rows = NULL, cols = NULL, dim. = dim(x))
+\S4method{rowCumprods}{array}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
 
 colCumprods(x, rows = NULL, cols = NULL, ...)
 
-\S4method{colCumprods}{matrix}(x, rows = NULL, cols = NULL, dim. = dim(x))
+\S4method{colCumprods}{matrix}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
 
-\S4method{colCumprods}{numeric}(x, rows = NULL, cols = NULL, dim. = dim(x))
+\S4method{colCumprods}{numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
 
-\S4method{colCumprods}{array}(x, rows = NULL, cols = NULL, dim. = dim(x))
+\S4method{colCumprods}{array}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

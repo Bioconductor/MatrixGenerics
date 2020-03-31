@@ -16,29 +16,29 @@ rowRanks(x, rows = NULL, cols = NULL, ties.method = c("max", "average"), ...)
 
 \S4method{rowRanks}{matrix}(x, rows = NULL, cols = NULL,
   ties.method = c("max", "average", "first", "last", "random", "max", "min",
-  "dense"), dim. = dim(x))
+  "dense"), dim. = dim(x), ...)
 
 \S4method{rowRanks}{numeric}(x, rows = NULL, cols = NULL,
   ties.method = c("max", "average", "first", "last", "random", "max", "min",
-  "dense"), dim. = dim(x))
+  "dense"), dim. = dim(x), ...)
 
 \S4method{rowRanks}{array}(x, rows = NULL, cols = NULL,
   ties.method = c("max", "average", "first", "last", "random", "max", "min",
-  "dense"), dim. = dim(x))
+  "dense"), dim. = dim(x), ...)
 
 colRanks(x, rows = NULL, cols = NULL, ties.method = c("max", "average"), ...)
 
 \S4method{colRanks}{matrix}(x, rows = NULL, cols = NULL,
   ties.method = c("max", "average", "first", "last", "random", "max", "min",
-  "dense"), dim. = dim(x), preserveShape = FALSE)
+  "dense"), dim. = dim(x), preserveShape = FALSE, ...)
 
 \S4method{colRanks}{numeric}(x, rows = NULL, cols = NULL,
   ties.method = c("max", "average", "first", "last", "random", "max", "min",
-  "dense"), dim. = dim(x), preserveShape = FALSE)
+  "dense"), dim. = dim(x), preserveShape = FALSE, ...)
 
 \S4method{colRanks}{array}(x, rows = NULL, cols = NULL,
   ties.method = c("max", "average", "first", "last", "random", "max", "min",
-  "dense"), dim. = dim(x), preserveShape = FALSE)
+  "dense"), dim. = dim(x), preserveShape = FALSE, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

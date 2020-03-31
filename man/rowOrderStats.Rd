@@ -13,19 +13,19 @@
 \usage{
 rowOrderStats(x, rows = NULL, cols = NULL, which, ...)
 
-\S4method{rowOrderStats}{matrix}(x, rows = NULL, cols = NULL, which, dim. = dim(x))
+\S4method{rowOrderStats}{matrix}(x, rows = NULL, cols = NULL, which, dim. = dim(x), ...)
 
-\S4method{rowOrderStats}{numeric}(x, rows = NULL, cols = NULL, which, dim. = dim(x))
+\S4method{rowOrderStats}{numeric}(x, rows = NULL, cols = NULL, which, dim. = dim(x), ...)
 
-\S4method{rowOrderStats}{array}(x, rows = NULL, cols = NULL, which, dim. = dim(x))
+\S4method{rowOrderStats}{array}(x, rows = NULL, cols = NULL, which, dim. = dim(x), ...)
 
 colOrderStats(x, rows = NULL, cols = NULL, which, ...)
 
-\S4method{colOrderStats}{matrix}(x, rows = NULL, cols = NULL, which, dim. = dim(x))
+\S4method{colOrderStats}{matrix}(x, rows = NULL, cols = NULL, which, dim. = dim(x), ...)
 
-\S4method{colOrderStats}{numeric}(x, rows = NULL, cols = NULL, which, dim. = dim(x))
+\S4method{colOrderStats}{numeric}(x, rows = NULL, cols = NULL, which, dim. = dim(x), ...)
 
-\S4method{colOrderStats}{array}(x, rows = NULL, cols = NULL, which, dim. = dim(x))
+\S4method{colOrderStats}{array}(x, rows = NULL, cols = NULL, which, dim. = dim(x), ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

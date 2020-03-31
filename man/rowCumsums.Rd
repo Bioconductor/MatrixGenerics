@@ -13,19 +13,19 @@
 \usage{
 rowCumsums(x, rows = NULL, cols = NULL, ...)
 
-\S4method{rowCumsums}{matrix}(x, rows = NULL, cols = NULL, dim. = dim(x))
+\S4method{rowCumsums}{matrix}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
 
-\S4method{rowCumsums}{numeric}(x, rows = NULL, cols = NULL, dim. = dim(x))
+\S4method{rowCumsums}{numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
 
-\S4method{rowCumsums}{array}(x, rows = NULL, cols = NULL, dim. = dim(x))
+\S4method{rowCumsums}{array}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
 
 colCumsums(x, rows = NULL, cols = NULL, ...)
 
-\S4method{colCumsums}{matrix}(x, rows = NULL, cols = NULL, dim. = dim(x))
+\S4method{colCumsums}{matrix}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
 
-\S4method{colCumsums}{numeric}(x, rows = NULL, cols = NULL, dim. = dim(x))
+\S4method{colCumsums}{numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
 
-\S4method{colCumsums}{array}(x, rows = NULL, cols = NULL, dim. = dim(x))
+\S4method{colCumsums}{array}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

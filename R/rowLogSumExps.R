@@ -37,8 +37,8 @@ setGeneric("rowLogSumExps", function(lx, rows = NULL, cols = NULL, na.rm = FALSE
            signature = "lx"
 )
 
-.default_rowLogSumExps <- function(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx)){
-  matrixStats::rowLogSumExps(lx, rows = rows, cols = cols, na.rm = na.rm, dim. = dim.)
+.default_rowLogSumExps <- function(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx), ...){
+  matrixStats::rowLogSumExps(lx, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
 }
 
 #' @rdname rowLogSumExps
@@ -60,8 +60,8 @@ setGeneric("colLogSumExps", function(lx, rows = NULL, cols = NULL, na.rm = FALSE
            signature = "lx"
 )
 
-.default_colLogSumExps <- function(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx)){
-  matrixStats::colLogSumExps(lx, rows = rows, cols = cols, na.rm = na.rm, dim. = dim.)
+.default_colLogSumExps <- function(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx), ...){
+  matrixStats::colLogSumExps(lx, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
 }
 
 #' @rdname rowLogSumExps

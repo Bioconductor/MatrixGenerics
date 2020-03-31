@@ -36,8 +36,8 @@ setGeneric("rowAlls", function(x, rows = NULL, cols = NULL, value = TRUE, na.rm 
            signature = "x"
 )
 
-.default_rowAlls <- function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x)){
-  matrixStats::rowAlls(x, rows = rows, cols = cols, value = value, na.rm = na.rm, dim. = dim.)
+.default_rowAlls <- function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ...){
+  matrixStats::rowAlls(x, rows = rows, cols = cols, value = value, na.rm = na.rm, dim. = dim., ...)
 }
 
 #' @rdname rowAlls
@@ -59,8 +59,8 @@ setGeneric("colAlls", function(x, rows = NULL, cols = NULL, value = TRUE, na.rm 
            signature = "x"
 )
 
-.default_colAlls <- function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x)){
-  matrixStats::colAlls(x, rows = rows, cols = cols, value = value, na.rm = na.rm, dim. = dim.)
+.default_colAlls <- function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ...){
+  matrixStats::colAlls(x, rows = rows, cols = cols, value = value, na.rm = na.rm, dim. = dim., ...)
 }
 
 #' @rdname rowAlls

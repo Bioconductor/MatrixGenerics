@@ -34,8 +34,8 @@ setGeneric("rowIQRs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) 
            signature = "x"
 )
 
-.default_rowIQRs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE){
-  matrixStats::rowIQRs(x, rows = rows, cols = cols, na.rm = na.rm)
+.default_rowIQRs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...){
+  matrixStats::rowIQRs(x, rows = rows, cols = cols, na.rm = na.rm, ...)
 }
 
 #' @rdname rowIQRs
@@ -57,8 +57,8 @@ setGeneric("colIQRs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) 
            signature = "x"
 )
 
-.default_colIQRs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE){
-  matrixStats::colIQRs(x, rows = rows, cols = cols, na.rm = na.rm)
+.default_colIQRs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...){
+  matrixStats::colIQRs(x, rows = rows, cols = cols, na.rm = na.rm, ...)
 }
 
 #' @rdname rowIQRs

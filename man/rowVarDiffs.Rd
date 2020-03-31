@@ -15,20 +15,26 @@
 rowVarDiffs(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L,
   trim = 0, ...)
 
-\S4method{rowVarDiffs}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0)
+\S4method{rowVarDiffs}{matrix}(x, rows = NULL, cols = NULL,
+  na.rm = FALSE, diff = 1L, trim = 0, ...)
 
-\S4method{rowVarDiffs}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0)
+\S4method{rowVarDiffs}{numeric}(x, rows = NULL, cols = NULL,
+  na.rm = FALSE, diff = 1L, trim = 0, ...)
 
-\S4method{rowVarDiffs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0)
+\S4method{rowVarDiffs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE,
+  diff = 1L, trim = 0, ...)
 
 colVarDiffs(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L,
   trim = 0, ...)
 
-\S4method{colVarDiffs}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0)
+\S4method{colVarDiffs}{matrix}(x, rows = NULL, cols = NULL,
+  na.rm = FALSE, diff = 1L, trim = 0, ...)
 
-\S4method{colVarDiffs}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0)
+\S4method{colVarDiffs}{numeric}(x, rows = NULL, cols = NULL,
+  na.rm = FALSE, diff = 1L, trim = 0, ...)
 
-\S4method{colVarDiffs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0)
+\S4method{colVarDiffs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE,
+  diff = 1L, trim = 0, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

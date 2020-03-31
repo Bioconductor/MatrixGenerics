@@ -40,8 +40,8 @@ setGeneric("rowCounts", function(x, rows = NULL, cols = NULL, value = TRUE, na.r
            signature = "x"
 )
 
-.default_rowCounts <- function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x)){
-  matrixStats::rowCounts(x, rows = rows, cols = cols, value = value, na.rm = na.rm, dim. = dim.)
+.default_rowCounts <- function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ...){
+  matrixStats::rowCounts(x, rows = rows, cols = cols, value = value, na.rm = na.rm, dim. = dim., ...)
 }
 
 #' @rdname rowCounts
@@ -63,8 +63,8 @@ setGeneric("colCounts", function(x, rows = NULL, cols = NULL, value = TRUE, na.r
            signature = "x"
 )
 
-.default_colCounts <- function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x)){
-  matrixStats::colCounts(x, rows = rows, cols = cols, value = value, na.rm = na.rm, dim. = dim.)
+.default_colCounts <- function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ...){
+  matrixStats::colCounts(x, rows = rows, cols = cols, value = value, na.rm = na.rm, dim. = dim., ...)
 }
 
 #' @rdname rowCounts
