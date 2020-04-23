@@ -11,7 +11,8 @@ Version: 0.99.0
 Authors@R: c(person("Constantin", "Ahlmann-Eltze", email = "artjom31415@googlemail.com", 
                   role = c("aut"), comment = c(ORCID = "0000-0002-3762-068X")),
              person("Peter", "Hickey", role = c("aut", "cre"),
-                    email = "peter.hickey@gmail.com"))
+                    email = "peter.hickey@gmail.com", 
+                    comment = c(ORCID = "0000-0002-8153-6258")))
 Imports: methods
 Depends: matrixStats (>= 0.56.0)
 License: Artistic-2.0
