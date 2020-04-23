@@ -36,11 +36,11 @@ colProds(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 \arguments{
 \item{x}{An NxK matrix-like object.}
 
-\item{rows, cols}{A \code{\link[base]{vector}} indicating the subset of rows
-(and/or columns) to operate over. If \code{\link[base]{NULL}}, no
-subsetting is done.}
+\item{rows, cols}{A \code{\link{vector}} indicating the subset of rows
+(and/or columns) to operate over. If \code{\link{NULL}}, no subsetting is
+done.}
 
-\item{na.rm}{If \code{\link[base:logical]{TRUE}}, \code{\link[base]{NA}}s
+\item{na.rm}{If \code{\link[base:logical]{TRUE}}, \code{\link{NA}}s
 are excluded first, otherwise not.}
 
 \item{...}{Additional arguments passed to specific methods.}
@@ -50,17 +50,16 @@ how the product is calculated. Note, that this is not a generic
 argument and not all implementation have to provide it.}
 }
 \value{
-Returns a \code{\link[base]{numeric}} \code{\link[base]{vector}} of
-length N (K).
+Returns a \code{\link{numeric}} \code{\link{vector}} of length N (K).
 }
 \description{
 Calculates the product for each row (column) of a matrix-like object.
 }
 \details{
-The S4 methods for \code{x} of type \code{\link[base]{matrix}},
-\code{\link[base]{array}}, or \code{\link[base]{numeric}} call
+The S4 methods for \code{x} of type \code{\link{matrix}},
+\code{\link{array}}, or \code{\link{numeric}} call
 \code{matrixStats::\link[matrixStats]{rowProds}}
-/ \code{matrixStats::\link[matrixStats]{colProds}}.
+/ \code{matrixStats::\link[matrixStats:rowProds]{colProds}}.
 }
 \examples{
   mat <- matrix(rnorm(15), nrow = 5, ncol = 3)
@@ -77,11 +76,11 @@ The S4 methods for \code{x} of type \code{\link[base]{matrix}},
 \seealso{
 \itemize{
 \item \code{matrixStats::\link[matrixStats]{rowProds}()} and
-\code{matrixStats::\link[matrixStats]{colProds}()} which are used when
-the input is a \code{matrix} or \code{numeric} vector.
+\code{matrixStats::\link[matrixStats:rowProds]{colProds}()} which are used
+when the input is a \code{matrix} or \code{numeric} vector.
 \item For sums across rows (columns), see
 \code{\link{rowSums2}()} (\code{\link[=colSums2]{colSums2()}})
-\item \code{base::\link[base]{prod}()}.
+\item \code{base::\link{prod}()}.
 }
 }
 \keyword{array}

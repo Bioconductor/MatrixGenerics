@@ -1,2 +1,1 @@
-#' @return Returns a \code{\link[base]{logical}} \code{\link[base]{vector}} of
-#'   length N (K).
+#' @return Returns a \code{\link{logical}} \code{\link{vector}} of length N (K).

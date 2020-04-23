@@ -1,5 +1,5 @@
 #' @details 
-#' The S4 methods for \code{x} of type \code{\link[base]{matrix}}, 
-#' \code{\link[base]{array}}, or \code{\link[base]{numeric}} call 
+#' The S4 methods for \code{x} of type \code{\link{matrix}},
+#' \code{\link{array}}, or \code{\link{numeric}} call 
 #' \code{matrixStats::\link[matrixStats]{<%= rowName %>}}
-#' / \code{matrixStats::\link[matrixStats]{<%= colName %>}}.
+#' / \code{matrixStats::\link[matrixStats:<%= rowName %>]{<%= colName %>}}.

@@ -18,8 +18,8 @@
 #' @seealso
 #' \itemize{
 #' \item \code{matrixStats::\link[matrixStats]{rowVarDiffs}()} and
-#'   \code{matrixStats::\link[matrixStats]{colVarDiffs}()} which are used when
-#'   the input is a \code{matrix} or \code{numeric} vector.
+#'   \code{matrixStats::\link[matrixStats:rowVarDiffs]{colVarDiffs}()} which
+#'   are used when the input is a \code{matrix} or \code{numeric} vector.
 #' \item for the direct variance see [rowVars()].
 #' }
 #' 

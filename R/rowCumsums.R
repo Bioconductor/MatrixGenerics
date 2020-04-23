@@ -15,9 +15,9 @@
 #' @seealso
 #' \itemize{
 #' \item \code{matrixStats::\link[matrixStats]{rowCumsums}()} and
-#'   \code{matrixStats::\link[matrixStats]{colCumsums}()} which are used when
-#'   the input is a \code{matrix} or \code{numeric} vector.
-#' \item \code{base::\link[base]{cumsum}()}.
+#'   \code{matrixStats::\link[matrixStats:rowCumsums]{colCumsums}()} which are
+#'   used when the input is a \code{matrix} or \code{numeric} vector.
+#' \item \code{base::\link{cumsum}()}.
 #' }
 #' 
 #' @template standardExamples

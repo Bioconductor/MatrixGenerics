@@ -20,8 +20,8 @@
 #' @seealso
 #' \itemize{
 #' \item \code{matrixStats::\link[matrixStats]{rowCounts}()} and
-#'   \code{matrixStats::\link[matrixStats]{colCounts}()} which are used when
-#'   the input is a \code{matrix} or \code{numeric} vector.
+#'   \code{matrixStats::\link[matrixStats:rowCounts]{colCounts}()} which are 
+#'   used when the input is a \code{matrix} or \code{numeric} vector.
 #' \item For checks if any element is equal to a value, see 
 #'   \code{\link{rowAnys}()}. To check if all elements are equal, see
 #'   \code{\link{rowAlls}()}. 

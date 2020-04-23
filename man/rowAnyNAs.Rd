@@ -30,24 +30,23 @@ colAnyNAs(x, rows = NULL, cols = NULL, ...)
 \arguments{
 \item{x}{An NxK matrix-like object.}
 
-\item{rows, cols}{A \code{\link[base]{vector}} indicating the subset of rows
-(and/or columns) to operate over. If \code{\link[base]{NULL}}, no
-subsetting is done.}
+\item{rows, cols}{A \code{\link{vector}} indicating the subset of rows
+(and/or columns) to operate over. If \code{\link{NULL}}, no subsetting is
+done.}
 
 \item{...}{Additional arguments passed to specific methods.}
 }
 \value{
-Returns a \code{\link[base]{logical}} \code{\link[base]{vector}} of
-length N (K).
+Returns a \code{\link{logical}} \code{\link{vector}} of length N (K).
 }
 \description{
 Check if any elements in a row (column) of a matrix-like object is missing.
 }
 \details{
-The S4 methods for \code{x} of type \code{\link[base]{matrix}},
-\code{\link[base]{array}}, or \code{\link[base]{numeric}} call
+The S4 methods for \code{x} of type \code{\link{matrix}},
+\code{\link{array}}, or \code{\link{numeric}} call
 \code{matrixStats::\link[matrixStats]{rowAnyNAs}}
-/ \code{matrixStats::\link[matrixStats]{colAnyNAs}}.
+/ \code{matrixStats::\link[matrixStats:rowAnyNAs]{colAnyNAs}}.
 }
 \examples{
   mat <- matrix(rnorm(15), nrow = 5, ncol = 3)
@@ -64,10 +63,10 @@ The S4 methods for \code{x} of type \code{\link[base]{matrix}},
 \seealso{
 \itemize{
 \item \code{matrixStats::\link[matrixStats]{rowAnyNAs}()} and
-\code{matrixStats::\link[matrixStats]{colAnyNAs}()} which are used when
-the input is a \code{matrix} or \code{numeric} vector.
+\code{matrixStats::\link[matrixStats:rowAnyNAs]{colAnyNAs}()} which are
+used when the input is a \code{matrix} or \code{numeric} vector.
 \item For checks if any element is equal to a value, see
 \code{\link{rowAnys}()}.
-\item \code{base::\link[base]{is.na}()} and \code{base::\link[base]{any}()}.
+\item \code{base::\link{is.na}()} and \code{base::\link{any}()}.
 }
 }

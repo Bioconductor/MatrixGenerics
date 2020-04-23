@@ -30,32 +30,31 @@ colCollapse(x, idxs = idxs, cols = NULL, ...)
 \arguments{
 \item{x}{An NxK matrix-like object.}
 
-\item{idxs}{An index \code{\link[base]{vector}} with the position to extract.
+\item{idxs}{An index \code{\link{vector}} with the position to extract.
 It is recycled to match the number of rows (column)}
 
-\item{rows, cols}{A \code{\link[base]{vector}} indicating the subset of rows
-(and/or columns) to operate over. If \code{\link[base]{NULL}}, no
-subsetting is done.}
+\item{rows, cols}{A \code{\link{vector}} indicating the subset of rows
+(and/or columns) to operate over. If \code{\link{NULL}}, no subsetting is
+done.}
 
 \item{...}{Additional arguments passed to specific methods.}
 
-\item{dim.}{An \code{\link[base]{integer}} \code{\link[base]{vector}} of
-length two specifying the dimension of \code{x}, essential when x is a
-\code{\link[base]{numeric}} vector. Note, that this is not a generic
+\item{dim.}{An \code{\link{integer}} \code{\link{vector}} of length two
+specifying the dimension of \code{x}, essential when x is a
+\code{\link{numeric}} vector. Note, that this is not a generic
 argument and not all methods need provide it.}
 }
 \value{
-Returns a \code{\link[base]{numeric}} \code{\link[base]{vector}} of
-length N (K).
+Returns a \code{\link{numeric}} \code{\link{vector}} of length N (K).
 }
 \description{
 Extract one cell from each row (column) of a matrix-like object.
 }
 \details{
-The S4 methods for \code{x} of type \code{\link[base]{matrix}},
-\code{\link[base]{array}}, or \code{\link[base]{numeric}} call
+The S4 methods for \code{x} of type \code{\link{matrix}},
+\code{\link{array}}, or \code{\link{numeric}} call
 \code{matrixStats::\link[matrixStats]{rowCollapse}}
-/ \code{matrixStats::\link[matrixStats]{colCollapse}}.
+/ \code{matrixStats::\link[matrixStats:rowCollapse]{colCollapse}}.
 }
 \examples{
   mat <- matrix(rnorm(15), nrow = 5, ncol = 3)
@@ -74,8 +73,8 @@ The S4 methods for \code{x} of type \code{\link[base]{matrix}},
 \seealso{
 \itemize{
 \item \code{matrixStats::\link[matrixStats]{rowCollapse}()} and
-\code{matrixStats::\link[matrixStats]{colCollapse}()} which are used when
-the input is a \code{matrix} or \code{numeric} vector.
+\code{matrixStats::\link[matrixStats:rowCollapse]{colCollapse}()}
+which are used when the input is a \code{matrix} or \code{numeric} vector.
 }
 }
 \keyword{array}

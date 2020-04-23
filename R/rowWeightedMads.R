@@ -22,8 +22,8 @@
 #' @seealso
 #' \itemize{
 #' \item \code{matrixStats::\link[matrixStats]{rowWeightedMads}()} and
-#'   \code{matrixStats::\link[matrixStats]{colWeightedMads}()} which are used 
-#'   when the input is a \code{matrix} or \code{numeric} vector.
+#'   \code{matrixStats::\link[matrixStats:rowWeightedMads]{colWeightedMads}()}
+#'   which are used when the input is a \code{matrix} or \code{numeric} vector.
 #' \item See also [rowMads] for the corresponding unweighted function.
 #' }
 #' 

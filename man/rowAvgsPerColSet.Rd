@@ -41,8 +41,8 @@ colAvgsPerRowSet(X, W = NULL, cols = NULL, S, FUN = colMeans, ...,
 
 \item{W}{An optional numeric \code{NxM} matrix of weights.}
 
-\item{rows, cols}{A \code{\link[base]{vector}} indicating the subset (and/or
-columns) to operate over. If \code{\link[base]{NULL}}, no subsetting is
+\item{rows, cols}{A \code{\link{vector}} indicating the subset (and/or
+columns) to operate over. If \code{\link{NULL}}, no subsetting is
 done.}
 
 \item{S}{An \link{integer} \code{KxJ} matrix that specifying the \code{J} subsets. Each
@@ -64,10 +64,10 @@ Calculates for each row (column) a summary statistic for equally sized
 subsets of columns (rows).
 }
 \details{
-The S4 methods for \code{x} of type \code{\link[base]{matrix}},
-\code{\link[base]{array}}, or \code{\link[base]{numeric}} call
+The S4 methods for \code{x} of type \code{\link{matrix}},
+\code{\link{array}}, or \code{\link{numeric}} call
 \code{matrixStats::\link[matrixStats]{rowAvgsPerColSet}}
-/ \code{matrixStats::\link[matrixStats]{colAvgsPerRowSet}}.
+/ \code{matrixStats::\link[matrixStats:rowAvgsPerColSet]{colAvgsPerRowSet}}.
 }
 \examples{
   mat <- matrix(rnorm(20), nrow = 5, ncol = 4)
@@ -87,8 +87,8 @@ The S4 methods for \code{x} of type \code{\link[base]{matrix}},
 \seealso{
 \itemize{
 \item \code{matrixStats::\link[matrixStats]{rowAvgsPerColSet}()} and
-\code{matrixStats::\link[matrixStats]{colAvgsPerRowSet}()} which are used
-when the input is a \code{matrix} or \code{numeric} vector.
+\code{matrixStats::\link[matrixStats:rowAvgsPerColSet]{colAvgsPerRowSet}()}
+which are used when the input is a \code{matrix} or \code{numeric} vector.
 }
 }
 \keyword{array}

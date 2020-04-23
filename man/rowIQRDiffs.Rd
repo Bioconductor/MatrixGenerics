@@ -39,11 +39,11 @@ colIQRDiffs(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L,
 \arguments{
 \item{x}{An NxK matrix-like object.}
 
-\item{rows, cols}{A \code{\link[base]{vector}} indicating the subset of rows
-(and/or columns) to operate over. If \code{\link[base]{NULL}}, no
-subsetting is done.}
+\item{rows, cols}{A \code{\link{vector}} indicating the subset of rows
+(and/or columns) to operate over. If \code{\link{NULL}}, no subsetting is
+done.}
 
-\item{na.rm}{If \code{\link[base:logical]{TRUE}}, \code{\link[base]{NA}}s
+\item{na.rm}{If \code{\link[base:logical]{TRUE}}, \code{\link{NA}}s
 are excluded first, otherwise not.}
 
 \item{diff}{An integer specifying the order of difference.}
@@ -54,18 +54,17 @@ be trimmed from each end of (sorted) x before estimation.}
 \item{...}{Additional arguments passed to specific methods.}
 }
 \value{
-Returns a \code{\link[base]{numeric}} \code{\link[base]{vector}} of
-length N (K).
+Returns a \code{\link{numeric}} \code{\link{vector}} of length N (K).
 }
 \description{
 Calculates the interquartile range of the difference between each element of
 a row (column) of a matrix-like object.
 }
 \details{
-The S4 methods for \code{x} of type \code{\link[base]{matrix}},
-\code{\link[base]{array}}, or \code{\link[base]{numeric}} call
+The S4 methods for \code{x} of type \code{\link{matrix}},
+\code{\link{array}}, or \code{\link{numeric}} call
 \code{matrixStats::\link[matrixStats]{rowIQRDiffs}}
-/ \code{matrixStats::\link[matrixStats]{colIQRDiffs}}.
+/ \code{matrixStats::\link[matrixStats:rowIQRDiffs]{colIQRDiffs}}.
 }
 \examples{
   mat <- matrix(rnorm(15), nrow = 5, ncol = 3)
@@ -82,8 +81,8 @@ The S4 methods for \code{x} of type \code{\link[base]{matrix}},
 \seealso{
 \itemize{
 \item \code{matrixStats::\link[matrixStats]{rowIQRDiffs}()} and
-\code{matrixStats::\link[matrixStats]{colIQRDiffs}()} which are used when
-the input is a \code{matrix} or \code{numeric} vector.
+\code{matrixStats::\link[matrixStats:rowIQRDiffs]{colIQRDiffs}()} which
+are used when the input is a \code{matrix} or \code{numeric} vector.
 \item For the direct interquartile range see also \link{rowIQRs}.
 }
 }

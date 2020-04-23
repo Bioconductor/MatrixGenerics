@@ -14,11 +14,11 @@
 #' @seealso
 #' \itemize{
 #' \item \code{matrixStats::\link[matrixStats]{rowAnyNAs}()} and
-#'   \code{matrixStats::\link[matrixStats]{colAnyNAs}()} which are used when
-#'   the input is a \code{matrix} or \code{numeric} vector.
+#'   \code{matrixStats::\link[matrixStats:rowAnyNAs]{colAnyNAs}()} which are
+#'   used when the input is a \code{matrix} or \code{numeric} vector.
 #' \item For checks if any element is equal to a value, see 
 #'   \code{\link{rowAnys}()}.
-#' \item \code{base::\link[base]{is.na}()} and \code{base::\link[base]{any}()}.
+#' \item \code{base::\link{is.na}()} and \code{base::\link{any}()}.
 #' }
 #' 
 #' @template standardExamples

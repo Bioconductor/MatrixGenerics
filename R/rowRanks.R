@@ -18,7 +18,7 @@
 #'   input x. Note, that this is not a generic argument and not all 
 #'   implementation of this function have to provide it.
 #' 
-#' @return a matrix of type \code{\link[base]{integer}} is returned unless 
+#' @return a matrix of type \code{\link{integer}} is returned unless 
 #'   `ties.method = "average"`. Ithas dimensions` \code{NxJ} (\code{KxJ}) 
 #'   \code{\link{matrix}}, where N (K) is the number of rows (columns) of the
 #'   input x.
@@ -39,8 +39,8 @@
 #' @seealso
 #' \itemize{
 #' \item \code{matrixStats::\link[matrixStats]{rowRanks}()} and
-#'   \code{matrixStats::\link[matrixStats]{colRanks}()} which are used when
-#'   the input is a \code{matrix} or \code{numeric} vector.
+#'   \code{matrixStats::\link[matrixStats:rowRanks]{colRanks}()} which are used 
+#'   when the input is a \code{matrix} or \code{numeric} vector.
 #' \item [base::rank]
 #' }
 #' 

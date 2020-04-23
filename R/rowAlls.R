@@ -19,12 +19,12 @@
 #' @seealso
 #' \itemize{
 #' \item \code{matrixStats::\link[matrixStats]{rowAlls}()} and
-#'   \code{matrixStats::\link[matrixStats]{colAlls}()} which are used when
-#'   the input is a \code{\link[base]{matrix}}, \code{\link[base]{array}}, or 
-#'   \code{\link[base]{numeric}} vector.
+#'   \code{matrixStats::\link[matrixStats:rowAlls]{colAlls}()} which are used
+#'   when the input is a \code{\link{matrix}}, \code{\link{array}}, 
+#'   or \code{\link{numeric}} vector.
 #' \item For checks if \emph{any} element is equal to a value, see 
 #'   \code{\link{rowAnys}()}.
-#' \item \code{base::\link[base]{all}()}.
+#' \item \code{base::\link{all}()}.
 #' }
 #' 
 #' @template standardExamples

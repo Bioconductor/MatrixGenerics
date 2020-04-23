@@ -11,8 +11,8 @@
 #' 
 #' @param X An `NxM` matrix-like object.
 #' @param W An optional numeric `NxM` matrix of weights.
-#' @param rows,cols A \code{\link[base]{vector}} indicating the subset (and/or 
-#'   columns) to operate over. If \code{\link[base]{NULL}}, no subsetting is
+#' @param rows,cols A \code{\link{vector}} indicating the subset (and/or 
+#'   columns) to operate over. If \code{\link{NULL}}, no subsetting is
 #'   done.
 #' @param S An [integer] `KxJ` matrix that specifying the `J` subsets. Each 
 #'   column hold `K` column (row) indices for the corresponding subset. The 
@@ -28,8 +28,8 @@
 #' @seealso
 #' \itemize{
 #' \item \code{matrixStats::\link[matrixStats]{rowAvgsPerColSet}()} and
-#'   \code{matrixStats::\link[matrixStats]{colAvgsPerRowSet}()} which are used
-#'   when the input is a \code{matrix} or \code{numeric} vector.
+#'   \code{matrixStats::\link[matrixStats:rowAvgsPerColSet]{colAvgsPerRowSet}()}
+#'   which are used when the input is a \code{matrix} or \code{numeric} vector.
 #' }
 #' 
 #' @examples 

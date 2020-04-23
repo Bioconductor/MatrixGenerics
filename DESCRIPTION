@@ -7,7 +7,7 @@ Description: S4 generic functions modeled after the 'matrixStats' API
     summary statistics. Other package developers can import this package
     and handle a different matrix implementations without worrying
     about incompatibilities.
-Version: 0.99.0
+Version: 0.99.1
 Authors@R: c(person("Constantin", "Ahlmann-Eltze", email = "artjom31415@googlemail.com", 
                   role = c("aut"), comment = c(ORCID = "0000-0002-3762-068X")),
              person("Peter", "Hickey", role = c("aut", "cre"),

@@ -14,15 +14,15 @@
 #' @param differences An integer specifying the order of difference.
 #' @template dimParameter
 #'
-#' @return Returns a \code{\link[base]{numeric}} \code{\link[base]{matrix}}
-#'   with one column (row) less than x: \eqn{Nx(K-1)} or \eqn{(N-1)xK}.
+#' @return Returns a \code{\link{numeric}} \code{\link{matrix}} with one column
+#' (row) less than x: \eqn{Nx(K-1)} or \eqn{(N-1)xK}.
 #'
 #' @seealso
 #' \itemize{
 #' \item \code{matrixStats::\link[matrixStats]{rowDiffs}()} and
-#'   \code{matrixStats::\link[matrixStats]{colDiffs}()} which are used when
-#'   the input is a \code{matrix} or \code{numeric} vector.
-#' \item \code{base::\link[base]{diff}()}.
+#'   \code{matrixStats::\link[matrixStats:rowDiffs]{colDiffs}()} which are used
+#'   when the input is a \code{matrix} or \code{numeric} vector.
+#' \item \code{base::\link{diff}()}.
 #' }
 #' 
 #' @template standardExamples

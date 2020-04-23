@@ -10,9 +10,8 @@
 #' @template matrixStatsLink
 #' 
 #' @param lx An NxK matrix-like object. Typically `lx` are `log(x)` values.
-#' @param rows,cols A \code{\link[base]{vector}} indicating the subset (and/or 
-#'   columns) to operate over. If \code{\link[base]{NULL}}, no subsetting is
-#'   done.
+#' @param rows,cols A \code{\link{vector}} indicating the subset (and/or 
+#' columns) to operate over. If \code{\link{NULL}}, no subsetting is done.
 #' @param ... Additional arguments passed to specific methods.
 #' @template na_rmParameter
 #' @template dimParameter
@@ -22,8 +21,8 @@
 #' @seealso
 #' \itemize{
 #' \item \code{matrixStats::\link[matrixStats]{rowLogSumExps}()} and
-#'   \code{matrixStats::\link[matrixStats]{colLogSumExps}()} which are used
-#'   when the input is a \code{matrix} or \code{numeric} vector.
+#'   \code{matrixStats::\link[matrixStats:rowLogSumExps]{colLogSumExps}()}
+#'   which are used when the input is a \code{matrix} or \code{numeric} vector.
 #' \item [rowSums2()]
 #' }
 #' 

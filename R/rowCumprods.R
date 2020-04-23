@@ -17,9 +17,9 @@
 #' @seealso
 #' \itemize{
 #' \item \code{matrixStats::\link[matrixStats]{rowCumprods}()} and
-#'   \code{matrixStats::\link[matrixStats]{colCumprods}()} which are used when
-#'   the input is a \code{matrix} or \code{numeric} vector.
-#'  \item \code{base::\link[base]{cumprod}()}.
+#'   \code{matrixStats::\link[matrixStats:rowCumprods]{colCumprods}()} which
+#'   are used when the input is a \code{matrix} or \code{numeric} vector.
+#'  \item \code{base::\link{cumprod}()}.
 #' }
 #' 
 #' @template standardExamples

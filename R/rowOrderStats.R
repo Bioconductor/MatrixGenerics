@@ -17,8 +17,8 @@
 #' @seealso
 #' \itemize{
 #' \item \code{matrixStats::\link[matrixStats]{rowOrderStats}()} and
-#'   \code{matrixStats::\link[matrixStats]{colOrderStats}()} which are used when
-#'   the input is a \code{matrix} or \code{numeric} vector.
+#'   \code{matrixStats::\link[matrixStats:rowOrderStats]{colOrderStats}()}
+#'   which are used when the input is a \code{matrix} or \code{numeric} vector.
 #' }
 #' 
 #' @examples 

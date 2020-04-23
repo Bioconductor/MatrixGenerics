@@ -17,12 +17,12 @@
 #' @seealso
 #' \itemize{
 #' \item \code{matrixStats::\link[matrixStats]{rowMeans2}()} and
-#'   \code{matrixStats::\link[matrixStats]{colMeans2}()} which are used when
-#'   the input is a \code{matrix} or \code{numeric} vector.
+#'   \code{matrixStats::\link[matrixStats:rowMeans2]{colMeans2}()} which are
+#'   used when the input is a \code{matrix} or \code{numeric} vector.
 #' \item See also \code{\link[base:colSums]{rowMeans}()} for the
 #'   corresponding function in base R.
 #' \item For variance estimates, see \code{\link{rowVars}()}.
-#' \item See also the base R version \code{base::\link[base]{rowMeans}()}.
+#' \item See also the base R version \code{base::\link{rowMeans}()}.
 #' }
 #' 
 #' @template standardExamples

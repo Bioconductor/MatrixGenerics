@@ -17,8 +17,8 @@
 #' @seealso
 #' \itemize{
 #' \item \code{matrixStats::\link[matrixStats]{rowIQRs}()} and
-#'   \code{matrixStats::\link[matrixStats]{colIQRs}()} which are used when
-#'   the input is a \code{matrix} or \code{numeric} vector.
+#'   \code{matrixStats::\link[matrixStats:rowIQRs]{colIQRs}()} which are used
+#'   when the input is a \code{matrix} or \code{numeric} vector.
 #' \item For a non-robust analog, see \code{\link{rowSds}()}. For a more
 #'  robust version see [rowMads()]
 #' \item \code{stats::\link[stats]{IQR}()}.

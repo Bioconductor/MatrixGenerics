@@ -15,9 +15,9 @@
 #' @seealso
 #' \itemize{
 #' \item \code{matrixStats::\link[matrixStats]{rowTabulates}()} and
-#'   \code{matrixStats::\link[matrixStats]{colTabulates}()} which are used when
-#'   the input is a \code{matrix} or \code{numeric} vector.
-#' \item \code{base::\link[base]{table}()}
+#'   \code{matrixStats::\link[matrixStats:rowTabulates]{colTabulates}()} which
+#'   are used when the input is a \code{matrix} or \code{numeric} vector.
+#' \item \code{base::\link{table}()}
 #' }
 #' 
 #' @examples 

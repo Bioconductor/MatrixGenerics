@@ -20,8 +20,8 @@
 #' @seealso
 #' \itemize{
 #' \item \code{matrixStats::\link[matrixStats]{rowWeightedVars}()} and
-#'   \code{matrixStats::\link[matrixStats]{colWeightedVars}()} which are used
-#'   when the input is a \code{matrix} or \code{numeric} vector.
+#'   \code{matrixStats::\link[matrixStats:rowWeightedVars]{colWeightedVars}()}
+#'   which are used when the input is a \code{matrix} or \code{numeric} vector.
 #' \item See also [rowVars] for the corresponding unweighted function.
 #' }
 #' 

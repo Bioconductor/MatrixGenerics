@@ -9,7 +9,7 @@
 #' 
 #' @template standardParameters
 #' @template dimParameter
-#' @param idxs An index \code{\link[base]{vector}} with the position to extract.
+#' @param idxs An index \code{\link{vector}} with the position to extract.
 #'   It is recycled to match the number of rows (column)
 #'
 #' @template returnVector
@@ -17,8 +17,8 @@
 #' @seealso
 #' \itemize{
 #' \item \code{matrixStats::\link[matrixStats]{rowCollapse}()} and
-#'   \code{matrixStats::\link[matrixStats]{colCollapse}()} which are used when
-#'   the input is a \code{matrix} or \code{numeric} vector.
+#'   \code{matrixStats::\link[matrixStats:rowCollapse]{colCollapse}()}
+#'   which are used when the input is a \code{matrix} or \code{numeric} vector.
 #' }
 #' 
 #' @examples 

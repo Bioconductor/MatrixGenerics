@@ -18,8 +18,8 @@
 #' @seealso
 #' \itemize{
 #' \item \code{matrixStats::\link[matrixStats]{rowWeightedMeans}()} and
-#'   \code{matrixStats::\link[matrixStats]{colWeightedMeans}()} which are used
-#'   when the input is a \code{matrix} or \code{numeric} vector.
+#'   \code{matrixStats::\link[matrixStats:rowWeightedMeans]{colWeightedMeans}()}
+#'   which are used when the input is a \code{matrix} or \code{numeric} vector.
 #' \item See also [rowMeans2] for the corresponding unweighted function.
 #' }
 #' 

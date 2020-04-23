@@ -18,8 +18,8 @@
 #' @seealso
 #' \itemize{
 #' \item \code{matrixStats::\link[matrixStats]{rowMadDiffs}()} and
-#'   \code{matrixStats::\link[matrixStats]{colMadDiffs}()} which are used when
-#'   the input is a \code{matrix} or \code{numeric} vector.
+#'   \code{matrixStats::\link[matrixStats:rowMadDiffs]{colMadDiffs}()} which
+#'   are used when the input is a \code{matrix} or \code{numeric} vector.
 #' }
 #' 
 #' @template standardExamples

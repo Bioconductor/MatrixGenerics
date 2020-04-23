@@ -19,9 +19,9 @@
 #' @seealso
 #' \itemize{
 #' \item \code{matrixStats::\link[matrixStats]{rowAnys}()} and
-#'   \code{matrixStats::\link[matrixStats]{colAnys}()} which are used when
-#'   the input is a \code{matrix} or \code{numeric} vector.
-#' \item \code{base::\link[base]{any}()}.
+#'   \code{matrixStats::\link[matrixStats:rowAnys]{colAnys}()} which are used
+#'   when the input is a \code{matrix} or \code{numeric} vector.
+#' \item \code{base::\link{any}()}.
 #' }
 #' 
 #' @template standardExamples

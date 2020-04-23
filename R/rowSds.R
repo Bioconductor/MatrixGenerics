@@ -19,7 +19,7 @@
 #' @seealso
 #' \itemize{
 #' \item \code{matrixStats::\link[matrixStats]{rowSds}()} and
-#'   \code{matrixStats::\link[matrixStats]{colSds}()} which are used when
+#'   \code{matrixStats::\link[matrixStats:rowSds]{colSds}()} which are used when
 #'   the input is a \code{matrix} or \code{numeric} vector.
 #' \item For mean estimates, see \code{\link{rowMeans2}()} and
 #'   \code{\link[base:colSums]{rowMeans}()}.

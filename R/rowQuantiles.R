@@ -23,8 +23,8 @@
 #' @seealso
 #' \itemize{
 #' \item \code{matrixStats::\link[matrixStats]{rowQuantiles}()} and
-#'   \code{matrixStats::\link[matrixStats]{colQuantiles}()} which are used when
-#'   the input is a \code{matrix} or \code{numeric} vector.
+#'   \code{matrixStats::\link[matrixStats:rowQuantiles]{colQuantiles}()} which
+#'   are used when the input is a \code{matrix} or \code{numeric} vector.
 #' \item [stats::quantile]
 #' }
 #' 

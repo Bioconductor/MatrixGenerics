@@ -37,35 +37,34 @@ colSds(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, ...)
 \arguments{
 \item{x}{An NxK matrix-like object.}
 
-\item{rows, cols}{A \code{\link[base]{vector}} indicating the subset of rows
-(and/or columns) to operate over. If \code{\link[base]{NULL}}, no
-subsetting is done.}
+\item{rows, cols}{A \code{\link{vector}} indicating the subset of rows
+(and/or columns) to operate over. If \code{\link{NULL}}, no subsetting is
+done.}
 
-\item{na.rm}{If \code{\link[base:logical]{TRUE}}, \code{\link[base]{NA}}s
+\item{na.rm}{If \code{\link[base:logical]{TRUE}}, \code{\link{NA}}s
 are excluded first, otherwise not.}
 
 \item{center}{(optional) the center, defaults to the row means}
 
 \item{...}{Additional arguments passed to specific methods.}
 
-\item{dim.}{An \code{\link[base]{integer}} \code{\link[base]{vector}} of
-length two specifying the dimension of \code{x}, essential when x is a
-\code{\link[base]{numeric}} vector. Note, that this is not a generic
+\item{dim.}{An \code{\link{integer}} \code{\link{vector}} of length two
+specifying the dimension of \code{x}, essential when x is a
+\code{\link{numeric}} vector. Note, that this is not a generic
 argument and not all methods need provide it.}
 }
 \value{
-Returns a \code{\link[base]{numeric}} \code{\link[base]{vector}} of
-length N (K).
+Returns a \code{\link{numeric}} \code{\link{vector}} of length N (K).
 }
 \description{
 Calculates the standard deviation for each row (column) of a matrix-like
 object.
 }
 \details{
-The S4 methods for \code{x} of type \code{\link[base]{matrix}},
-\code{\link[base]{array}}, or \code{\link[base]{numeric}} call
+The S4 methods for \code{x} of type \code{\link{matrix}},
+\code{\link{array}}, or \code{\link{numeric}} call
 \code{matrixStats::\link[matrixStats]{rowSds}}
-/ \code{matrixStats::\link[matrixStats]{colSds}}.
+/ \code{matrixStats::\link[matrixStats:rowSds]{colSds}}.
 }
 \examples{
   mat <- matrix(rnorm(15), nrow = 5, ncol = 3)
@@ -82,7 +81,7 @@ The S4 methods for \code{x} of type \code{\link[base]{matrix}},
 \seealso{
 \itemize{
 \item \code{matrixStats::\link[matrixStats]{rowSds}()} and
-\code{matrixStats::\link[matrixStats]{colSds}()} which are used when
+\code{matrixStats::\link[matrixStats:rowSds]{colSds}()} which are used when
 the input is a \code{matrix} or \code{numeric} vector.
 \item For mean estimates, see \code{\link{rowMeans2}()} and
 \code{\link[base:colSums]{rowMeans}()}.

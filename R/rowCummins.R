@@ -17,10 +17,10 @@
 #' @seealso
 #' \itemize{
 #' \item \code{matrixStats::\link[matrixStats]{rowCummins}()} and
-#'   \code{matrixStats::\link[matrixStats]{colCummins}()} which are used when
-#'   the input is a \code{matrix} or \code{numeric} vector.
+#'   \code{matrixStats::\link[matrixStats:rowCummins]{colCummins}()} which are
+#'   used when the input is a \code{matrix} or \code{numeric} vector.
 #' \item For single minimum estimates, see \code{\link{rowMins}()}.
-#' \item \code{base::\link[base]{cummin}()}.
+#' \item \code{base::\link{cummin}()}.
 #' }
 #' 
 #' @template standardExamples

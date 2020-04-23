@@ -13,18 +13,18 @@
 #' @template na_rmParameter
 #' @template dimParameter
 #' 
-#' @return a \code{\link[base]{numeric}} \code{Nx2} (\code{Kx2}) 
+#' @return a \code{\link{numeric}} \code{Nx2} (\code{Kx2}) 
 #'   \code{\link{matrix}}, where N (K) is the number of rows (columns) for
 #'   which the ranges are calculated. 
 #'
 #' @seealso
 #' \itemize{
 #' \item \code{matrixStats::\link[matrixStats]{rowRanges}()} and
-#'   \code{matrixStats::\link[matrixStats]{colRanges}()} which are used when
-#'   the input is a \code{matrix} or \code{numeric} vector.
+#'   \code{matrixStats::\link[matrixStats:rowRanges]{colRanges}()} which are
+#'   used when the input is a \code{matrix} or \code{numeric} vector.
 #' \item For max estimates, see \code{\link{rowMaxs}()}.
 #' \item For min estimates, see \code{\link{rowMins}()}.
-#' \item \code{base::\link[base]{range}()}.
+#' \item \code{base::\link{range}()}.
 #' }
 #' 
 #' @template standardExamples
