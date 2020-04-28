@@ -53,8 +53,8 @@ object.
 \details{
 The S4 methods for \code{x} of type \code{\link{matrix}},
 \code{\link{array}}, or \code{\link{numeric}} call
-\code{matrixStats::\link[matrixStats]{rowCummaxs}}
-/ \code{matrixStats::\link[matrixStats:rowCummaxs]{colCummaxs}}.
+\code{matrixStats::rowCummaxs}
+/ \code{matrixStats::colCummaxs}.
 }
 \examples{
   mat <- matrix(rnorm(15), nrow = 5, ncol = 3)

@@ -66,8 +66,8 @@ subsets of columns (rows).
 \details{
 The S4 methods for \code{x} of type \code{\link{matrix}},
 \code{\link{array}}, or \code{\link{numeric}} call
-\code{matrixStats::\link[matrixStats]{rowAvgsPerColSet}}
-/ \code{matrixStats::\link[matrixStats:rowAvgsPerColSet]{colAvgsPerRowSet}}.
+\code{matrixStats::rowAvgsPerColSet}
+/ \code{matrixStats::colAvgsPerRowSet}.
 }
 \examples{
   mat <- matrix(rnorm(20), nrow = 5, ncol = 4)
