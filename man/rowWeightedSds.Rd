@@ -70,8 +70,8 @@ The S4 methods for \code{x} of type \code{\link{matrix}},
 }
 \seealso{
 \itemize{
-\item \code{matrixStats::\link[matrixStats]{rowWeightedSds}()} and
-\code{matrixStats::\link[matrixStats:rowWeightedSds]{colWeightedSds}()}
+\item \code{matrixStats::\link[matrixStats:weightedVar]{rowWeightedSds}()} and
+\code{matrixStats::\link[matrixStats:weightedVar]{colWeightedSds}()}
 which are used when the input is a \code{matrix} or \code{numeric} vector.
 \item See also \link{rowSds} for the corresponding unweighted function.
 }

@@ -16,8 +16,8 @@
 #'
 #' @seealso
 #' \itemize{
-#' \item \code{matrixStats::\link[matrixStats]{rowCummins}()} and
-#'   \code{matrixStats::\link[matrixStats:rowCummins]{colCummins}()} which are
+#' \item \code{matrixStats::\link[matrixStats:rowCumsums]{rowCummins}()} and
+#'   \code{matrixStats::\link[matrixStats:rowCumsums]{colCummins}()} which are
 #'   used when the input is a \code{matrix} or \code{numeric} vector.
 #' \item For single minimum estimates, see \code{\link{rowMins}()}.
 #' \item \code{base::\link{cummin}()}.

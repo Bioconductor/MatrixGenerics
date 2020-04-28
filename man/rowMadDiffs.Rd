@@ -80,8 +80,8 @@ The S4 methods for \code{x} of type \code{\link{matrix}},
 }
 \seealso{
 \itemize{
-\item \code{matrixStats::\link[matrixStats]{rowMadDiffs}()} and
-\code{matrixStats::\link[matrixStats:rowMadDiffs]{colMadDiffs}()} which
+\item \code{matrixStats::\link[matrixStats:varDiff]{rowMadDiffs}()} and
+\code{matrixStats::\link[matrixStats:varDiff]{colMadDiffs}()} which
 are used when the input is a \code{matrix} or \code{numeric} vector.
 }
 }

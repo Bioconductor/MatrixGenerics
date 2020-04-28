@@ -16,8 +16,8 @@
 #'
 #' @seealso
 #' \itemize{
-#' \item \code{matrixStats::\link[matrixStats]{rowCummaxs}()} and
-#'   \code{matrixStats::\link[matrixStats:rowCummaxs]{colCummaxs}()} which are
+#' \item \code{matrixStats::\link[matrixStats:rowCumsums]{rowCummaxs}()} and
+#'   \code{matrixStats::\link[matrixStats:rowCumsums]{colCummaxs}()} which are
 #'   used when the input is a \code{matrix} or \code{numeric} vector.
 #' \item For single maximum estimates, see \code{\link{rowMaxs}()}.
 #' \item \code{base::\link{cummax}()}.
