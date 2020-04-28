@@ -53,8 +53,8 @@ Calculates the minimum for each row (column) of a matrix-like object.
 \details{
 The S4 methods for \code{x} of type \code{\link{matrix}},
 \code{\link{array}}, or \code{\link{numeric}} call
-\code{matrixStats::\link[matrixStats]{rowMins}}
-/ \code{matrixStats::\link[matrixStats:rowMins]{colMins}}.
+\code{matrixStats::rowMins}
+/ \code{matrixStats::colMins}.
 }
 \examples{
   mat <- matrix(rnorm(15), nrow = 5, ncol = 3)
