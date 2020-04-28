@@ -17,8 +17,8 @@
 #'
 #' @seealso
 #' \itemize{
-#' \item \code{matrixStats::\link[matrixStats]{rowSdDiffs}()} and
-#'   \code{matrixStats::\link[matrixStats:rowSdDiffs]{colSdDiffs}()} which are
+#' \item \code{matrixStats::\link[matrixStats:varDiff]{rowSdDiffs}()} and
+#'   \code{matrixStats::\link[matrixStats:varDiff]{colSdDiffs}()} which are
 #'   used when the input is a \code{matrix} or \code{numeric} vector.
 #' \item for the direct standard deviation see [rowSds()].
 #' }

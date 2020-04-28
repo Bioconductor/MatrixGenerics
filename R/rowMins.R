@@ -15,8 +15,8 @@
 #'
 #' @seealso
 #' \itemize{
-#' \item \code{matrixStats::\link[matrixStats]{rowMins}()} and
-#'   \code{matrixStats::\link[matrixStats:rowMins]{colMins}()} which are used
+#' \item \code{matrixStats::\link[matrixStats:rowRanges]{rowMins}()} and
+#'   \code{matrixStats::\link[matrixStats:rowRanges]{colMins}()} which are used
 #'   when the input is a \code{matrix} or \code{numeric} vector.
 #' \item For max estimates, see \code{\link{rowMaxs}()}.
 #' }

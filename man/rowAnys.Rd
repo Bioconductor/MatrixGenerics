@@ -80,8 +80,8 @@ The S4 methods for \code{x} of type \code{\link{matrix}},
 }
 \seealso{
 \itemize{
-\item \code{matrixStats::\link[matrixStats]{rowAnys}()} and
-\code{matrixStats::\link[matrixStats:rowAnys]{colAnys}()} which are used
+\item \code{matrixStats::\link[matrixStats:rowAlls]{rowAnys}()} and
+\code{matrixStats::\link[matrixStats:rowAlls]{colAnys}()} which are used
 when the input is a \code{matrix} or \code{numeric} vector.
 \item \code{base::\link{any}()}.
 }
