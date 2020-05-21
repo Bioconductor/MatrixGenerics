@@ -53,8 +53,8 @@ object.
 \details{
 The S4 methods for \code{x} of type \code{\link{matrix}},
 \code{\link{array}}, or \code{\link{numeric}} call
-\code{matrixStats::\link[matrixStats]{rowCumprods}}
-/ \code{matrixStats::\link[matrixStats:rowCumprods]{colCumprods}}.
+\code{matrixStats::rowCumprods}
+/ \code{matrixStats::colCumprods}.
 }
 \examples{
   mat <- matrix(rnorm(15), nrow = 5, ncol = 3)
@@ -70,8 +70,8 @@ The S4 methods for \code{x} of type \code{\link{matrix}},
 }
 \seealso{
 \itemize{
-\item \code{matrixStats::\link[matrixStats]{rowCumprods}()} and
-\code{matrixStats::\link[matrixStats:rowCumprods]{colCumprods}()} which
+\item \code{matrixStats::\link[matrixStats:rowCumsums]{rowCumprods}()} and
+\code{matrixStats::\link[matrixStats:rowCumsums]{colCumprods}()} which
 are used when the input is a \code{matrix} or \code{numeric} vector.
 \item \code{base::\link{cumprod}()}.
 }

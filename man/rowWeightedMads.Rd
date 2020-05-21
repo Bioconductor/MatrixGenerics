@@ -66,8 +66,8 @@ a matrix-like object.
 \details{
 The S4 methods for \code{x} of type \code{\link{matrix}},
 \code{\link{array}}, or \code{\link{numeric}} call
-\code{matrixStats::\link[matrixStats]{rowWeightedMads}}
-/ \code{matrixStats::\link[matrixStats:rowWeightedMads]{colWeightedMads}}.
+\code{matrixStats::rowWeightedMads}
+/ \code{matrixStats::colWeightedMads}.
 }
 \examples{
   mat <- matrix(rnorm(15), nrow = 5, ncol = 3)
@@ -83,8 +83,8 @@ The S4 methods for \code{x} of type \code{\link{matrix}},
 }
 \seealso{
 \itemize{
-\item \code{matrixStats::\link[matrixStats]{rowWeightedMads}()} and
-\code{matrixStats::\link[matrixStats:rowWeightedMads]{colWeightedMads}()}
+\item \code{matrixStats::\link[matrixStats:weightedMad]{rowWeightedMads}()} and
+\code{matrixStats::\link[matrixStats:weightedMad]{colWeightedMads}()}
 which are used when the input is a \code{matrix} or \code{numeric} vector.
 \item See also \link{rowMads} for the corresponding unweighted function.
 }

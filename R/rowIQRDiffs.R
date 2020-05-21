@@ -17,8 +17,8 @@
 #'
 #' @seealso
 #' \itemize{
-#' \item \code{matrixStats::\link[matrixStats]{rowIQRDiffs}()} and
-#'   \code{matrixStats::\link[matrixStats:rowIQRDiffs]{colIQRDiffs}()} which
+#' \item \code{matrixStats::\link[matrixStats:varDiff]{rowIQRDiffs}()} and
+#'   \code{matrixStats::\link[matrixStats:varDiff]{colIQRDiffs}()} which
 #'   are used when the input is a \code{matrix} or \code{numeric} vector.
 #' \item For the direct interquartile range see also [rowIQRs].
 #' }
