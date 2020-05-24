@@ -80,8 +80,8 @@ The S4 methods for \code{x} of type \code{\link{matrix}},
 }
 \seealso{
 \itemize{
-\item \code{matrixStats::\link[matrixStats]{rowVarDiffs}()} and
-\code{matrixStats::\link[matrixStats:rowVarDiffs]{colVarDiffs}()} which
+\item \code{matrixStats::\link[matrixStats:varDiff]{rowVarDiffs}()} and
+\code{matrixStats::\link[matrixStats:varDiff]{colVarDiffs}()} which
 are used when the input is a \code{matrix} or \code{numeric} vector.
 \item for the direct variance see \code{\link[=rowVars]{rowVars()}}.
 }
