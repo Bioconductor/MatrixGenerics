@@ -9,6 +9,7 @@
 \alias{colVars,matrix-method}
 \alias{colVars,numeric-method}
 \alias{colVars,array-method}
+\alias{colVars,ANY-method}
 \title{Calculates the variance for each row (column) of a matrix-like object}
 \usage{
 rowVars(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, ...)

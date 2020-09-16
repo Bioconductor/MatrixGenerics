@@ -21,6 +21,5 @@ URL: https://github.com/Bioconductor/MatrixGenerics
 BugReports: https://github.com/Bioconductor/MatrixGenerics/issues
 RoxygenNote: 7.1.0
 Roxygen: list(markdown = TRUE, old_usage = TRUE)
-Suggests: 
-    testthat (>= 2.1.0)
+Suggests: sparseMatrixStats, DelayedMatrixStats, testthat (>= 2.1.0)
 biocViews: Infrastructure, Software
