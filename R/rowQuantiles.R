@@ -16,12 +16,8 @@
 #' @param probs A numeric vector of J probabilities in \[0, 1\].
 #' @template na_rmParameter
 #' @param type An integer specifying the type of estimator. See 
-#'   \code{stats::\link[stats]{quantile}()}. for more details. Note, that this
-#'   is not a generic argument and not all implementation of this function have
-#'   to provide it.
+#'   \code{stats::\link[stats]{quantile}()}. for more details.
 #' @param drop If `TRUE` a vector is returned if `J == 1`.
-#'   Note, that this is not a generic argument and not all implementation of 
-#'   this function have to provide it.
 #' 
 #' @template returnMatrix_JDim
 #' 
@@ -36,7 +32,10 @@
 #' @template standardExamples
 #'
 #' @keywords array iteration robust
-setGeneric("rowQuantiles", function(x, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE, ...) standardGeneric("rowQuantiles"),
+#'
+#' @name rowQuantiles
+#' @export
+setGeneric("rowQuantiles", function(x, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE, type = 7L, ..., drop = TRUE) standardGeneric("rowQuantiles"),
            signature = "x"
 )
 
@@ -58,7 +57,7 @@ setMethod("rowQuantiles", "ANY", make_default_method_def("rowQuantiles"))
 
 #' @export
 #' @rdname rowQuantiles
-setGeneric("colQuantiles", function(x, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE, ...) standardGeneric("colQuantiles"),
+setGeneric("colQuantiles", function(x, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE, type = 7L, ..., drop = TRUE) standardGeneric("colQuantiles"),
            signature = "x"
 )
 
