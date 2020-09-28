@@ -10,24 +10,26 @@
 \title{Calculates quantiles for each row (column) of a matrix-like object}
 \usage{
 rowQuantiles(x, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1,
-  by = 0.25), na.rm = FALSE, ...)
+  by = 0.25), na.rm = FALSE, type = 7L, ..., drop = TRUE)
 
 \S4method{rowQuantiles}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
   cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE,
   type = 7L, ..., drop = TRUE)
 
 \S4method{rowQuantiles}{ANY}(x, rows = NULL, cols = NULL,
-  probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE, ...)
+  probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE, type = 7L,
+  ..., drop = TRUE)
 
 colQuantiles(x, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1,
-  by = 0.25), na.rm = FALSE, ...)
+  by = 0.25), na.rm = FALSE, type = 7L, ..., drop = TRUE)
 
 \S4method{colQuantiles}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
   cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE,
   type = 7L, ..., drop = TRUE)
 
 \S4method{colQuantiles}{ANY}(x, rows = NULL, cols = NULL,
-  probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE, ...)
+  probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE, type = 7L,
+  ..., drop = TRUE)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
@@ -41,16 +43,12 @@ done.}
 \item{na.rm}{If \code{\link[base:logical]{TRUE}}, \code{\link{NA}}s
 are excluded first, otherwise not.}
 
+\item{type}{An integer specifying the type of estimator. See
+\code{stats::\link[stats]{quantile}()}. for more details.}
+
 \item{...}{Additional arguments passed to specific methods.}
 
-\item{type}{An integer specifying the type of estimator. See
-\code{stats::\link[stats]{quantile}()}. for more details. Note, that this
-is not a generic argument and not all implementation of this function have
-to provide it.}
-
-\item{drop}{If \code{TRUE} a vector is returned if \code{J == 1}.
-Note, that this is not a generic argument and not all implementation of
-this function have to provide it.}
+\item{drop}{If \code{TRUE} a vector is returned if \code{J == 1}.}
 }
 \value{
 a \code{\link{numeric}} \code{NxJ} (\code{KxJ})
