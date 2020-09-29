@@ -17,6 +17,13 @@
 #'   \code{\link{matrix}}, where N (K) is the number of rows (columns) for
 #'   which the ranges are calculated. 
 #'
+#' @note Unfortunately for the argument list of the \code{rowRanges()}
+#'   generic function we cannot follow the scheme used for the other
+#'   row/column matrix summarization generic functions. This is because
+#'   we need to be compatible with the historic \code{rowRanges()} getter
+#'   for \link[SummarizedExperiment]{RangedSummarizedExperiment} objects.
+#'   See \code{?SummarizedExperiment::\link[SummarizedExperiment]{rowRanges}}.
+#'
 #' @seealso
 #' \itemize{
 #' \item \code{matrixStats::\link[matrixStats]{rowRanges}()} and
@@ -33,9 +40,7 @@
 #'
 #' @name rowRanges
 #' @export
-setGeneric("rowRanges", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("rowRanges"),
-           signature = "x"
-)
+setGeneric("rowRanges", function(x, ...) standardGeneric("rowRanges"))
 
 .default_rowRanges <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...){
   matrixStats::rowRanges(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
