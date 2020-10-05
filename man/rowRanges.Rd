@@ -12,7 +12,7 @@
 \title{Calculates the minimum and maximum for each row (column) of a matrix-like
 object}
 \usage{
-rowRanges(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+rowRanges(x, ...)
 
 \S4method{rowRanges}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
 
@@ -31,14 +31,14 @@ colRanges(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 \arguments{
 \item{x}{An NxK matrix-like object.}
 
+\item{...}{Additional arguments passed to specific methods.}
+
 \item{rows, cols}{A \code{\link{vector}} indicating the subset of rows
 (and/or columns) to operate over. If \code{\link{NULL}}, no subsetting is
 done.}
 
 \item{na.rm}{If \code{\link[base:logical]{TRUE}}, \code{\link{NA}}s
 are excluded first, otherwise not.}
-
-\item{...}{Additional arguments passed to specific methods.}
 
 \item{dim.}{An \code{\link{integer}} \code{\link{vector}} of length two
 specifying the dimension of \code{x}, essential when x is a
@@ -59,6 +59,14 @@ The S4 methods for \code{x} of type \code{\link{matrix}},
 \code{\link{array}}, or \code{\link{numeric}} call
 \code{matrixStats::rowRanges}
 / \code{matrixStats::colRanges}.
+}
+\note{
+Unfortunately for the argument list of the \code{rowRanges()}
+generic function we cannot follow the scheme used for the other
+row/column matrix summarization generic functions. This is because
+we need to be compatible with the historic \code{rowRanges()} getter
+for \link[SummarizedExperiment]{RangedSummarizedExperiment} objects.
+See \code{?SummarizedExperiment::\link[SummarizedExperiment]{rowRanges}}.
 }
 \examples{
   mat <- matrix(rnorm(15), nrow = 5, ncol = 3)
