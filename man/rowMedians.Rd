@@ -2,30 +2,18 @@
 % Please edit documentation in R/rowMedians.R
 \name{rowMedians}
 \alias{rowMedians}
-\alias{rowMedians,matrix-method}
-\alias{rowMedians,numeric-method}
-\alias{rowMedians,array-method}
+\alias{rowMedians,matrix_OR_array_OR_table_OR_numeric-method}
 \alias{colMedians}
-\alias{colMedians,matrix-method}
-\alias{colMedians,numeric-method}
-\alias{colMedians,array-method}
+\alias{colMedians,matrix_OR_array_OR_table_OR_numeric-method}
 \title{Calculates the median for each row (column) of a matrix-like object}
 \usage{
 rowMedians(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{rowMedians}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
-
-\S4method{rowMedians}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
-
-\S4method{rowMedians}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
+\S4method{rowMedians}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
 
 colMedians(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{colMedians}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
-
-\S4method{colMedians}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
-
-\S4method{colMedians}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
+\S4method{colMedians}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

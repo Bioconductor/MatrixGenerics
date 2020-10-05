@@ -2,37 +2,21 @@
 % Please edit documentation in R/rowSds.R
 \name{rowSds}
 \alias{rowSds}
-\alias{rowSds,matrix-method}
-\alias{rowSds,numeric-method}
-\alias{rowSds,array-method}
+\alias{rowSds,matrix_OR_array_OR_table_OR_numeric-method}
 \alias{colSds}
-\alias{colSds,matrix-method}
-\alias{colSds,numeric-method}
-\alias{colSds,array-method}
+\alias{colSds,matrix_OR_array_OR_table_OR_numeric-method}
 \title{Calculates the standard deviation for each row (column) of a matrix-like
 object}
 \usage{
 rowSds(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, ...)
 
-\S4method{rowSds}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE,
-  center = NULL, dim. = dim(x), ...)
-
-\S4method{rowSds}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE,
-  center = NULL, dim. = dim(x), ...)
-
-\S4method{rowSds}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE,
-  center = NULL, dim. = dim(x), ...)
+\S4method{rowSds}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
+  cols = NULL, na.rm = FALSE, center = NULL, dim. = dim(x), ...)
 
 colSds(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, ...)
 
-\S4method{colSds}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE,
-  center = NULL, dim. = dim(x), ...)
-
-\S4method{colSds}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE,
-  center = NULL, dim. = dim(x), ...)
-
-\S4method{colSds}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE,
-  center = NULL, dim. = dim(x), ...)
+\S4method{colSds}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
+  cols = NULL, na.rm = FALSE, center = NULL, dim. = dim(x), ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

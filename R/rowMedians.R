@@ -2,6 +2,8 @@
 #'
 #' Calculates the median for each row (column) of a matrix-like object.
 #' 
+#' @include MatrixGenerics-package.R
+#'
 #' @templateVar rowName rowMedians
 #' @templateVar colName colMedians
 #' 
@@ -32,20 +34,13 @@ setGeneric("rowMedians", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..
            signature = "x"
 )
 
-.default_rowMedians <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...){
+.matrixStats_rowMedians <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...){
   matrixStats::rowMedians(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
 }
 
 
 #' @rdname rowMedians
-setMethod("rowMedians", signature = "matrix", .default_rowMedians)
-
-#' @rdname rowMedians
-setMethod("rowMedians", signature = "numeric", .default_rowMedians)
-
-#' @rdname rowMedians
-setMethod("rowMedians", signature = "array", .default_rowMedians)
-
+setMethod("rowMedians", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowMedians)
 
 
 
@@ -56,16 +51,10 @@ setGeneric("colMedians", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..
            signature = "x"
 )
 
-.default_colMedians <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...){
+.matrixStats_colMedians <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...){
   matrixStats::colMedians(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
 }
 
 #' @rdname rowMedians
-setMethod("colMedians", signature = "matrix", .default_colMedians)
-
-#' @rdname rowMedians
-setMethod("colMedians", signature = "numeric", .default_colMedians)
-
-#' @rdname rowMedians
-setMethod("colMedians", signature = "array", .default_colMedians)
+setMethod("colMedians", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colMedians)
 

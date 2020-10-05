@@ -2,6 +2,8 @@
 #'
 #' Calculates the maximum for each row (column) of a matrix-like object.
 #' 
+#' @include MatrixGenerics-package.R
+#'
 #' @templateVar rowName rowMaxs
 #' @templateVar colName colMaxs
 #' 
@@ -31,19 +33,12 @@ setGeneric("rowMaxs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) 
            signature = "x"
 )
 
-.default_rowMaxs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...){
+.matrixStats_rowMaxs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...){
   matrixStats::rowMaxs(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
 }
 
 #' @rdname rowMaxs
-setMethod("rowMaxs", signature = "matrix", .default_rowMaxs)
-
-#' @rdname rowMaxs
-setMethod("rowMaxs", signature = "numeric", .default_rowMaxs)
-
-#' @rdname rowMaxs
-setMethod("rowMaxs", signature = "array", .default_rowMaxs)
-
+setMethod("rowMaxs", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowMaxs)
 
 
 
@@ -54,18 +49,10 @@ setGeneric("colMaxs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) 
            signature = "x"
 )
 
-.default_colMaxs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...){
+.matrixStats_colMaxs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...){
   matrixStats::colMaxs(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
 }
 
 #' @rdname rowMaxs
-setMethod("colMaxs", signature = "matrix", .default_colMaxs)
-
-#' @rdname rowMaxs
-setMethod("colMaxs", signature = "numeric", .default_colMaxs)
-
-#' @rdname rowMaxs
-setMethod("colMaxs", signature = "array", .default_colMaxs)
-
-
+setMethod("colMaxs", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colMaxs)
 

@@ -4,6 +4,8 @@
 #' Calculates the median absolute deviation for each row (column) of a
 #' matrix-like object.
 #' 
+#' @include MatrixGenerics-package.R
+#'
 #' @templateVar rowName rowMads
 #' @templateVar colName colMads
 #' 
@@ -39,19 +41,12 @@ setGeneric("rowMads", function(x, rows = NULL, cols = NULL, center = NULL, const
            signature = "x"
 )
 
-.default_rowMads <- function(x, rows = NULL, cols = NULL, center = NULL, constant = 1.4826, na.rm = FALSE, dim. = dim(x), ...){
+.matrixStats_rowMads <- function(x, rows = NULL, cols = NULL, center = NULL, constant = 1.4826, na.rm = FALSE, dim. = dim(x), ...){
   matrixStats::rowMads(x, rows = rows, cols = cols, center = center, constant = constant, na.rm = na.rm, dim. = dim., ...)
 }
 
 #' @rdname rowMads
-setMethod("rowMads", signature = "matrix", .default_rowMads)
-
-#' @rdname rowMads
-setMethod("rowMads", signature = "numeric", .default_rowMads)
-
-#' @rdname rowMads
-setMethod("rowMads", signature = "array", .default_rowMads)
-
+setMethod("rowMads", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowMads)
 
 
 
@@ -62,18 +57,10 @@ setGeneric("colMads", function(x, rows = NULL, cols = NULL, center = NULL, const
            signature = "x"
 )
 
-.default_colMads <- function(x, rows = NULL, cols = NULL, center = NULL, constant = 1.4826, na.rm = FALSE, dim. = dim(x), ...){
+.matrixStats_colMads <- function(x, rows = NULL, cols = NULL, center = NULL, constant = 1.4826, na.rm = FALSE, dim. = dim(x), ...){
   matrixStats::colMads(x, rows = rows, cols = cols, center = center, constant = constant, na.rm = na.rm, dim. = dim., ...)
 }
 
 #' @rdname rowMads
-setMethod("colMads", signature = "matrix", .default_colMads)
-
-#' @rdname rowMads
-setMethod("colMads", signature = "numeric", .default_colMads)
-
-#' @rdname rowMads
-setMethod("colMads", signature = "array", .default_colMads)
-
-
+setMethod("colMads", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colMads)
 

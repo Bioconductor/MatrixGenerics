@@ -2,31 +2,19 @@
 % Please edit documentation in R/rowCummins.R
 \name{rowCummins}
 \alias{rowCummins}
-\alias{rowCummins,matrix-method}
-\alias{rowCummins,numeric-method}
-\alias{rowCummins,array-method}
+\alias{rowCummins,matrix_OR_array_OR_table_OR_numeric-method}
 \alias{colCummins}
-\alias{colCummins,matrix-method}
-\alias{colCummins,numeric-method}
-\alias{colCummins,array-method}
+\alias{colCummins,matrix_OR_array_OR_table_OR_numeric-method}
 \title{Calculates the cumulative minima for each row (column) of a matrix-like
 object}
 \usage{
 rowCummins(x, rows = NULL, cols = NULL, ...)
 
-\S4method{rowCummins}{matrix}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
-
-\S4method{rowCummins}{numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
-
-\S4method{rowCummins}{array}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
+\S4method{rowCummins}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
 
 colCummins(x, rows = NULL, cols = NULL, ...)
 
-\S4method{colCummins}{matrix}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
-
-\S4method{colCummins}{numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
-
-\S4method{colCummins}{array}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
+\S4method{colCummins}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

@@ -2,39 +2,23 @@
 % Please edit documentation in R/rowAvgsPerColSet.R
 \name{rowAvgsPerColSet}
 \alias{rowAvgsPerColSet}
-\alias{rowAvgsPerColSet,matrix-method}
-\alias{rowAvgsPerColSet,numeric-method}
-\alias{rowAvgsPerColSet,array-method}
+\alias{rowAvgsPerColSet,matrix_OR_array_OR_table_OR_numeric-method}
 \alias{colAvgsPerRowSet}
-\alias{colAvgsPerRowSet,matrix-method}
-\alias{colAvgsPerRowSet,numeric-method}
-\alias{colAvgsPerRowSet,array-method}
+\alias{colAvgsPerRowSet,matrix_OR_array_OR_table_OR_numeric-method}
 \title{Calculates for each row (column) a summary statistic for equally sized
 subsets of columns (rows)}
 \usage{
 rowAvgsPerColSet(X, W = NULL, rows = NULL, S, FUN = rowMeans, ...,
   tFUN = FALSE)
 
-\S4method{rowAvgsPerColSet}{matrix}(X, W = NULL, rows = NULL, S,
-  FUN = rowMeans, ..., tFUN = FALSE)
-
-\S4method{rowAvgsPerColSet}{numeric}(X, W = NULL, rows = NULL, S,
-  FUN = rowMeans, ..., tFUN = FALSE)
-
-\S4method{rowAvgsPerColSet}{array}(X, W = NULL, rows = NULL, S,
-  FUN = rowMeans, ..., tFUN = FALSE)
+\S4method{rowAvgsPerColSet}{matrix_OR_array_OR_table_OR_numeric}(X, W = NULL,
+  rows = NULL, S, FUN = rowMeans, ..., tFUN = FALSE)
 
 colAvgsPerRowSet(X, W = NULL, cols = NULL, S, FUN = colMeans, ...,
   tFUN = FALSE)
 
-\S4method{colAvgsPerRowSet}{matrix}(X, W = NULL, cols = NULL, S,
-  FUN = colMeans, ..., tFUN = FALSE)
-
-\S4method{colAvgsPerRowSet}{numeric}(X, W = NULL, cols = NULL, S,
-  FUN = colMeans, ..., tFUN = FALSE)
-
-\S4method{colAvgsPerRowSet}{array}(X, W = NULL, cols = NULL, S,
-  FUN = colMeans, ..., tFUN = FALSE)
+\S4method{colAvgsPerRowSet}{matrix_OR_array_OR_table_OR_numeric}(X, W = NULL,
+  cols = NULL, S, FUN = colMeans, ..., tFUN = FALSE)
 }
 \arguments{
 \item{X}{An \code{NxM} matrix-like object.}

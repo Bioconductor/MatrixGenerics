@@ -2,30 +2,18 @@
 % Please edit documentation in R/rowWeightedMeans.R
 \name{rowWeightedMeans}
 \alias{rowWeightedMeans}
-\alias{rowWeightedMeans,matrix-method}
-\alias{rowWeightedMeans,numeric-method}
-\alias{rowWeightedMeans,array-method}
+\alias{rowWeightedMeans,matrix_OR_array_OR_table_OR_numeric-method}
 \alias{colWeightedMeans}
-\alias{colWeightedMeans,matrix-method}
-\alias{colWeightedMeans,numeric-method}
-\alias{colWeightedMeans,array-method}
+\alias{colWeightedMeans,matrix_OR_array_OR_table_OR_numeric-method}
 \title{Calculates the weighted mean for each row (column) of a matrix-like object}
 \usage{
 rowWeightedMeans(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{rowWeightedMeans}{matrix}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
-
-\S4method{rowWeightedMeans}{numeric}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
-
-\S4method{rowWeightedMeans}{array}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+\S4method{rowWeightedMeans}{matrix_OR_array_OR_table_OR_numeric}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
 colWeightedMeans(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{colWeightedMeans}{matrix}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
-
-\S4method{colWeightedMeans}{numeric}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
-
-\S4method{colWeightedMeans}{array}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+\S4method{colWeightedMeans}{matrix_OR_array_OR_table_OR_numeric}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

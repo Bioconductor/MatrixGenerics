@@ -2,31 +2,19 @@
 % Please edit documentation in R/rowLogSumExps.R
 \name{rowLogSumExps}
 \alias{rowLogSumExps}
-\alias{rowLogSumExps,matrix-method}
-\alias{rowLogSumExps,numeric-method}
-\alias{rowLogSumExps,array-method}
+\alias{rowLogSumExps,matrix_OR_array_OR_table_OR_numeric-method}
 \alias{colLogSumExps}
-\alias{colLogSumExps,matrix-method}
-\alias{colLogSumExps,numeric-method}
-\alias{colLogSumExps,array-method}
+\alias{colLogSumExps,matrix_OR_array_OR_table_OR_numeric-method}
 \title{Accurately calculates the logarithm of the sum of exponentials for each row
 (column) of a matrix-like object}
 \usage{
 rowLogSumExps(lx, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{rowLogSumExps}{matrix}(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx), ...)
-
-\S4method{rowLogSumExps}{numeric}(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx), ...)
-
-\S4method{rowLogSumExps}{array}(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx), ...)
+\S4method{rowLogSumExps}{matrix_OR_array_OR_table_OR_numeric}(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx), ...)
 
 colLogSumExps(lx, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{colLogSumExps}{matrix}(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx), ...)
-
-\S4method{colLogSumExps}{numeric}(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx), ...)
-
-\S4method{colLogSumExps}{array}(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx), ...)
+\S4method{colLogSumExps}{matrix_OR_array_OR_table_OR_numeric}(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx), ...)
 }
 \arguments{
 \item{lx}{An NxK matrix-like object. Typically \code{lx} are \code{log(x)} values.}

@@ -2,6 +2,8 @@
 #'
 #' Calculates quantiles for each row (column) of a matrix-like object.
 #' 
+#' @include MatrixGenerics-package.R
+#'
 #' @templateVar rowName rowQuantiles
 #' @templateVar colName colQuantiles
 #' 
@@ -38,20 +40,13 @@ setGeneric("rowQuantiles", function(x, rows = NULL, cols = NULL, probs = seq(fro
            signature = "x"
 )
 
-.default_rowQuantiles <- function(x, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), 
+.matrixStats_rowQuantiles <- function(x, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25),
                                   na.rm = FALSE, type = 7L, ..., drop = TRUE) {
   matrixStats::rowQuantiles(x = x, rows = rows, cols = cols, probs = probs, na.rm = na.rm, type = type, ..., drop = drop)
 }
 
 #' @rdname rowQuantiles
-setMethod("rowQuantiles", signature = "matrix", .default_rowQuantiles)
-
-#' @rdname rowQuantiles
-setMethod("rowQuantiles", signature = "numeric", .default_rowQuantiles)
-
-#' @rdname rowQuantiles
-setMethod("rowQuantiles", signature = "array", .default_rowQuantiles)
-
+setMethod("rowQuantiles", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowQuantiles)
 
 
 
@@ -62,19 +57,11 @@ setGeneric("colQuantiles", function(x, rows = NULL, cols = NULL, probs = seq(fro
            signature = "x"
 )
 
-.default_colQuantiles <- function(x, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), 
+.matrixStats_colQuantiles <- function(x, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25),
                                   na.rm = FALSE, type = 7L, ..., drop = TRUE) {
   matrixStats::colQuantiles(x = x, rows = rows, cols = cols, probs = probs, na.rm = na.rm, type = type, ..., drop = drop)
 }
 
 #' @rdname rowQuantiles
-setMethod("colQuantiles", signature = "matrix", .default_colQuantiles)
-
-#' @rdname rowQuantiles
-setMethod("colQuantiles", signature = "numeric", .default_colQuantiles)
-
-#' @rdname rowQuantiles
-setMethod("colQuantiles", signature = "array", .default_colQuantiles)
-
-
+setMethod("colQuantiles", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colQuantiles)
 

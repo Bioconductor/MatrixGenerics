@@ -2,6 +2,7 @@
 #'
 #' Calculates the weighted median for each row (column) of a matrix-like object.
 #'
+#' @include MatrixGenerics-package.R
 #' 
 #' @templateVar rowName rowWeightedMedians
 #' @templateVar colName colWeightedMedians
@@ -34,19 +35,12 @@ setGeneric("rowWeightedMedians", function(x, w = NULL, rows = NULL, cols = NULL,
            signature = "x"
 )
 
-.default_rowWeightedMedians <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...){
+.matrixStats_rowWeightedMedians <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...){
   matrixStats::rowWeightedMedians(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ...)
 }
 
 #' @rdname rowWeightedMedians
-setMethod("rowWeightedMedians", signature = "matrix", .default_rowWeightedMedians)
-
-#' @rdname rowWeightedMedians
-setMethod("rowWeightedMedians", signature = "numeric", .default_rowWeightedMedians)
-
-#' @rdname rowWeightedMedians
-setMethod("rowWeightedMedians", signature = "array", .default_rowWeightedMedians)
-
+setMethod("rowWeightedMedians", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowWeightedMedians)
 
 
 
@@ -57,18 +51,10 @@ setGeneric("colWeightedMedians", function(x, w = NULL, rows = NULL, cols = NULL,
            signature = "x"
 )
 
-.default_colWeightedMedians <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...){
+.matrixStats_colWeightedMedians <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...){
   matrixStats::colWeightedMedians(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ...)
 }
 
 #' @rdname rowWeightedMedians
-setMethod("colWeightedMedians", signature = "matrix", .default_colWeightedMedians)
-
-#' @rdname rowWeightedMedians
-setMethod("colWeightedMedians", signature = "numeric", .default_colWeightedMedians)
-
-#' @rdname rowWeightedMedians
-setMethod("colWeightedMedians", signature = "array", .default_colWeightedMedians)
-
-
+setMethod("colWeightedMedians", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colWeightedMedians)
 

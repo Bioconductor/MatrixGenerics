@@ -2,6 +2,8 @@
 #'
 #' Calculates the sum for each row (column) of a matrix-like object.
 #' 
+#' @include MatrixGenerics-package.R
+#'
 #' @templateVar rowName rowSums2
 #' @templateVar colName colSums2
 #' 
@@ -33,19 +35,12 @@ setGeneric("rowSums2", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
            signature = "x"
 )
 
-.default_rowSums2 <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...){
+.matrixStats_rowSums2 <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...){
   matrixStats::rowSums2(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
 }
 
 #' @rdname rowSums2
-setMethod("rowSums2", signature = "matrix", .default_rowSums2)
-
-#' @rdname rowSums2
-setMethod("rowSums2", signature = "numeric", .default_rowSums2)
-
-#' @rdname rowSums2
-setMethod("rowSums2", signature = "array", .default_rowSums2)
-
+setMethod("rowSums2", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowSums2)
 
 
 
@@ -56,18 +51,10 @@ setGeneric("colSums2", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
            signature = "x"
 )
 
-.default_colSums2 <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...){
+.matrixStats_colSums2 <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...){
   matrixStats::colSums2(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
 }
 
 #' @rdname rowSums2
-setMethod("colSums2", signature = "matrix", .default_colSums2)
-
-#' @rdname rowSums2
-setMethod("colSums2", signature = "numeric", .default_colSums2)
-
-#' @rdname rowSums2
-setMethod("colSums2", signature = "array", .default_colSums2)
-
-
+setMethod("colSums2", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colSums2)
 

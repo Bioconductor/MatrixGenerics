@@ -4,6 +4,8 @@
 #' Calculates the cumulative minima for each row (column) of a matrix-like
 #' object.
 #' 
+#' @include MatrixGenerics-package.R
+#'
 #' @templateVar rowName rowCummins
 #' @templateVar colName colCummins
 #' 
@@ -33,19 +35,12 @@ setGeneric("rowCummins", function(x, rows = NULL, cols = NULL,  ...) standardGen
            signature = "x"
 )
 
-.default_rowCummins <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ...){
+.matrixStats_rowCummins <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ...){
   matrixStats::rowCummins(x, rows = rows, cols = cols, dim. = dim., ...)
 }
 
 #' @rdname rowCummins
-setMethod("rowCummins", signature = "matrix", .default_rowCummins)
-
-#' @rdname rowCummins
-setMethod("rowCummins", signature = "numeric", .default_rowCummins)
-
-#' @rdname rowCummins
-setMethod("rowCummins", signature = "array", .default_rowCummins)
-
+setMethod("rowCummins", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowCummins)
 
 
 
@@ -56,18 +51,10 @@ setGeneric("colCummins", function(x, rows = NULL, cols = NULL, ...) standardGene
            signature = "x"
 )
 
-.default_colCummins <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ...){
+.matrixStats_colCummins <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ...){
   matrixStats::colCummins(x, rows = rows, cols = cols, dim. = dim., ...)
 }
 
 #' @rdname rowCummins
-setMethod("colCummins", signature = "matrix", .default_colCummins)
-
-#' @rdname rowCummins
-setMethod("colCummins", signature = "numeric", .default_colCummins)
-
-#' @rdname rowCummins
-setMethod("colCummins", signature = "array", .default_colCummins)
-
-
+setMethod("colCummins", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colCummins)
 

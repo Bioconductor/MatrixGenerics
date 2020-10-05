@@ -2,30 +2,18 @@
 % Please edit documentation in R/rowMaxs.R
 \name{rowMaxs}
 \alias{rowMaxs}
-\alias{rowMaxs,matrix-method}
-\alias{rowMaxs,numeric-method}
-\alias{rowMaxs,array-method}
+\alias{rowMaxs,matrix_OR_array_OR_table_OR_numeric-method}
 \alias{colMaxs}
-\alias{colMaxs,matrix-method}
-\alias{colMaxs,numeric-method}
-\alias{colMaxs,array-method}
+\alias{colMaxs,matrix_OR_array_OR_table_OR_numeric-method}
 \title{Calculates the maximum for each row (column) of a matrix-like object}
 \usage{
 rowMaxs(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{rowMaxs}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
-
-\S4method{rowMaxs}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
-
-\S4method{rowMaxs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
+\S4method{rowMaxs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
 
 colMaxs(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{colMaxs}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
-
-\S4method{colMaxs}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
-
-\S4method{colMaxs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
+\S4method{colMaxs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

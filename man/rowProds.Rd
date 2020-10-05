@@ -2,36 +2,20 @@
 % Please edit documentation in R/rowProds.R
 \name{rowProds}
 \alias{rowProds}
-\alias{rowProds,matrix-method}
-\alias{rowProds,numeric-method}
-\alias{rowProds,array-method}
+\alias{rowProds,matrix_OR_array_OR_table_OR_numeric-method}
 \alias{colProds}
-\alias{colProds,matrix-method}
-\alias{colProds,numeric-method}
-\alias{colProds,array-method}
+\alias{colProds,matrix_OR_array_OR_table_OR_numeric-method}
 \title{Calculates the product for each row (column) of a matrix-like object}
 \usage{
 rowProds(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{rowProds}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE,
-  method = c("direct", "expSumLog"), ...)
-
-\S4method{rowProds}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE,
-  method = c("direct", "expSumLog"), ...)
-
-\S4method{rowProds}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE,
-  method = c("direct", "expSumLog"), ...)
+\S4method{rowProds}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
+  cols = NULL, na.rm = FALSE, method = c("direct", "expSumLog"), ...)
 
 colProds(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{colProds}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE,
-  method = c("direct", "expSumLog"), ...)
-
-\S4method{colProds}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE,
-  method = c("direct", "expSumLog"), ...)
-
-\S4method{colProds}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE,
-  method = c("direct", "expSumLog"), ...)
+\S4method{colProds}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
+  cols = NULL, na.rm = FALSE, method = c("direct", "expSumLog"), ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

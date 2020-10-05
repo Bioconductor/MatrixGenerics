@@ -2,39 +2,23 @@
 % Please edit documentation in R/rowSdDiffs.R
 \name{rowSdDiffs}
 \alias{rowSdDiffs}
-\alias{rowSdDiffs,matrix-method}
-\alias{rowSdDiffs,numeric-method}
-\alias{rowSdDiffs,array-method}
+\alias{rowSdDiffs,matrix_OR_array_OR_table_OR_numeric-method}
 \alias{colSdDiffs}
-\alias{colSdDiffs,matrix-method}
-\alias{colSdDiffs,numeric-method}
-\alias{colSdDiffs,array-method}
+\alias{colSdDiffs,matrix_OR_array_OR_table_OR_numeric-method}
 \title{Calculates the standard deviation of the difference between each element of
 a row (column) of a matrix-like object}
 \usage{
 rowSdDiffs(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L,
   trim = 0, ...)
 
-\S4method{rowSdDiffs}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE,
-  diff = 1L, trim = 0, ...)
-
-\S4method{rowSdDiffs}{numeric}(x, rows = NULL, cols = NULL,
-  na.rm = FALSE, diff = 1L, trim = 0, ...)
-
-\S4method{rowSdDiffs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE,
-  diff = 1L, trim = 0, ...)
+\S4method{rowSdDiffs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
+  cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...)
 
 colSdDiffs(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L,
   trim = 0, ...)
 
-\S4method{colSdDiffs}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE,
-  diff = 1L, trim = 0, ...)
-
-\S4method{colSdDiffs}{numeric}(x, rows = NULL, cols = NULL,
-  na.rm = FALSE, diff = 1L, trim = 0, ...)
-
-\S4method{colSdDiffs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE,
-  diff = 1L, trim = 0, ...)
+\S4method{colSdDiffs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
+  cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

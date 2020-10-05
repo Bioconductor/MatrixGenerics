@@ -2,39 +2,25 @@
 % Please edit documentation in R/rowWeightedMads.R
 \name{rowWeightedMads}
 \alias{rowWeightedMads}
-\alias{rowWeightedMads,matrix-method}
-\alias{rowWeightedMads,numeric-method}
-\alias{rowWeightedMads,array-method}
+\alias{rowWeightedMads,matrix_OR_array_OR_table_OR_numeric-method}
 \alias{colWeightedMads}
-\alias{colWeightedMads,matrix-method}
-\alias{colWeightedMads,numeric-method}
-\alias{colWeightedMads,array-method}
+\alias{colWeightedMads,matrix_OR_array_OR_table_OR_numeric-method}
 \title{Calculates the weighted median absolute deviation for each row (column) of a
 matrix-like object}
 \usage{
 rowWeightedMads(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE,
   constant = 1.4826, center = NULL, ...)
 
-\S4method{rowWeightedMads}{matrix}(x, w = NULL, rows = NULL, cols = NULL,
-  na.rm = FALSE, constant = 1.4826, center = NULL, ...)
-
-\S4method{rowWeightedMads}{numeric}(x, w = NULL, rows = NULL,
-  cols = NULL, na.rm = FALSE, constant = 1.4826, center = NULL, ...)
-
-\S4method{rowWeightedMads}{array}(x, w = NULL, rows = NULL, cols = NULL,
-  na.rm = FALSE, constant = 1.4826, center = NULL, ...)
+\S4method{rowWeightedMads}{matrix_OR_array_OR_table_OR_numeric}(x, w = NULL,
+  rows = NULL, cols = NULL, na.rm = FALSE, constant = 1.4826,
+  center = NULL, ...)
 
 colWeightedMads(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE,
   constant = 1.4826, center = NULL, ...)
 
-\S4method{colWeightedMads}{matrix}(x, w = NULL, rows = NULL, cols = NULL,
-  na.rm = FALSE, constant = 1.4826, center = NULL, ...)
-
-\S4method{colWeightedMads}{numeric}(x, w = NULL, rows = NULL,
-  cols = NULL, na.rm = FALSE, constant = 1.4826, center = NULL, ...)
-
-\S4method{colWeightedMads}{array}(x, w = NULL, rows = NULL, cols = NULL,
-  na.rm = FALSE, constant = 1.4826, center = NULL, ...)
+\S4method{colWeightedMads}{matrix_OR_array_OR_table_OR_numeric}(x, w = NULL,
+  rows = NULL, cols = NULL, na.rm = FALSE, constant = 1.4826,
+  center = NULL, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

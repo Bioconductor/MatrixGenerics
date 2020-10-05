@@ -2,37 +2,21 @@
 % Please edit documentation in R/rowAlls.R
 \name{rowAlls}
 \alias{rowAlls}
-\alias{rowAlls,matrix-method}
-\alias{rowAlls,numeric-method}
-\alias{rowAlls,array-method}
+\alias{rowAlls,matrix_OR_array_OR_table_OR_numeric-method}
 \alias{colAlls}
-\alias{colAlls,matrix-method}
-\alias{colAlls,numeric-method}
-\alias{colAlls,array-method}
+\alias{colAlls,matrix_OR_array_OR_table_OR_numeric-method}
 \title{Check if all elements in a row (column) of a matrix-like object are equal to
 a value}
 \usage{
 rowAlls(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...)
 
-\S4method{rowAlls}{matrix}(x, rows = NULL, cols = NULL, value = TRUE,
-  na.rm = FALSE, dim. = dim(x), ...)
-
-\S4method{rowAlls}{numeric}(x, rows = NULL, cols = NULL, value = TRUE,
-  na.rm = FALSE, dim. = dim(x), ...)
-
-\S4method{rowAlls}{array}(x, rows = NULL, cols = NULL, value = TRUE,
-  na.rm = FALSE, dim. = dim(x), ...)
+\S4method{rowAlls}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
+  cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ...)
 
 colAlls(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...)
 
-\S4method{colAlls}{matrix}(x, rows = NULL, cols = NULL, value = TRUE,
-  na.rm = FALSE, dim. = dim(x), ...)
-
-\S4method{colAlls}{numeric}(x, rows = NULL, cols = NULL, value = TRUE,
-  na.rm = FALSE, dim. = dim(x), ...)
-
-\S4method{colAlls}{array}(x, rows = NULL, cols = NULL, value = TRUE,
-  na.rm = FALSE, dim. = dim(x), ...)
+\S4method{colAlls}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
+  cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

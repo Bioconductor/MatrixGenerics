@@ -7,7 +7,7 @@ Description: S4 generic functions modeled after the 'matrixStats' API
     summary statistics. Other package developers can import this package
     and handle a different matrix implementations without worrying
     about incompatibilities.
-Version: 1.1.3
+Version: 1.1.4
 Authors@R: c(person("Constantin", "Ahlmann-Eltze", email = "artjom31415@googlemail.com", 
                   role = c("aut"), comment = c(ORCID = "0000-0002-3762-068X")),
              person("Peter", "Hickey", role = c("aut", "cre"),
@@ -25,3 +25,41 @@ Suggests:
     SummarizedExperiment,
     testthat (>= 2.1.0)
 biocViews: Infrastructure, Software
+Collate: 
+    'MatrixGenerics-package.R'
+    'rowAlls.R'
+    'rowAnyNAs.R'
+    'rowAnys.R'
+    'rowAvgsPerColSet.R'
+    'rowCollapse.R'
+    'rowCounts.R'
+    'rowCummaxs.R'
+    'rowCummins.R'
+    'rowCumprods.R'
+    'rowCumsums.R'
+    'rowDiffs.R'
+    'rowIQRDiffs.R'
+    'rowIQRs.R'
+    'rowLogSumExps.R'
+    'rowMadDiffs.R'
+    'rowMads.R'
+    'rowMaxs.R'
+    'rowMeans2.R'
+    'rowMedians.R'
+    'rowMins.R'
+    'rowOrderStats.R'
+    'rowProds.R'
+    'rowQuantiles.R'
+    'rowRanges.R'
+    'rowRanks.R'
+    'rowSdDiffs.R'
+    'rowSds.R'
+    'rowSums2.R'
+    'rowTabulates.R'
+    'rowVarDiffs.R'
+    'rowVars.R'
+    'rowWeightedMads.R'
+    'rowWeightedMeans.R'
+    'rowWeightedMedians.R'
+    'rowWeightedSds.R'
+    'rowWeightedVars.R'

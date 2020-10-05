@@ -4,6 +4,8 @@
 #' Calculates the variance of the difference between each element of a row
 #' (column) of a matrix-like object.
 #'
+#' @include MatrixGenerics-package.R
+#'
 #' @templateVar rowName rowVarDiffs
 #' @templateVar colName colVarDiffs
 #'
@@ -33,19 +35,12 @@ setGeneric("rowVarDiffs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, d
            signature = "x"
 )
 
-.default_rowVarDiffs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...){
+.matrixStats_rowVarDiffs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...){
   matrixStats::rowVarDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff = diff, trim = trim, ...)
 }
 
 #' @rdname rowVarDiffs
-setMethod("rowVarDiffs", signature = "matrix", .default_rowVarDiffs)
-
-#' @rdname rowVarDiffs
-setMethod("rowVarDiffs", signature = "numeric", .default_rowVarDiffs)
-
-#' @rdname rowVarDiffs
-setMethod("rowVarDiffs", signature = "array", .default_rowVarDiffs)
-
+setMethod("rowVarDiffs", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowVarDiffs)
 
 
 
@@ -56,18 +51,10 @@ setGeneric("colVarDiffs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, d
            signature = "x"
 )
 
-.default_colVarDiffs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...){
+.matrixStats_colVarDiffs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...){
   matrixStats::colVarDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff = diff, trim = trim, ...)
 }
 
 #' @rdname rowVarDiffs
-setMethod("colVarDiffs", signature = "matrix", .default_colVarDiffs)
-
-#' @rdname rowVarDiffs
-setMethod("colVarDiffs", signature = "numeric", .default_colVarDiffs)
-
-#' @rdname rowVarDiffs
-setMethod("colVarDiffs", signature = "array", .default_colVarDiffs)
-
-
+setMethod("colVarDiffs", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colVarDiffs)
 

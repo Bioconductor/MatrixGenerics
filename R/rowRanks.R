@@ -4,6 +4,8 @@
 #' Calculates the rank of the elements for each row (column) of a matrix-like
 #' object.
 #' 
+#' @include MatrixGenerics-package.R
+#'
 #' @templateVar rowName rowRanks
 #' @templateVar colName colRanks
 #' 
@@ -54,21 +56,14 @@ setGeneric("rowRanks", function(x, rows = NULL, cols = NULL, ties.method = c("ma
            signature = "x"
 )
 
-.default_rowRanks <-  function(x, rows = NULL, cols = NULL, 
+.matrixStats_rowRanks <-  function(x, rows = NULL, cols = NULL,
                                ties.method = c("max", "average", "first", "last", "random", "max", "min", "dense"),
                                dim. = dim(x), ...){
   matrixStats::rowRanks(x = x, rows = rows, cols = cols, ties.method = ties.method, dim. = dim., ...)
 }
 
 #' @rdname rowRanks
-setMethod("rowRanks", signature = "matrix", .default_rowRanks)
-
-#' @rdname rowRanks
-setMethod("rowRanks", signature = "numeric", .default_rowRanks)
-
-#' @rdname rowRanks
-setMethod("rowRanks", signature = "array", .default_rowRanks)
-
+setMethod("rowRanks", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowRanks)
 
 
 
@@ -79,20 +74,12 @@ setGeneric("colRanks", function(x, rows = NULL, cols = NULL, ties.method = c("ma
            signature = "x"
 )
 
-.default_colRanks <-  function(x, rows = NULL, cols = NULL, 
+.matrixStats_colRanks <-  function(x, rows = NULL, cols = NULL,
                                ties.method = c("max", "average", "first", "last", "random", "max", "min", "dense"),
                                dim. = dim(x), preserveShape = FALSE, ...){
   matrixStats::colRanks(x = x, rows = rows, cols = cols, ties.method = ties.method, dim. = dim., preserveShape = preserveShape, ...)
 }
 
 #' @rdname rowRanks
-setMethod("colRanks", signature = "matrix", .default_colRanks)
-
-#' @rdname rowRanks
-setMethod("colRanks", signature = "numeric", .default_colRanks)
-
-#' @rdname rowRanks
-setMethod("colRanks", signature = "array", .default_colRanks)
-
-
+setMethod("colRanks", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colRanks)
 

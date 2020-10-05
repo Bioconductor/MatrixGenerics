@@ -2,6 +2,8 @@
 #'
 #' Check if any elements in a row (column) of a matrix-like object is missing.
 #' 
+#' @include MatrixGenerics-package.R
+#'
 #' @templateVar rowName rowAnyNAs
 #' @templateVar colName colAnyNAs
 #' 
@@ -30,19 +32,12 @@ setGeneric("rowAnyNAs", function(x, rows = NULL, cols = NULL,  ...) standardGene
            signature = "x"
 )
 
-.default_rowAnyNAs <- function(x, rows = NULL, cols = NULL, ...){
+.matrixStats_rowAnyNAs <- function(x, rows = NULL, cols = NULL, ...){
   matrixStats::rowAnyNAs(x, rows = rows, cols = cols, ...)
 }
 
 #' @rdname rowAnyNAs
-setMethod("rowAnyNAs", signature = "matrix", .default_rowAnyNAs)
-
-#' @rdname rowAnyNAs
-setMethod("rowAnyNAs", signature = "numeric", .default_rowAnyNAs)
-
-#' @rdname rowAnyNAs
-setMethod("rowAnyNAs", signature = "array", .default_rowAnyNAs)
-
+setMethod("rowAnyNAs", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowAnyNAs)
 
 
 
@@ -53,18 +48,10 @@ setGeneric("colAnyNAs", function(x, rows = NULL, cols = NULL, ...) standardGener
            signature = "x"
 )
 
-.default_colAnyNAs <- function(x, rows = NULL, cols = NULL, ...){
+.matrixStats_colAnyNAs <- function(x, rows = NULL, cols = NULL, ...){
   matrixStats::colAnyNAs(x, rows = rows, cols = cols, ...)
 }
 
 #' @rdname rowAnyNAs
-setMethod("colAnyNAs", signature = "matrix", .default_colAnyNAs)
-
-#' @rdname rowAnyNAs
-setMethod("colAnyNAs", signature = "numeric", .default_colAnyNAs)
-
-#' @rdname rowAnyNAs
-setMethod("colAnyNAs", signature = "array", .default_colAnyNAs)
-
-
+setMethod("colAnyNAs", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colAnyNAs)
 

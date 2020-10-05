@@ -2,6 +2,8 @@
 #'
 #' Calculates the cumulative sum for each row (column) of a matrix-like object.
 #' 
+#' @include MatrixGenerics-package.R
+#'
 #' @templateVar rowName rowCumsums
 #' @templateVar colName colCumsums
 #' 
@@ -30,19 +32,12 @@ setGeneric("rowCumsums", function(x, rows = NULL, cols = NULL,  ...) standardGen
            signature = "x"
 )
 
-.default_rowCumsums <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ...){
+.matrixStats_rowCumsums <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ...){
   matrixStats::rowCumsums(x, rows = rows, cols = cols, dim. = dim., ...)
 }
 
 #' @rdname rowCumsums
-setMethod("rowCumsums", signature = "matrix", .default_rowCumsums)
-
-#' @rdname rowCumsums
-setMethod("rowCumsums", signature = "numeric", .default_rowCumsums)
-
-#' @rdname rowCumsums
-setMethod("rowCumsums", signature = "array", .default_rowCumsums)
-
+setMethod("rowCumsums", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowCumsums)
 
 
 
@@ -53,18 +48,10 @@ setGeneric("colCumsums", function(x, rows = NULL, cols = NULL, ...) standardGene
            signature = "x"
 )
 
-.default_colCumsums <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ...){
+.matrixStats_colCumsums <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ...){
   matrixStats::colCumsums(x, rows = rows, cols = cols, dim. = dim., ...)
 }
 
 #' @rdname rowCumsums
-setMethod("colCumsums", signature = "matrix", .default_colCumsums)
-
-#' @rdname rowCumsums
-setMethod("colCumsums", signature = "numeric", .default_colCumsums)
-
-#' @rdname rowCumsums
-setMethod("colCumsums", signature = "array", .default_colCumsums)
-
-
+setMethod("colCumsums", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colCumsums)
 

@@ -4,6 +4,8 @@
 #' Check if all elements in a row (column) of a matrix-like object are equal to 
 #' a value.
 #' 
+#' @include MatrixGenerics-package.R
+#'
 #' @templateVar rowName rowAlls
 #' @templateVar colName colAlls
 #' 
@@ -36,19 +38,12 @@ setGeneric("rowAlls", function(x, rows = NULL, cols = NULL, value = TRUE, na.rm 
            signature = "x"
 )
 
-.default_rowAlls <- function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ...){
+.matrixStats_rowAlls <- function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ...){
   matrixStats::rowAlls(x, rows = rows, cols = cols, value = value, na.rm = na.rm, dim. = dim., ...)
 }
 
 #' @rdname rowAlls
-setMethod("rowAlls", signature = "matrix", .default_rowAlls)
-
-#' @rdname rowAlls
-setMethod("rowAlls", signature = "numeric", .default_rowAlls)
-
-#' @rdname rowAlls
-setMethod("rowAlls", signature = "array", .default_rowAlls)
-
+setMethod("rowAlls", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowAlls)
 
 
 
@@ -59,18 +54,10 @@ setGeneric("colAlls", function(x, rows = NULL, cols = NULL, value = TRUE, na.rm 
            signature = "x"
 )
 
-.default_colAlls <- function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ...){
+.matrixStats_colAlls <- function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ...){
   matrixStats::colAlls(x, rows = rows, cols = cols, value = value, na.rm = na.rm, dim. = dim., ...)
 }
 
 #' @rdname rowAlls
-setMethod("colAlls", signature = "matrix", .default_colAlls)
-
-#' @rdname rowAlls
-setMethod("colAlls", signature = "numeric", .default_colAlls)
-
-#' @rdname rowAlls
-setMethod("colAlls", signature = "array", .default_colAlls)
-
-
+setMethod("colAlls", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colAlls)
 

@@ -4,6 +4,8 @@
 #' Calculates for each row (column) a summary statistic for equally sized
 #' subsets of columns (rows).
 #' 
+#' @include MatrixGenerics-package.R
+#'
 #' @templateVar rowName rowAvgsPerColSet
 #' @templateVar colName colAvgsPerRowSet
 #' 
@@ -54,19 +56,12 @@ setGeneric("rowAvgsPerColSet", function(X, W = NULL, rows = NULL, S, FUN = rowMe
            signature = "X"
 )
 
-.default_rowAvgsPerColSet <- function(X, W = NULL, rows = NULL, S, FUN = rowMeans,  ..., tFUN = FALSE){
+.matrixStats_rowAvgsPerColSet <- function(X, W = NULL, rows = NULL, S, FUN = rowMeans,  ..., tFUN = FALSE){
   matrixStats::rowAvgsPerColSet(X = X, W = W, rows = rows, S = S, FUN = FUN, ..., tFUN = tFUN)
 }
 
 #' @rdname rowAvgsPerColSet
-setMethod("rowAvgsPerColSet", signature = "matrix", .default_rowAvgsPerColSet)
-
-#' @rdname rowAvgsPerColSet
-setMethod("rowAvgsPerColSet", signature = "numeric", .default_rowAvgsPerColSet)
-
-#' @rdname rowAvgsPerColSet
-setMethod("rowAvgsPerColSet", signature = "array", .default_rowAvgsPerColSet)
-
+setMethod("rowAvgsPerColSet", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowAvgsPerColSet)
 
 
 
@@ -77,18 +72,10 @@ setGeneric("colAvgsPerRowSet", function(X, W = NULL, cols = NULL, S, FUN = colMe
            signature = "X"
 )
 
-.default_colAvgsPerRowSet <- function(X, W = NULL, cols = NULL, S, FUN = colMeans,  ..., tFUN = FALSE){
+.matrixStats_colAvgsPerRowSet <- function(X, W = NULL, cols = NULL, S, FUN = colMeans,  ..., tFUN = FALSE){
   matrixStats::colAvgsPerRowSet(X = X, W = W, cols = cols, S = S, FUN = FUN, ..., tFUN = tFUN)
 }
 
 #' @rdname rowAvgsPerColSet
-setMethod("colAvgsPerRowSet", signature = "matrix", .default_colAvgsPerRowSet)
-
-#' @rdname rowAvgsPerColSet
-setMethod("colAvgsPerRowSet", signature = "numeric", .default_colAvgsPerRowSet)
-
-#' @rdname rowAvgsPerColSet
-setMethod("colAvgsPerRowSet", signature = "array", .default_colAvgsPerRowSet)
-
-
+setMethod("colAvgsPerRowSet", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colAvgsPerRowSet)
 

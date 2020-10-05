@@ -2,37 +2,21 @@
 % Please edit documentation in R/rowAnys.R
 \name{rowAnys}
 \alias{rowAnys}
-\alias{rowAnys,matrix-method}
-\alias{rowAnys,numeric-method}
-\alias{rowAnys,array-method}
+\alias{rowAnys,matrix_OR_array_OR_table_OR_numeric-method}
 \alias{colAnys}
-\alias{colAnys,matrix-method}
-\alias{colAnys,numeric-method}
-\alias{colAnys,array-method}
+\alias{colAnys,matrix_OR_array_OR_table_OR_numeric-method}
 \title{Check if any elements in a row (column) of a matrix-like object is equal to
 a value}
 \usage{
 rowAnys(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...)
 
-\S4method{rowAnys}{matrix}(x, rows = NULL, cols = NULL, value = TRUE,
-  na.rm = FALSE, dim. = dim(x), ...)
-
-\S4method{rowAnys}{numeric}(x, rows = NULL, cols = NULL, value = TRUE,
-  na.rm = FALSE, dim. = dim(x), ...)
-
-\S4method{rowAnys}{array}(x, rows = NULL, cols = NULL, value = TRUE,
-  na.rm = FALSE, dim. = dim(x), ...)
+\S4method{rowAnys}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
+  cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ...)
 
 colAnys(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...)
 
-\S4method{colAnys}{matrix}(x, rows = NULL, cols = NULL, value = TRUE,
-  na.rm = FALSE, dim. = dim(x), ...)
-
-\S4method{colAnys}{numeric}(x, rows = NULL, cols = NULL, value = TRUE,
-  na.rm = FALSE, dim. = dim(x), ...)
-
-\S4method{colAnys}{array}(x, rows = NULL, cols = NULL, value = TRUE,
-  na.rm = FALSE, dim. = dim(x), ...)
+\S4method{colAnys}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
+  cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

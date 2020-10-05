@@ -4,6 +4,8 @@
 #' Calculates the cumulative maxima for each row (column) of a matrix-like
 #' object.
 #' 
+#' @include MatrixGenerics-package.R
+#'
 #' @templateVar rowName rowCummaxs
 #' @templateVar colName colCummaxs
 #' 
@@ -33,19 +35,12 @@ setGeneric("rowCummaxs", function(x, rows = NULL, cols = NULL,  ...) standardGen
            signature = "x"
 )
 
-.default_rowCummaxs <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ...){
+.matrixStats_rowCummaxs <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ...){
   matrixStats::rowCummaxs(x, rows = rows, cols = cols, dim. = dim., ...)
 }
 
 #' @rdname rowCummaxs
-setMethod("rowCummaxs", signature = "matrix", .default_rowCummaxs)
-
-#' @rdname rowCummaxs
-setMethod("rowCummaxs", signature = "numeric", .default_rowCummaxs)
-
-#' @rdname rowCummaxs
-setMethod("rowCummaxs", signature = "array", .default_rowCummaxs)
-
+setMethod("rowCummaxs", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowCummaxs)
 
 
 
@@ -56,18 +51,10 @@ setGeneric("colCummaxs", function(x, rows = NULL, cols = NULL, ...) standardGene
            signature = "x"
 )
 
-.default_colCummaxs <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ...){
+.matrixStats_colCummaxs <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ...){
   matrixStats::colCummaxs(x, rows = rows, cols = cols, dim. = dim., ...)
 }
 
 #' @rdname rowCummaxs
-setMethod("colCummaxs", signature = "matrix", .default_colCummaxs)
-
-#' @rdname rowCummaxs
-setMethod("colCummaxs", signature = "numeric", .default_colCummaxs)
-
-#' @rdname rowCummaxs
-setMethod("colCummaxs", signature = "array", .default_colCummaxs)
-
-
+setMethod("colCummaxs", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colCummaxs)
 

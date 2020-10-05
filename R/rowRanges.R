@@ -4,6 +4,8 @@
 #' Calculates the minimum and maximum for each row (column) of a matrix-like
 #' object.
 #' 
+#' @include MatrixGenerics-package.R
+#'
 #' @templateVar rowName rowRanges
 #' @templateVar colName colRanges
 #' 
@@ -42,19 +44,12 @@
 #' @export
 setGeneric("rowRanges", function(x, ...) standardGeneric("rowRanges"))
 
-.default_rowRanges <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...){
+.matrixStats_rowRanges <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...){
   matrixStats::rowRanges(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
 }
 
 #' @rdname rowRanges
-setMethod("rowRanges", signature = "matrix", .default_rowRanges)
-
-#' @rdname rowRanges
-setMethod("rowRanges", signature = "numeric", .default_rowRanges)
-
-#' @rdname rowRanges
-setMethod("rowRanges", signature = "array", .default_rowRanges)
-
+setMethod("rowRanges", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowRanges)
 
 
 
@@ -65,18 +60,10 @@ setGeneric("colRanges", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...
            signature = "x"
 )
 
-.default_colRanges <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...){
+.matrixStats_colRanges <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...){
   matrixStats::colRanges(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
 }
 
 #' @rdname rowRanges
-setMethod("colRanges", signature = "matrix", .default_colRanges)
-
-#' @rdname rowRanges
-setMethod("colRanges", signature = "numeric", .default_colRanges)
-
-#' @rdname rowRanges
-setMethod("colRanges", signature = "array", .default_colRanges)
-
-
+setMethod("colRanges", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colRanges)
 

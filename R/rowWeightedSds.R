@@ -4,6 +4,7 @@
 #' Calculates the weighted standard deviation for each row (column) of a
 #' matrix-like object.
 #'
+#' @include MatrixGenerics-package.R
 #' 
 #' @templateVar rowName rowWeightedSds
 #' @templateVar colName colWeightedSds
@@ -36,19 +37,12 @@ setGeneric("rowWeightedSds", function(x, w = NULL, rows = NULL, cols = NULL, na.
            signature = "x"
 )
 
-.default_rowWeightedSds <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...){
+.matrixStats_rowWeightedSds <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...){
   matrixStats::rowWeightedSds(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ...)
 }
 
 #' @rdname rowWeightedSds
-setMethod("rowWeightedSds", signature = "matrix", .default_rowWeightedSds)
-
-#' @rdname rowWeightedSds
-setMethod("rowWeightedSds", signature = "numeric", .default_rowWeightedSds)
-
-#' @rdname rowWeightedSds
-setMethod("rowWeightedSds", signature = "array", .default_rowWeightedSds)
-
+setMethod("rowWeightedSds", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowWeightedSds)
 
 
 
@@ -59,18 +53,10 @@ setGeneric("colWeightedSds", function(x, w = NULL, rows = NULL, cols = NULL, na.
            signature = "x"
 )
 
-.default_colWeightedSds <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...){
+.matrixStats_colWeightedSds <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...){
   matrixStats::colWeightedSds(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ...)
 }
 
 #' @rdname rowWeightedSds
-setMethod("colWeightedSds", signature = "matrix", .default_colWeightedSds)
-
-#' @rdname rowWeightedSds
-setMethod("colWeightedSds", signature = "numeric", .default_colWeightedSds)
-
-#' @rdname rowWeightedSds
-setMethod("colWeightedSds", signature = "array", .default_colWeightedSds)
-
-
+setMethod("colWeightedSds", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colWeightedSds)
 

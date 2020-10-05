@@ -2,6 +2,8 @@
 #'
 #' Extract one cell from each row (column) of a matrix-like object.
 #' 
+#' @include MatrixGenerics-package.R
+#'
 #' @templateVar rowName rowCollapse
 #' @templateVar colName colCollapse
 #' 
@@ -42,19 +44,12 @@ setGeneric("rowCollapse", function(x, idxs, rows = NULL, ...) standardGeneric("r
            signature = "x"
 )
 
-.default_rowCollapse <- function(x, idxs, rows = NULL, dim. = dim(x), ...){
+.matrixStats_rowCollapse <- function(x, idxs, rows = NULL, dim. = dim(x), ...){
   matrixStats::rowCollapse(x, idxs = idxs, rows = rows, dim. = dim., ...)
 }
 
 #' @rdname rowCollapse
-setMethod("rowCollapse", signature = "matrix", .default_rowCollapse)
-
-#' @rdname rowCollapse
-setMethod("rowCollapse", signature = "numeric", .default_rowCollapse)
-
-#' @rdname rowCollapse
-setMethod("rowCollapse", signature = "array", .default_rowCollapse)
-
+setMethod("rowCollapse", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowCollapse)
 
 
 
@@ -65,19 +60,10 @@ setGeneric("colCollapse", function(x, idxs = idxs, cols = NULL, ...) standardGen
            signature = "x"
 )
 
-.default_colCollapse <- function(x, idxs, cols = NULL, dim. = dim(x), ...){
+.matrixStats_colCollapse <- function(x, idxs, cols = NULL, dim. = dim(x), ...){
   matrixStats::colCollapse(x, idxs = idxs, cols = cols, dim. = dim., ...)
 }
 
 #' @rdname rowCollapse
-setMethod("colCollapse", signature = "matrix", .default_colCollapse)
-
-#' @rdname rowCollapse
-setMethod("colCollapse", signature = "numeric", .default_colCollapse)
-
-#' @rdname rowCollapse
-setMethod("colCollapse", signature = "array", .default_colCollapse)
-
-
-
+setMethod("colCollapse", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colCollapse)
 

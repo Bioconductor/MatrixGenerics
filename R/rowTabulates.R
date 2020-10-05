@@ -2,6 +2,8 @@
 #'
 #' Tabulates the values in a matrix-like object by row (column).
 #' 
+#' @include MatrixGenerics-package.R
+#'
 #' @templateVar rowName rowTabulates
 #' @templateVar colName colTabulates
 #' 
@@ -42,19 +44,12 @@ setGeneric("rowTabulates", function(x, rows = NULL, cols = NULL, values = NULL, 
            signature = "x"
 )
 
-.default_rowTabulates <- function(x, rows = NULL, cols = NULL, values = NULL, ...){
+.matrixStats_rowTabulates <- function(x, rows = NULL, cols = NULL, values = NULL, ...){
   matrixStats::rowTabulates(x, rows = rows, cols = cols, values = values, ...)
 }
 
 #' @rdname rowTabulates
-setMethod("rowTabulates", signature = "matrix", .default_rowTabulates)
-
-#' @rdname rowTabulates
-setMethod("rowTabulates", signature = "numeric", .default_rowTabulates)
-
-#' @rdname rowTabulates
-setMethod("rowTabulates", signature = "array", .default_rowTabulates)
-
+setMethod("rowTabulates", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowTabulates)
 
 
 
@@ -65,18 +60,10 @@ setGeneric("colTabulates", function(x, rows = NULL, cols = NULL, values = NULL, 
            signature = "x"
 )
 
-.default_colTabulates <- function(x, rows = NULL, cols = NULL, values = NULL, ...){
+.matrixStats_colTabulates <- function(x, rows = NULL, cols = NULL, values = NULL, ...){
   matrixStats::colTabulates(x, rows = rows, cols = cols, values = values, ...)
 }
 
 #' @rdname rowTabulates
-setMethod("colTabulates", signature = "matrix", .default_colTabulates)
-
-#' @rdname rowTabulates
-setMethod("colTabulates", signature = "numeric", .default_colTabulates)
-
-#' @rdname rowTabulates
-setMethod("colTabulates", signature = "array", .default_colTabulates)
-
-
+setMethod("colTabulates", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colTabulates)
 

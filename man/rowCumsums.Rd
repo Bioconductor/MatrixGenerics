@@ -2,30 +2,18 @@
 % Please edit documentation in R/rowCumsums.R
 \name{rowCumsums}
 \alias{rowCumsums}
-\alias{rowCumsums,matrix-method}
-\alias{rowCumsums,numeric-method}
-\alias{rowCumsums,array-method}
+\alias{rowCumsums,matrix_OR_array_OR_table_OR_numeric-method}
 \alias{colCumsums}
-\alias{colCumsums,matrix-method}
-\alias{colCumsums,numeric-method}
-\alias{colCumsums,array-method}
+\alias{colCumsums,matrix_OR_array_OR_table_OR_numeric-method}
 \title{Calculates the cumulative sum for each row (column) of a matrix-like object}
 \usage{
 rowCumsums(x, rows = NULL, cols = NULL, ...)
 
-\S4method{rowCumsums}{matrix}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
-
-\S4method{rowCumsums}{numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
-
-\S4method{rowCumsums}{array}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
+\S4method{rowCumsums}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
 
 colCumsums(x, rows = NULL, cols = NULL, ...)
 
-\S4method{colCumsums}{matrix}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
-
-\S4method{colCumsums}{numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
-
-\S4method{colCumsums}{array}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
+\S4method{colCumsums}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

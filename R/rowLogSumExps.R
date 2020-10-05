@@ -4,6 +4,8 @@
 #' Accurately calculates the logarithm of the sum of exponentials for each row
 #' (column) of a matrix-like object.
 #' 
+#' @include MatrixGenerics-package.R
+#'
 #' @templateVar rowName rowLogSumExps
 #' @templateVar colName colLogSumExps
 #' 
@@ -36,19 +38,12 @@ setGeneric("rowLogSumExps", function(lx, rows = NULL, cols = NULL, na.rm = FALSE
            signature = "lx"
 )
 
-.default_rowLogSumExps <- function(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx), ...){
+.matrixStats_rowLogSumExps <- function(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx), ...){
   matrixStats::rowLogSumExps(lx, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
 }
 
 #' @rdname rowLogSumExps
-setMethod("rowLogSumExps", signature = "matrix", .default_rowLogSumExps)
-
-#' @rdname rowLogSumExps
-setMethod("rowLogSumExps", signature = "numeric", .default_rowLogSumExps)
-
-#' @rdname rowLogSumExps
-setMethod("rowLogSumExps", signature = "array", .default_rowLogSumExps)
-
+setMethod("rowLogSumExps", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowLogSumExps)
 
 
 
@@ -59,18 +54,10 @@ setGeneric("colLogSumExps", function(lx, rows = NULL, cols = NULL, na.rm = FALSE
            signature = "lx"
 )
 
-.default_colLogSumExps <- function(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx), ...){
+.matrixStats_colLogSumExps <- function(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx), ...){
   matrixStats::colLogSumExps(lx, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
 }
 
 #' @rdname rowLogSumExps
-setMethod("colLogSumExps", signature = "matrix", .default_colLogSumExps)
-
-#' @rdname rowLogSumExps
-setMethod("colLogSumExps", signature = "numeric", .default_colLogSumExps)
-
-#' @rdname rowLogSumExps
-setMethod("colLogSumExps", signature = "array", .default_colLogSumExps)
-
-
+setMethod("colLogSumExps", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colLogSumExps)
 

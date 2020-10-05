@@ -2,30 +2,18 @@
 % Please edit documentation in R/rowMins.R
 \name{rowMins}
 \alias{rowMins}
-\alias{rowMins,matrix-method}
-\alias{rowMins,numeric-method}
-\alias{rowMins,array-method}
+\alias{rowMins,matrix_OR_array_OR_table_OR_numeric-method}
 \alias{colMins}
-\alias{colMins,matrix-method}
-\alias{colMins,numeric-method}
-\alias{colMins,array-method}
+\alias{colMins,matrix_OR_array_OR_table_OR_numeric-method}
 \title{Calculates the minimum for each row (column) of a matrix-like object}
 \usage{
 rowMins(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{rowMins}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
-
-\S4method{rowMins}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
-
-\S4method{rowMins}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
+\S4method{rowMins}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
 
 colMins(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{colMins}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
-
-\S4method{colMins}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
-
-\S4method{colMins}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
+\S4method{colMins}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

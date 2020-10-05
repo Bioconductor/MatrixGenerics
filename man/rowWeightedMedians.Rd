@@ -2,30 +2,18 @@
 % Please edit documentation in R/rowWeightedMedians.R
 \name{rowWeightedMedians}
 \alias{rowWeightedMedians}
-\alias{rowWeightedMedians,matrix-method}
-\alias{rowWeightedMedians,numeric-method}
-\alias{rowWeightedMedians,array-method}
+\alias{rowWeightedMedians,matrix_OR_array_OR_table_OR_numeric-method}
 \alias{colWeightedMedians}
-\alias{colWeightedMedians,matrix-method}
-\alias{colWeightedMedians,numeric-method}
-\alias{colWeightedMedians,array-method}
+\alias{colWeightedMedians,matrix_OR_array_OR_table_OR_numeric-method}
 \title{Calculates the weighted median for each row (column) of a matrix-like object}
 \usage{
 rowWeightedMedians(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{rowWeightedMedians}{matrix}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
-
-\S4method{rowWeightedMedians}{numeric}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
-
-\S4method{rowWeightedMedians}{array}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+\S4method{rowWeightedMedians}{matrix_OR_array_OR_table_OR_numeric}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
 colWeightedMedians(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{colWeightedMedians}{matrix}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
-
-\S4method{colWeightedMedians}{numeric}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
-
-\S4method{colWeightedMedians}{array}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+\S4method{colWeightedMedians}{matrix_OR_array_OR_table_OR_numeric}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
