@@ -2,31 +2,19 @@
 % Please edit documentation in R/rowCummaxs.R
 \name{rowCummaxs}
 \alias{rowCummaxs}
-\alias{rowCummaxs,matrix-method}
-\alias{rowCummaxs,numeric-method}
-\alias{rowCummaxs,array-method}
+\alias{rowCummaxs,matrix_OR_array_OR_table_OR_numeric-method}
 \alias{colCummaxs}
-\alias{colCummaxs,matrix-method}
-\alias{colCummaxs,numeric-method}
-\alias{colCummaxs,array-method}
+\alias{colCummaxs,matrix_OR_array_OR_table_OR_numeric-method}
 \title{Calculates the cumulative maxima for each row (column) of a matrix-like
 object}
 \usage{
 rowCummaxs(x, rows = NULL, cols = NULL, ...)
 
-\S4method{rowCummaxs}{matrix}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
-
-\S4method{rowCummaxs}{numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
-
-\S4method{rowCummaxs}{array}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
+\S4method{rowCummaxs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
 
 colCummaxs(x, rows = NULL, cols = NULL, ...)
 
-\S4method{colCummaxs}{matrix}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
-
-\S4method{colCummaxs}{numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
-
-\S4method{colCummaxs}{array}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
+\S4method{colCummaxs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

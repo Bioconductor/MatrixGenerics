@@ -2,43 +2,23 @@
 % Please edit documentation in R/rowRanks.R
 \name{rowRanks}
 \alias{rowRanks}
-\alias{rowRanks,matrix-method}
-\alias{rowRanks,numeric-method}
-\alias{rowRanks,array-method}
+\alias{rowRanks,matrix_OR_array_OR_table_OR_numeric-method}
 \alias{colRanks}
-\alias{colRanks,matrix-method}
-\alias{colRanks,numeric-method}
-\alias{colRanks,array-method}
+\alias{colRanks,matrix_OR_array_OR_table_OR_numeric-method}
 \title{Calculates the rank of the elements for each row (column) of a matrix-like
 object}
 \usage{
 rowRanks(x, rows = NULL, cols = NULL, ties.method = c("max", "average"), ...)
 
-\S4method{rowRanks}{matrix}(x, rows = NULL, cols = NULL,
-  ties.method = c("max", "average", "first", "last", "random", "max", "min",
-  "dense"), dim. = dim(x), ...)
-
-\S4method{rowRanks}{numeric}(x, rows = NULL, cols = NULL,
-  ties.method = c("max", "average", "first", "last", "random", "max", "min",
-  "dense"), dim. = dim(x), ...)
-
-\S4method{rowRanks}{array}(x, rows = NULL, cols = NULL,
-  ties.method = c("max", "average", "first", "last", "random", "max", "min",
-  "dense"), dim. = dim(x), ...)
+\S4method{rowRanks}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
+  cols = NULL, ties.method = c("max", "average", "first", "last", "random",
+  "max", "min", "dense"), dim. = dim(x), ...)
 
 colRanks(x, rows = NULL, cols = NULL, ties.method = c("max", "average"), ...)
 
-\S4method{colRanks}{matrix}(x, rows = NULL, cols = NULL,
-  ties.method = c("max", "average", "first", "last", "random", "max", "min",
-  "dense"), dim. = dim(x), preserveShape = FALSE, ...)
-
-\S4method{colRanks}{numeric}(x, rows = NULL, cols = NULL,
-  ties.method = c("max", "average", "first", "last", "random", "max", "min",
-  "dense"), dim. = dim(x), preserveShape = FALSE, ...)
-
-\S4method{colRanks}{array}(x, rows = NULL, cols = NULL,
-  ties.method = c("max", "average", "first", "last", "random", "max", "min",
-  "dense"), dim. = dim(x), preserveShape = FALSE, ...)
+\S4method{colRanks}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
+  cols = NULL, ties.method = c("max", "average", "first", "last", "random",
+  "max", "min", "dense"), dim. = dim(x), preserveShape = FALSE, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

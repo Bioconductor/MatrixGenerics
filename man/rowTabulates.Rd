@@ -2,30 +2,18 @@
 % Please edit documentation in R/rowTabulates.R
 \name{rowTabulates}
 \alias{rowTabulates}
-\alias{rowTabulates,matrix-method}
-\alias{rowTabulates,numeric-method}
-\alias{rowTabulates,array-method}
+\alias{rowTabulates,matrix_OR_array_OR_table_OR_numeric-method}
 \alias{colTabulates}
-\alias{colTabulates,matrix-method}
-\alias{colTabulates,numeric-method}
-\alias{colTabulates,array-method}
+\alias{colTabulates,matrix_OR_array_OR_table_OR_numeric-method}
 \title{Tabulates the values in a matrix-like object by row (column)}
 \usage{
 rowTabulates(x, rows = NULL, cols = NULL, values = NULL, ...)
 
-\S4method{rowTabulates}{matrix}(x, rows = NULL, cols = NULL, values = NULL, ...)
-
-\S4method{rowTabulates}{numeric}(x, rows = NULL, cols = NULL, values = NULL, ...)
-
-\S4method{rowTabulates}{array}(x, rows = NULL, cols = NULL, values = NULL, ...)
+\S4method{rowTabulates}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, values = NULL, ...)
 
 colTabulates(x, rows = NULL, cols = NULL, values = NULL, ...)
 
-\S4method{colTabulates}{matrix}(x, rows = NULL, cols = NULL, values = NULL, ...)
-
-\S4method{colTabulates}{numeric}(x, rows = NULL, cols = NULL, values = NULL, ...)
-
-\S4method{colTabulates}{array}(x, rows = NULL, cols = NULL, values = NULL, ...)
+\S4method{colTabulates}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, values = NULL, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

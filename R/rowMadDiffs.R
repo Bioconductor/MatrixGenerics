@@ -4,6 +4,8 @@
 #' Calculates the mean absolute deviation of the difference between each
 #' element of a row (column) of a matrix-like object.
 #' 
+#' @include MatrixGenerics-package.R
+#'
 #' @templateVar rowName rowMadDiffs
 #' @templateVar colName colMadDiffs
 #' 
@@ -32,19 +34,12 @@ setGeneric("rowMadDiffs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, d
            signature = "x"
 )
 
-.default_rowMadDiffs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...){
+.matrixStats_rowMadDiffs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...){
   matrixStats::rowMadDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff = diff, trim = trim, ...)
 }
 
 #' @rdname rowMadDiffs
-setMethod("rowMadDiffs", signature = "matrix", .default_rowMadDiffs)
-
-#' @rdname rowMadDiffs
-setMethod("rowMadDiffs", signature = "numeric", .default_rowMadDiffs)
-
-#' @rdname rowMadDiffs
-setMethod("rowMadDiffs", signature = "array", .default_rowMadDiffs)
-
+setMethod("rowMadDiffs", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowMadDiffs)
 
 
 
@@ -55,18 +50,10 @@ setGeneric("colMadDiffs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, d
            signature = "x"
 )
 
-.default_colMadDiffs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...){
+.matrixStats_colMadDiffs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...){
   matrixStats::colMadDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff =diff, trim = trim, ...)
 }
 
 #' @rdname rowMadDiffs
-setMethod("colMadDiffs", signature = "matrix", .default_colMadDiffs)
-
-#' @rdname rowMadDiffs
-setMethod("colMadDiffs", signature = "numeric", .default_colMadDiffs)
-
-#' @rdname rowMadDiffs
-setMethod("colMadDiffs", signature = "array", .default_colMadDiffs)
-
-
+setMethod("colMadDiffs", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colMadDiffs)
 

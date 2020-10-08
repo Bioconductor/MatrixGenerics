@@ -4,6 +4,8 @@
 #' Count how often an element in a row (column) of a matrix-like object is
 #' equal to a value.
 #' 
+#' @include MatrixGenerics-package.R
+#'
 #' @templateVar rowName rowCounts
 #' @templateVar colName colCounts
 #' 
@@ -40,19 +42,12 @@ setGeneric("rowCounts", function(x, rows = NULL, cols = NULL, value = TRUE, na.r
            signature = "x"
 )
 
-.default_rowCounts <- function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ...){
+.matrixStats_rowCounts <- function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ...){
   matrixStats::rowCounts(x, rows = rows, cols = cols, value = value, na.rm = na.rm, dim. = dim., ...)
 }
 
 #' @rdname rowCounts
-setMethod("rowCounts", signature = "matrix", .default_rowCounts)
-
-#' @rdname rowCounts
-setMethod("rowCounts", signature = "numeric", .default_rowCounts)
-
-#' @rdname rowCounts
-setMethod("rowCounts", signature = "array", .default_rowCounts)
-
+setMethod("rowCounts", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowCounts)
 
 
 
@@ -63,18 +58,10 @@ setGeneric("colCounts", function(x, rows = NULL, cols = NULL, value = TRUE, na.r
            signature = "x"
 )
 
-.default_colCounts <- function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ...){
+.matrixStats_colCounts <- function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ...){
   matrixStats::colCounts(x, rows = rows, cols = cols, value = value, na.rm = na.rm, dim. = dim., ...)
 }
 
 #' @rdname rowCounts
-setMethod("colCounts", signature = "matrix", .default_colCounts)
-
-#' @rdname rowCounts
-setMethod("colCounts", signature = "numeric", .default_colCounts)
-
-#' @rdname rowCounts
-setMethod("colCounts", signature = "array", .default_colCounts)
-
-
+setMethod("colCounts", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colCounts)
 

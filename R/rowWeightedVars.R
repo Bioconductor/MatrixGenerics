@@ -4,7 +4,8 @@
 #' Calculates the weighted variance for each row (column) of a matrix-like
 #' object.
 #'
-#' 
+#' @include MatrixGenerics-package.R
+#'
 #' @templateVar rowName rowWeightedVars
 #' @templateVar colName colWeightedVars
 #' 
@@ -36,19 +37,12 @@ setGeneric("rowWeightedVars", function(x, w = NULL, rows = NULL, cols = NULL, na
            signature = "x"
 )
 
-.default_rowWeightedVars <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...){
+.matrixStats_rowWeightedVars <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...){
   matrixStats::rowWeightedVars(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ...)
 }
 
 #' @rdname rowWeightedVars
-setMethod("rowWeightedVars", signature = "matrix", .default_rowWeightedVars)
-
-#' @rdname rowWeightedVars
-setMethod("rowWeightedVars", signature = "numeric", .default_rowWeightedVars)
-
-#' @rdname rowWeightedVars
-setMethod("rowWeightedVars", signature = "array", .default_rowWeightedVars)
-
+setMethod("rowWeightedVars", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowWeightedVars)
 
 
 
@@ -59,18 +53,10 @@ setGeneric("colWeightedVars", function(x, w = NULL, rows = NULL, cols = NULL, na
            signature = "x"
 )
 
-.default_colWeightedVars <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...){
+.matrixStats_colWeightedVars <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...){
   matrixStats::colWeightedVars(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ...)
 }
 
 #' @rdname rowWeightedVars
-setMethod("colWeightedVars", signature = "matrix", .default_colWeightedVars)
-
-#' @rdname rowWeightedVars
-setMethod("colWeightedVars", signature = "numeric", .default_colWeightedVars)
-
-#' @rdname rowWeightedVars
-setMethod("colWeightedVars", signature = "array", .default_colWeightedVars)
-
-
+setMethod("colWeightedVars", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colWeightedVars)
 

@@ -2,30 +2,18 @@
 % Please edit documentation in R/rowAnyNAs.R
 \name{rowAnyNAs}
 \alias{rowAnyNAs}
-\alias{rowAnyNAs,matrix-method}
-\alias{rowAnyNAs,numeric-method}
-\alias{rowAnyNAs,array-method}
+\alias{rowAnyNAs,matrix_OR_array_OR_table_OR_numeric-method}
 \alias{colAnyNAs}
-\alias{colAnyNAs,matrix-method}
-\alias{colAnyNAs,numeric-method}
-\alias{colAnyNAs,array-method}
+\alias{colAnyNAs,matrix_OR_array_OR_table_OR_numeric-method}
 \title{Check if any elements in a row (column) of a matrix-like object is missing}
 \usage{
 rowAnyNAs(x, rows = NULL, cols = NULL, ...)
 
-\S4method{rowAnyNAs}{matrix}(x, rows = NULL, cols = NULL, ...)
-
-\S4method{rowAnyNAs}{numeric}(x, rows = NULL, cols = NULL, ...)
-
-\S4method{rowAnyNAs}{array}(x, rows = NULL, cols = NULL, ...)
+\S4method{rowAnyNAs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, ...)
 
 colAnyNAs(x, rows = NULL, cols = NULL, ...)
 
-\S4method{colAnyNAs}{matrix}(x, rows = NULL, cols = NULL, ...)
-
-\S4method{colAnyNAs}{numeric}(x, rows = NULL, cols = NULL, ...)
-
-\S4method{colAnyNAs}{array}(x, rows = NULL, cols = NULL, ...)
+\S4method{colAnyNAs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

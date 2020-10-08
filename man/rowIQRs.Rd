@@ -2,31 +2,19 @@
 % Please edit documentation in R/rowIQRs.R
 \name{rowIQRs}
 \alias{rowIQRs}
-\alias{rowIQRs,matrix-method}
-\alias{rowIQRs,numeric-method}
-\alias{rowIQRs,array-method}
+\alias{rowIQRs,matrix_OR_array_OR_table_OR_numeric-method}
 \alias{colIQRs}
-\alias{colIQRs,matrix-method}
-\alias{colIQRs,numeric-method}
-\alias{colIQRs,array-method}
+\alias{colIQRs,matrix_OR_array_OR_table_OR_numeric-method}
 \title{Calculates the interquartile range for each row (column) of a matrix-like
 object}
 \usage{
 rowIQRs(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{rowIQRs}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
-
-\S4method{rowIQRs}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
-
-\S4method{rowIQRs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+\S4method{rowIQRs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
 colIQRs(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{colIQRs}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
-
-\S4method{colIQRs}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
-
-\S4method{colIQRs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+\S4method{colIQRs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

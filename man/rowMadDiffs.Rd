@@ -2,39 +2,23 @@
 % Please edit documentation in R/rowMadDiffs.R
 \name{rowMadDiffs}
 \alias{rowMadDiffs}
-\alias{rowMadDiffs,matrix-method}
-\alias{rowMadDiffs,numeric-method}
-\alias{rowMadDiffs,array-method}
+\alias{rowMadDiffs,matrix_OR_array_OR_table_OR_numeric-method}
 \alias{colMadDiffs}
-\alias{colMadDiffs,matrix-method}
-\alias{colMadDiffs,numeric-method}
-\alias{colMadDiffs,array-method}
+\alias{colMadDiffs,matrix_OR_array_OR_table_OR_numeric-method}
 \title{Calculates the mean absolute deviation of the difference between each
 element of a row (column) of a matrix-like object}
 \usage{
 rowMadDiffs(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L,
   trim = 0, ...)
 
-\S4method{rowMadDiffs}{matrix}(x, rows = NULL, cols = NULL,
-  na.rm = FALSE, diff = 1L, trim = 0, ...)
-
-\S4method{rowMadDiffs}{numeric}(x, rows = NULL, cols = NULL,
-  na.rm = FALSE, diff = 1L, trim = 0, ...)
-
-\S4method{rowMadDiffs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE,
-  diff = 1L, trim = 0, ...)
+\S4method{rowMadDiffs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
+  cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...)
 
 colMadDiffs(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L,
   trim = 0, ...)
 
-\S4method{colMadDiffs}{matrix}(x, rows = NULL, cols = NULL,
-  na.rm = FALSE, diff = 1L, trim = 0, ...)
-
-\S4method{colMadDiffs}{numeric}(x, rows = NULL, cols = NULL,
-  na.rm = FALSE, diff = 1L, trim = 0, ...)
-
-\S4method{colMadDiffs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE,
-  diff = 1L, trim = 0, ...)
+\S4method{colMadDiffs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
+  cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

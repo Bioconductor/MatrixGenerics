@@ -87,7 +87,7 @@ res <- paste0(sapply(testable_functions, function(fnc_name){
   
   generic_tests <- paste0(
     "\tmatrixStats_formals <- formals(matrixStats::", fnc_name, ")\n",
-    "\tMatrixGenerics_default_method_formals <- formals(", paste0("MatrixGenerics:::.default_", fnc_name), ")\n",
+    "\tMatrixGenerics_default_method_formals <- formals(", paste0("MatrixGenerics:::.matrixStats_", fnc_name), ")\n",
     "\texpect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)")
 
   fnc_ms <- eval(parse(text = paste0("matrixStats::", fnc_name)))

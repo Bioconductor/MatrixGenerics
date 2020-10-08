@@ -2,6 +2,8 @@
 #'
 #' Calculates an order statistic for each row (column) of a matrix-like object.
 #' 
+#' @include MatrixGenerics-package.R
+#'
 #' @templateVar rowName rowOrderStats
 #' @templateVar colName colOrderStats
 #' 
@@ -40,19 +42,12 @@ setGeneric("rowOrderStats", function(x, rows = NULL, cols = NULL, which, ...) st
            signature = "x"
 )
 
-.default_rowOrderStats <- function(x, rows = NULL, cols = NULL, which, dim. = dim(x), ...){
+.matrixStats_rowOrderStats <- function(x, rows = NULL, cols = NULL, which, dim. = dim(x), ...){
   matrixStats::rowOrderStats(x, rows = rows, cols = cols, which = which, dim. = dim., ...)
 }
 
 #' @rdname rowOrderStats
-setMethod("rowOrderStats", signature = "matrix", .default_rowOrderStats)
-
-#' @rdname rowOrderStats
-setMethod("rowOrderStats", signature = "numeric", .default_rowOrderStats)
-
-#' @rdname rowOrderStats
-setMethod("rowOrderStats", signature = "array", .default_rowOrderStats)
-
+setMethod("rowOrderStats", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowOrderStats)
 
 
 
@@ -63,18 +58,10 @@ setGeneric("colOrderStats", function(x, rows = NULL, cols = NULL, which, ...) st
            signature = "x"
 )
 
-.default_colOrderStats <- function(x, rows = NULL, cols = NULL, which, dim. = dim(x), ...){
+.matrixStats_colOrderStats <- function(x, rows = NULL, cols = NULL, which, dim. = dim(x), ...){
   matrixStats::colOrderStats(x, rows = rows, cols = cols, which = which, dim. = dim., ...)
 }
 
 #' @rdname rowOrderStats
-setMethod("colOrderStats", signature = "matrix", .default_colOrderStats)
-
-#' @rdname rowOrderStats
-setMethod("colOrderStats", signature = "numeric", .default_colOrderStats)
-
-#' @rdname rowOrderStats
-setMethod("colOrderStats", signature = "array", .default_colOrderStats)
-
-
+setMethod("colOrderStats", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colOrderStats)
 

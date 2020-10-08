@@ -2,6 +2,8 @@
 #'
 #' Calculates the product for each row (column) of a matrix-like object.
 #' 
+#' @include MatrixGenerics-package.R
+#'
 #' @templateVar rowName rowProds
 #' @templateVar colName colProds
 #' 
@@ -35,19 +37,12 @@ setGeneric("rowProds", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
            signature = "x"
 )
 
-.default_rowProds <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, method = c("direct", "expSumLog"), ...){
+.matrixStats_rowProds <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, method = c("direct", "expSumLog"), ...){
   matrixStats::rowProds(x, rows = rows, cols = cols, na.rm = na.rm, method = method, ...)
 }
 
 #' @rdname rowProds
-setMethod("rowProds", signature = "matrix", .default_rowProds)
-
-#' @rdname rowProds
-setMethod("rowProds", signature = "numeric", .default_rowProds)
-
-#' @rdname rowProds
-setMethod("rowProds", signature = "array", .default_rowProds)
-
+setMethod("rowProds", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowProds)
 
 
 
@@ -58,18 +53,10 @@ setGeneric("colProds", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
            signature = "x"
 )
 
-.default_colProds <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, method = c("direct", "expSumLog"), ...){
+.matrixStats_colProds <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, method = c("direct", "expSumLog"), ...){
   matrixStats::colProds(x, rows = rows, cols = cols, na.rm = na.rm, method = method, ...)
 }
 
 #' @rdname rowProds
-setMethod("colProds", signature = "matrix", .default_colProds)
-
-#' @rdname rowProds
-setMethod("colProds", signature = "numeric", .default_colProds)
-
-#' @rdname rowProds
-setMethod("colProds", signature = "array", .default_colProds)
-
-
+setMethod("colProds", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colProds)
 

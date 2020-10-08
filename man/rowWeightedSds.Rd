@@ -2,31 +2,19 @@
 % Please edit documentation in R/rowWeightedSds.R
 \name{rowWeightedSds}
 \alias{rowWeightedSds}
-\alias{rowWeightedSds,matrix-method}
-\alias{rowWeightedSds,numeric-method}
-\alias{rowWeightedSds,array-method}
+\alias{rowWeightedSds,matrix_OR_array_OR_table_OR_numeric-method}
 \alias{colWeightedSds}
-\alias{colWeightedSds,matrix-method}
-\alias{colWeightedSds,numeric-method}
-\alias{colWeightedSds,array-method}
+\alias{colWeightedSds,matrix_OR_array_OR_table_OR_numeric-method}
 \title{Calculates the weighted standard deviation for each row (column) of a
 matrix-like object}
 \usage{
 rowWeightedSds(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{rowWeightedSds}{matrix}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
-
-\S4method{rowWeightedSds}{numeric}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
-
-\S4method{rowWeightedSds}{array}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+\S4method{rowWeightedSds}{matrix_OR_array_OR_table_OR_numeric}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
 colWeightedSds(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{colWeightedSds}{matrix}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
-
-\S4method{colWeightedSds}{numeric}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
-
-\S4method{colWeightedSds}{array}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+\S4method{colWeightedSds}{matrix_OR_array_OR_table_OR_numeric}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

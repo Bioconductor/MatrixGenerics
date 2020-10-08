@@ -2,30 +2,18 @@
 % Please edit documentation in R/rowOrderStats.R
 \name{rowOrderStats}
 \alias{rowOrderStats}
-\alias{rowOrderStats,matrix-method}
-\alias{rowOrderStats,numeric-method}
-\alias{rowOrderStats,array-method}
+\alias{rowOrderStats,matrix_OR_array_OR_table_OR_numeric-method}
 \alias{colOrderStats}
-\alias{colOrderStats,matrix-method}
-\alias{colOrderStats,numeric-method}
-\alias{colOrderStats,array-method}
+\alias{colOrderStats,matrix_OR_array_OR_table_OR_numeric-method}
 \title{Calculates an order statistic for each row (column) of a matrix-like object}
 \usage{
 rowOrderStats(x, rows = NULL, cols = NULL, which, ...)
 
-\S4method{rowOrderStats}{matrix}(x, rows = NULL, cols = NULL, which, dim. = dim(x), ...)
-
-\S4method{rowOrderStats}{numeric}(x, rows = NULL, cols = NULL, which, dim. = dim(x), ...)
-
-\S4method{rowOrderStats}{array}(x, rows = NULL, cols = NULL, which, dim. = dim(x), ...)
+\S4method{rowOrderStats}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, which, dim. = dim(x), ...)
 
 colOrderStats(x, rows = NULL, cols = NULL, which, ...)
 
-\S4method{colOrderStats}{matrix}(x, rows = NULL, cols = NULL, which, dim. = dim(x), ...)
-
-\S4method{colOrderStats}{numeric}(x, rows = NULL, cols = NULL, which, dim. = dim(x), ...)
-
-\S4method{colOrderStats}{array}(x, rows = NULL, cols = NULL, which, dim. = dim(x), ...)
+\S4method{colOrderStats}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, which, dim. = dim(x), ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

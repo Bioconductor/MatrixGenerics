@@ -2,31 +2,19 @@
 % Please edit documentation in R/rowRanges.R
 \name{rowRanges}
 \alias{rowRanges}
-\alias{rowRanges,matrix-method}
-\alias{rowRanges,numeric-method}
-\alias{rowRanges,array-method}
+\alias{rowRanges,matrix_OR_array_OR_table_OR_numeric-method}
 \alias{colRanges}
-\alias{colRanges,matrix-method}
-\alias{colRanges,numeric-method}
-\alias{colRanges,array-method}
+\alias{colRanges,matrix_OR_array_OR_table_OR_numeric-method}
 \title{Calculates the minimum and maximum for each row (column) of a matrix-like
 object}
 \usage{
 rowRanges(x, ...)
 
-\S4method{rowRanges}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
-
-\S4method{rowRanges}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
-
-\S4method{rowRanges}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
+\S4method{rowRanges}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
 
 colRanges(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{colRanges}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
-
-\S4method{colRanges}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
-
-\S4method{colRanges}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
+\S4method{colRanges}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

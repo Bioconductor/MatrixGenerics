@@ -2,39 +2,23 @@
 % Please edit documentation in R/rowIQRDiffs.R
 \name{rowIQRDiffs}
 \alias{rowIQRDiffs}
-\alias{rowIQRDiffs,matrix-method}
-\alias{rowIQRDiffs,numeric-method}
-\alias{rowIQRDiffs,array-method}
+\alias{rowIQRDiffs,matrix_OR_array_OR_table_OR_numeric-method}
 \alias{colIQRDiffs}
-\alias{colIQRDiffs,matrix-method}
-\alias{colIQRDiffs,numeric-method}
-\alias{colIQRDiffs,array-method}
+\alias{colIQRDiffs,matrix_OR_array_OR_table_OR_numeric-method}
 \title{Calculates the interquartile range of the difference between each element of
 a row (column) of a matrix-like object}
 \usage{
 rowIQRDiffs(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L,
   trim = 0, ...)
 
-\S4method{rowIQRDiffs}{matrix}(x, rows = NULL, cols = NULL,
-  na.rm = FALSE, diff = 1L, trim = 0, ...)
-
-\S4method{rowIQRDiffs}{numeric}(x, rows = NULL, cols = NULL,
-  na.rm = FALSE, diff = 1L, trim = 0, ...)
-
-\S4method{rowIQRDiffs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE,
-  diff = 1L, trim = 0, ...)
+\S4method{rowIQRDiffs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
+  cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...)
 
 colIQRDiffs(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L,
   trim = 0, ...)
 
-\S4method{colIQRDiffs}{matrix}(x, rows = NULL, cols = NULL,
-  na.rm = FALSE, diff = 1L, trim = 0, ...)
-
-\S4method{colIQRDiffs}{numeric}(x, rows = NULL, cols = NULL,
-  na.rm = FALSE, diff = 1L, trim = 0, ...)
-
-\S4method{colIQRDiffs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE,
-  diff = 1L, trim = 0, ...)
+\S4method{colIQRDiffs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
+  cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

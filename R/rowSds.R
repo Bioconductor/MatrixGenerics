@@ -4,6 +4,8 @@
 #' Calculates the standard deviation for each row (column) of a matrix-like
 #' object.
 #' 
+#' @include MatrixGenerics-package.R
+#'
 #' @templateVar rowName rowSds
 #' @templateVar colName colSds
 #' 
@@ -36,19 +38,12 @@ setGeneric("rowSds", function(x, rows = NULL, cols = NULL, na.rm = FALSE, center
            signature = "x"
 )
 
-.default_rowSds <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, dim. = dim(x), ...){
+.matrixStats_rowSds <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, dim. = dim(x), ...){
   matrixStats::rowSds(x, rows = rows, cols = cols, na.rm = na.rm, center = center, dim. = dim., ...)
 }
 
 #' @rdname rowSds
-setMethod("rowSds", signature = "matrix", .default_rowSds)
-
-#' @rdname rowSds
-setMethod("rowSds", signature = "numeric", .default_rowSds)
-
-#' @rdname rowSds
-setMethod("rowSds", signature = "array", .default_rowSds)
-
+setMethod("rowSds", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowSds)
 
 
 
@@ -59,18 +54,10 @@ setGeneric("colSds", function(x, rows = NULL, cols = NULL, na.rm = FALSE, center
            signature = "x"
 )
 
-.default_colSds <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, dim. = dim(x), ...){
+.matrixStats_colSds <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, dim. = dim(x), ...){
   matrixStats::colSds(x, rows = rows, cols = cols, na.rm = na.rm, center = center, dim. = dim., ...)
 }
 
 #' @rdname rowSds
-setMethod("colSds", signature = "matrix", .default_colSds)
-
-#' @rdname rowSds
-setMethod("colSds", signature = "numeric", .default_colSds)
-
-#' @rdname rowSds
-setMethod("colSds", signature = "array", .default_colSds)
-
-
+setMethod("colSds", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colSds)
 

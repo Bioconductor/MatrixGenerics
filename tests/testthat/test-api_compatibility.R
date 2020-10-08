@@ -17,7 +17,7 @@ mat[6,5] <- 0
 test_that("colAlls works ", {
 
 	matrixStats_formals <- formals(matrixStats::colAlls)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_colAlls)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colAlls)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- colAlls(x = mat)
@@ -41,7 +41,7 @@ test_that("colAlls works ", {
 test_that("colAnyNAs works ", {
 
 	matrixStats_formals <- formals(matrixStats::colAnyNAs)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_colAnyNAs)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colAnyNAs)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- colAnyNAs(x = mat)
@@ -61,7 +61,7 @@ test_that("colAnyNAs works ", {
 test_that("colAnys works ", {
 
 	matrixStats_formals <- formals(matrixStats::colAnys)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_colAnys)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colAnys)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- colAnys(x = mat)
@@ -85,7 +85,7 @@ test_that("colAnys works ", {
 test_that("colAvgsPerRowSet works ", {
 
 	matrixStats_formals <- formals(matrixStats::colAvgsPerRowSet)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_colAvgsPerRowSet)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colAvgsPerRowSet)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	S <- matrix(1:nrow(mat), ncol = 2)
@@ -110,7 +110,7 @@ test_that("colAvgsPerRowSet works ", {
 test_that("colCollapse works ", {
 
 	matrixStats_formals <- formals(matrixStats::colCollapse)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_colCollapse)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colCollapse)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- colCollapse(x = mat, idxs = 1)
@@ -134,7 +134,7 @@ test_that("colCollapse works ", {
 test_that("colCounts works ", {
 
 	matrixStats_formals <- formals(matrixStats::colCounts)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_colCounts)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colCounts)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- colCounts(x = mat)
@@ -158,7 +158,7 @@ test_that("colCounts works ", {
 test_that("colCummaxs works ", {
 
 	matrixStats_formals <- formals(matrixStats::colCummaxs)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_colCummaxs)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colCummaxs)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- colCummaxs(x = mat)
@@ -178,7 +178,7 @@ test_that("colCummaxs works ", {
 test_that("colCummins works ", {
 
 	matrixStats_formals <- formals(matrixStats::colCummins)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_colCummins)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colCummins)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- colCummins(x = mat)
@@ -198,7 +198,7 @@ test_that("colCummins works ", {
 test_that("colCumprods works ", {
 
 	matrixStats_formals <- formals(matrixStats::colCumprods)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_colCumprods)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colCumprods)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- colCumprods(x = mat)
@@ -218,7 +218,7 @@ test_that("colCumprods works ", {
 test_that("colCumsums works ", {
 
 	matrixStats_formals <- formals(matrixStats::colCumsums)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_colCumsums)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colCumsums)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- colCumsums(x = mat)
@@ -238,7 +238,7 @@ test_that("colCumsums works ", {
 test_that("colDiffs works ", {
 
 	matrixStats_formals <- formals(matrixStats::colDiffs)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_colDiffs)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colDiffs)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- colDiffs(x = mat)
@@ -258,7 +258,7 @@ test_that("colDiffs works ", {
 test_that("colIQRDiffs works ", {
 
 	matrixStats_formals <- formals(matrixStats::colIQRDiffs)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_colIQRDiffs)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colIQRDiffs)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- colIQRDiffs(x = mat)
@@ -282,7 +282,7 @@ test_that("colIQRDiffs works ", {
 test_that("colIQRs works ", {
 
 	matrixStats_formals <- formals(matrixStats::colIQRs)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_colIQRs)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colIQRs)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- colIQRs(x = mat)
@@ -302,7 +302,7 @@ test_that("colIQRs works ", {
 test_that("colLogSumExps works ", {
 
 	matrixStats_formals <- formals(matrixStats::colLogSumExps)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_colLogSumExps)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colLogSumExps)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- colLogSumExps(lx = mat)
@@ -322,7 +322,7 @@ test_that("colLogSumExps works ", {
 test_that("colMadDiffs works ", {
 
 	matrixStats_formals <- formals(matrixStats::colMadDiffs)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_colMadDiffs)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colMadDiffs)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- colMadDiffs(x = mat)
@@ -346,7 +346,7 @@ test_that("colMadDiffs works ", {
 test_that("colMads works ", {
 
 	matrixStats_formals <- formals(matrixStats::colMads)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_colMads)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colMads)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- colMads(x = mat)
@@ -366,7 +366,7 @@ test_that("colMads works ", {
 test_that("colMaxs works ", {
 
 	matrixStats_formals <- formals(matrixStats::colMaxs)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_colMaxs)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colMaxs)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- colMaxs(x = mat)
@@ -386,7 +386,7 @@ test_that("colMaxs works ", {
 test_that("colMeans2 works ", {
 
 	matrixStats_formals <- formals(matrixStats::colMeans2)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_colMeans2)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colMeans2)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- colMeans2(x = mat)
@@ -406,7 +406,7 @@ test_that("colMeans2 works ", {
 test_that("colMedians works ", {
 
 	matrixStats_formals <- formals(matrixStats::colMedians)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_colMedians)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colMedians)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- colMedians(x = mat)
@@ -426,7 +426,7 @@ test_that("colMedians works ", {
 test_that("colMins works ", {
 
 	matrixStats_formals <- formals(matrixStats::colMins)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_colMins)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colMins)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- colMins(x = mat)
@@ -446,7 +446,7 @@ test_that("colMins works ", {
 test_that("colOrderStats works ", {
 
 	matrixStats_formals <- formals(matrixStats::colOrderStats)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_colOrderStats)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colOrderStats)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mat[is.na(mat)] <- 4.1
@@ -471,7 +471,7 @@ test_that("colOrderStats works ", {
 test_that("colProds works ", {
 
 	matrixStats_formals <- formals(matrixStats::colProds)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_colProds)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colProds)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- colProds(x = mat)
@@ -491,7 +491,7 @@ test_that("colProds works ", {
 test_that("colQuantiles works ", {
 
 	matrixStats_formals <- formals(matrixStats::colQuantiles)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_colQuantiles)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colQuantiles)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- colQuantiles(x = mat)
@@ -511,7 +511,7 @@ test_that("colQuantiles works ", {
 test_that("colRanges works ", {
 
 	matrixStats_formals <- formals(matrixStats::colRanges)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_colRanges)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colRanges)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- colRanges(x = mat)
@@ -531,7 +531,7 @@ test_that("colRanges works ", {
 test_that("colRanks works ", {
 
 	matrixStats_formals <- formals(matrixStats::colRanks)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_colRanks)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colRanks)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- colRanks(x = mat)
@@ -555,7 +555,7 @@ test_that("colRanks works ", {
 test_that("colSdDiffs works ", {
 
 	matrixStats_formals <- formals(matrixStats::colSdDiffs)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_colSdDiffs)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colSdDiffs)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- colSdDiffs(x = mat)
@@ -579,7 +579,7 @@ test_that("colSdDiffs works ", {
 test_that("colSds works ", {
 
 	matrixStats_formals <- formals(matrixStats::colSds)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_colSds)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colSds)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- colSds(x = mat)
@@ -599,7 +599,7 @@ test_that("colSds works ", {
 test_that("colSums2 works ", {
 
 	matrixStats_formals <- formals(matrixStats::colSums2)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_colSums2)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colSums2)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- colSums2(x = mat)
@@ -619,7 +619,7 @@ test_that("colSums2 works ", {
 test_that("colTabulates works ", {
 
 	matrixStats_formals <- formals(matrixStats::colTabulates)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_colTabulates)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colTabulates)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mat <- array(suppressWarnings(as.integer(mat)), dim(mat))
@@ -640,7 +640,7 @@ test_that("colTabulates works ", {
 test_that("colVarDiffs works ", {
 
 	matrixStats_formals <- formals(matrixStats::colVarDiffs)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_colVarDiffs)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colVarDiffs)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- colVarDiffs(x = mat)
@@ -664,7 +664,7 @@ test_that("colVarDiffs works ", {
 test_that("colVars works ", {
 
 	matrixStats_formals <- formals(matrixStats::colVars)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_colVars)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colVars)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- colVars(x = mat)
@@ -684,7 +684,7 @@ test_that("colVars works ", {
 test_that("colWeightedMads works ", {
 
 	matrixStats_formals <- formals(matrixStats::colWeightedMads)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_colWeightedMads)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colWeightedMads)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- colWeightedMads(x = mat)
@@ -704,7 +704,7 @@ test_that("colWeightedMads works ", {
 test_that("colWeightedMeans works ", {
 
 	matrixStats_formals <- formals(matrixStats::colWeightedMeans)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_colWeightedMeans)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colWeightedMeans)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- colWeightedMeans(x = mat)
@@ -724,7 +724,7 @@ test_that("colWeightedMeans works ", {
 test_that("colWeightedMedians works ", {
 
 	matrixStats_formals <- formals(matrixStats::colWeightedMedians)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_colWeightedMedians)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colWeightedMedians)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- colWeightedMedians(x = mat)
@@ -744,7 +744,7 @@ test_that("colWeightedMedians works ", {
 test_that("colWeightedSds works ", {
 
 	matrixStats_formals <- formals(matrixStats::colWeightedSds)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_colWeightedSds)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colWeightedSds)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- colWeightedSds(x = mat)
@@ -764,7 +764,7 @@ test_that("colWeightedSds works ", {
 test_that("colWeightedVars works ", {
 
 	matrixStats_formals <- formals(matrixStats::colWeightedVars)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_colWeightedVars)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colWeightedVars)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- colWeightedVars(x = mat)
@@ -784,7 +784,7 @@ test_that("colWeightedVars works ", {
 test_that("rowAlls works ", {
 
 	matrixStats_formals <- formals(matrixStats::rowAlls)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_rowAlls)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowAlls)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- rowAlls(x = mat)
@@ -808,7 +808,7 @@ test_that("rowAlls works ", {
 test_that("rowAnyNAs works ", {
 
 	matrixStats_formals <- formals(matrixStats::rowAnyNAs)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_rowAnyNAs)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowAnyNAs)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- rowAnyNAs(x = mat)
@@ -828,7 +828,7 @@ test_that("rowAnyNAs works ", {
 test_that("rowAnys works ", {
 
 	matrixStats_formals <- formals(matrixStats::rowAnys)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_rowAnys)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowAnys)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- rowAnys(x = mat)
@@ -852,7 +852,7 @@ test_that("rowAnys works ", {
 test_that("rowAvgsPerColSet works ", {
 
 	matrixStats_formals <- formals(matrixStats::rowAvgsPerColSet)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_rowAvgsPerColSet)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowAvgsPerColSet)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	S <- matrix(1:ncol(mat), ncol = 2)
@@ -877,7 +877,7 @@ test_that("rowAvgsPerColSet works ", {
 test_that("rowCollapse works ", {
 
 	matrixStats_formals <- formals(matrixStats::rowCollapse)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_rowCollapse)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowCollapse)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- rowCollapse(x = mat, idxs = 1)
@@ -901,7 +901,7 @@ test_that("rowCollapse works ", {
 test_that("rowCounts works ", {
 
 	matrixStats_formals <- formals(matrixStats::rowCounts)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_rowCounts)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowCounts)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- rowCounts(x = mat)
@@ -925,7 +925,7 @@ test_that("rowCounts works ", {
 test_that("rowCummaxs works ", {
 
 	matrixStats_formals <- formals(matrixStats::rowCummaxs)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_rowCummaxs)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowCummaxs)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- rowCummaxs(x = mat)
@@ -945,7 +945,7 @@ test_that("rowCummaxs works ", {
 test_that("rowCummins works ", {
 
 	matrixStats_formals <- formals(matrixStats::rowCummins)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_rowCummins)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowCummins)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- rowCummins(x = mat)
@@ -965,7 +965,7 @@ test_that("rowCummins works ", {
 test_that("rowCumprods works ", {
 
 	matrixStats_formals <- formals(matrixStats::rowCumprods)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_rowCumprods)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowCumprods)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- rowCumprods(x = mat)
@@ -985,7 +985,7 @@ test_that("rowCumprods works ", {
 test_that("rowCumsums works ", {
 
 	matrixStats_formals <- formals(matrixStats::rowCumsums)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_rowCumsums)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowCumsums)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- rowCumsums(x = mat)
@@ -1005,7 +1005,7 @@ test_that("rowCumsums works ", {
 test_that("rowDiffs works ", {
 
 	matrixStats_formals <- formals(matrixStats::rowDiffs)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_rowDiffs)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowDiffs)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- rowDiffs(x = mat)
@@ -1025,7 +1025,7 @@ test_that("rowDiffs works ", {
 test_that("rowIQRDiffs works ", {
 
 	matrixStats_formals <- formals(matrixStats::rowIQRDiffs)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_rowIQRDiffs)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowIQRDiffs)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- rowIQRDiffs(x = mat)
@@ -1049,7 +1049,7 @@ test_that("rowIQRDiffs works ", {
 test_that("rowIQRs works ", {
 
 	matrixStats_formals <- formals(matrixStats::rowIQRs)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_rowIQRs)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowIQRs)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- rowIQRs(x = mat)
@@ -1069,7 +1069,7 @@ test_that("rowIQRs works ", {
 test_that("rowLogSumExps works ", {
 
 	matrixStats_formals <- formals(matrixStats::rowLogSumExps)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_rowLogSumExps)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowLogSumExps)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- rowLogSumExps(lx = mat)
@@ -1089,7 +1089,7 @@ test_that("rowLogSumExps works ", {
 test_that("rowMadDiffs works ", {
 
 	matrixStats_formals <- formals(matrixStats::rowMadDiffs)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_rowMadDiffs)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowMadDiffs)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- rowMadDiffs(x = mat)
@@ -1113,7 +1113,7 @@ test_that("rowMadDiffs works ", {
 test_that("rowMads works ", {
 
 	matrixStats_formals <- formals(matrixStats::rowMads)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_rowMads)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowMads)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- rowMads(x = mat)
@@ -1133,7 +1133,7 @@ test_that("rowMads works ", {
 test_that("rowMaxs works ", {
 
 	matrixStats_formals <- formals(matrixStats::rowMaxs)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_rowMaxs)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowMaxs)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- rowMaxs(x = mat)
@@ -1153,7 +1153,7 @@ test_that("rowMaxs works ", {
 test_that("rowMeans2 works ", {
 
 	matrixStats_formals <- formals(matrixStats::rowMeans2)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_rowMeans2)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowMeans2)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- rowMeans2(x = mat)
@@ -1173,7 +1173,7 @@ test_that("rowMeans2 works ", {
 test_that("rowMedians works ", {
 
 	matrixStats_formals <- formals(matrixStats::rowMedians)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_rowMedians)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowMedians)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- rowMedians(x = mat)
@@ -1193,7 +1193,7 @@ test_that("rowMedians works ", {
 test_that("rowMins works ", {
 
 	matrixStats_formals <- formals(matrixStats::rowMins)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_rowMins)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowMins)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- rowMins(x = mat)
@@ -1213,7 +1213,7 @@ test_that("rowMins works ", {
 test_that("rowOrderStats works ", {
 
 	matrixStats_formals <- formals(matrixStats::rowOrderStats)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_rowOrderStats)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowOrderStats)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mat[is.na(mat)] <- 4.1
@@ -1238,7 +1238,7 @@ test_that("rowOrderStats works ", {
 test_that("rowProds works ", {
 
 	matrixStats_formals <- formals(matrixStats::rowProds)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_rowProds)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowProds)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- rowProds(x = mat)
@@ -1258,7 +1258,7 @@ test_that("rowProds works ", {
 test_that("rowQuantiles works ", {
 
 	matrixStats_formals <- formals(matrixStats::rowQuantiles)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_rowQuantiles)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowQuantiles)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- rowQuantiles(x = mat)
@@ -1278,7 +1278,7 @@ test_that("rowQuantiles works ", {
 test_that("rowRanges works ", {
 
 	matrixStats_formals <- formals(matrixStats::rowRanges)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_rowRanges)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowRanges)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- rowRanges(x = mat)
@@ -1298,7 +1298,7 @@ test_that("rowRanges works ", {
 test_that("rowRanks works ", {
 
 	matrixStats_formals <- formals(matrixStats::rowRanks)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_rowRanks)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowRanks)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- rowRanks(x = mat)
@@ -1322,7 +1322,7 @@ test_that("rowRanks works ", {
 test_that("rowSdDiffs works ", {
 
 	matrixStats_formals <- formals(matrixStats::rowSdDiffs)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_rowSdDiffs)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowSdDiffs)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- rowSdDiffs(x = mat)
@@ -1346,7 +1346,7 @@ test_that("rowSdDiffs works ", {
 test_that("rowSds works ", {
 
 	matrixStats_formals <- formals(matrixStats::rowSds)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_rowSds)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowSds)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- rowSds(x = mat)
@@ -1366,7 +1366,7 @@ test_that("rowSds works ", {
 test_that("rowSums2 works ", {
 
 	matrixStats_formals <- formals(matrixStats::rowSums2)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_rowSums2)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowSums2)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- rowSums2(x = mat)
@@ -1386,7 +1386,7 @@ test_that("rowSums2 works ", {
 test_that("rowTabulates works ", {
 
 	matrixStats_formals <- formals(matrixStats::rowTabulates)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_rowTabulates)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowTabulates)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mat <- array(suppressWarnings(as.integer(mat)), dim(mat))
@@ -1407,7 +1407,7 @@ test_that("rowTabulates works ", {
 test_that("rowVarDiffs works ", {
 
 	matrixStats_formals <- formals(matrixStats::rowVarDiffs)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_rowVarDiffs)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowVarDiffs)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- rowVarDiffs(x = mat)
@@ -1431,7 +1431,7 @@ test_that("rowVarDiffs works ", {
 test_that("rowVars works ", {
 
 	matrixStats_formals <- formals(matrixStats::rowVars)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_rowVars)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowVars)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mg_res_def_1 <- rowVars(x = mat)
@@ -1451,7 +1451,7 @@ test_that("rowVars works ", {
 test_that("rowWeightedMads works ", {
 
 	matrixStats_formals <- formals(matrixStats::rowWeightedMads)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_rowWeightedMads)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowWeightedMads)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mat <- array(mat, dim(t(mat)))
@@ -1472,7 +1472,7 @@ test_that("rowWeightedMads works ", {
 test_that("rowWeightedMeans works ", {
 
 	matrixStats_formals <- formals(matrixStats::rowWeightedMeans)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_rowWeightedMeans)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowWeightedMeans)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mat <- array(mat, dim(t(mat)))
@@ -1493,7 +1493,7 @@ test_that("rowWeightedMeans works ", {
 test_that("rowWeightedMedians works ", {
 
 	matrixStats_formals <- formals(matrixStats::rowWeightedMedians)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_rowWeightedMedians)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowWeightedMedians)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mat <- array(mat, dim(t(mat)))
@@ -1514,7 +1514,7 @@ test_that("rowWeightedMedians works ", {
 test_that("rowWeightedSds works ", {
 
 	matrixStats_formals <- formals(matrixStats::rowWeightedSds)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_rowWeightedSds)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowWeightedSds)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mat <- array(mat, dim(t(mat)))
@@ -1535,7 +1535,7 @@ test_that("rowWeightedSds works ", {
 test_that("rowWeightedVars works ", {
 
 	matrixStats_formals <- formals(matrixStats::rowWeightedVars)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.default_rowWeightedVars)
+	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowWeightedVars)
 	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
 
 	mat <- array(mat, dim(t(mat)))

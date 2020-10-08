@@ -2,44 +2,24 @@
 % Please edit documentation in R/rowQuantiles.R
 \name{rowQuantiles}
 \alias{rowQuantiles}
-\alias{rowQuantiles,matrix-method}
-\alias{rowQuantiles,numeric-method}
-\alias{rowQuantiles,array-method}
+\alias{rowQuantiles,matrix_OR_array_OR_table_OR_numeric-method}
 \alias{colQuantiles}
-\alias{colQuantiles,matrix-method}
-\alias{colQuantiles,numeric-method}
-\alias{colQuantiles,array-method}
+\alias{colQuantiles,matrix_OR_array_OR_table_OR_numeric-method}
 \title{Calculates quantiles for each row (column) of a matrix-like object}
 \usage{
 rowQuantiles(x, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1,
   by = 0.25), na.rm = FALSE, ...)
 
-\S4method{rowQuantiles}{matrix}(x, rows = NULL, cols = NULL,
-  probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE, type = 7L,
-  ..., drop = TRUE)
-
-\S4method{rowQuantiles}{numeric}(x, rows = NULL, cols = NULL,
-  probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE, type = 7L,
-  ..., drop = TRUE)
-
-\S4method{rowQuantiles}{array}(x, rows = NULL, cols = NULL,
-  probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE, type = 7L,
-  ..., drop = TRUE)
+\S4method{rowQuantiles}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
+  cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE,
+  type = 7L, ..., drop = TRUE)
 
 colQuantiles(x, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1,
   by = 0.25), na.rm = FALSE, ...)
 
-\S4method{colQuantiles}{matrix}(x, rows = NULL, cols = NULL,
-  probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE, type = 7L,
-  ..., drop = TRUE)
-
-\S4method{colQuantiles}{numeric}(x, rows = NULL, cols = NULL,
-  probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE, type = 7L,
-  ..., drop = TRUE)
-
-\S4method{colQuantiles}{array}(x, rows = NULL, cols = NULL,
-  probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE, type = 7L,
-  ..., drop = TRUE)
+\S4method{colQuantiles}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
+  cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE,
+  type = 7L, ..., drop = TRUE)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

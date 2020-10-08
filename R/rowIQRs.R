@@ -4,6 +4,8 @@
 #' Calculates the interquartile range for each row (column) of a matrix-like
 #' object.
 #' 
+#' @include MatrixGenerics-package.R
+#'
 #' @templateVar rowName rowIQRs
 #' @templateVar colName colIQRs
 #' 
@@ -34,19 +36,12 @@ setGeneric("rowIQRs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) 
            signature = "x"
 )
 
-.default_rowIQRs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...){
+.matrixStats_rowIQRs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...){
   matrixStats::rowIQRs(x, rows = rows, cols = cols, na.rm = na.rm, ...)
 }
 
 #' @rdname rowIQRs
-setMethod("rowIQRs", signature = "matrix", .default_rowIQRs)
-
-#' @rdname rowIQRs
-setMethod("rowIQRs", signature = "numeric", .default_rowIQRs)
-
-#' @rdname rowIQRs
-setMethod("rowIQRs", signature = "array", .default_rowIQRs)
-
+setMethod("rowIQRs", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowIQRs)
 
 
 
@@ -57,18 +52,10 @@ setGeneric("colIQRs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) 
            signature = "x"
 )
 
-.default_colIQRs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...){
+.matrixStats_colIQRs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...){
   matrixStats::colIQRs(x, rows = rows, cols = cols, na.rm = na.rm, ...)
 }
 
 #' @rdname rowIQRs
-setMethod("colIQRs", signature = "matrix", .default_colIQRs)
-
-#' @rdname rowIQRs
-setMethod("colIQRs", signature = "numeric", .default_colIQRs)
-
-#' @rdname rowIQRs
-setMethod("colIQRs", signature = "array", .default_colIQRs)
-
-
+setMethod("colIQRs", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colIQRs)
 

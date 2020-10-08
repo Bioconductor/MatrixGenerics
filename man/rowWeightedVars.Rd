@@ -2,31 +2,19 @@
 % Please edit documentation in R/rowWeightedVars.R
 \name{rowWeightedVars}
 \alias{rowWeightedVars}
-\alias{rowWeightedVars,matrix-method}
-\alias{rowWeightedVars,numeric-method}
-\alias{rowWeightedVars,array-method}
+\alias{rowWeightedVars,matrix_OR_array_OR_table_OR_numeric-method}
 \alias{colWeightedVars}
-\alias{colWeightedVars,matrix-method}
-\alias{colWeightedVars,numeric-method}
-\alias{colWeightedVars,array-method}
+\alias{colWeightedVars,matrix_OR_array_OR_table_OR_numeric-method}
 \title{Calculates the weighted variance for each row (column) of a matrix-like
 object}
 \usage{
 rowWeightedVars(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{rowWeightedVars}{matrix}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
-
-\S4method{rowWeightedVars}{numeric}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
-
-\S4method{rowWeightedVars}{array}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+\S4method{rowWeightedVars}{matrix_OR_array_OR_table_OR_numeric}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
 colWeightedVars(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{colWeightedVars}{matrix}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
-
-\S4method{colWeightedVars}{numeric}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
-
-\S4method{colWeightedVars}{array}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+\S4method{colWeightedVars}{matrix_OR_array_OR_table_OR_numeric}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

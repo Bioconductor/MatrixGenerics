@@ -4,6 +4,7 @@
 #' Calculates the weighted  median absolute deviation for each row (column) of
 #' a matrix-like object.
 #'
+#' @include MatrixGenerics-package.R
 #' 
 #' @templateVar rowName rowWeightedMads
 #' @templateVar colName colWeightedMads
@@ -38,19 +39,12 @@ setGeneric("rowWeightedMads", function(x, w = NULL, rows = NULL, cols = NULL, na
            signature = "x"
 )
 
-.default_rowWeightedMads <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE,  constant = 1.4826, center = NULL, ...){
+.matrixStats_rowWeightedMads <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE,  constant = 1.4826, center = NULL, ...){
   matrixStats::rowWeightedMads(x, w = w, rows = rows, cols = cols, na.rm = na.rm, constant = constant, center = center, ...)
 }
 
 #' @rdname rowWeightedMads
-setMethod("rowWeightedMads", signature = "matrix", .default_rowWeightedMads)
-
-#' @rdname rowWeightedMads
-setMethod("rowWeightedMads", signature = "numeric", .default_rowWeightedMads)
-
-#' @rdname rowWeightedMads
-setMethod("rowWeightedMads", signature = "array", .default_rowWeightedMads)
-
+setMethod("rowWeightedMads", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowWeightedMads)
 
 
 
@@ -61,18 +55,10 @@ setGeneric("colWeightedMads", function(x, w = NULL, rows = NULL, cols = NULL, na
            signature = "x"
 )
 
-.default_colWeightedMads <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE,  constant = 1.4826, center = NULL, ...){
+.matrixStats_colWeightedMads <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE,  constant = 1.4826, center = NULL, ...){
   matrixStats::colWeightedMads(x, w = w, rows = rows, cols = cols, na.rm = na.rm, constant = constant, center = center, ...)
 }
 
 #' @rdname rowWeightedMads
-setMethod("colWeightedMads", signature = "matrix", .default_colWeightedMads)
-
-#' @rdname rowWeightedMads
-setMethod("colWeightedMads", signature = "numeric", .default_colWeightedMads)
-
-#' @rdname rowWeightedMads
-setMethod("colWeightedMads", signature = "array", .default_colWeightedMads)
-
-
+setMethod("colWeightedMads", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colWeightedMads)
 

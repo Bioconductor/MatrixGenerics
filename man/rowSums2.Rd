@@ -2,30 +2,18 @@
 % Please edit documentation in R/rowSums2.R
 \name{rowSums2}
 \alias{rowSums2}
-\alias{rowSums2,matrix-method}
-\alias{rowSums2,numeric-method}
-\alias{rowSums2,array-method}
+\alias{rowSums2,matrix_OR_array_OR_table_OR_numeric-method}
 \alias{colSums2}
-\alias{colSums2,matrix-method}
-\alias{colSums2,numeric-method}
-\alias{colSums2,array-method}
+\alias{colSums2,matrix_OR_array_OR_table_OR_numeric-method}
 \title{Calculates the sum for each row (column) of a matrix-like object}
 \usage{
 rowSums2(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{rowSums2}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
-
-\S4method{rowSums2}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
-
-\S4method{rowSums2}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
+\S4method{rowSums2}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
 
 colSums2(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
-\S4method{colSums2}{matrix}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
-
-\S4method{colSums2}{numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
-
-\S4method{colSums2}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
+\S4method{colSums2}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

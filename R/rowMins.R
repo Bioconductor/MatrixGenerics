@@ -2,6 +2,8 @@
 #'
 #' Calculates the minimum for each row (column) of a matrix-like object.
 #' 
+#' @include MatrixGenerics-package.R
+#'
 #' @templateVar rowName rowMins
 #' @templateVar colName colMins
 #' 
@@ -31,19 +33,12 @@ setGeneric("rowMins", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) 
            signature = "x"
 )
 
-.default_rowMins <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...){
+.matrixStats_rowMins <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...){
   matrixStats::rowMins(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
 }
 
 #' @rdname rowMins
-setMethod("rowMins", signature = "matrix", .default_rowMins)
-
-#' @rdname rowMins
-setMethod("rowMins", signature = "numeric", .default_rowMins)
-
-#' @rdname rowMins
-setMethod("rowMins", signature = "array", .default_rowMins)
-
+setMethod("rowMins", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowMins)
 
 
 
@@ -54,18 +49,10 @@ setGeneric("colMins", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) 
            signature = "x"
 )
 
-.default_colMins <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...){
+.matrixStats_colMins <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...){
   matrixStats::colMins(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
 }
 
 #' @rdname rowMins
-setMethod("colMins", signature = "matrix", .default_colMins)
-
-#' @rdname rowMins
-setMethod("colMins", signature = "numeric", .default_colMins)
-
-#' @rdname rowMins
-setMethod("colMins", signature = "array", .default_colMins)
-
-
+setMethod("colMins", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colMins)
 

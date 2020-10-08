@@ -2,6 +2,8 @@
 #'
 #' Calculates the variance for each row (column) of a matrix-like object.
 #' 
+#' @include MatrixGenerics-package.R
+#'
 #' @templateVar rowName rowVars
 #' @templateVar colName colVars
 #' 
@@ -35,19 +37,12 @@ setGeneric("rowVars", function(x, rows = NULL, cols = NULL, na.rm = FALSE, cente
            signature = "x"
 )
 
-.default_rowVars <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, dim. = dim(x), ...){
+.matrixStats_rowVars <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, dim. = dim(x), ...){
   matrixStats::rowVars(x, rows = rows, cols = cols, na.rm = na.rm, center = center, dim. = dim., ...)
 }
 
 #' @rdname rowVars
-setMethod("rowVars", signature = "matrix", .default_rowVars)
-
-#' @rdname rowVars
-setMethod("rowVars", signature = "numeric", .default_rowVars)
-
-#' @rdname rowVars
-setMethod("rowVars", signature = "array", .default_rowVars)
-
+setMethod("rowVars", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowVars)
 
 
 
@@ -58,18 +53,10 @@ setGeneric("colVars", function(x, rows = NULL, cols = NULL, na.rm = FALSE, cente
            signature = "x"
 )
 
-.default_colVars <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, dim. = dim(x), ...){
+.matrixStats_colVars <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, dim. = dim(x), ...){
   matrixStats::colVars(x, rows = rows, cols = cols, na.rm = na.rm, center = center, dim. = dim., ...)
 }
 
 #' @rdname rowVars
-setMethod("colVars", signature = "matrix", .default_colVars)
-
-#' @rdname rowVars
-setMethod("colVars", signature = "numeric", .default_colVars)
-
-#' @rdname rowVars
-setMethod("colVars", signature = "array", .default_colVars)
-
-
+setMethod("colVars", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colVars)
 

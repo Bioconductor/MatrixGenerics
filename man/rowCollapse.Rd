@@ -2,30 +2,18 @@
 % Please edit documentation in R/rowCollapse.R
 \name{rowCollapse}
 \alias{rowCollapse}
-\alias{rowCollapse,matrix-method}
-\alias{rowCollapse,numeric-method}
-\alias{rowCollapse,array-method}
+\alias{rowCollapse,matrix_OR_array_OR_table_OR_numeric-method}
 \alias{colCollapse}
-\alias{colCollapse,matrix-method}
-\alias{colCollapse,numeric-method}
-\alias{colCollapse,array-method}
+\alias{colCollapse,matrix_OR_array_OR_table_OR_numeric-method}
 \title{Extract one cell from each row (column) of a matrix-like object}
 \usage{
 rowCollapse(x, idxs, rows = NULL, ...)
 
-\S4method{rowCollapse}{matrix}(x, idxs, rows = NULL, dim. = dim(x), ...)
-
-\S4method{rowCollapse}{numeric}(x, idxs, rows = NULL, dim. = dim(x), ...)
-
-\S4method{rowCollapse}{array}(x, idxs, rows = NULL, dim. = dim(x), ...)
+\S4method{rowCollapse}{matrix_OR_array_OR_table_OR_numeric}(x, idxs, rows = NULL, dim. = dim(x), ...)
 
 colCollapse(x, idxs = idxs, cols = NULL, ...)
 
-\S4method{colCollapse}{matrix}(x, idxs, cols = NULL, dim. = dim(x), ...)
-
-\S4method{colCollapse}{numeric}(x, idxs, cols = NULL, dim. = dim(x), ...)
-
-\S4method{colCollapse}{array}(x, idxs, cols = NULL, dim. = dim(x), ...)
+\S4method{colCollapse}{matrix_OR_array_OR_table_OR_numeric}(x, idxs, cols = NULL, dim. = dim(x), ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

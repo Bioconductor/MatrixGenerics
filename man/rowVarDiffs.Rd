@@ -2,39 +2,23 @@
 % Please edit documentation in R/rowVarDiffs.R
 \name{rowVarDiffs}
 \alias{rowVarDiffs}
-\alias{rowVarDiffs,matrix-method}
-\alias{rowVarDiffs,numeric-method}
-\alias{rowVarDiffs,array-method}
+\alias{rowVarDiffs,matrix_OR_array_OR_table_OR_numeric-method}
 \alias{colVarDiffs}
-\alias{colVarDiffs,matrix-method}
-\alias{colVarDiffs,numeric-method}
-\alias{colVarDiffs,array-method}
+\alias{colVarDiffs,matrix_OR_array_OR_table_OR_numeric-method}
 \title{Calculates the variance of the difference between each element of a row
 (column) of a matrix-like object}
 \usage{
 rowVarDiffs(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L,
   trim = 0, ...)
 
-\S4method{rowVarDiffs}{matrix}(x, rows = NULL, cols = NULL,
-  na.rm = FALSE, diff = 1L, trim = 0, ...)
-
-\S4method{rowVarDiffs}{numeric}(x, rows = NULL, cols = NULL,
-  na.rm = FALSE, diff = 1L, trim = 0, ...)
-
-\S4method{rowVarDiffs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE,
-  diff = 1L, trim = 0, ...)
+\S4method{rowVarDiffs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
+  cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...)
 
 colVarDiffs(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L,
   trim = 0, ...)
 
-\S4method{colVarDiffs}{matrix}(x, rows = NULL, cols = NULL,
-  na.rm = FALSE, diff = 1L, trim = 0, ...)
-
-\S4method{colVarDiffs}{numeric}(x, rows = NULL, cols = NULL,
-  na.rm = FALSE, diff = 1L, trim = 0, ...)
-
-\S4method{colVarDiffs}{array}(x, rows = NULL, cols = NULL, na.rm = FALSE,
-  diff = 1L, trim = 0, ...)
+\S4method{colVarDiffs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
+  cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

@@ -4,6 +4,8 @@
 #' Calculates the cumulative product for each row (column) of a matrix-like
 #' object.
 #' 
+#' @include MatrixGenerics-package.R
+#'
 #' @templateVar rowName rowCumprods
 #' @templateVar colName colCumprods
 #' 
@@ -32,19 +34,12 @@ setGeneric("rowCumprods", function(x, rows = NULL, cols = NULL,  ...) standardGe
            signature = "x"
 )
 
-.default_rowCumprods <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ...){
+.matrixStats_rowCumprods <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ...){
   matrixStats::rowCumprods(x, rows = rows, cols = cols, dim. = dim., ...)
 }
 
 #' @rdname rowCumprods
-setMethod("rowCumprods", signature = "matrix", .default_rowCumprods)
-
-#' @rdname rowCumprods
-setMethod("rowCumprods", signature = "numeric", .default_rowCumprods)
-
-#' @rdname rowCumprods
-setMethod("rowCumprods", signature = "array", .default_rowCumprods)
-
+setMethod("rowCumprods", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowCumprods)
 
 
 
@@ -55,18 +50,10 @@ setGeneric("colCumprods", function(x, rows = NULL, cols = NULL, ...) standardGen
            signature = "x"
 )
 
-.default_colCumprods <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ...){
+.matrixStats_colCumprods <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ...){
   matrixStats::colCumprods(x, rows = rows, cols = cols, dim. = dim., ...)
 }
 
 #' @rdname rowCumprods
-setMethod("colCumprods", signature = "matrix", .default_colCumprods)
-
-#' @rdname rowCumprods
-setMethod("colCumprods", signature = "numeric", .default_colCumprods)
-
-#' @rdname rowCumprods
-setMethod("colCumprods", signature = "array", .default_colCumprods)
-
-
+setMethod("colCumprods", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colCumprods)
 

@@ -2,31 +2,19 @@
 % Please edit documentation in R/rowCumprods.R
 \name{rowCumprods}
 \alias{rowCumprods}
-\alias{rowCumprods,matrix-method}
-\alias{rowCumprods,numeric-method}
-\alias{rowCumprods,array-method}
+\alias{rowCumprods,matrix_OR_array_OR_table_OR_numeric-method}
 \alias{colCumprods}
-\alias{colCumprods,matrix-method}
-\alias{colCumprods,numeric-method}
-\alias{colCumprods,array-method}
+\alias{colCumprods,matrix_OR_array_OR_table_OR_numeric-method}
 \title{Calculates the cumulative product for each row (column) of a matrix-like
 object}
 \usage{
 rowCumprods(x, rows = NULL, cols = NULL, ...)
 
-\S4method{rowCumprods}{matrix}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
-
-\S4method{rowCumprods}{numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
-
-\S4method{rowCumprods}{array}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
+\S4method{rowCumprods}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
 
 colCumprods(x, rows = NULL, cols = NULL, ...)
 
-\S4method{colCumprods}{matrix}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
-
-\S4method{colCumprods}{numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
-
-\S4method{colCumprods}{array}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
+\S4method{colCumprods}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

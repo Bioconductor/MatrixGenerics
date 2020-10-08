@@ -2,7 +2,8 @@
 #'
 #' Calculates the weighted  mean for each row (column) of a matrix-like object.
 #'
-#' 
+#' @include MatrixGenerics-package.R
+#'
 #' @templateVar rowName rowWeightedMeans
 #' @templateVar colName colWeightedMeans
 #' 
@@ -34,19 +35,12 @@ setGeneric("rowWeightedMeans", function(x, w = NULL, rows = NULL, cols = NULL, n
            signature = "x"
 )
 
-.default_rowWeightedMeans <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...){
+.matrixStats_rowWeightedMeans <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...){
   matrixStats::rowWeightedMeans(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ...)
 }
 
 #' @rdname rowWeightedMeans
-setMethod("rowWeightedMeans", signature = "matrix", .default_rowWeightedMeans)
-
-#' @rdname rowWeightedMeans
-setMethod("rowWeightedMeans", signature = "numeric", .default_rowWeightedMeans)
-
-#' @rdname rowWeightedMeans
-setMethod("rowWeightedMeans", signature = "array", .default_rowWeightedMeans)
-
+setMethod("rowWeightedMeans", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowWeightedMeans)
 
 
 
@@ -57,18 +51,10 @@ setGeneric("colWeightedMeans", function(x, w = NULL, rows = NULL, cols = NULL, n
            signature = "x"
 )
 
-.default_colWeightedMeans <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...){
+.matrixStats_colWeightedMeans <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...){
   matrixStats::colWeightedMeans(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ...)
 }
 
 #' @rdname rowWeightedMeans
-setMethod("colWeightedMeans", signature = "matrix", .default_colWeightedMeans)
-
-#' @rdname rowWeightedMeans
-setMethod("colWeightedMeans", signature = "numeric", .default_colWeightedMeans)
-
-#' @rdname rowWeightedMeans
-setMethod("colWeightedMeans", signature = "array", .default_colWeightedMeans)
-
-
+setMethod("colWeightedMeans", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colWeightedMeans)
 
