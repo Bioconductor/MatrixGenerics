@@ -3,17 +3,23 @@
 \name{rowAnyNAs}
 \alias{rowAnyNAs}
 \alias{rowAnyNAs,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{rowAnyNAs,ANY-method}
 \alias{colAnyNAs}
 \alias{colAnyNAs,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{colAnyNAs,ANY-method}
 \title{Check if any elements in a row (column) of a matrix-like object is missing}
 \usage{
 rowAnyNAs(x, rows = NULL, cols = NULL, ...)
 
 \S4method{rowAnyNAs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, ...)
 
+\S4method{rowAnyNAs}{ANY}(x, rows = NULL, cols = NULL, ...)
+
 colAnyNAs(x, rows = NULL, cols = NULL, ...)
 
 \S4method{colAnyNAs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, ...)
+
+\S4method{colAnyNAs}{ANY}(x, rows = NULL, cols = NULL, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

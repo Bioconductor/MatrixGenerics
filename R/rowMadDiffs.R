@@ -6,6 +6,9 @@
 #' 
 #' @include MatrixGenerics-package.R
 #'
+#' @export
+#' @name rowMadDiffs
+#'
 #' @templateVar rowName rowMadDiffs
 #' @templateVar colName colMadDiffs
 #' 
@@ -27,9 +30,6 @@
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-#'
-#' @name rowMadDiffs
-#' @export
 setGeneric("rowMadDiffs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0,  ...) standardGeneric("rowMadDiffs"),
            signature = "x"
 )
@@ -38,14 +38,19 @@ setGeneric("rowMadDiffs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, d
   matrixStats::rowMadDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff = diff, trim = trim, ...)
 }
 
+#' @export
 #' @rdname rowMadDiffs
 setMethod("rowMadDiffs", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowMadDiffs)
 
-
-
-#' @rdname rowMadDiffs
-#' @name colMadDiffs
 #' @export
+#' @rdname rowMadDiffs
+## Default method with user-friendly fallback mechanism.
+setMethod("rowMadDiffs", "ANY", make_default_method_def("rowMadDiffs"))
+
+
+
+#' @export
+#' @rdname rowMadDiffs
 setGeneric("colMadDiffs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...) standardGeneric("colMadDiffs"),
            signature = "x"
 )
@@ -54,6 +59,12 @@ setGeneric("colMadDiffs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, d
   matrixStats::colMadDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff =diff, trim = trim, ...)
 }
 
+#' @export
 #' @rdname rowMadDiffs
 setMethod("colMadDiffs", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colMadDiffs)
+
+#' @export
+#' @rdname rowMadDiffs
+## Default method with user-friendly fallback mechanism.
+setMethod("colMadDiffs", "ANY", make_default_method_def("colMadDiffs"))
 

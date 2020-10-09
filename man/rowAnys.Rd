@@ -3,8 +3,10 @@
 \name{rowAnys}
 \alias{rowAnys}
 \alias{rowAnys,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{rowAnys,ANY-method}
 \alias{colAnys}
 \alias{colAnys,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{colAnys,ANY-method}
 \title{Check if any elements in a row (column) of a matrix-like object is equal to
 a value}
 \usage{
@@ -13,10 +15,14 @@ rowAnys(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...)
 \S4method{rowAnys}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
   cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ...)
 
+\S4method{rowAnys}{ANY}(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...)
+
 colAnys(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...)
 
 \S4method{colAnys}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
   cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ...)
+
+\S4method{colAnys}{ANY}(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
@@ -65,8 +71,10 @@ The S4 methods for \code{x} of type \code{\link{matrix}},
 \seealso{
 \itemize{
 \item \code{matrixStats::\link[matrixStats:rowAlls]{rowAnys}()} and
-\code{matrixStats::\link[matrixStats:rowAlls]{colAnys}()} which are used
-when the input is a \code{matrix} or \code{numeric} vector.
+\code{matrixStats::\link[matrixStats:rowAlls]{colAnys}()} which are
+used when the input is a \code{matrix} or \code{numeric} vector.
+\item For checks if \emph{all} elements are equal to a value, see
+\code{\link{rowAlls}()}.
 \item \code{base::\link{any}()}.
 }
 }

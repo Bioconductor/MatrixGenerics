@@ -3,8 +3,10 @@
 \name{rowIQRs}
 \alias{rowIQRs}
 \alias{rowIQRs,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{rowIQRs,ANY-method}
 \alias{colIQRs}
 \alias{colIQRs,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{colIQRs,ANY-method}
 \title{Calculates the interquartile range for each row (column) of a matrix-like
 object}
 \usage{
@@ -12,9 +14,13 @@ rowIQRs(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
 \S4method{rowIQRs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
+\S4method{rowIQRs}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+
 colIQRs(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
 \S4method{colIQRs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+
+\S4method{colIQRs}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

@@ -3,8 +3,10 @@
 \name{rowSdDiffs}
 \alias{rowSdDiffs}
 \alias{rowSdDiffs,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{rowSdDiffs,ANY-method}
 \alias{colSdDiffs}
 \alias{colSdDiffs,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{colSdDiffs,ANY-method}
 \title{Calculates the standard deviation of the difference between each element of
 a row (column) of a matrix-like object}
 \usage{
@@ -14,11 +16,17 @@ rowSdDiffs(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L,
 \S4method{rowSdDiffs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
   cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...)
 
+\S4method{rowSdDiffs}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE,
+  diff = 1L, trim = 0, ...)
+
 colSdDiffs(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L,
   trim = 0, ...)
 
 \S4method{colSdDiffs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
   cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...)
+
+\S4method{colSdDiffs}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE,
+  diff = 1L, trim = 0, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

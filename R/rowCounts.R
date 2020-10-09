@@ -6,6 +6,9 @@
 #' 
 #' @include MatrixGenerics-package.R
 #'
+#' @export
+#' @name rowCounts
+#'
 #' @templateVar rowName rowCounts
 #' @templateVar colName colCounts
 #' 
@@ -34,10 +37,6 @@
 #' @examples
 #'   rowCounts(mat, value = 0)
 #'   colCounts(mat, value = Inf, na.rm = TRUE)
-#'
-#'
-#' @name rowCounts
-#' @export
 setGeneric("rowCounts", function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...) standardGeneric("rowCounts"),
            signature = "x"
 )
@@ -46,14 +45,19 @@ setGeneric("rowCounts", function(x, rows = NULL, cols = NULL, value = TRUE, na.r
   matrixStats::rowCounts(x, rows = rows, cols = cols, value = value, na.rm = na.rm, dim. = dim., ...)
 }
 
+#' @export
 #' @rdname rowCounts
 setMethod("rowCounts", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowCounts)
 
-
-
-#' @rdname rowCounts
-#' @name colCounts
 #' @export
+#' @rdname rowCounts
+## Default method with user-friendly fallback mechanism.
+setMethod("rowCounts", "ANY", make_default_method_def("rowCounts"))
+
+
+
+#' @export
+#' @rdname rowCounts
 setGeneric("colCounts", function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...) standardGeneric("colCounts"),
            signature = "x"
 )
@@ -62,6 +66,12 @@ setGeneric("colCounts", function(x, rows = NULL, cols = NULL, value = TRUE, na.r
   matrixStats::colCounts(x, rows = rows, cols = cols, value = value, na.rm = na.rm, dim. = dim., ...)
 }
 
+#' @export
 #' @rdname rowCounts
 setMethod("colCounts", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colCounts)
+
+#' @export
+#' @rdname rowCounts
+## Default method with user-friendly fallback mechanism.
+setMethod("colCounts", "ANY", make_default_method_def("colCounts"))
 

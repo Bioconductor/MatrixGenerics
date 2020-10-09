@@ -3,8 +3,10 @@
 \name{rowMads}
 \alias{rowMads}
 \alias{rowMads,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{rowMads,ANY-method}
 \alias{colMads}
 \alias{colMads,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{colMads,ANY-method}
 \title{Calculates the median absolute deviation for each row (column) of a
 matrix-like object}
 \usage{
@@ -15,12 +17,18 @@ rowMads(x, rows = NULL, cols = NULL, center = NULL, constant = 1.4826,
   cols = NULL, center = NULL, constant = 1.4826, na.rm = FALSE,
   dim. = dim(x), ...)
 
+\S4method{rowMads}{ANY}(x, rows = NULL, cols = NULL, center = NULL,
+  constant = 1.4826, na.rm = FALSE, ...)
+
 colMads(x, rows = NULL, cols = NULL, center = NULL, constant = 1.4826,
   na.rm = FALSE, ...)
 
 \S4method{colMads}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
   cols = NULL, center = NULL, constant = 1.4826, na.rm = FALSE,
   dim. = dim(x), ...)
+
+\S4method{colMads}{ANY}(x, rows = NULL, cols = NULL, center = NULL,
+  constant = 1.4826, na.rm = FALSE, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

@@ -5,6 +5,9 @@
 #' a matrix-like object.
 #'
 #' @include MatrixGenerics-package.R
+#'
+#' @export
+#' @name rowWeightedMads
 #' 
 #' @templateVar rowName rowWeightedMads
 #' @templateVar colName colWeightedMads
@@ -29,12 +32,8 @@
 #' }
 #' 
 #' @template weightedExamples
-#'   
 #' 
 #' @keywords array iteration robust univar
-#'
-#' @name rowWeightedMads
-#' @export
 setGeneric("rowWeightedMads", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, constant = 1.4826, center = NULL, ...) standardGeneric("rowWeightedMads"),
            signature = "x"
 )
@@ -43,14 +42,19 @@ setGeneric("rowWeightedMads", function(x, w = NULL, rows = NULL, cols = NULL, na
   matrixStats::rowWeightedMads(x, w = w, rows = rows, cols = cols, na.rm = na.rm, constant = constant, center = center, ...)
 }
 
+#' @export
 #' @rdname rowWeightedMads
 setMethod("rowWeightedMads", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowWeightedMads)
 
-
-
-#' @rdname rowWeightedMads
-#' @name colWeightedMads
 #' @export
+#' @rdname rowWeightedMads
+## Default method with user-friendly fallback mechanism.
+setMethod("rowWeightedMads", "ANY", make_default_method_def("rowWeightedMads"))
+
+
+
+#' @export
+#' @rdname rowWeightedMads
 setGeneric("colWeightedMads", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, constant = 1.4826, center = NULL, ...) standardGeneric("colWeightedMads"),
            signature = "x"
 )
@@ -59,6 +63,12 @@ setGeneric("colWeightedMads", function(x, w = NULL, rows = NULL, cols = NULL, na
   matrixStats::colWeightedMads(x, w = w, rows = rows, cols = cols, na.rm = na.rm, constant = constant, center = center, ...)
 }
 
+#' @export
 #' @rdname rowWeightedMads
 setMethod("colWeightedMads", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colWeightedMads)
+
+#' @export
+#' @rdname rowWeightedMads
+## Default method with user-friendly fallback mechanism.
+setMethod("colWeightedMads", "ANY", make_default_method_def("colWeightedMads"))
 

@@ -4,6 +4,9 @@
 #' 
 #' @include MatrixGenerics-package.R
 #'
+#' @export
+#' @name rowVars
+#'
 #' @templateVar rowName rowVars
 #' @templateVar colName colVars
 #' 
@@ -30,9 +33,6 @@
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-#'
-#' @name rowVars
-#' @export
 setGeneric("rowVars", function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, ...) standardGeneric("rowVars"),
            signature = "x"
 )
@@ -41,14 +41,19 @@ setGeneric("rowVars", function(x, rows = NULL, cols = NULL, na.rm = FALSE, cente
   matrixStats::rowVars(x, rows = rows, cols = cols, na.rm = na.rm, center = center, dim. = dim., ...)
 }
 
+#' @export
 #' @rdname rowVars
 setMethod("rowVars", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowVars)
 
-
-
-#' @rdname rowVars
-#' @name colVars
 #' @export
+#' @rdname rowVars
+## Default method with user-friendly fallback mechanism.
+setMethod("rowVars", "ANY", make_default_method_def("rowVars"))
+
+
+
+#' @export
+#' @rdname rowVars
 setGeneric("colVars", function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, ...) standardGeneric("colVars"),
            signature = "x"
 )
@@ -57,6 +62,12 @@ setGeneric("colVars", function(x, rows = NULL, cols = NULL, na.rm = FALSE, cente
   matrixStats::colVars(x, rows = rows, cols = cols, na.rm = na.rm, center = center, dim. = dim., ...)
 }
 
+#' @export
 #' @rdname rowVars
 setMethod("colVars", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colVars)
+
+#' @export
+#' @rdname rowVars
+## Default method with user-friendly fallback mechanism.
+setMethod("colVars", "ANY", make_default_method_def("colVars"))
 

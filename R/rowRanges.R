@@ -6,6 +6,9 @@
 #' 
 #' @include MatrixGenerics-package.R
 #'
+#' @export
+#' @name rowRanges
+#'
 #' @templateVar rowName rowRanges
 #' @templateVar colName colRanges
 #' 
@@ -39,23 +42,25 @@
 #' @template standardExamples
 #'
 #' @keywords array iteration robust
-#'
-#' @name rowRanges
-#' @export
 setGeneric("rowRanges", function(x, ...) standardGeneric("rowRanges"))
 
 .matrixStats_rowRanges <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...){
   matrixStats::rowRanges(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
 }
 
+#' @export
 #' @rdname rowRanges
 setMethod("rowRanges", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowRanges)
 
-
-
-#' @rdname rowRanges
-#' @name colRanges
 #' @export
+#' @rdname rowRanges
+## Default method with user-friendly fallback mechanism.
+setMethod("rowRanges", "ANY", make_default_method_def("rowRanges"))
+
+
+
+#' @export
+#' @rdname rowRanges
 setGeneric("colRanges", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("colRanges"),
            signature = "x"
 )
@@ -64,6 +69,12 @@ setGeneric("colRanges", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...
   matrixStats::colRanges(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
 }
 
+#' @export
 #' @rdname rowRanges
 setMethod("colRanges", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colRanges)
+
+#' @export
+#' @rdname rowRanges
+## Default method with user-friendly fallback mechanism.
+setMethod("colRanges", "ANY", make_default_method_def("colRanges"))
 

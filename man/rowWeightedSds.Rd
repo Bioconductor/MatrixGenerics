@@ -3,8 +3,10 @@
 \name{rowWeightedSds}
 \alias{rowWeightedSds}
 \alias{rowWeightedSds,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{rowWeightedSds,ANY-method}
 \alias{colWeightedSds}
 \alias{colWeightedSds,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{colWeightedSds,ANY-method}
 \title{Calculates the weighted standard deviation for each row (column) of a
 matrix-like object}
 \usage{
@@ -12,9 +14,13 @@ rowWeightedSds(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
 \S4method{rowWeightedSds}{matrix_OR_array_OR_table_OR_numeric}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
+\S4method{rowWeightedSds}{ANY}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+
 colWeightedSds(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
 \S4method{colWeightedSds}{matrix_OR_array_OR_table_OR_numeric}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+
+\S4method{colWeightedSds}{ANY}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

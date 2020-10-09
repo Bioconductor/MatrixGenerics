@@ -4,6 +4,9 @@
 #'
 #' @include MatrixGenerics-package.R
 #'
+#' @export
+#' @name rowWeightedMeans
+#'
 #' @templateVar rowName rowWeightedMeans
 #' @templateVar colName colWeightedMeans
 #' 
@@ -13,7 +16,6 @@
 #' @template weightParam
 #' @template na_rmParameter
 #' 
-#'
 #' @template returnVector
 #'
 #' @seealso
@@ -28,9 +30,6 @@
 #'   
 #' 
 #' @keywords array iteration robust univar
-#'
-#' @name rowWeightedMeans
-#' @export
 setGeneric("rowWeightedMeans", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("rowWeightedMeans"),
            signature = "x"
 )
@@ -39,14 +38,19 @@ setGeneric("rowWeightedMeans", function(x, w = NULL, rows = NULL, cols = NULL, n
   matrixStats::rowWeightedMeans(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ...)
 }
 
+#' @export
 #' @rdname rowWeightedMeans
 setMethod("rowWeightedMeans", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowWeightedMeans)
 
-
-
-#' @rdname rowWeightedMeans
-#' @name colWeightedMeans
 #' @export
+#' @rdname rowWeightedMeans
+## Default method with user-friendly fallback mechanism.
+setMethod("rowWeightedMeans", "ANY", make_default_method_def("rowWeightedMeans"))
+
+
+
+#' @export
+#' @rdname rowWeightedMeans
 setGeneric("colWeightedMeans", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("colWeightedMeans"),
            signature = "x"
 )
@@ -55,6 +59,12 @@ setGeneric("colWeightedMeans", function(x, w = NULL, rows = NULL, cols = NULL, n
   matrixStats::colWeightedMeans(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ...)
 }
 
+#' @export
 #' @rdname rowWeightedMeans
 setMethod("colWeightedMeans", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colWeightedMeans)
+
+#' @export
+#' @rdname rowWeightedMeans
+## Default method with user-friendly fallback mechanism.
+setMethod("colWeightedMeans", "ANY", make_default_method_def("colWeightedMeans"))
 

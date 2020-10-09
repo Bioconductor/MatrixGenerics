@@ -4,6 +4,9 @@
 #' 
 #' @include MatrixGenerics-package.R
 #'
+#' @export
+#' @name rowOrderStats
+#'
 #' @templateVar rowName rowOrderStats
 #' @templateVar colName colOrderStats
 #' 
@@ -35,9 +38,6 @@
 #'     colOrderStats(mat, which = 3)
 #'
 #' @keywords array iteration robust univar
-#'
-#' @name rowOrderStats
-#' @export
 setGeneric("rowOrderStats", function(x, rows = NULL, cols = NULL, which, ...) standardGeneric("rowOrderStats"),
            signature = "x"
 )
@@ -46,14 +46,19 @@ setGeneric("rowOrderStats", function(x, rows = NULL, cols = NULL, which, ...) st
   matrixStats::rowOrderStats(x, rows = rows, cols = cols, which = which, dim. = dim., ...)
 }
 
+#' @export
 #' @rdname rowOrderStats
 setMethod("rowOrderStats", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowOrderStats)
 
-
-
-#' @rdname rowOrderStats
-#' @name colOrderStats
 #' @export
+#' @rdname rowOrderStats
+## Default method with user-friendly fallback mechanism.
+setMethod("rowOrderStats", "ANY", make_default_method_def("rowOrderStats"))
+
+
+
+#' @export
+#' @rdname rowOrderStats
 setGeneric("colOrderStats", function(x, rows = NULL, cols = NULL, which, ...) standardGeneric("colOrderStats"),
            signature = "x"
 )
@@ -62,6 +67,12 @@ setGeneric("colOrderStats", function(x, rows = NULL, cols = NULL, which, ...) st
   matrixStats::colOrderStats(x, rows = rows, cols = cols, which = which, dim. = dim., ...)
 }
 
+#' @export
 #' @rdname rowOrderStats
 setMethod("colOrderStats", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colOrderStats)
+
+#' @export
+#' @rdname rowOrderStats
+## Default method with user-friendly fallback mechanism.
+setMethod("colOrderStats", "ANY", make_default_method_def("colOrderStats"))
 

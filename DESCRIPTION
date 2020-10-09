@@ -7,7 +7,7 @@ Description: S4 generic functions modeled after the 'matrixStats' API
     summary statistics. Other package developers can import this package
     and handle a different matrix implementations without worrying
     about incompatibilities.
-Version: 1.1.4
+Version: 1.1.5
 Authors@R: c(person("Constantin", "Ahlmann-Eltze", email = "artjom31415@googlemail.com", 
                   role = c("aut"), comment = c(ORCID = "0000-0002-3762-068X")),
              person("Peter", "Hickey", role = c("aut", "cre"),
@@ -22,6 +22,8 @@ BugReports: https://github.com/Bioconductor/MatrixGenerics/issues
 RoxygenNote: 7.1.1
 Roxygen: list(markdown = TRUE, old_usage = TRUE)
 Suggests:
+    sparseMatrixStats,
+    DelayedMatrixStats,
     SummarizedExperiment,
     testthat (>= 2.1.0)
 biocViews: Infrastructure, Software

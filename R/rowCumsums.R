@@ -4,6 +4,9 @@
 #' 
 #' @include MatrixGenerics-package.R
 #'
+#' @export
+#' @name rowCumsums
+#'
 #' @templateVar rowName rowCumsums
 #' @templateVar colName colCumsums
 #' 
@@ -25,9 +28,6 @@
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-#'
-#' @name rowCumsums
-#' @export
 setGeneric("rowCumsums", function(x, rows = NULL, cols = NULL,  ...) standardGeneric("rowCumsums"),
            signature = "x"
 )
@@ -36,14 +36,19 @@ setGeneric("rowCumsums", function(x, rows = NULL, cols = NULL,  ...) standardGen
   matrixStats::rowCumsums(x, rows = rows, cols = cols, dim. = dim., ...)
 }
 
+#' @export
 #' @rdname rowCumsums
 setMethod("rowCumsums", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowCumsums)
 
-
-
-#' @rdname rowCumsums
-#' @name colCumsums
 #' @export
+#' @rdname rowCumsums
+## Default method with user-friendly fallback mechanism.
+setMethod("rowCumsums", "ANY", make_default_method_def("rowCumsums"))
+
+
+
+#' @export
+#' @rdname rowCumsums
 setGeneric("colCumsums", function(x, rows = NULL, cols = NULL, ...) standardGeneric("colCumsums"),
            signature = "x"
 )
@@ -52,6 +57,12 @@ setGeneric("colCumsums", function(x, rows = NULL, cols = NULL, ...) standardGene
   matrixStats::colCumsums(x, rows = rows, cols = cols, dim. = dim., ...)
 }
 
+#' @export
 #' @rdname rowCumsums
 setMethod("colCumsums", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colCumsums)
+
+#' @export
+#' @rdname rowCumsums
+## Default method with user-friendly fallback mechanism.
+setMethod("colCumsums", "ANY", make_default_method_def("colCumsums"))
 

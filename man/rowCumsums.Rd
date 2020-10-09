@@ -3,17 +3,23 @@
 \name{rowCumsums}
 \alias{rowCumsums}
 \alias{rowCumsums,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{rowCumsums,ANY-method}
 \alias{colCumsums}
 \alias{colCumsums,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{colCumsums,ANY-method}
 \title{Calculates the cumulative sum for each row (column) of a matrix-like object}
 \usage{
 rowCumsums(x, rows = NULL, cols = NULL, ...)
 
 \S4method{rowCumsums}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
 
+\S4method{rowCumsums}{ANY}(x, rows = NULL, cols = NULL, ...)
+
 colCumsums(x, rows = NULL, cols = NULL, ...)
 
 \S4method{colCumsums}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
+
+\S4method{colCumsums}{ANY}(x, rows = NULL, cols = NULL, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

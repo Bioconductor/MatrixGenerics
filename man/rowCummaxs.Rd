@@ -3,8 +3,10 @@
 \name{rowCummaxs}
 \alias{rowCummaxs}
 \alias{rowCummaxs,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{rowCummaxs,ANY-method}
 \alias{colCummaxs}
 \alias{colCummaxs,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{colCummaxs,ANY-method}
 \title{Calculates the cumulative maxima for each row (column) of a matrix-like
 object}
 \usage{
@@ -12,9 +14,13 @@ rowCummaxs(x, rows = NULL, cols = NULL, ...)
 
 \S4method{rowCummaxs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
 
+\S4method{rowCummaxs}{ANY}(x, rows = NULL, cols = NULL, ...)
+
 colCummaxs(x, rows = NULL, cols = NULL, ...)
 
 \S4method{colCummaxs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
+
+\S4method{colCummaxs}{ANY}(x, rows = NULL, cols = NULL, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

@@ -4,6 +4,9 @@
 #' 
 #' @include MatrixGenerics-package.R
 #'
+#' @export
+#' @name rowProds
+#'
 #' @templateVar rowName rowProds
 #' @templateVar colName colProds
 #' 
@@ -30,9 +33,6 @@
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-#'
-#' @name rowProds
-#' @export
 setGeneric("rowProds", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("rowProds"),
            signature = "x"
 )
@@ -41,14 +41,19 @@ setGeneric("rowProds", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
   matrixStats::rowProds(x, rows = rows, cols = cols, na.rm = na.rm, method = method, ...)
 }
 
+#' @export
 #' @rdname rowProds
 setMethod("rowProds", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowProds)
 
-
-
-#' @rdname rowProds
-#' @name colProds
 #' @export
+#' @rdname rowProds
+## Default method with user-friendly fallback mechanism.
+setMethod("rowProds", "ANY", make_default_method_def("rowProds"))
+
+
+
+#' @export
+#' @rdname rowProds
 setGeneric("colProds", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("colProds"),
            signature = "x"
 )
@@ -57,6 +62,12 @@ setGeneric("colProds", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
   matrixStats::colProds(x, rows = rows, cols = cols, na.rm = na.rm, method = method, ...)
 }
 
+#' @export
 #' @rdname rowProds
 setMethod("colProds", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colProds)
+
+#' @export
+#' @rdname rowProds
+## Default method with user-friendly fallback mechanism.
+setMethod("colProds", "ANY", make_default_method_def("colProds"))
 

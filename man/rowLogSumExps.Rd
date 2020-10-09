@@ -3,8 +3,10 @@
 \name{rowLogSumExps}
 \alias{rowLogSumExps}
 \alias{rowLogSumExps,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{rowLogSumExps,ANY-method}
 \alias{colLogSumExps}
 \alias{colLogSumExps,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{colLogSumExps,ANY-method}
 \title{Accurately calculates the logarithm of the sum of exponentials for each row
 (column) of a matrix-like object}
 \usage{
@@ -12,9 +14,13 @@ rowLogSumExps(lx, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
 \S4method{rowLogSumExps}{matrix_OR_array_OR_table_OR_numeric}(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx), ...)
 
+\S4method{rowLogSumExps}{ANY}(lx, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+
 colLogSumExps(lx, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
 \S4method{colLogSumExps}{matrix_OR_array_OR_table_OR_numeric}(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx), ...)
+
+\S4method{colLogSumExps}{ANY}(lx, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 }
 \arguments{
 \item{lx}{An NxK matrix-like object. Typically \code{lx} are \code{log(x)} values.}

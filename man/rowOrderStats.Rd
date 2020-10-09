@@ -3,17 +3,23 @@
 \name{rowOrderStats}
 \alias{rowOrderStats}
 \alias{rowOrderStats,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{rowOrderStats,ANY-method}
 \alias{colOrderStats}
 \alias{colOrderStats,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{colOrderStats,ANY-method}
 \title{Calculates an order statistic for each row (column) of a matrix-like object}
 \usage{
 rowOrderStats(x, rows = NULL, cols = NULL, which, ...)
 
 \S4method{rowOrderStats}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, which, dim. = dim(x), ...)
 
+\S4method{rowOrderStats}{ANY}(x, rows = NULL, cols = NULL, which, ...)
+
 colOrderStats(x, rows = NULL, cols = NULL, which, ...)
 
 \S4method{colOrderStats}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, which, dim. = dim(x), ...)
+
+\S4method{colOrderStats}{ANY}(x, rows = NULL, cols = NULL, which, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

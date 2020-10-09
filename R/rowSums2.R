@@ -4,6 +4,9 @@
 #' 
 #' @include MatrixGenerics-package.R
 #'
+#' @export
+#' @name rowSums2
+#'
 #' @templateVar rowName rowSums2
 #' @templateVar colName colSums2
 #' 
@@ -28,9 +31,6 @@
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-#'
-#' @name rowSums2
-#' @export
 setGeneric("rowSums2", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("rowSums2"),
            signature = "x"
 )
@@ -39,14 +39,19 @@ setGeneric("rowSums2", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
   matrixStats::rowSums2(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
 }
 
+#' @export
 #' @rdname rowSums2
 setMethod("rowSums2", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowSums2)
 
-
-
-#' @rdname rowSums2
-#' @name colSums2
 #' @export
+#' @rdname rowSums2
+## Default method with user-friendly fallback mechanism.
+setMethod("rowSums2", "ANY", make_default_method_def("rowSums2"))
+
+
+
+#' @export
+#' @rdname rowSums2
 setGeneric("colSums2", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("colSums2"),
            signature = "x"
 )
@@ -55,6 +60,12 @@ setGeneric("colSums2", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
   matrixStats::colSums2(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
 }
 
+#' @export
 #' @rdname rowSums2
 setMethod("colSums2", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colSums2)
+
+#' @export
+#' @rdname rowSums2
+## Default method with user-friendly fallback mechanism.
+setMethod("colSums2", "ANY", make_default_method_def("colSums2"))
 

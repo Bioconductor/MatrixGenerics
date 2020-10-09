@@ -6,6 +6,9 @@
 #' 
 #' @include MatrixGenerics-package.R
 #'
+#' @export
+#' @name rowSdDiffs
+#'
 #' @templateVar rowName rowSdDiffs
 #' @templateVar colName colSdDiffs
 #' 
@@ -28,9 +31,6 @@
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-#'
-#' @name rowSdDiffs
-#' @export
 setGeneric("rowSdDiffs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0,  ...) standardGeneric("rowSdDiffs"),
            signature = "x"
 )
@@ -39,14 +39,19 @@ setGeneric("rowSdDiffs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, di
   matrixStats::rowSdDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff = diff, trim = trim, ...)
 }
 
+#' @export
 #' @rdname rowSdDiffs
 setMethod("rowSdDiffs", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowSdDiffs)
 
-
-
-#' @rdname rowSdDiffs
-#' @name colSdDiffs
 #' @export
+#' @rdname rowSdDiffs
+## Default method with user-friendly fallback mechanism.
+setMethod("rowSdDiffs", "ANY", make_default_method_def("rowSdDiffs"))
+
+
+
+#' @export
+#' @rdname rowSdDiffs
 setGeneric("colSdDiffs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...) standardGeneric("colSdDiffs"),
            signature = "x"
 )
@@ -55,6 +60,12 @@ setGeneric("colSdDiffs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, di
   matrixStats::colSdDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff = diff, trim = trim, ...)
 }
 
+#' @export
 #' @rdname rowSdDiffs
 setMethod("colSdDiffs", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colSdDiffs)
+
+#' @export
+#' @rdname rowSdDiffs
+## Default method with user-friendly fallback mechanism.
+setMethod("colSdDiffs", "ANY", make_default_method_def("colSdDiffs"))
 

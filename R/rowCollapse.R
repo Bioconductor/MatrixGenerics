@@ -4,6 +4,9 @@
 #' 
 #' @include MatrixGenerics-package.R
 #'
+#' @export
+#' @name rowCollapse
+#'
 #' @templateVar rowName rowCollapse
 #' @templateVar colName colCollapse
 #' 
@@ -18,8 +21,8 @@
 #'
 #' @seealso
 #' \itemize{
-#' \item \code{matrixStats::\link[matrixStats]{rowCollapse}()} and
-#'   \code{matrixStats::\link[matrixStats:rowCollapse]{colCollapse}()}
+#' \item \code{matrixStats::\link[matrixStats:rowCollapse]{rowCollapse}()}
+#'   and \code{matrixStats::\link[matrixStats:rowCollapse]{colCollapse}()}
 #'   which are used when the input is a \code{matrix} or \code{numeric} vector.
 #' }
 #' 
@@ -37,9 +40,6 @@
 #'   colCollapse (mat, idxs = 4)
 #'
 #' @keywords array iteration robust univar
-#'
-#' @name rowCollapse
-#' @export
 setGeneric("rowCollapse", function(x, idxs, rows = NULL, ...) standardGeneric("rowCollapse"),
            signature = "x"
 )
@@ -48,14 +48,19 @@ setGeneric("rowCollapse", function(x, idxs, rows = NULL, ...) standardGeneric("r
   matrixStats::rowCollapse(x, idxs = idxs, rows = rows, dim. = dim., ...)
 }
 
+#' @export
 #' @rdname rowCollapse
 setMethod("rowCollapse", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowCollapse)
 
-
-
-#' @rdname rowCollapse
-#' @name colCollapse
 #' @export
+#' @rdname rowCollapse
+## Default method with user-friendly fallback mechanism.
+setMethod("rowCollapse", "ANY", make_default_method_def("rowCollapse"))
+
+
+
+#' @export
+#' @rdname rowCollapse
 setGeneric("colCollapse", function(x, idxs = idxs, cols = NULL, ...) standardGeneric("colCollapse"),
            signature = "x"
 )
@@ -64,6 +69,12 @@ setGeneric("colCollapse", function(x, idxs = idxs, cols = NULL, ...) standardGen
   matrixStats::colCollapse(x, idxs = idxs, cols = cols, dim. = dim., ...)
 }
 
+#' @export
 #' @rdname rowCollapse
 setMethod("colCollapse", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colCollapse)
+
+#' @export
+#' @rdname rowCollapse
+## Default method with user-friendly fallback mechanism.
+setMethod("colCollapse", "ANY", make_default_method_def("colCollapse"))
 

@@ -6,6 +6,9 @@
 #' 
 #' @include MatrixGenerics-package.R
 #'
+#' @export
+#' @name rowIQRs
+#'
 #' @templateVar rowName rowIQRs
 #' @templateVar colName colIQRs
 #' 
@@ -29,9 +32,6 @@
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-#'
-#' @name rowIQRs
-#' @export
 setGeneric("rowIQRs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("rowIQRs"),
            signature = "x"
 )
@@ -40,14 +40,19 @@ setGeneric("rowIQRs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) 
   matrixStats::rowIQRs(x, rows = rows, cols = cols, na.rm = na.rm, ...)
 }
 
+#' @export
 #' @rdname rowIQRs
 setMethod("rowIQRs", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowIQRs)
 
-
-
-#' @rdname rowIQRs
-#' @name colIQRs
 #' @export
+#' @rdname rowIQRs
+## Default method with user-friendly fallback mechanism.
+setMethod("rowIQRs", "ANY", make_default_method_def("rowIQRs"))
+
+
+
+#' @export
+#' @rdname rowIQRs
 setGeneric("colIQRs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("colIQRs"),
            signature = "x"
 )
@@ -56,6 +61,12 @@ setGeneric("colIQRs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) 
   matrixStats::colIQRs(x, rows = rows, cols = cols, na.rm = na.rm, ...)
 }
 
+#' @export
 #' @rdname rowIQRs
 setMethod("colIQRs", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colIQRs)
+
+#' @export
+#' @rdname rowIQRs
+## Default method with user-friendly fallback mechanism.
+setMethod("colIQRs", "ANY", make_default_method_def("colIQRs"))
 

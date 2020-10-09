@@ -3,8 +3,10 @@
 \name{rowAvgsPerColSet}
 \alias{rowAvgsPerColSet}
 \alias{rowAvgsPerColSet,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{rowAvgsPerColSet,ANY-method}
 \alias{colAvgsPerRowSet}
 \alias{colAvgsPerRowSet,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{colAvgsPerRowSet,ANY-method}
 \title{Calculates for each row (column) a summary statistic for equally sized
 subsets of columns (rows)}
 \usage{
@@ -14,11 +16,17 @@ rowAvgsPerColSet(X, W = NULL, rows = NULL, S, FUN = rowMeans, ...,
 \S4method{rowAvgsPerColSet}{matrix_OR_array_OR_table_OR_numeric}(X, W = NULL,
   rows = NULL, S, FUN = rowMeans, ..., tFUN = FALSE)
 
+\S4method{rowAvgsPerColSet}{ANY}(X, W = NULL, rows = NULL, S,
+  FUN = rowMeans, ..., tFUN = FALSE)
+
 colAvgsPerRowSet(X, W = NULL, cols = NULL, S, FUN = colMeans, ...,
   tFUN = FALSE)
 
 \S4method{colAvgsPerRowSet}{matrix_OR_array_OR_table_OR_numeric}(X, W = NULL,
   cols = NULL, S, FUN = colMeans, ..., tFUN = FALSE)
+
+\S4method{colAvgsPerRowSet}{ANY}(X, W = NULL, cols = NULL, S,
+  FUN = colMeans, ..., tFUN = FALSE)
 }
 \arguments{
 \item{X}{An \code{NxM} matrix-like object.}
@@ -70,8 +78,8 @@ The S4 methods for \code{x} of type \code{\link{matrix}},
 }
 \seealso{
 \itemize{
-\item \code{matrixStats::\link[matrixStats]{rowAvgsPerColSet}()} and
-\code{matrixStats::\link[matrixStats:rowAvgsPerColSet]{colAvgsPerRowSet}()}
+\item \code{matrixStats::\link[matrixStats:rowAvgsPerColSet]{rowAvgsPerColSet}()}
+and \code{matrixStats::\link[matrixStats:rowAvgsPerColSet]{colAvgsPerRowSet}()}
 which are used when the input is a \code{matrix} or \code{numeric} vector.
 }
 }

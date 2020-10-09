@@ -3,6 +3,9 @@
 #' Calculates the mean for each row (column) of a matrix-like object.
 #'
 #' @include MatrixGenerics-package.R
+#'
+#' @export
+#' @name rowMeans2
 #' 
 #' @templateVar rowName rowMeans2
 #' @templateVar colName colMeans2
@@ -30,9 +33,6 @@
 #'   
 #' 
 #' @keywords array iteration robust univar
-#'
-#' @name rowMeans2
-#' @export
 setGeneric("rowMeans2", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("rowMeans2"),
            signature = "x"
 )
@@ -41,14 +41,19 @@ setGeneric("rowMeans2", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...
   matrixStats::rowMeans2(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
 }
 
+#' @export
 #' @rdname rowMeans2
 setMethod("rowMeans2", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowMeans2)
 
-
-
-#' @rdname rowMeans2
-#' @name colMeans2
 #' @export
+#' @rdname rowMeans2
+## Default method with user-friendly fallback mechanism.
+setMethod("rowMeans2", "ANY", make_default_method_def("rowMeans2"))
+
+
+
+#' @export
+#' @rdname rowMeans2
 setGeneric("colMeans2", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("colMeans2"),
            signature = "x"
 )
@@ -57,6 +62,12 @@ setGeneric("colMeans2", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...
   matrixStats::colMeans2(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
 }
 
+#' @export
 #' @rdname rowMeans2
 setMethod("colMeans2", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colMeans2)
+
+#' @export
+#' @rdname rowMeans2
+## Default method with user-friendly fallback mechanism.
+setMethod("colMeans2", "ANY", make_default_method_def("colMeans2"))
 

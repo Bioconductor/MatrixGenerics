@@ -3,17 +3,23 @@
 \name{rowCollapse}
 \alias{rowCollapse}
 \alias{rowCollapse,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{rowCollapse,ANY-method}
 \alias{colCollapse}
 \alias{colCollapse,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{colCollapse,ANY-method}
 \title{Extract one cell from each row (column) of a matrix-like object}
 \usage{
 rowCollapse(x, idxs, rows = NULL, ...)
 
 \S4method{rowCollapse}{matrix_OR_array_OR_table_OR_numeric}(x, idxs, rows = NULL, dim. = dim(x), ...)
 
+\S4method{rowCollapse}{ANY}(x, idxs, rows = NULL, ...)
+
 colCollapse(x, idxs = idxs, cols = NULL, ...)
 
 \S4method{colCollapse}{matrix_OR_array_OR_table_OR_numeric}(x, idxs, cols = NULL, dim. = dim(x), ...)
+
+\S4method{colCollapse}{ANY}(x, idxs = idxs, cols = NULL, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
@@ -60,8 +66,8 @@ The S4 methods for \code{x} of type \code{\link{matrix}},
 }
 \seealso{
 \itemize{
-\item \code{matrixStats::\link[matrixStats]{rowCollapse}()} and
-\code{matrixStats::\link[matrixStats:rowCollapse]{colCollapse}()}
+\item \code{matrixStats::\link[matrixStats:rowCollapse]{rowCollapse}()}
+and \code{matrixStats::\link[matrixStats:rowCollapse]{colCollapse}()}
 which are used when the input is a \code{matrix} or \code{numeric} vector.
 }
 }

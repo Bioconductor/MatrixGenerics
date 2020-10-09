@@ -3,17 +3,23 @@
 \name{rowMins}
 \alias{rowMins}
 \alias{rowMins,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{rowMins,ANY-method}
 \alias{colMins}
 \alias{colMins,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{colMins,ANY-method}
 \title{Calculates the minimum for each row (column) of a matrix-like object}
 \usage{
 rowMins(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
 \S4method{rowMins}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
 
+\S4method{rowMins}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+
 colMins(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
 \S4method{colMins}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
+
+\S4method{colMins}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

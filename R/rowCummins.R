@@ -6,6 +6,9 @@
 #' 
 #' @include MatrixGenerics-package.R
 #'
+#' @export
+#' @name rowCummins
+#'
 #' @templateVar rowName rowCummins
 #' @templateVar colName colCummins
 #' 
@@ -28,9 +31,6 @@
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-#'
-#' @name rowCummins
-#' @export
 setGeneric("rowCummins", function(x, rows = NULL, cols = NULL,  ...) standardGeneric("rowCummins"),
            signature = "x"
 )
@@ -39,14 +39,19 @@ setGeneric("rowCummins", function(x, rows = NULL, cols = NULL,  ...) standardGen
   matrixStats::rowCummins(x, rows = rows, cols = cols, dim. = dim., ...)
 }
 
+#' @export
 #' @rdname rowCummins
 setMethod("rowCummins", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowCummins)
 
-
-
-#' @rdname rowCummins
-#' @name colCummins
 #' @export
+#' @rdname rowCummins
+## Default method with user-friendly fallback mechanism.
+setMethod("rowCummins", "ANY", make_default_method_def("rowCummins"))
+
+
+
+#' @export
+#' @rdname rowCummins
 setGeneric("colCummins", function(x, rows = NULL, cols = NULL, ...) standardGeneric("colCummins"),
            signature = "x"
 )
@@ -55,6 +60,12 @@ setGeneric("colCummins", function(x, rows = NULL, cols = NULL, ...) standardGene
   matrixStats::colCummins(x, rows = rows, cols = cols, dim. = dim., ...)
 }
 
+#' @export
 #' @rdname rowCummins
 setMethod("colCummins", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colCummins)
+
+#' @export
+#' @rdname rowCummins
+## Default method with user-friendly fallback mechanism.
+setMethod("colCummins", "ANY", make_default_method_def("colCummins"))
 

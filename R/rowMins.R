@@ -4,6 +4,9 @@
 #' 
 #' @include MatrixGenerics-package.R
 #'
+#' @export
+#' @name rowMins
+#'
 #' @templateVar rowName rowMins
 #' @templateVar colName colMins
 #' 
@@ -26,9 +29,6 @@
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-#'
-#' @name rowMins
-#' @export
 setGeneric("rowMins", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("rowMins"),
            signature = "x"
 )
@@ -37,14 +37,19 @@ setGeneric("rowMins", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) 
   matrixStats::rowMins(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
 }
 
+#' @export
 #' @rdname rowMins
 setMethod("rowMins", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowMins)
 
-
-
-#' @rdname rowMins
-#' @name colMins
 #' @export
+#' @rdname rowMins
+## Default method with user-friendly fallback mechanism.
+setMethod("rowMins", "ANY", make_default_method_def("rowMins"))
+
+
+
+#' @export
+#' @rdname rowMins
 setGeneric("colMins", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("colMins"),
            signature = "x"
 )
@@ -53,6 +58,12 @@ setGeneric("colMins", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) 
   matrixStats::colMins(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
 }
 
+#' @export
 #' @rdname rowMins
 setMethod("colMins", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colMins)
+
+#' @export
+#' @rdname rowMins
+## Default method with user-friendly fallback mechanism.
+setMethod("colMins", "ANY", make_default_method_def("colMins"))
 

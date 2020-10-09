@@ -3,8 +3,10 @@
 \name{rowRanks}
 \alias{rowRanks}
 \alias{rowRanks,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{rowRanks,ANY-method}
 \alias{colRanks}
 \alias{colRanks,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{colRanks,ANY-method}
 \title{Calculates the rank of the elements for each row (column) of a matrix-like
 object}
 \usage{
@@ -14,11 +16,15 @@ rowRanks(x, rows = NULL, cols = NULL, ties.method = c("max", "average"), ...)
   cols = NULL, ties.method = c("max", "average", "first", "last", "random",
   "max", "min", "dense"), dim. = dim(x), ...)
 
+\S4method{rowRanks}{ANY}(x, rows = NULL, cols = NULL, ties.method = c("max", "average"), ...)
+
 colRanks(x, rows = NULL, cols = NULL, ties.method = c("max", "average"), ...)
 
 \S4method{colRanks}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
   cols = NULL, ties.method = c("max", "average", "first", "last", "random",
   "max", "min", "dense"), dim. = dim(x), preserveShape = FALSE, ...)
+
+\S4method{colRanks}{ANY}(x, rows = NULL, cols = NULL, ties.method = c("max", "average"), ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

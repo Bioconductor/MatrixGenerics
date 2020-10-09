@@ -3,17 +3,23 @@
 \name{rowMaxs}
 \alias{rowMaxs}
 \alias{rowMaxs,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{rowMaxs,ANY-method}
 \alias{colMaxs}
 \alias{colMaxs,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{colMaxs,ANY-method}
 \title{Calculates the maximum for each row (column) of a matrix-like object}
 \usage{
 rowMaxs(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
 \S4method{rowMaxs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
 
+\S4method{rowMaxs}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+
 colMaxs(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
 \S4method{colMaxs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
+
+\S4method{colMaxs}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
