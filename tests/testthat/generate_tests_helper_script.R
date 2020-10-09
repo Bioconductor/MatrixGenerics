@@ -40,7 +40,8 @@ function_args <- list(x = list("mat"),
                       diff = list(1, 2),
                       trim = list(0, 1/3, 0.5),
                       lx = list("mat"),
-                      center = list(NULL, 3.1),
+                      col_center = list("NULL", "rep(0.3, ncol(mat))"),
+                      row_center = list("NULL", "rep(0.3, nrow(mat))"),
                       constant = list(1.4826, 5),
                       which = list(2, 1),
                       method = list("'direct'", "'expSumLog'"),
@@ -115,7 +116,9 @@ res <- paste0(sapply(testable_functions, function(fnc_name){
   
   # Now all combinations of parameters
   arg_names <- setdiff(names(default_args), "...")
-  filled_in_args <- function_args[arg_names]
+  arg_names_lookup <- arg_names
+  arg_names_lookup[arg_names_lookup == "center"] <- paste0(substr(fnc_name, 1, 3), "_center")
+  filled_in_args <- function_args[arg_names_lookup]
   # Need special handling of colAvgsPerRowSet / rowAvgsPerColSet
   if (fnc_name == "colAvgsPerRowSet") {
     filled_in_args[["cols"]][[2]] <- 1:2
