@@ -3,8 +3,10 @@
 \name{rowCounts}
 \alias{rowCounts}
 \alias{rowCounts,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{rowCounts,ANY-method}
 \alias{colCounts}
 \alias{colCounts,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{colCounts,ANY-method}
 \title{Count how often an element in a row (column) of a matrix-like object is
 equal to a value}
 \usage{
@@ -13,10 +15,14 @@ rowCounts(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...)
 \S4method{rowCounts}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
   cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ...)
 
+\S4method{rowCounts}{ANY}(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...)
+
 colCounts(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...)
 
 \S4method{colCounts}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
   cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ...)
+
+\S4method{colCounts}{ANY}(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
@@ -63,8 +69,6 @@ The S4 methods for \code{x} of type \code{\link{matrix}},
   
   rowCounts(mat, value = 0)
   colCounts(mat, value = Inf, na.rm = TRUE)
-
-
 }
 \seealso{
 \itemize{

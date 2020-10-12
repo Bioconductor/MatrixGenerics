@@ -3,6 +3,9 @@
 #' Calculates the weighted median for each row (column) of a matrix-like object.
 #'
 #' @include MatrixGenerics-package.R
+#'
+#' @export
+#' @name rowWeightedMedians
 #' 
 #' @templateVar rowName rowWeightedMedians
 #' @templateVar colName colWeightedMedians
@@ -25,12 +28,8 @@
 #' }
 #' 
 #' @template weightedExamples
-#'   
 #' 
 #' @keywords array iteration robust univar
-#'
-#' @name rowWeightedMedians
-#' @export
 setGeneric("rowWeightedMedians", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("rowWeightedMedians"),
            signature = "x"
 )
@@ -39,14 +38,19 @@ setGeneric("rowWeightedMedians", function(x, w = NULL, rows = NULL, cols = NULL,
   matrixStats::rowWeightedMedians(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ...)
 }
 
+#' @export
 #' @rdname rowWeightedMedians
 setMethod("rowWeightedMedians", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowWeightedMedians)
 
-
-
-#' @rdname rowWeightedMedians
-#' @name colWeightedMedians
 #' @export
+#' @rdname rowWeightedMedians
+## Default method with user-friendly fallback mechanism.
+setMethod("rowWeightedMedians", "ANY", make_default_method_def("rowWeightedMedians"))
+
+
+
+#' @export
+#' @rdname rowWeightedMedians
 setGeneric("colWeightedMedians", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("colWeightedMedians"),
            signature = "x"
 )
@@ -55,6 +59,12 @@ setGeneric("colWeightedMedians", function(x, w = NULL, rows = NULL, cols = NULL,
   matrixStats::colWeightedMedians(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ...)
 }
 
+#' @export
 #' @rdname rowWeightedMedians
 setMethod("colWeightedMedians", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colWeightedMedians)
+
+#' @export
+#' @rdname rowWeightedMedians
+## Default method with user-friendly fallback mechanism.
+setMethod("colWeightedMedians", "ANY", make_default_method_def("colWeightedMedians"))
 

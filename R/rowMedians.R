@@ -4,6 +4,9 @@
 #' 
 #' @include MatrixGenerics-package.R
 #'
+#' @export
+#' @name rowMedians
+#'
 #' @templateVar rowName rowMedians
 #' @templateVar colName colMedians
 #' 
@@ -27,9 +30,6 @@
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-#'
-#' @name rowMedians
-#' @export
 setGeneric("rowMedians", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("rowMedians"),
            signature = "x"
 )
@@ -38,15 +38,19 @@ setGeneric("rowMedians", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..
   matrixStats::rowMedians(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
 }
 
-
+#' @export
 #' @rdname rowMedians
 setMethod("rowMedians", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowMedians)
 
-
-
-#' @rdname rowMedians
-#' @name colMedians
 #' @export
+#' @rdname rowMedians
+## Default method with user-friendly fallback mechanism.
+setMethod("rowMedians", "ANY", make_default_method_def("rowMedians"))
+
+
+
+#' @export
+#' @rdname rowMedians
 setGeneric("colMedians", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("colMedians"),
            signature = "x"
 )
@@ -55,6 +59,12 @@ setGeneric("colMedians", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..
   matrixStats::colMedians(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
 }
 
+#' @export
 #' @rdname rowMedians
 setMethod("colMedians", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colMedians)
+
+#' @export
+#' @rdname rowMedians
+## Default method with user-friendly fallback mechanism.
+setMethod("colMedians", "ANY", make_default_method_def("colMedians"))
 

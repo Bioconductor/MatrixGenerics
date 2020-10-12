@@ -4,6 +4,9 @@
 #' 
 #' @include MatrixGenerics-package.R
 #'
+#' @export
+#' @name rowMaxs
+#'
 #' @templateVar rowName rowMaxs
 #' @templateVar colName colMaxs
 #' 
@@ -26,9 +29,6 @@
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-#'
-#' @name rowMaxs
-#' @export
 setGeneric("rowMaxs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("rowMaxs"),
            signature = "x"
 )
@@ -37,14 +37,19 @@ setGeneric("rowMaxs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) 
   matrixStats::rowMaxs(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
 }
 
+#' @export
 #' @rdname rowMaxs
 setMethod("rowMaxs", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowMaxs)
 
-
-
-#' @rdname rowMaxs
-#' @name colMaxs
 #' @export
+#' @rdname rowMaxs
+## Default method with user-friendly fallback mechanism.
+setMethod("rowMaxs", "ANY", make_default_method_def("rowMaxs"))
+
+
+
+#' @export
+#' @rdname rowMaxs
 setGeneric("colMaxs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("colMaxs"),
            signature = "x"
 )
@@ -53,6 +58,12 @@ setGeneric("colMaxs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) 
   matrixStats::colMaxs(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
 }
 
+#' @export
 #' @rdname rowMaxs
 setMethod("colMaxs", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colMaxs)
+
+#' @export
+#' @rdname rowMaxs
+## Default method with user-friendly fallback mechanism.
+setMethod("colMaxs", "ANY", make_default_method_def("colMaxs"))
 

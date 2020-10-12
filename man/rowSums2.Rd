@@ -3,17 +3,23 @@
 \name{rowSums2}
 \alias{rowSums2}
 \alias{rowSums2,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{rowSums2,ANY-method}
 \alias{colSums2}
 \alias{colSums2,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{colSums2,ANY-method}
 \title{Calculates the sum for each row (column) of a matrix-like object}
 \usage{
 rowSums2(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
 \S4method{rowSums2}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
 
+\S4method{rowSums2}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+
 colSums2(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
 \S4method{colSums2}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
+
+\S4method{colSums2}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

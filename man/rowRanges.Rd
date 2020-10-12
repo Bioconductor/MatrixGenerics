@@ -3,8 +3,10 @@
 \name{rowRanges}
 \alias{rowRanges}
 \alias{rowRanges,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{rowRanges,ANY-method}
 \alias{colRanges}
 \alias{colRanges,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{colRanges,ANY-method}
 \title{Calculates the minimum and maximum for each row (column) of a matrix-like
 object}
 \usage{
@@ -12,9 +14,13 @@ rowRanges(x, ...)
 
 \S4method{rowRanges}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
 
+\S4method{rowRanges}{ANY}(x, ...)
+
 colRanges(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
 \S4method{colRanges}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
+
+\S4method{colRanges}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

@@ -3,17 +3,23 @@
 \name{rowWeightedMeans}
 \alias{rowWeightedMeans}
 \alias{rowWeightedMeans,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{rowWeightedMeans,ANY-method}
 \alias{colWeightedMeans}
 \alias{colWeightedMeans,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{colWeightedMeans,ANY-method}
 \title{Calculates the weighted mean for each row (column) of a matrix-like object}
 \usage{
 rowWeightedMeans(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
 \S4method{rowWeightedMeans}{matrix_OR_array_OR_table_OR_numeric}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
+\S4method{rowWeightedMeans}{ANY}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+
 colWeightedMeans(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
 \S4method{colWeightedMeans}{matrix_OR_array_OR_table_OR_numeric}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+
+\S4method{colWeightedMeans}{ANY}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

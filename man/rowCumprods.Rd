@@ -3,8 +3,10 @@
 \name{rowCumprods}
 \alias{rowCumprods}
 \alias{rowCumprods,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{rowCumprods,ANY-method}
 \alias{colCumprods}
 \alias{colCumprods,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{colCumprods,ANY-method}
 \title{Calculates the cumulative product for each row (column) of a matrix-like
 object}
 \usage{
@@ -12,9 +14,13 @@ rowCumprods(x, rows = NULL, cols = NULL, ...)
 
 \S4method{rowCumprods}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
 
+\S4method{rowCumprods}{ANY}(x, rows = NULL, cols = NULL, ...)
+
 colCumprods(x, rows = NULL, cols = NULL, ...)
 
 \S4method{colCumprods}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
+
+\S4method{colCumprods}{ANY}(x, rows = NULL, cols = NULL, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

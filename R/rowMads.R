@@ -6,6 +6,9 @@
 #' 
 #' @include MatrixGenerics-package.R
 #'
+#' @export
+#' @name rowMads
+#'
 #' @templateVar rowName rowMads
 #' @templateVar colName colMads
 #' 
@@ -34,9 +37,6 @@
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-#'
-#' @name rowMads
-#' @export
 setGeneric("rowMads", function(x, rows = NULL, cols = NULL, center = NULL, constant = 1.4826, na.rm = FALSE, ...) standardGeneric("rowMads"),
            signature = "x"
 )
@@ -45,14 +45,19 @@ setGeneric("rowMads", function(x, rows = NULL, cols = NULL, center = NULL, const
   matrixStats::rowMads(x, rows = rows, cols = cols, center = center, constant = constant, na.rm = na.rm, dim. = dim., ...)
 }
 
+#' @export
 #' @rdname rowMads
 setMethod("rowMads", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowMads)
 
-
-
-#' @rdname rowMads
-#' @name colMads
 #' @export
+#' @rdname rowMads
+## Default method with user-friendly fallback mechanism.
+setMethod("rowMads", "ANY", make_default_method_def("rowMads"))
+
+
+
+#' @export
+#' @rdname rowMads
 setGeneric("colMads", function(x, rows = NULL, cols = NULL, center = NULL, constant = 1.4826, na.rm = FALSE, ...) standardGeneric("colMads"),
            signature = "x"
 )
@@ -61,6 +66,12 @@ setGeneric("colMads", function(x, rows = NULL, cols = NULL, center = NULL, const
   matrixStats::colMads(x, rows = rows, cols = cols, center = center, constant = constant, na.rm = na.rm, dim. = dim., ...)
 }
 
+#' @export
 #' @rdname rowMads
 setMethod("colMads", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colMads)
+
+#' @export
+#' @rdname rowMads
+## Default method with user-friendly fallback mechanism.
+setMethod("colMads", "ANY", make_default_method_def("colMads"))
 

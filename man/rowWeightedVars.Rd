@@ -3,8 +3,10 @@
 \name{rowWeightedVars}
 \alias{rowWeightedVars}
 \alias{rowWeightedVars,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{rowWeightedVars,ANY-method}
 \alias{colWeightedVars}
 \alias{colWeightedVars,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{colWeightedVars,ANY-method}
 \title{Calculates the weighted variance for each row (column) of a matrix-like
 object}
 \usage{
@@ -12,9 +14,13 @@ rowWeightedVars(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
 \S4method{rowWeightedVars}{matrix_OR_array_OR_table_OR_numeric}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
+\S4method{rowWeightedVars}{ANY}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+
 colWeightedVars(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
 \S4method{colWeightedVars}{matrix_OR_array_OR_table_OR_numeric}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+
+\S4method{colWeightedVars}{ANY}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

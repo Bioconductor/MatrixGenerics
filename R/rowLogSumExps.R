@@ -6,6 +6,9 @@
 #' 
 #' @include MatrixGenerics-package.R
 #'
+#' @export
+#' @name rowLogSumExps
+#'
 #' @templateVar rowName rowLogSumExps
 #' @templateVar colName colLogSumExps
 #' 
@@ -31,9 +34,6 @@
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-#'
-#' @name rowLogSumExps
-#' @export
 setGeneric("rowLogSumExps", function(lx, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("rowLogSumExps"),
            signature = "lx"
 )
@@ -42,14 +42,19 @@ setGeneric("rowLogSumExps", function(lx, rows = NULL, cols = NULL, na.rm = FALSE
   matrixStats::rowLogSumExps(lx, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
 }
 
+#' @export
 #' @rdname rowLogSumExps
 setMethod("rowLogSumExps", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowLogSumExps)
 
-
-
-#' @rdname rowLogSumExps
-#' @name colLogSumExps
 #' @export
+#' @rdname rowLogSumExps
+## Default method with user-friendly fallback mechanism.
+setMethod("rowLogSumExps", "ANY", make_default_method_def("rowLogSumExps"))
+
+
+
+#' @export
+#' @rdname rowLogSumExps
 setGeneric("colLogSumExps", function(lx, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("colLogSumExps"),
            signature = "lx"
 )
@@ -58,6 +63,12 @@ setGeneric("colLogSumExps", function(lx, rows = NULL, cols = NULL, na.rm = FALSE
   matrixStats::colLogSumExps(lx, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
 }
 
+#' @export
 #' @rdname rowLogSumExps
 setMethod("colLogSumExps", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colLogSumExps)
+
+#' @export
+#' @rdname rowLogSumExps
+## Default method with user-friendly fallback mechanism.
+setMethod("colLogSumExps", "ANY", make_default_method_def("colLogSumExps"))
 

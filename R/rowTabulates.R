@@ -4,6 +4,9 @@
 #' 
 #' @include MatrixGenerics-package.R
 #'
+#' @export
+#' @name rowTabulates
+#'
 #' @templateVar rowName rowTabulates
 #' @templateVar colName colTabulates
 #' 
@@ -37,9 +40,6 @@
 #'   colTabulates(mat, values = 0)
 #'
 #' @keywords array iteration robust univar
-#'
-#' @name rowTabulates
-#' @export
 setGeneric("rowTabulates", function(x, rows = NULL, cols = NULL, values = NULL, ...) standardGeneric("rowTabulates"),
            signature = "x"
 )
@@ -48,14 +48,19 @@ setGeneric("rowTabulates", function(x, rows = NULL, cols = NULL, values = NULL, 
   matrixStats::rowTabulates(x, rows = rows, cols = cols, values = values, ...)
 }
 
+#' @export
 #' @rdname rowTabulates
 setMethod("rowTabulates", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowTabulates)
 
-
-
-#' @rdname rowTabulates
-#' @name colTabulates
 #' @export
+#' @rdname rowTabulates
+## Default method with user-friendly fallback mechanism.
+setMethod("rowTabulates", "ANY", make_default_method_def("rowTabulates"))
+
+
+
+#' @export
+#' @rdname rowTabulates
 setGeneric("colTabulates", function(x, rows = NULL, cols = NULL, values = NULL, ...) standardGeneric("colTabulates"),
            signature = "x"
 )
@@ -64,6 +69,12 @@ setGeneric("colTabulates", function(x, rows = NULL, cols = NULL, values = NULL, 
   matrixStats::colTabulates(x, rows = rows, cols = cols, values = values, ...)
 }
 
+#' @export
 #' @rdname rowTabulates
 setMethod("colTabulates", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colTabulates)
+
+#' @export
+#' @rdname rowTabulates
+## Default method with user-friendly fallback mechanism.
+setMethod("colTabulates", "ANY", make_default_method_def("colTabulates"))
 

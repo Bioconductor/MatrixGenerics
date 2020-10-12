@@ -3,8 +3,10 @@
 \name{rowWeightedMads}
 \alias{rowWeightedMads}
 \alias{rowWeightedMads,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{rowWeightedMads,ANY-method}
 \alias{colWeightedMads}
 \alias{colWeightedMads,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{colWeightedMads,ANY-method}
 \title{Calculates the weighted median absolute deviation for each row (column) of a
 matrix-like object}
 \usage{
@@ -15,12 +17,18 @@ rowWeightedMads(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE,
   rows = NULL, cols = NULL, na.rm = FALSE, constant = 1.4826,
   center = NULL, ...)
 
+\S4method{rowWeightedMads}{ANY}(x, w = NULL, rows = NULL, cols = NULL,
+  na.rm = FALSE, constant = 1.4826, center = NULL, ...)
+
 colWeightedMads(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE,
   constant = 1.4826, center = NULL, ...)
 
 \S4method{colWeightedMads}{matrix_OR_array_OR_table_OR_numeric}(x, w = NULL,
   rows = NULL, cols = NULL, na.rm = FALSE, constant = 1.4826,
   center = NULL, ...)
+
+\S4method{colWeightedMads}{ANY}(x, w = NULL, rows = NULL, cols = NULL,
+  na.rm = FALSE, constant = 1.4826, center = NULL, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

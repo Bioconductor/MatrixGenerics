@@ -4,6 +4,9 @@
 #' 
 #' @include MatrixGenerics-package.R
 #'
+#' @export
+#' @name rowAnyNAs
+#'
 #' @templateVar rowName rowAnyNAs
 #' @templateVar colName colAnyNAs
 #' 
@@ -24,10 +27,6 @@
 #' }
 #' 
 #' @template standardExamples
-#'
-#'
-#' @name rowAnyNAs
-#' @export
 setGeneric("rowAnyNAs", function(x, rows = NULL, cols = NULL,  ...) standardGeneric("rowAnyNAs"),
            signature = "x"
 )
@@ -36,14 +35,19 @@ setGeneric("rowAnyNAs", function(x, rows = NULL, cols = NULL,  ...) standardGene
   matrixStats::rowAnyNAs(x, rows = rows, cols = cols, ...)
 }
 
+#' @export
 #' @rdname rowAnyNAs
 setMethod("rowAnyNAs", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowAnyNAs)
 
-
-
-#' @rdname rowAnyNAs
-#' @name colAnyNAs
 #' @export
+#' @rdname rowAnyNAs
+## Default method with user-friendly fallback mechanism.
+setMethod("rowAnyNAs", "ANY", make_default_method_def("rowAnyNAs"))
+
+
+
+#' @export
+#' @rdname rowAnyNAs
 setGeneric("colAnyNAs", function(x, rows = NULL, cols = NULL, ...) standardGeneric("colAnyNAs"),
            signature = "x"
 )
@@ -52,6 +56,12 @@ setGeneric("colAnyNAs", function(x, rows = NULL, cols = NULL, ...) standardGener
   matrixStats::colAnyNAs(x, rows = rows, cols = cols, ...)
 }
 
+#' @export
 #' @rdname rowAnyNAs
 setMethod("colAnyNAs", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colAnyNAs)
+
+#' @export
+#' @rdname rowAnyNAs
+## Default method with user-friendly fallback mechanism.
+setMethod("colAnyNAs", "ANY", make_default_method_def("colAnyNAs"))
 

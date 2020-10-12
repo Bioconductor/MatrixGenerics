@@ -3,8 +3,10 @@
 \name{rowVarDiffs}
 \alias{rowVarDiffs}
 \alias{rowVarDiffs,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{rowVarDiffs,ANY-method}
 \alias{colVarDiffs}
 \alias{colVarDiffs,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{colVarDiffs,ANY-method}
 \title{Calculates the variance of the difference between each element of a row
 (column) of a matrix-like object}
 \usage{
@@ -14,11 +16,17 @@ rowVarDiffs(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L,
 \S4method{rowVarDiffs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
   cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...)
 
+\S4method{rowVarDiffs}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE,
+  diff = 1L, trim = 0, ...)
+
 colVarDiffs(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L,
   trim = 0, ...)
 
 \S4method{colVarDiffs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
   cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...)
+
+\S4method{colVarDiffs}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE,
+  diff = 1L, trim = 0, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

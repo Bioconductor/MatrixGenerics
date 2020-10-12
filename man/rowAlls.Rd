@@ -3,8 +3,10 @@
 \name{rowAlls}
 \alias{rowAlls}
 \alias{rowAlls,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{rowAlls,ANY-method}
 \alias{colAlls}
 \alias{colAlls,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{colAlls,ANY-method}
 \title{Check if all elements in a row (column) of a matrix-like object are equal to
 a value}
 \usage{
@@ -13,10 +15,14 @@ rowAlls(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...)
 \S4method{rowAlls}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
   cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ...)
 
+\S4method{rowAlls}{ANY}(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...)
+
 colAlls(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...)
 
 \S4method{colAlls}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
   cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ...)
+
+\S4method{colAlls}{ANY}(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
@@ -64,10 +70,9 @@ The S4 methods for \code{x} of type \code{\link{matrix}},
 }
 \seealso{
 \itemize{
-\item \code{matrixStats::\link[matrixStats]{rowAlls}()} and
-\code{matrixStats::\link[matrixStats:rowAlls]{colAlls}()} which are used
-when the input is a \code{\link{matrix}}, \code{\link{array}},
-or \code{\link{numeric}} vector.
+\item \code{matrixStats::\link[matrixStats:rowAlls]{rowAlls}()} and
+\code{matrixStats::\link[matrixStats:rowAlls]{colAlls}()} which are
+used when the input is a \code{matrix} or \code{numeric} vector.
 \item For checks if \emph{any} element is equal to a value, see
 \code{\link{rowAnys}()}.
 \item \code{base::\link{all}()}.

@@ -6,6 +6,9 @@
 #' 
 #' @include MatrixGenerics-package.R
 #'
+#' @export
+#' @name rowCumprods
+#'
 #' @templateVar rowName rowCumprods
 #' @templateVar colName colCumprods
 #' 
@@ -27,9 +30,6 @@
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-#'
-#' @name rowCumprods
-#' @export
 setGeneric("rowCumprods", function(x, rows = NULL, cols = NULL,  ...) standardGeneric("rowCumprods"),
            signature = "x"
 )
@@ -38,14 +38,19 @@ setGeneric("rowCumprods", function(x, rows = NULL, cols = NULL,  ...) standardGe
   matrixStats::rowCumprods(x, rows = rows, cols = cols, dim. = dim., ...)
 }
 
+#' @export
 #' @rdname rowCumprods
 setMethod("rowCumprods", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowCumprods)
 
-
-
-#' @rdname rowCumprods
-#' @name colCumprods
 #' @export
+#' @rdname rowCumprods
+## Default method with user-friendly fallback mechanism.
+setMethod("rowCumprods", "ANY", make_default_method_def("rowCumprods"))
+
+
+
+#' @export
+#' @rdname rowCumprods
 setGeneric("colCumprods", function(x, rows = NULL, cols = NULL, ...) standardGeneric("colCumprods"),
            signature = "x"
 )
@@ -54,6 +59,12 @@ setGeneric("colCumprods", function(x, rows = NULL, cols = NULL, ...) standardGen
   matrixStats::colCumprods(x, rows = rows, cols = cols, dim. = dim., ...)
 }
 
+#' @export
 #' @rdname rowCumprods
 setMethod("colCumprods", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colCumprods)
+
+#' @export
+#' @rdname rowCumprods
+## Default method with user-friendly fallback mechanism.
+setMethod("colCumprods", "ANY", make_default_method_def("colCumprods"))
 

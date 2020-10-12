@@ -3,17 +3,23 @@
 \name{rowWeightedMedians}
 \alias{rowWeightedMedians}
 \alias{rowWeightedMedians,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{rowWeightedMedians,ANY-method}
 \alias{colWeightedMedians}
 \alias{colWeightedMedians,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{colWeightedMedians,ANY-method}
 \title{Calculates the weighted median for each row (column) of a matrix-like object}
 \usage{
 rowWeightedMedians(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
 \S4method{rowWeightedMedians}{matrix_OR_array_OR_table_OR_numeric}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
+\S4method{rowWeightedMedians}{ANY}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+
 colWeightedMedians(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
 \S4method{colWeightedMedians}{matrix_OR_array_OR_table_OR_numeric}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+
+\S4method{colWeightedMedians}{ANY}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

@@ -5,6 +5,9 @@
 #' matrix-like object.
 #'
 #' @include MatrixGenerics-package.R
+#'
+#' @export
+#' @name rowWeightedSds
 #' 
 #' @templateVar rowName rowWeightedSds
 #' @templateVar colName colWeightedSds
@@ -27,12 +30,8 @@
 #' }
 #' 
 #' @template weightedExamples
-#'   
 #' 
 #' @keywords array iteration robust univar
-#'
-#' @name rowWeightedSds
-#' @export
 setGeneric("rowWeightedSds", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("rowWeightedSds"),
            signature = "x"
 )
@@ -41,14 +40,19 @@ setGeneric("rowWeightedSds", function(x, w = NULL, rows = NULL, cols = NULL, na.
   matrixStats::rowWeightedSds(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ...)
 }
 
+#' @export
 #' @rdname rowWeightedSds
 setMethod("rowWeightedSds", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowWeightedSds)
 
-
-
-#' @rdname rowWeightedSds
-#' @name colWeightedSds
 #' @export
+#' @rdname rowWeightedSds
+## Default method with user-friendly fallback mechanism.
+setMethod("rowWeightedSds", "ANY", make_default_method_def("rowWeightedSds"))
+
+
+
+#' @export
+#' @rdname rowWeightedSds
 setGeneric("colWeightedSds", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("colWeightedSds"),
            signature = "x"
 )
@@ -57,6 +61,12 @@ setGeneric("colWeightedSds", function(x, w = NULL, rows = NULL, cols = NULL, na.
   matrixStats::colWeightedSds(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ...)
 }
 
+#' @export
 #' @rdname rowWeightedSds
 setMethod("colWeightedSds", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colWeightedSds)
+
+#' @export
+#' @rdname rowWeightedSds
+## Default method with user-friendly fallback mechanism.
+setMethod("colWeightedSds", "ANY", make_default_method_def("colWeightedSds"))
 

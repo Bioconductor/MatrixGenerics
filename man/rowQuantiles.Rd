@@ -3,8 +3,10 @@
 \name{rowQuantiles}
 \alias{rowQuantiles}
 \alias{rowQuantiles,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{rowQuantiles,ANY-method}
 \alias{colQuantiles}
 \alias{colQuantiles,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{colQuantiles,ANY-method}
 \title{Calculates quantiles for each row (column) of a matrix-like object}
 \usage{
 rowQuantiles(x, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1,
@@ -14,12 +16,18 @@ rowQuantiles(x, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1,
   cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE,
   type = 7L, ..., drop = TRUE)
 
+\S4method{rowQuantiles}{ANY}(x, rows = NULL, cols = NULL,
+  probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE, ...)
+
 colQuantiles(x, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1,
   by = 0.25), na.rm = FALSE, ...)
 
 \S4method{colQuantiles}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
   cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE,
   type = 7L, ..., drop = TRUE)
+
+\S4method{colQuantiles}{ANY}(x, rows = NULL, cols = NULL,
+  probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

@@ -4,6 +4,9 @@
 #' 
 #' @include MatrixGenerics-package.R
 #'
+#' @export
+#' @name rowQuantiles
+#'
 #' @templateVar rowName rowQuantiles
 #' @templateVar colName colQuantiles
 #' 
@@ -33,9 +36,6 @@
 #' @template standardExamples
 #'
 #' @keywords array iteration robust
-#'
-#' @name rowQuantiles
-#' @export
 setGeneric("rowQuantiles", function(x, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE, ...) standardGeneric("rowQuantiles"),
            signature = "x"
 )
@@ -45,14 +45,19 @@ setGeneric("rowQuantiles", function(x, rows = NULL, cols = NULL, probs = seq(fro
   matrixStats::rowQuantiles(x = x, rows = rows, cols = cols, probs = probs, na.rm = na.rm, type = type, ..., drop = drop)
 }
 
+#' @export
 #' @rdname rowQuantiles
 setMethod("rowQuantiles", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowQuantiles)
 
-
-
-#' @rdname rowQuantiles
-#' @name colQuantiles
 #' @export
+#' @rdname rowQuantiles
+## Default method with user-friendly fallback mechanism.
+setMethod("rowQuantiles", "ANY", make_default_method_def("rowQuantiles"))
+
+
+
+#' @export
+#' @rdname rowQuantiles
 setGeneric("colQuantiles", function(x, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE, ...) standardGeneric("colQuantiles"),
            signature = "x"
 )
@@ -62,6 +67,12 @@ setGeneric("colQuantiles", function(x, rows = NULL, cols = NULL, probs = seq(fro
   matrixStats::colQuantiles(x = x, rows = rows, cols = cols, probs = probs, na.rm = na.rm, type = type, ..., drop = drop)
 }
 
+#' @export
 #' @rdname rowQuantiles
 setMethod("colQuantiles", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colQuantiles)
+
+#' @export
+#' @rdname rowQuantiles
+## Default method with user-friendly fallback mechanism.
+setMethod("colQuantiles", "ANY", make_default_method_def("colQuantiles"))
 

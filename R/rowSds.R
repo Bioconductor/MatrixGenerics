@@ -6,6 +6,9 @@
 #' 
 #' @include MatrixGenerics-package.R
 #'
+#' @export
+#' @name rowSds
+#'
 #' @templateVar rowName rowSds
 #' @templateVar colName colSds
 #' 
@@ -31,9 +34,6 @@
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-#'
-#' @name rowSds
-#' @export
 setGeneric("rowSds", function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, ...) standardGeneric("rowSds"),
            signature = "x"
 )
@@ -42,14 +42,19 @@ setGeneric("rowSds", function(x, rows = NULL, cols = NULL, na.rm = FALSE, center
   matrixStats::rowSds(x, rows = rows, cols = cols, na.rm = na.rm, center = center, dim. = dim., ...)
 }
 
+#' @export
 #' @rdname rowSds
 setMethod("rowSds", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowSds)
 
-
-
-#' @rdname rowSds
-#' @name colSds
 #' @export
+#' @rdname rowSds
+## Default method with user-friendly fallback mechanism.
+setMethod("rowSds", "ANY", make_default_method_def("rowSds"))
+
+
+
+#' @export
+#' @rdname rowSds
 setGeneric("colSds", function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, ...) standardGeneric("colSds"),
            signature = "x"
 )
@@ -58,6 +63,12 @@ setGeneric("colSds", function(x, rows = NULL, cols = NULL, na.rm = FALSE, center
   matrixStats::colSds(x, rows = rows, cols = cols, na.rm = na.rm, center = center, dim. = dim., ...)
 }
 
+#' @export
 #' @rdname rowSds
 setMethod("colSds", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colSds)
+
+#' @export
+#' @rdname rowSds
+## Default method with user-friendly fallback mechanism.
+setMethod("colSds", "ANY", make_default_method_def("colSds"))
 

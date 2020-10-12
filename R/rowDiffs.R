@@ -6,6 +6,9 @@
 #' 
 #' @include MatrixGenerics-package.R
 #'
+#' @export
+#' @name rowDiffs
+#'
 #' @templateVar rowName rowDiffs
 #' @templateVar colName colDiffs
 #' 
@@ -30,9 +33,6 @@
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-#'
-#' @name rowDiffs
-#' @export
 setGeneric("rowDiffs", function(x, rows = NULL, cols = NULL, lag = 1L, differences = 1L,  ...) standardGeneric("rowDiffs"),
            signature = "x"
 )
@@ -41,14 +41,19 @@ setGeneric("rowDiffs", function(x, rows = NULL, cols = NULL, lag = 1L, differenc
   matrixStats::rowDiffs(x, rows = rows, cols = cols, lag = lag, differences = differences, dim. = dim., ...)
 }
 
+#' @export
 #' @rdname rowDiffs
 setMethod("rowDiffs", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowDiffs)
 
-
-
-#' @rdname rowDiffs
-#' @name colDiffs
 #' @export
+#' @rdname rowDiffs
+## Default method with user-friendly fallback mechanism.
+setMethod("rowDiffs", "ANY", make_default_method_def("rowDiffs"))
+
+
+
+#' @export
+#' @rdname rowDiffs
 setGeneric("colDiffs", function(x, rows = NULL, cols = NULL, lag = 1L, differences = 1L, ...) standardGeneric("colDiffs"),
            signature = "x"
 )
@@ -57,6 +62,12 @@ setGeneric("colDiffs", function(x, rows = NULL, cols = NULL, lag = 1L, differenc
   matrixStats::colDiffs(x, rows = rows, cols = cols, lag = lag, differences = differences, dim. = dim., ...)
 }
 
+#' @export
 #' @rdname rowDiffs
 setMethod("colDiffs", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colDiffs)
+
+#' @export
+#' @rdname rowDiffs
+## Default method with user-friendly fallback mechanism.
+setMethod("colDiffs", "ANY", make_default_method_def("colDiffs"))
 

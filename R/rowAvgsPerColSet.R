@@ -6,6 +6,9 @@
 #' 
 #' @include MatrixGenerics-package.R
 #'
+#' @export
+#' @name rowAvgsPerColSet
+#'
 #' @templateVar rowName rowAvgsPerColSet
 #' @templateVar colName colAvgsPerRowSet
 #' 
@@ -29,8 +32,8 @@
 #'
 #' @seealso
 #' \itemize{
-#' \item \code{matrixStats::\link[matrixStats]{rowAvgsPerColSet}()} and
-#'   \code{matrixStats::\link[matrixStats:rowAvgsPerColSet]{colAvgsPerRowSet}()}
+#' \item \code{matrixStats::\link[matrixStats:rowAvgsPerColSet]{rowAvgsPerColSet}()}
+#'   and \code{matrixStats::\link[matrixStats:rowAvgsPerColSet]{colAvgsPerRowSet}()}
 #'   which are used when the input is a \code{matrix} or \code{numeric} vector.
 #' }
 #' 
@@ -49,9 +52,6 @@
 #'   rowAvgsPerColSet(mat, S = S, FUN = rowVars)
 #'
 #' @keywords array iteration robust univar2
-#'
-#' @name rowAvgsPerColSet
-#' @export
 setGeneric("rowAvgsPerColSet", function(X, W = NULL, rows = NULL, S, FUN = rowMeans,  ..., tFUN = FALSE) standardGeneric("rowAvgsPerColSet"),
            signature = "X"
 )
@@ -60,14 +60,19 @@ setGeneric("rowAvgsPerColSet", function(X, W = NULL, rows = NULL, S, FUN = rowMe
   matrixStats::rowAvgsPerColSet(X = X, W = W, rows = rows, S = S, FUN = FUN, ..., tFUN = tFUN)
 }
 
+#' @export
 #' @rdname rowAvgsPerColSet
 setMethod("rowAvgsPerColSet", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowAvgsPerColSet)
 
-
-
-#' @rdname rowAvgsPerColSet
-#' @name colAvgsPerRowSet
 #' @export
+#' @rdname rowAvgsPerColSet
+## Default method with user-friendly fallback mechanism.
+setMethod("rowAvgsPerColSet", "ANY", make_default_method_def("rowAvgsPerColSet"))
+
+
+
+#' @export
+#' @rdname rowAvgsPerColSet
 setGeneric("colAvgsPerRowSet", function(X, W = NULL, cols = NULL, S, FUN = colMeans,  ..., tFUN = FALSE) standardGeneric("colAvgsPerRowSet"),
            signature = "X"
 )
@@ -76,6 +81,12 @@ setGeneric("colAvgsPerRowSet", function(X, W = NULL, cols = NULL, S, FUN = colMe
   matrixStats::colAvgsPerRowSet(X = X, W = W, cols = cols, S = S, FUN = FUN, ..., tFUN = tFUN)
 }
 
+#' @export
 #' @rdname rowAvgsPerColSet
 setMethod("colAvgsPerRowSet", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colAvgsPerRowSet)
+
+#' @export
+#' @rdname rowAvgsPerColSet
+## Default method with user-friendly fallback mechanism.
+setMethod("colAvgsPerRowSet", "ANY", make_default_method_def("colAvgsPerRowSet"))
 

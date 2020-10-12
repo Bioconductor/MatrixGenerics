@@ -3,17 +3,23 @@
 \name{rowMedians}
 \alias{rowMedians}
 \alias{rowMedians,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{rowMedians,ANY-method}
 \alias{colMedians}
 \alias{colMedians,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{colMedians,ANY-method}
 \title{Calculates the median for each row (column) of a matrix-like object}
 \usage{
 rowMedians(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
 \S4method{rowMedians}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
 
+\S4method{rowMedians}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+
 colMedians(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 
 \S4method{colMedians}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
+
+\S4method{colMedians}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

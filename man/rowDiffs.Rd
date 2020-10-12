@@ -3,8 +3,10 @@
 \name{rowDiffs}
 \alias{rowDiffs}
 \alias{rowDiffs,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{rowDiffs,ANY-method}
 \alias{colDiffs}
 \alias{colDiffs,matrix_OR_array_OR_table_OR_numeric-method}
+\alias{colDiffs,ANY-method}
 \title{Calculates the difference between each element of a row (column) of a
 matrix-like object}
 \usage{
@@ -13,10 +15,14 @@ rowDiffs(x, rows = NULL, cols = NULL, lag = 1L, differences = 1L, ...)
 \S4method{rowDiffs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
   cols = NULL, lag = 1L, differences = 1L, dim. = dim(x), ...)
 
+\S4method{rowDiffs}{ANY}(x, rows = NULL, cols = NULL, lag = 1L, differences = 1L, ...)
+
 colDiffs(x, rows = NULL, cols = NULL, lag = 1L, differences = 1L, ...)
 
 \S4method{colDiffs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
   cols = NULL, lag = 1L, differences = 1L, dim. = dim(x), ...)
+
+\S4method{colDiffs}{ANY}(x, rows = NULL, cols = NULL, lag = 1L, differences = 1L, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

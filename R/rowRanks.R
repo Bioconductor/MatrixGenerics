@@ -6,6 +6,9 @@
 #' 
 #' @include MatrixGenerics-package.R
 #'
+#' @export
+#' @name rowRanks
+#'
 #' @templateVar rowName rowRanks
 #' @templateVar colName colRanks
 #' 
@@ -49,9 +52,6 @@
 #' @template standardExamples
 #'
 #' @keywords array iteration robust
-#'
-#' @name rowRanks
-#' @export
 setGeneric("rowRanks", function(x, rows = NULL, cols = NULL, ties.method = c("max", "average"), ...) standardGeneric("rowRanks"),
            signature = "x"
 )
@@ -62,14 +62,19 @@ setGeneric("rowRanks", function(x, rows = NULL, cols = NULL, ties.method = c("ma
   matrixStats::rowRanks(x = x, rows = rows, cols = cols, ties.method = ties.method, dim. = dim., ...)
 }
 
+#' @export
 #' @rdname rowRanks
 setMethod("rowRanks", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowRanks)
 
-
-
-#' @rdname rowRanks
-#' @name colRanks
 #' @export
+#' @rdname rowRanks
+## Default method with user-friendly fallback mechanism.
+setMethod("rowRanks", "ANY", make_default_method_def("rowRanks"))
+
+
+
+#' @export
+#' @rdname rowRanks
 setGeneric("colRanks", function(x, rows = NULL, cols = NULL, ties.method = c("max", "average"), ...) standardGeneric("colRanks"),
            signature = "x"
 )
@@ -80,6 +85,12 @@ setGeneric("colRanks", function(x, rows = NULL, cols = NULL, ties.method = c("ma
   matrixStats::colRanks(x = x, rows = rows, cols = cols, ties.method = ties.method, dim. = dim., preserveShape = preserveShape, ...)
 }
 
+#' @export
 #' @rdname rowRanks
 setMethod("colRanks", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_colRanks)
+
+#' @export
+#' @rdname rowRanks
+## Default method with user-friendly fallback mechanism.
+setMethod("colRanks", "ANY", make_default_method_def("colRanks"))
 
