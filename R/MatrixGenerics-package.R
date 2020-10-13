@@ -39,16 +39,18 @@ setClassUnion("matrix_OR_array_OR_table_OR_numeric",
     # ... add more packages in the future
 )
 
-.long_and_fancy_errmsg <- function(crude_errmsg, unloaded_pkgs)
+.long_and_fancy_errmsg <- function(short_errmsg, unloaded_pkgs)
 {
     plural <- length(unloaded_pkgs) > 1L
-    errmsg <- paste0(crude_errmsg,  "\n  However, the following package",
+    pkgs_to_install <- if (plural) "..." else paste0("\"", unloaded_pkgs, "\"")
+    errmsg <- paste0(short_errmsg,  "\n  However, the following package",
         if (plural) "s are" else " is",
         " likely to contain the missing method\n  but ",
         if (plural) "are" else "is", " not installed: ",
-        paste0(unloaded_pkgs, collapse=", "), "\n  ",
+        paste0(unloaded_pkgs, collapse=", "), ".\n  ",
         "Please install ", if (plural) "them" else "it",
-        " (with 'BiocManager::install()') and try again.")
+        " (with 'BiocManager::install(", pkgs_to_install, ")')",
+        if (plural) " " else "\n  ", "and try again.")
     if (plural)
         errmsg <- paste0(errmsg, "\n  Alternatively, if you know where ",
                          "the missing method is defined, install\n  only ",
@@ -79,12 +81,12 @@ setClassUnion("matrix_OR_array_OR_table_OR_numeric",
                ".load_next_suggested_package_to_search()\n  ",
                "must be called from within a method body")
     }
-    crude_errmsg <- paste0("Failed to find a ", genericName,"() method ",
+    short_errmsg <- paste0("Failed to find a ", genericName,"() method ",
                            "for ", class(x), " objects.")
     is_loaded <- vapply(.SUGGESTED_PACKAGES_TO_SEARCH, isNamespaceLoaded,
                         logical(1))
     if (all(is_loaded))
-        stop(crude_errmsg)
+        stop(short_errmsg)
     unloaded_pkgs <- .SUGGESTED_PACKAGES_TO_SEARCH[!is_loaded]
     for (pkg in unloaded_pkgs) {
         if (requireNamespace(pkg, quietly=TRUE)) {
@@ -99,7 +101,7 @@ setClassUnion("matrix_OR_array_OR_table_OR_numeric",
             return()
         }
     }
-    stop(.long_and_fancy_errmsg(crude_errmsg, unloaded_pkgs))
+    stop(.long_and_fancy_errmsg(short_errmsg, unloaded_pkgs))
 }
 
 make_default_method_def <- function(genericName)
