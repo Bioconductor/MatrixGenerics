@@ -87,8 +87,17 @@ setClassUnion("matrix_OR_array_OR_table_OR_numeric",
         stop(crude_errmsg)
     unloaded_pkgs <- .SUGGESTED_PACKAGES_TO_SEARCH[!is_loaded]
     for (pkg in unloaded_pkgs) {
-        if (requireNamespace(pkg, quietly=TRUE))
+        if (requireNamespace(pkg, quietly=TRUE)) {
+            ## This is just a hack to refresh the method dispatch cache.
+            ## Calling trace() on the method has the side effect of making
+            ## showMethods(genericName) aware of the method.
+            ## See https://github.com/Bioconductor/MatrixGenerics/pull/16#issuecomment-707516999
+            ## for more information.
+            GENERIC <- match.fun(genericName)
+            suppressMessages(trace(GENERIC, signature=class(x)))
+            suppressMessages(untrace(GENERIC, signature=class(x)))
             return()
+        }
     }
     stop(.long_and_fancy_errmsg(crude_errmsg, unloaded_pkgs))
 }
