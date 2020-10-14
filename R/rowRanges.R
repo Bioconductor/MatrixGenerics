@@ -18,9 +18,9 @@
 #' @template na_rmParameter
 #' @template dimParameter
 #' 
-#' @return a \code{\link{numeric}} \code{Nx2} (\code{Kx2}) 
+#' @return a \code{\link{numeric}} \code{Nx2} (\code{Kx2})
 #'   \code{\link{matrix}}, where N (K) is the number of rows (columns) for
-#'   which the ranges are calculated. 
+#'   which the ranges are calculated.
 #'
 #' @note Unfortunately for the argument list of the \code{rowRanges()}
 #'   generic function we cannot follow the scheme used for the other
@@ -52,6 +52,23 @@ setGeneric("rowRanges", function(x, ...) standardGeneric("rowRanges"))
 #' @rdname rowRanges
 setMethod("rowRanges", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_rowRanges)
 
+## Note that because the rowRanges() accessor for SummarizedExperiment
+## objects (and other objects in Bioconductor) is implemented as a method
+## for the MatrixGenerics::rowRanges() generic, the user-friendly fallback
+## mechanism for rowRanges() could produce an error message like:
+##
+##   Error in MatrixGenerics:::.load_next_suggested_package_to_search(x) :
+##     Failed to find a rowRanges() method for <SomeClass> objects.
+##     However, the following package is likely to contain the missing
+##     method but is not installed: sparseMatrixStats.
+##     Please install it (with 'BiocManager::install("sparseMatrixStats")')
+##     and try again.
+##
+## in the (admittedly rare) situations where the user tries to call the
+## accessor on a SummarizedExperiment or RaggedExperiment object etc.. but
+## doesn't have the SummarizedExperiment or RaggedExperiment package loaded.
+## Not clear that this can even happen, but if it did, the error message
+## would be quite misleading.
 #' @export
 #' @rdname rowRanges
 ## Default method with user-friendly fallback mechanism.
