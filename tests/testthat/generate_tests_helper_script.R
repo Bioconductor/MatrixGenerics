@@ -127,6 +127,8 @@ res <- paste0(sapply(testable_functions, function(fnc_name){
   } else if (fnc_name == "rowAvgsPerColSet") {
     filled_in_args[["FUN"]] <- filled_in_args[["FUN"]][
       sapply(filled_in_args[["FUN"]], function(x) grepl("^row", x))]
+  } else if(fnc_name == "colWeightedMads" || fnc_name == "rowWeightedMads") {
+    filled_in_args[[paste0(substr(fnc_name, 1, 3), "_center")]][[2]] <- 6
   }
   filled_in_args_str <- lapply(seq_along(arg_names), function(idx) paste0(arg_names[idx], " = ", filled_in_args[[idx]]))
   param_tests <- paste0(sapply(seq_len(max(lengths(filled_in_args_str))), function(idx){
