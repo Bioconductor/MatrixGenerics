@@ -695,8 +695,8 @@ test_that("colWeightedMads works ", {
 	ms_res_1 <- matrixStats::colWeightedMads(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE, constant = 1.4826, center = NULL)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colWeightedMads(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE, constant = 5, center = rep(0.3, ncol(mat)))
-	ms_res_2 <- matrixStats::colWeightedMads(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE, constant = 5, center = rep(0.3, ncol(mat)))
+	mg_res_2 <- colWeightedMads(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE, constant = 5, center = 6)
+	ms_res_2 <- matrixStats::colWeightedMads(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE, constant = 5, center = 6)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
@@ -1463,8 +1463,8 @@ test_that("rowWeightedMads works ", {
 	ms_res_1 <- matrixStats::rowWeightedMads(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE, constant = 1.4826, center = NULL)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowWeightedMads(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE, constant = 5, center = rep(0.3, nrow(mat)))
-	ms_res_2 <- matrixStats::rowWeightedMads(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE, constant = 5, center = rep(0.3, nrow(mat)))
+	mg_res_2 <- rowWeightedMads(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE, constant = 5, center = 6)
+	ms_res_2 <- matrixStats::rowWeightedMads(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE, constant = 5, center = 6)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
