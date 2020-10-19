@@ -17,7 +17,7 @@ Authors@R: c(person("Constantin", "Ahlmann-Eltze",
             person("Hervé", "Pagès", email = "hpages.on.github@gmail.com",
                 role = "aut"))
 Imports: methods
-Depends: matrixStats (>= 0.56.0)
+Depends: matrixStats (>= 0.57.0)
 License: Artistic-2.0
 Encoding: UTF-8
 URL: https://github.com/Bioconductor/MatrixGenerics
