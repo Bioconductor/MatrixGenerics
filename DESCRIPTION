@@ -2,35 +2,35 @@ Package: MatrixGenerics
 Title: S4 Generic Summary Statistic Functions that Operate on Matrix-Like Objects
 Description: S4 generic functions modeled after the 'matrixStats' API
     for alternative matrix implementations. Packages with alternative matrix
-    implementation can depend on this package and implement the generic 
+    implementation can depend on this package and implement the generic
     functions that are defined here for a useful set of row and column
     summary statistics. Other package developers can import this package
     and handle a different matrix implementations without worrying
     about incompatibilities.
+biocViews: Infrastructure, Software
+URL: https://bioconductor.org/packages/MatrixGenerics
+BugReports: https://github.com/Bioconductor/MatrixGenerics/issues
 Version: 1.1.8
-Authors@R: c(person("Constantin", "Ahlmann-Eltze", 
+License: Artistic-2.0
+Encoding: UTF-8
+Authors@R: c(person("Constantin", "Ahlmann-Eltze",
                 email = "artjom31415@googlemail.com", role = c("aut"),
                 comment = c(ORCID = "0000-0002-3762-068X")),
             person("Peter", "Hickey", role = c("aut", "cre"),
-                email = "peter.hickey@gmail.com", 
+                email = "peter.hickey@gmail.com",
                 comment = c(ORCID = "0000-0002-8153-6258")),
             person("Hervé", "Pagès", email = "hpages.on.github@gmail.com",
                 role = "aut"))
-Imports: methods
 Depends: matrixStats (>= 0.57.0)
-License: Artistic-2.0
-Encoding: UTF-8
-URL: https://github.com/Bioconductor/MatrixGenerics
-BugReports: https://github.com/Bioconductor/MatrixGenerics/issues
-RoxygenNote: 7.1.1
-Roxygen: list(markdown = TRUE, old_usage = TRUE)
+Imports: methods
 Suggests:
     sparseMatrixStats,
     DelayedMatrixStats,
     SummarizedExperiment,
     testthat (>= 2.1.0)
-biocViews: Infrastructure, Software
-Collate: 
+RoxygenNote: 7.1.1
+Roxygen: list(markdown = TRUE, old_usage = TRUE)
+Collate:
     'MatrixGenerics-package.R'
     'rowAlls.R'
     'rowAnyNAs.R'
