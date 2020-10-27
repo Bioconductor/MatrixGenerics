@@ -10,3 +10,5 @@ A prerequisite to handle these matrix objects is that a package with the corresp
 
 This package imports `matrixStats` and automatically forwards all function calls with `matrix`, `numeric`, and `array` objects to `matrixStats`. To handle other matrix objects, the user must manually install the corresponding `___MatrixStats` package.
 
+See https://bioconductor.org/packages/MatrixGenerics for more information including how to install the release version of the package (please refrain from installing directly from GitHub).
+
