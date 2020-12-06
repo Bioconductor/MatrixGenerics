@@ -40,8 +40,8 @@ function_args <- list(x = list("mat"),
                       diff = list(1, 2),
                       trim = list(0, 1/3, 0.5),
                       lx = list("mat"),
-                      col_center = list("NULL", "rep(0.3, ncol(mat))"),
-                      row_center = list("NULL", "rep(0.3, nrow(mat))"),
+                      col_center = list("NULL", "colMeans2(mat, rows = 1:3)"),
+                      row_center = list("NULL", "rowMeans2(mat, cols = 2)"),
                       constant = list(1.4826, 5),
                       which = list(2, 1),
                       method = list("'direct'", "'expSumLog'"),
@@ -127,8 +127,10 @@ res <- paste0(sapply(testable_functions, function(fnc_name){
   } else if (fnc_name == "rowAvgsPerColSet") {
     filled_in_args[["FUN"]] <- filled_in_args[["FUN"]][
       sapply(filled_in_args[["FUN"]], function(x) grepl("^row", x))]
-  } else if(fnc_name == "colWeightedMads" || fnc_name == "rowWeightedMads") {
-    filled_in_args[[paste0(substr(fnc_name, 1, 3), "_center")]][[2]] <- 6
+  } else if(fnc_name == "colWeightedMads") {
+    filled_in_args[[paste0(substr(fnc_name, 1, 3), "_center")]][[2]] <- "rep(6, ncol(mat))"
+  } else if(fnc_name == "rowWeightedMads") {
+    filled_in_args[[paste0(substr(fnc_name, 1, 3), "_center")]][[2]] <- "rep(6, nrow(mat))"
   }
   filled_in_args_str <- lapply(seq_along(arg_names), function(idx) paste0(arg_names[idx], " = ", filled_in_args[[idx]]))
   param_tests <- paste0(sapply(seq_len(max(lengths(filled_in_args_str))), function(idx){
