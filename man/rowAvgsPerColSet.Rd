@@ -11,22 +11,22 @@
 subsets of columns (rows)}
 \usage{
 rowAvgsPerColSet(X, W = NULL, rows = NULL, S, FUN = rowMeans, ...,
-  tFUN = FALSE)
+  na.rm = NA, tFUN = FALSE)
 
 \S4method{rowAvgsPerColSet}{matrix_OR_array_OR_table_OR_numeric}(X, W = NULL,
-  rows = NULL, S, FUN = rowMeans, ..., tFUN = FALSE)
+  rows = NULL, S, FUN = rowMeans, ..., na.rm = NA, tFUN = FALSE)
 
 \S4method{rowAvgsPerColSet}{ANY}(X, W = NULL, rows = NULL, S,
-  FUN = rowMeans, ..., tFUN = FALSE)
+  FUN = rowMeans, ..., na.rm = NA, tFUN = FALSE)
 
 colAvgsPerRowSet(X, W = NULL, cols = NULL, S, FUN = colMeans, ...,
-  tFUN = FALSE)
+  na.rm = NA, tFUN = FALSE)
 
 \S4method{colAvgsPerRowSet}{matrix_OR_array_OR_table_OR_numeric}(X, W = NULL,
-  cols = NULL, S, FUN = colMeans, ..., tFUN = FALSE)
+  cols = NULL, S, FUN = colMeans, ..., na.rm = NA, tFUN = FALSE)
 
 \S4method{colAvgsPerRowSet}{ANY}(X, W = NULL, cols = NULL, S,
-  FUN = colMeans, ..., tFUN = FALSE)
+  FUN = colMeans, ..., na.rm = NA, tFUN = FALSE)
 }
 \arguments{
 \item{X}{An \code{NxM} matrix-like object.}
@@ -45,6 +45,10 @@ range of values is [1, M] ([1,N]).}
 applied to to each column (row) subset of \code{X} that is specified by \code{S}.}
 
 \item{...}{Additional arguments passed to \code{FUN}.}
+
+\item{na.rm}{(logical) Argument passed to \code{FUN()} as \code{na.rm = na.rm}.
+If \code{NA} (default), then \code{na.rm = TRUE} is used if \code{X} or \code{S} holds missing values,
+otherwise \code{na.rm = FALSE}.}
 
 \item{tFUN}{If \code{TRUE}, \code{X} is transposed before it is passed to \code{FUN}.}
 }
