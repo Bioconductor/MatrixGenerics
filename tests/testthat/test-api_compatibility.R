@@ -97,12 +97,12 @@ test_that("colAvgsPerRowSet works ", {
 	ms_res_def_2 <- matrixStats::colAvgsPerRowSet(X = mat, S = S, FUN = colVars)
 	expect_equal(mg_res_def_2, ms_res_def_2)
 
-	mg_res_1 <- colAvgsPerRowSet(X = mat, W = NULL, cols = NULL, S = S, FUN = colMeans, tFUN = FALSE)
-	ms_res_1 <- matrixStats::colAvgsPerRowSet(X = mat, W = NULL, cols = NULL, S = S, FUN = colMeans, tFUN = FALSE)
+	mg_res_1 <- colAvgsPerRowSet(X = mat, W = NULL, cols = NULL, S = S, FUN = colMeans, na.rm = TRUE, tFUN = FALSE)
+	ms_res_1 <- matrixStats::colAvgsPerRowSet(X = mat, W = NULL, cols = NULL, S = S, FUN = colMeans, na.rm = TRUE, tFUN = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colAvgsPerRowSet(X = mat, W = NULL, cols = 1:2, S = S, FUN = colVars, tFUN = FALSE)
-	ms_res_2 <- matrixStats::colAvgsPerRowSet(X = mat, W = NULL, cols = 1:2, S = S, FUN = colVars, tFUN = FALSE)
+	mg_res_2 <- colAvgsPerRowSet(X = mat, W = NULL, cols = 1:2, S = S, FUN = colVars, na.rm = FALSE, tFUN = FALSE)
+	ms_res_2 <- matrixStats::colAvgsPerRowSet(X = mat, W = NULL, cols = 1:2, S = S, FUN = colVars, na.rm = FALSE, tFUN = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
@@ -353,12 +353,12 @@ test_that("colMads works ", {
 	ms_res_def_1 <- matrixStats::colMads(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colMads(x = mat, rows = NULL, cols = NULL, center = NULL, constant = 1.4826, na.rm = TRUE, dim. = dim(mat))
-	ms_res_1 <- matrixStats::colMads(x = mat, rows = NULL, cols = NULL, center = NULL, constant = 1.4826, na.rm = TRUE, dim. = dim(mat))
+	mg_res_1 <- colMads(x = mat, rows = NULL, cols = NULL, center = colMeans2(mat, na.rm=TRUE), constant = 1.4826, na.rm = TRUE, dim. = dim(mat))
+	ms_res_1 <- matrixStats::colMads(x = mat, rows = NULL, cols = NULL, center = colMeans2(mat, na.rm=TRUE), constant = 1.4826, na.rm = TRUE, dim. = dim(mat))
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colMads(x = mat, rows = 1:3, cols = 2, center = colMeans2(mat, rows = 1:3), constant = 5, na.rm = FALSE, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::colMads(x = mat, rows = 1:3, cols = 2, center = colMeans2(mat, rows = 1:3), constant = 5, na.rm = FALSE, dim. = c(12L, 8L))
+	mg_res_2 <- colMads(x = mat, rows = 1:3, cols = 2, center = NULL, constant = 5, na.rm = FALSE, dim. = c(12L, 8L))
+	ms_res_2 <- matrixStats::colMads(x = mat, rows = 1:3, cols = 2, center = NULL, constant = 5, na.rm = FALSE, dim. = c(12L, 8L))
 	expect_equal(mg_res_2, ms_res_2)
 })
 
@@ -586,12 +586,12 @@ test_that("colSds works ", {
 	ms_res_def_1 <- matrixStats::colSds(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colSds(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, center = NULL, dim. = dim(mat))
-	ms_res_1 <- matrixStats::colSds(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, center = NULL, dim. = dim(mat))
+	mg_res_1 <- colSds(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, center = colMeans2(mat, na.rm=TRUE), dim. = dim(mat))
+	ms_res_1 <- matrixStats::colSds(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, center = colMeans2(mat, na.rm=TRUE), dim. = dim(mat))
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colSds(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, center = colMeans2(mat, rows = 1:3), dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::colSds(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, center = colMeans2(mat, rows = 1:3), dim. = c(12L, 8L))
+	mg_res_2 <- colSds(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, center = NULL, dim. = c(12L, 8L))
+	ms_res_2 <- matrixStats::colSds(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, center = NULL, dim. = c(12L, 8L))
 	expect_equal(mg_res_2, ms_res_2)
 })
 
@@ -671,12 +671,12 @@ test_that("colVars works ", {
 	ms_res_def_1 <- matrixStats::colVars(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colVars(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, center = NULL, dim. = dim(mat))
-	ms_res_1 <- matrixStats::colVars(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, center = NULL, dim. = dim(mat))
+	mg_res_1 <- colVars(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, center = colMeans2(mat, na.rm=TRUE), dim. = dim(mat))
+	ms_res_1 <- matrixStats::colVars(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, center = colMeans2(mat, na.rm=TRUE), dim. = dim(mat))
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colVars(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, center = colMeans2(mat, rows = 1:3), dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::colVars(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, center = colMeans2(mat, rows = 1:3), dim. = c(12L, 8L))
+	mg_res_2 <- colVars(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, center = NULL, dim. = c(12L, 8L))
+	ms_res_2 <- matrixStats::colVars(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, center = NULL, dim. = c(12L, 8L))
 	expect_equal(mg_res_2, ms_res_2)
 })
 
@@ -691,8 +691,8 @@ test_that("colWeightedMads works ", {
 	ms_res_def_1 <- matrixStats::colWeightedMads(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colWeightedMads(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE, constant = 1.4826, center = NULL)
-	ms_res_1 <- matrixStats::colWeightedMads(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE, constant = 1.4826, center = NULL)
+	mg_res_1 <- colWeightedMads(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE, constant = 1.4826, center = colMeans2(mat, na.rm=TRUE))
+	ms_res_1 <- matrixStats::colWeightedMads(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE, constant = 1.4826, center = colMeans2(mat, na.rm=TRUE))
 	expect_equal(mg_res_1, ms_res_1)
 
 	mg_res_2 <- colWeightedMads(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE, constant = 5, center = rep(6, ncol(mat)))
@@ -864,12 +864,12 @@ test_that("rowAvgsPerColSet works ", {
 	ms_res_def_2 <- matrixStats::rowAvgsPerColSet(X = mat, S = S, FUN = rowVars)
 	expect_equal(mg_res_def_2, ms_res_def_2)
 
-	mg_res_1 <- rowAvgsPerColSet(X = mat, W = NULL, rows = NULL, S = S, FUN = rowMeans, tFUN = FALSE)
-	ms_res_1 <- matrixStats::rowAvgsPerColSet(X = mat, W = NULL, rows = NULL, S = S, FUN = rowMeans, tFUN = FALSE)
+	mg_res_1 <- rowAvgsPerColSet(X = mat, W = NULL, rows = NULL, S = S, FUN = rowMeans, na.rm = TRUE, tFUN = FALSE)
+	ms_res_1 <- matrixStats::rowAvgsPerColSet(X = mat, W = NULL, rows = NULL, S = S, FUN = rowMeans, na.rm = TRUE, tFUN = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowAvgsPerColSet(X = mat, W = NULL, rows = 1:3, S = S, FUN = rowVars, tFUN = FALSE)
-	ms_res_2 <- matrixStats::rowAvgsPerColSet(X = mat, W = NULL, rows = 1:3, S = S, FUN = rowVars, tFUN = FALSE)
+	mg_res_2 <- rowAvgsPerColSet(X = mat, W = NULL, rows = 1:3, S = S, FUN = rowVars, na.rm = FALSE, tFUN = FALSE)
+	ms_res_2 <- matrixStats::rowAvgsPerColSet(X = mat, W = NULL, rows = 1:3, S = S, FUN = rowVars, na.rm = FALSE, tFUN = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
@@ -1120,12 +1120,12 @@ test_that("rowMads works ", {
 	ms_res_def_1 <- matrixStats::rowMads(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowMads(x = mat, rows = NULL, cols = NULL, center = NULL, constant = 1.4826, na.rm = TRUE, dim. = dim(mat))
-	ms_res_1 <- matrixStats::rowMads(x = mat, rows = NULL, cols = NULL, center = NULL, constant = 1.4826, na.rm = TRUE, dim. = dim(mat))
+	mg_res_1 <- rowMads(x = mat, rows = NULL, cols = NULL, center = rowMeans2(mat, na.rm=TRUE), constant = 1.4826, na.rm = TRUE, dim. = dim(mat))
+	ms_res_1 <- matrixStats::rowMads(x = mat, rows = NULL, cols = NULL, center = rowMeans2(mat, na.rm=TRUE), constant = 1.4826, na.rm = TRUE, dim. = dim(mat))
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowMads(x = mat, rows = 1:3, cols = 2, center = rowMeans2(mat, cols = 2), constant = 5, na.rm = FALSE, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::rowMads(x = mat, rows = 1:3, cols = 2, center = rowMeans2(mat, cols = 2), constant = 5, na.rm = FALSE, dim. = c(12L, 8L))
+	mg_res_2 <- rowMads(x = mat, rows = 1:3, cols = 2, center = NULL, constant = 5, na.rm = FALSE, dim. = c(12L, 8L))
+	ms_res_2 <- matrixStats::rowMads(x = mat, rows = 1:3, cols = 2, center = NULL, constant = 5, na.rm = FALSE, dim. = c(12L, 8L))
 	expect_equal(mg_res_2, ms_res_2)
 })
 
@@ -1353,12 +1353,12 @@ test_that("rowSds works ", {
 	ms_res_def_1 <- matrixStats::rowSds(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowSds(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, center = NULL, dim. = dim(mat))
-	ms_res_1 <- matrixStats::rowSds(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, center = NULL, dim. = dim(mat))
+	mg_res_1 <- rowSds(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, center = rowMeans2(mat, na.rm=TRUE), dim. = dim(mat))
+	ms_res_1 <- matrixStats::rowSds(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, center = rowMeans2(mat, na.rm=TRUE), dim. = dim(mat))
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowSds(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, center = rowMeans2(mat, cols = 2), dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::rowSds(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, center = rowMeans2(mat, cols = 2), dim. = c(12L, 8L))
+	mg_res_2 <- rowSds(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, center = NULL, dim. = c(12L, 8L))
+	ms_res_2 <- matrixStats::rowSds(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, center = NULL, dim. = c(12L, 8L))
 	expect_equal(mg_res_2, ms_res_2)
 })
 
@@ -1438,12 +1438,12 @@ test_that("rowVars works ", {
 	ms_res_def_1 <- matrixStats::rowVars(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowVars(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, center = NULL, dim. = dim(mat))
-	ms_res_1 <- matrixStats::rowVars(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, center = NULL, dim. = dim(mat))
+	mg_res_1 <- rowVars(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, center = rowMeans2(mat, na.rm=TRUE), dim. = dim(mat))
+	ms_res_1 <- matrixStats::rowVars(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, center = rowMeans2(mat, na.rm=TRUE), dim. = dim(mat))
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowVars(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, center = rowMeans2(mat, cols = 2), dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::rowVars(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, center = rowMeans2(mat, cols = 2), dim. = c(12L, 8L))
+	mg_res_2 <- rowVars(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, center = NULL, dim. = c(12L, 8L))
+	ms_res_2 <- matrixStats::rowVars(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, center = NULL, dim. = c(12L, 8L))
 	expect_equal(mg_res_2, ms_res_2)
 })
 
@@ -1459,8 +1459,8 @@ test_that("rowWeightedMads works ", {
 	ms_res_def_1 <- matrixStats::rowWeightedMads(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowWeightedMads(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE, constant = 1.4826, center = NULL)
-	ms_res_1 <- matrixStats::rowWeightedMads(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE, constant = 1.4826, center = NULL)
+	mg_res_1 <- rowWeightedMads(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE, constant = 1.4826, center = rowMeans2(mat, na.rm=TRUE))
+	ms_res_1 <- matrixStats::rowWeightedMads(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE, constant = 1.4826, center = rowMeans2(mat, na.rm=TRUE))
 	expect_equal(mg_res_1, ms_res_1)
 
 	mg_res_2 <- rowWeightedMads(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE, constant = 5, center = rep(6, nrow(mat)))
