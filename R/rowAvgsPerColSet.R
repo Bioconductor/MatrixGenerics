@@ -25,9 +25,6 @@
 #' @param FUN A row-by-row (column-by-column) summary statistic function. It is 
 #'   applied to to each column (row) subset of `X` that is specified by `S`.
 #' @param ... Additional arguments passed to `FUN`.
-#' @param na.rm (logical) Argument passed to `FUN()` as `na.rm = na.rm`. 
-#'   If `NA` (default), then `na.rm = TRUE` is used if `X` or `S` holds missing values, 
-#'   otherwise `na.rm = FALSE`.
 #' @param tFUN If `TRUE`, `X` is transposed before it is passed to `FUN`.
 #' 
 #' 
@@ -55,12 +52,12 @@
 #'   rowAvgsPerColSet(mat, S = S, FUN = rowVars)
 #'
 #' @keywords array iteration robust univar2
-setGeneric("rowAvgsPerColSet", function(X, W = NULL, rows = NULL, S, FUN = rowMeans,  ..., na.rm = NA, tFUN = FALSE) standardGeneric("rowAvgsPerColSet"),
+setGeneric("rowAvgsPerColSet", function(X, W = NULL, rows = NULL, S, FUN = rowMeans,  ..., tFUN = FALSE) standardGeneric("rowAvgsPerColSet"),
            signature = "X"
 )
 
-.matrixStats_rowAvgsPerColSet <- function(X, W = NULL, rows = NULL, S, FUN = rowMeans,  ..., na.rm = NA, tFUN = FALSE){
-  matrixStats::rowAvgsPerColSet(X = X, W = W, rows = rows, S = S, FUN = FUN, ..., na.rm = na.rm, tFUN = tFUN)
+.matrixStats_rowAvgsPerColSet <- function(X, W = NULL, rows = NULL, S, FUN = rowMeans,  ..., tFUN = FALSE){
+  matrixStats::rowAvgsPerColSet(X = X, W = W, rows = rows, S = S, FUN = FUN, ..., tFUN = tFUN)
 }
 
 #' @export
@@ -76,12 +73,12 @@ setMethod("rowAvgsPerColSet", "ANY", make_default_method_def("rowAvgsPerColSet")
 
 #' @export
 #' @rdname rowAvgsPerColSet
-setGeneric("colAvgsPerRowSet", function(X, W = NULL, cols = NULL, S, FUN = colMeans,  ..., na.rm = NA, tFUN = FALSE) standardGeneric("colAvgsPerRowSet"),
+setGeneric("colAvgsPerRowSet", function(X, W = NULL, cols = NULL, S, FUN = colMeans,  ..., tFUN = FALSE) standardGeneric("colAvgsPerRowSet"),
            signature = "X"
 )
 
-.matrixStats_colAvgsPerRowSet <- function(X, W = NULL, cols = NULL, S, FUN = colMeans,  ..., na.rm = NA, tFUN = FALSE){
-  matrixStats::colAvgsPerRowSet(X = X, W = W, cols = cols, S = S, FUN = FUN, ..., na.rm = na.rm, tFUN = tFUN)
+.matrixStats_colAvgsPerRowSet <- function(X, W = NULL, cols = NULL, S, FUN = colMeans,  ..., tFUN = FALSE){
+  matrixStats::colAvgsPerRowSet(X = X, W = W, cols = cols, S = S, FUN = FUN, ..., tFUN = tFUN)
 }
 
 #' @export
