@@ -2,6 +2,10 @@
 \title{News for Package \pkg{MatrixGenerics}}
 \encoding{UTF-8}
 
+\section{Version 1.2.1}{\itemize{
+  \item Sync API with \pkg(matrixStats) \code{v0.58.0}.
+}}
+
 \section{Version 1.2.0}{\itemize{
   \item Add \code{drop} and \code{type} to generic signature of \code{[row|col]Quantiles} (\url{https://github.com/Bioconductor/MatrixGenerics/pull/14}).
   \item Sync API with \pkg{matrixStats} \code{v0.57.0} (\url{https://github.com/Bioconductor/MatrixGenerics/issues/17}).
