@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 
 \section{Version 1.2.1}{\itemize{
-  \item Sync API with \pkg(matrixStats) \code{v0.58.0}.
+  \item Sync API with \pkg{matrixStats} \code{v0.58.0}.
 }}
 
 \section{Version 1.2.0}{\itemize{
