@@ -106,7 +106,8 @@ setClassUnion("matrix_OR_array_OR_table_OR_numeric",
 
 make_default_method_def <- function(genericName)
 {
-    def <- args(match.fun(genericName))
+    def <- function() { }
+    formals(def) <- formals(match.fun(genericName))
     e <- expression(MatrixGenerics:::.load_next_suggested_package_to_search(x),
                     callGeneric())
     body(def) <- as.call(c(as.name("{"), e))
