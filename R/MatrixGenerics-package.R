@@ -111,6 +111,7 @@ make_default_method_def <- function(genericName)
     e <- expression(MatrixGenerics:::.load_next_suggested_package_to_search(x),
                     callGeneric())
     body(def) <- as.call(c(as.name("{"), e))
+    environment(def) <- getNamespace("MatrixGenerics")
     def
 }
 
