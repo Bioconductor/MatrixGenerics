@@ -3,7 +3,7 @@
 #'
 #' Calculates the interquartile range of the difference between each element of
 #' a row (column) of a matrix-like object.
-#' 
+#'
 #' @include MatrixGenerics-package.R
 #'
 #' @export
@@ -11,12 +11,13 @@
 #'
 #' @templateVar rowName rowIQRDiffs
 #' @templateVar colName colIQRDiffs
-#' 
+#'
 #' @template matrixStatsLink
-#' 
+#'
 #' @template standardParameters
 #' @template diff_trimParameters
 #' @template na_rmParameter
+#' @template useNamesParameter
 #'
 #' @template returnVector
 #'
@@ -27,16 +28,16 @@
 #'   are used when the input is a \code{matrix} or \code{numeric} vector.
 #' \item For the direct interquartile range see also [rowIQRs].
 #' }
-#' 
+#'
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-setGeneric("rowIQRDiffs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...) standardGeneric("rowIQRDiffs"),
+setGeneric("rowIQRDiffs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ..., useNames = NA) standardGeneric("rowIQRDiffs"),
            signature = "x"
 )
 
-.matrixStats_rowIQRDiffs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...){
-  matrixStats::rowIQRDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff = diff, trim = trim, ...)
+.matrixStats_rowIQRDiffs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ..., useNames = NA){
+  matrixStats::rowIQRDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff = diff, trim = trim, ..., useNames = NA)
 }
 
 #' @export
@@ -52,12 +53,12 @@ setMethod("rowIQRDiffs", "ANY", make_default_method_def("rowIQRDiffs"))
 
 #' @export
 #' @rdname rowIQRDiffs
-setGeneric("colIQRDiffs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...) standardGeneric("colIQRDiffs"),
+setGeneric("colIQRDiffs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ..., useNames = NA) standardGeneric("colIQRDiffs"),
            signature = "x"
 )
 
-.matrixStats_colIQRDiffs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...){
-  matrixStats::colIQRDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff = diff, trim = trim, ...)
+.matrixStats_colIQRDiffs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ..., useNames = NA){
+  matrixStats::colIQRDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff = diff, trim = trim, ..., useNames = NA)
 }
 
 #' @export

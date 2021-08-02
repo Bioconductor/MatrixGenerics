@@ -3,7 +3,7 @@
 #'
 #' Calculates the mean absolute deviation of the difference between each
 #' element of a row (column) of a matrix-like object.
-#' 
+#'
 #' @include MatrixGenerics-package.R
 #'
 #' @export
@@ -11,12 +11,13 @@
 #'
 #' @templateVar rowName rowMadDiffs
 #' @templateVar colName colMadDiffs
-#' 
+#'
 #' @template matrixStatsLink
-#' 
+#'
 #' @template standardParameters
 #' @template diff_trimParameters
 #' @template na_rmParameter
+#' @template useNamesParameter
 #'
 #' @template returnVector
 #'
@@ -26,16 +27,16 @@
 #'   \code{matrixStats::\link[matrixStats:varDiff]{colMadDiffs}()} which
 #'   are used when the input is a \code{matrix} or \code{numeric} vector.
 #' }
-#' 
+#'
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-setGeneric("rowMadDiffs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0,  ...) standardGeneric("rowMadDiffs"),
+setGeneric("rowMadDiffs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ..., useNames = NA) standardGeneric("rowMadDiffs"),
            signature = "x"
 )
 
-.matrixStats_rowMadDiffs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...){
-  matrixStats::rowMadDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff = diff, trim = trim, ...)
+.matrixStats_rowMadDiffs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ..., useNames = NA){
+  matrixStats::rowMadDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff = diff, trim = trim, ..., useNames = NA)
 }
 
 #' @export
@@ -51,12 +52,12 @@ setMethod("rowMadDiffs", "ANY", make_default_method_def("rowMadDiffs"))
 
 #' @export
 #' @rdname rowMadDiffs
-setGeneric("colMadDiffs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...) standardGeneric("colMadDiffs"),
+setGeneric("colMadDiffs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ..., useNames = NA) standardGeneric("colMadDiffs"),
            signature = "x"
 )
 
-.matrixStats_colMadDiffs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...){
-  matrixStats::colMadDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff =diff, trim = trim, ...)
+.matrixStats_colMadDiffs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ..., useNames = NA){
+  matrixStats::colMadDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff =diff, trim = trim, ..., useNames = NA)
 }
 
 #' @export

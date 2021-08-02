@@ -3,7 +3,7 @@
 #'
 #' Calculates the standard deviation of the difference between each element of
 #' a row (column) of a matrix-like object.
-#' 
+#'
 #' @include MatrixGenerics-package.R
 #'
 #' @export
@@ -11,12 +11,13 @@
 #'
 #' @templateVar rowName rowSdDiffs
 #' @templateVar colName colSdDiffs
-#' 
+#'
 #' @template matrixStatsLink
-#' 
+#'
 #' @template standardParameters
 #' @template diff_trimParameters
 #' @template na_rmParameter
+#' @template useNamesParameter
 #'
 #' @template returnVector
 #'
@@ -27,15 +28,15 @@
 #'   used when the input is a \code{matrix} or \code{numeric} vector.
 #' \item for the direct standard deviation see [rowSds()].
 #' }
-#' 
+#'
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-setGeneric("rowSdDiffs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0,  ...) standardGeneric("rowSdDiffs"),
+setGeneric("rowSdDiffs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0,  ..., useNames = NA) standardGeneric("rowSdDiffs"),
            signature = "x"
 )
 
-.matrixStats_rowSdDiffs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...){
+.matrixStats_rowSdDiffs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ..., useNames = NA){
   matrixStats::rowSdDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff = diff, trim = trim, ...)
 }
 
@@ -52,12 +53,12 @@ setMethod("rowSdDiffs", "ANY", make_default_method_def("rowSdDiffs"))
 
 #' @export
 #' @rdname rowSdDiffs
-setGeneric("colSdDiffs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...) standardGeneric("colSdDiffs"),
+setGeneric("colSdDiffs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ..., useNames = NA) standardGeneric("colSdDiffs"),
            signature = "x"
 )
 
-.matrixStats_colSdDiffs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...){
-  matrixStats::colSdDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff = diff, trim = trim, ...)
+.matrixStats_colSdDiffs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ..., useNames = NA){
+  matrixStats::colSdDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff = diff, trim = trim, ..., useNames = NA)
 }
 
 #' @export

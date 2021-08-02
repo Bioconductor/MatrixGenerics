@@ -9,13 +9,14 @@
 #'
 #' @templateVar rowName rowWeightedMeans
 #' @templateVar colName colWeightedMeans
-#' 
+#'
 #' @template matrixStatsLink
-#' 
+#'
 #' @template standardParameters
 #' @template weightParam
 #' @template na_rmParameter
-#' 
+#' @template useNamesParameter
+#'
 #' @template returnVector
 #'
 #' @seealso
@@ -25,17 +26,17 @@
 #'   which are used when the input is a \code{matrix} or \code{numeric} vector.
 #' \item See also [rowMeans2] for the corresponding unweighted function.
 #' }
-#' 
+#'
 #' @template weightedExamples
-#'   
-#' 
+#'
+#'
 #' @keywords array iteration robust univar
-setGeneric("rowWeightedMeans", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("rowWeightedMeans"),
+setGeneric("rowWeightedMeans", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA) standardGeneric("rowWeightedMeans"),
            signature = "x"
 )
 
-.matrixStats_rowWeightedMeans <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...){
-  matrixStats::rowWeightedMeans(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ...)
+.matrixStats_rowWeightedMeans <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA){
+  matrixStats::rowWeightedMeans(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ..., useNames = NA)
 }
 
 #' @export
@@ -51,12 +52,12 @@ setMethod("rowWeightedMeans", "ANY", make_default_method_def("rowWeightedMeans")
 
 #' @export
 #' @rdname rowWeightedMeans
-setGeneric("colWeightedMeans", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("colWeightedMeans"),
+setGeneric("colWeightedMeans", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA) standardGeneric("colWeightedMeans"),
            signature = "x"
 )
 
-.matrixStats_colWeightedMeans <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...){
-  matrixStats::colWeightedMeans(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ...)
+.matrixStats_colWeightedMeans <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA){
+  matrixStats::colWeightedMeans(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ..., useNames = NA)
 }
 
 #' @export

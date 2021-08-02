@@ -3,7 +3,7 @@
 #'
 #' Calculates the difference between each element of a row (column) of a
 #' matrix-like object.
-#' 
+#'
 #' @include MatrixGenerics-package.R
 #'
 #' @export
@@ -11,13 +11,14 @@
 #'
 #' @templateVar rowName rowDiffs
 #' @templateVar colName colDiffs
-#' 
+#'
 #' @template matrixStatsLink
-#' 
+#'
 #' @template standardParameters
 #' @param lag An integer specifying the lag.
 #' @param differences An integer specifying the order of difference.
 #' @template dimParameter
+#' @template useNamesParameter
 #'
 #' @return Returns a \code{\link{numeric}} \code{\link{matrix}} with one column
 #' (row) less than x: \eqn{Nx(K-1)} or \eqn{(N-1)xK}.
@@ -29,16 +30,16 @@
 #'   when the input is a \code{matrix} or \code{numeric} vector.
 #' \item \code{base::\link{diff}()}.
 #' }
-#' 
+#'
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-setGeneric("rowDiffs", function(x, rows = NULL, cols = NULL, lag = 1L, differences = 1L,  ...) standardGeneric("rowDiffs"),
+setGeneric("rowDiffs", function(x, rows = NULL, cols = NULL, lag = 1L, differences = 1L,  ..., useNames = NA) standardGeneric("rowDiffs"),
            signature = "x"
 )
 
-.matrixStats_rowDiffs <- function(x, rows = NULL, cols = NULL, lag = 1L, differences = 1L, dim. = dim(x), ...){
-  matrixStats::rowDiffs(x, rows = rows, cols = cols, lag = lag, differences = differences, dim. = dim., ...)
+.matrixStats_rowDiffs <- function(x, rows = NULL, cols = NULL, lag = 1L, differences = 1L, dim. = dim(x), ..., useNames = NA){
+  matrixStats::rowDiffs(x, rows = rows, cols = cols, lag = lag, differences = differences, dim. = dim., ..., useNames = NA)
 }
 
 #' @export
@@ -54,12 +55,12 @@ setMethod("rowDiffs", "ANY", make_default_method_def("rowDiffs"))
 
 #' @export
 #' @rdname rowDiffs
-setGeneric("colDiffs", function(x, rows = NULL, cols = NULL, lag = 1L, differences = 1L, ...) standardGeneric("colDiffs"),
+setGeneric("colDiffs", function(x, rows = NULL, cols = NULL, lag = 1L, differences = 1L, ..., useNames = NA) standardGeneric("colDiffs"),
            signature = "x"
 )
 
-.matrixStats_colDiffs <- function(x, rows = NULL, cols = NULL, lag = 1L, differences = 1L, dim. = dim(x), ...){
-  matrixStats::colDiffs(x, rows = rows, cols = cols, lag = lag, differences = differences, dim. = dim., ...)
+.matrixStats_colDiffs <- function(x, rows = NULL, cols = NULL, lag = 1L, differences = 1L, dim. = dim(x), ..., useNames = NA){
+  matrixStats::colDiffs(x, rows = rows, cols = cols, lag = lag, differences = differences, dim. = dim., ..., useNames = NA)
 }
 
 #' @export

@@ -3,7 +3,7 @@
 #'
 #' Calculates the standard deviation for each row (column) of a matrix-like
 #' object.
-#' 
+#'
 #' @include MatrixGenerics-package.R
 #'
 #' @export
@@ -11,13 +11,14 @@
 #'
 #' @templateVar rowName rowSds
 #' @templateVar colName colSds
-#' 
+#'
 #' @template matrixStatsLink
-#' 
+#'
 #' @template standardParameters
 #' @template na_rmParameter
 #' @param center (optional) the center, defaults to the row means
 #' @template dimParameter
+#' @template useNamesParameter
 #'
 #' @template returnVector
 #'
@@ -30,16 +31,16 @@
 #'   \code{\link[base:colSums]{rowMeans}()}.
 #' \item For variance estimates, see \code{\link{rowVars}()}.
 #' }
-#' 
+#'
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-setGeneric("rowSds", function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, ...) standardGeneric("rowSds"),
+setGeneric("rowSds", function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, ..., useNames = NA) standardGeneric("rowSds"),
            signature = "x"
 )
 
-.matrixStats_rowSds <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, dim. = dim(x), ...){
-  matrixStats::rowSds(x, rows = rows, cols = cols, na.rm = na.rm, center = center, dim. = dim., ...)
+.matrixStats_rowSds <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, dim. = dim(x), ..., useNames = NA){
+  matrixStats::rowSds(x, rows = rows, cols = cols, na.rm = na.rm, center = center, dim. = dim., ..., useNames = NA)
 }
 
 #' @export
@@ -55,12 +56,12 @@ setMethod("rowSds", "ANY", make_default_method_def("rowSds"))
 
 #' @export
 #' @rdname rowSds
-setGeneric("colSds", function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, ...) standardGeneric("colSds"),
+setGeneric("colSds", function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, ..., useNames = NA) standardGeneric("colSds"),
            signature = "x"
 )
 
-.matrixStats_colSds <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, dim. = dim(x), ...){
-  matrixStats::colSds(x, rows = rows, cols = cols, na.rm = na.rm, center = center, dim. = dim., ...)
+.matrixStats_colSds <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, dim. = dim(x), ..., useNames = NA){
+  matrixStats::colSds(x, rows = rows, cols = cols, na.rm = na.rm, center = center, dim. = dim., ..., useNames = NA)
 }
 
 #' @export

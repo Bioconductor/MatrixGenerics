@@ -1,7 +1,7 @@
 #' Calculates the sum for each row (column) of a matrix-like object
 #'
 #' Calculates the sum for each row (column) of a matrix-like object.
-#' 
+#'
 #' @include MatrixGenerics-package.R
 #'
 #' @export
@@ -9,12 +9,13 @@
 #'
 #' @templateVar rowName rowSums2
 #' @templateVar colName colSums2
-#' 
+#'
 #' @template matrixStatsLink
-#' 
+#'
 #' @template standardParameters
 #' @template na_rmParameter
 #' @template dimParameter
+#' @template useNamesParameter
 #'
 #' @template returnVector
 #'
@@ -27,16 +28,16 @@
 #'   \code{\link[base:colSums]{rowMeans}()}.
 #' \item \code{base::\link{sum}()}.
 #' }
-#' 
+#'
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-setGeneric("rowSums2", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("rowSums2"),
+setGeneric("rowSums2", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA) standardGeneric("rowSums2"),
            signature = "x"
 )
 
-.matrixStats_rowSums2 <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...){
-  matrixStats::rowSums2(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
+.matrixStats_rowSums2 <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = NA){
+  matrixStats::rowSums2(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ..., useNames = NA)
 }
 
 #' @export
@@ -52,12 +53,12 @@ setMethod("rowSums2", "ANY", make_default_method_def("rowSums2"))
 
 #' @export
 #' @rdname rowSums2
-setGeneric("colSums2", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("colSums2"),
+setGeneric("colSums2", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA) standardGeneric("colSums2"),
            signature = "x"
 )
 
-.matrixStats_colSums2 <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...){
-  matrixStats::colSums2(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
+.matrixStats_colSums2 <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = NA){
+  matrixStats::colSums2(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ..., useNames = NA)
 }
 
 #' @export

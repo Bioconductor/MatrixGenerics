@@ -6,15 +6,16 @@
 #'
 #' @export
 #' @name rowMeans2
-#' 
+#'
 #' @templateVar rowName rowMeans2
 #' @templateVar colName colMeans2
-#' 
+#'
 #' @template matrixStatsLink
-#' 
+#'
 #' @template standardParameters
 #' @template na_rmParameter
 #' @template dimParameter
+#' @template useNamesParameter
 #'
 #' @template returnVector
 #'
@@ -28,17 +29,17 @@
 #' \item For variance estimates, see \code{\link{rowVars}()}.
 #' \item See also the base R version \code{base::\link{rowMeans}()}.
 #' }
-#' 
+#'
 #' @template standardExamples
-#'   
-#' 
+#'
+#'
 #' @keywords array iteration robust univar
-setGeneric("rowMeans2", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("rowMeans2"),
+setGeneric("rowMeans2", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA) standardGeneric("rowMeans2"),
            signature = "x"
 )
 
-.matrixStats_rowMeans2 <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...){
-  matrixStats::rowMeans2(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
+.matrixStats_rowMeans2 <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = NA){
+  matrixStats::rowMeans2(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ..., useNames = NA)
 }
 
 #' @export
@@ -54,12 +55,12 @@ setMethod("rowMeans2", "ANY", make_default_method_def("rowMeans2"))
 
 #' @export
 #' @rdname rowMeans2
-setGeneric("colMeans2", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("colMeans2"),
+setGeneric("colMeans2", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA) standardGeneric("colMeans2"),
            signature = "x"
 )
 
-.matrixStats_colMeans2 <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...){
-  matrixStats::colMeans2(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
+.matrixStats_colMeans2 <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = NA){
+  matrixStats::colMeans2(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ..., useNames = NA)
 }
 
 #' @export

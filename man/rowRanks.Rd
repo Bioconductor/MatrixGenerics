@@ -10,21 +10,26 @@
 \title{Calculates the rank of the elements for each row (column) of a matrix-like
 object}
 \usage{
-rowRanks(x, rows = NULL, cols = NULL, ties.method = c("max", "average"), ...)
+rowRanks(x, rows = NULL, cols = NULL, ties.method = c("max", "average"),
+  ..., useNames = NA)
 
 \S4method{rowRanks}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
   cols = NULL, ties.method = c("max", "average", "first", "last", "random",
-  "max", "min", "dense"), dim. = dim(x), ...)
+  "max", "min", "dense"), dim. = dim(x), ..., useNames = NA)
 
-\S4method{rowRanks}{ANY}(x, rows = NULL, cols = NULL, ties.method = c("max", "average"), ...)
+\S4method{rowRanks}{ANY}(x, rows = NULL, cols = NULL,
+  ties.method = c("max", "average"), ..., useNames = NA)
 
-colRanks(x, rows = NULL, cols = NULL, ties.method = c("max", "average"), ...)
+colRanks(x, rows = NULL, cols = NULL, ties.method = c("max", "average"),
+  ..., useNames = NA)
 
 \S4method{colRanks}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
   cols = NULL, ties.method = c("max", "average", "first", "last", "random",
-  "max", "min", "dense"), dim. = dim(x), preserveShape = FALSE, ...)
+  "max", "min", "dense"), dim. = dim(x), preserveShape = FALSE, ...,
+  useNames = NA)
 
-\S4method{colRanks}{ANY}(x, rows = NULL, cols = NULL, ties.method = c("max", "average"), ...)
+\S4method{colRanks}{ANY}(x, rows = NULL, cols = NULL,
+  ties.method = c("max", "average"), ..., useNames = NA)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
@@ -38,6 +43,8 @@ that the default specifies fewer options than the original matrixStats
 package.}
 
 \item{...}{Additional arguments passed to specific methods.}
+
+\item{useNames}{If \code{\link{NA}}, the default behavior of the function about naming support is remained. If \code{\link{FALSE}}, no naming support is done. Else if \code{\link{TRUE}}, names attributes of result are set.}
 
 \item{dim.}{An \code{\link{integer}} \code{\link{vector}} of length two
 specifying the dimension of \code{x}, essential when x is a

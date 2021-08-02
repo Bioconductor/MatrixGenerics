@@ -10,17 +10,23 @@
 \title{Calculates the weighted standard deviation for each row (column) of a
 matrix-like object}
 \usage{
-rowWeightedSds(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+rowWeightedSds(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE,
+  ..., useNames = NA)
 
-\S4method{rowWeightedSds}{matrix_OR_array_OR_table_OR_numeric}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+\S4method{rowWeightedSds}{matrix_OR_array_OR_table_OR_numeric}(x, w = NULL,
+  rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA)
 
-\S4method{rowWeightedSds}{ANY}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+\S4method{rowWeightedSds}{ANY}(x, w = NULL, rows = NULL, cols = NULL,
+  na.rm = FALSE, ..., useNames = NA)
 
-colWeightedSds(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+colWeightedSds(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE,
+  ..., useNames = NA)
 
-\S4method{colWeightedSds}{matrix_OR_array_OR_table_OR_numeric}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+\S4method{colWeightedSds}{matrix_OR_array_OR_table_OR_numeric}(x, w = NULL,
+  rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA)
 
-\S4method{colWeightedSds}{ANY}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+\S4method{colWeightedSds}{ANY}(x, w = NULL, rows = NULL, cols = NULL,
+  na.rm = FALSE, ..., useNames = NA)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
@@ -36,6 +42,8 @@ done.}
 are excluded first, otherwise not.}
 
 \item{...}{Additional arguments passed to specific methods.}
+
+\item{useNames}{If \code{\link{NA}}, the default behavior of the function about naming support is remained. If \code{\link{FALSE}}, no naming support is done. Else if \code{\link{TRUE}}, names attributes of result are set.}
 }
 \value{
 Returns a \code{\link{numeric}} \code{\link{vector}} of length N (K).

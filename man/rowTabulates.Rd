@@ -9,17 +9,17 @@
 \alias{colTabulates,ANY-method}
 \title{Tabulates the values in a matrix-like object by row (column)}
 \usage{
-rowTabulates(x, rows = NULL, cols = NULL, values = NULL, ...)
+rowTabulates(x, rows = NULL, cols = NULL, values = NULL, ..., useNames = NA)
 
-\S4method{rowTabulates}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, values = NULL, ...)
+\S4method{rowTabulates}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, values = NULL, ..., useNames = NA)
 
-\S4method{rowTabulates}{ANY}(x, rows = NULL, cols = NULL, values = NULL, ...)
+\S4method{rowTabulates}{ANY}(x, rows = NULL, cols = NULL, values = NULL, ..., useNames = NA)
 
-colTabulates(x, rows = NULL, cols = NULL, values = NULL, ...)
+colTabulates(x, rows = NULL, cols = NULL, values = NULL, ..., useNames = NA)
 
-\S4method{colTabulates}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, values = NULL, ...)
+\S4method{colTabulates}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, values = NULL, ..., useNames = NA)
 
-\S4method{colTabulates}{ANY}(x, rows = NULL, cols = NULL, values = NULL, ...)
+\S4method{colTabulates}{ANY}(x, rows = NULL, cols = NULL, values = NULL, ..., useNames = NA)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
@@ -31,6 +31,8 @@ done.}
 \item{values}{the values to search for.}
 
 \item{...}{Additional arguments passed to specific methods.}
+
+\item{useNames}{If \code{\link{NA}}, the default behavior of the function about naming support is remained. If \code{\link{FALSE}}, no naming support is done. Else if \code{\link{TRUE}}, names attributes of result are set.}
 }
 \value{
 a \code{\link{numeric}} \code{NxJ} (\code{KxJ})
@@ -51,12 +53,12 @@ The S4 methods for \code{x} of type \code{\link{matrix}},
   mat[2, 1] <- NA_integer_
   mat[3, 3] <- 0L
   mat[4, 1] <- 0L
-  
+
   print(mat)
-  
+
   rowTabulates(mat)
   colTabulates(mat)
-  
+
   rowTabulates(mat, values = 0)
   colTabulates(mat, values = 0)
 

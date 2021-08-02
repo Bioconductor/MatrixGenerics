@@ -10,17 +10,17 @@
 \title{Calculates the cumulative maxima for each row (column) of a matrix-like
 object}
 \usage{
-rowCummaxs(x, rows = NULL, cols = NULL, ...)
+rowCummaxs(x, rows = NULL, cols = NULL, ..., useNames = NA)
 
-\S4method{rowCummaxs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
+\S4method{rowCummaxs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = NA)
 
-\S4method{rowCummaxs}{ANY}(x, rows = NULL, cols = NULL, ...)
+\S4method{rowCummaxs}{ANY}(x, rows = NULL, cols = NULL, ..., useNames = NA)
 
-colCummaxs(x, rows = NULL, cols = NULL, ...)
+colCummaxs(x, rows = NULL, cols = NULL, ..., useNames = NA)
 
-\S4method{colCummaxs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
+\S4method{colCummaxs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = NA)
 
-\S4method{colCummaxs}{ANY}(x, rows = NULL, cols = NULL, ...)
+\S4method{colCummaxs}{ANY}(x, rows = NULL, cols = NULL, ..., useNames = NA)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
@@ -30,6 +30,8 @@ colCummaxs(x, rows = NULL, cols = NULL, ...)
 done.}
 
 \item{...}{Additional arguments passed to specific methods.}
+
+\item{useNames}{If \code{\link{NA}}, the default behavior of the function about naming support is remained. If \code{\link{FALSE}}, no naming support is done. Else if \code{\link{TRUE}}, names attributes of result are set.}
 
 \item{dim.}{An \code{\link{integer}} \code{\link{vector}} of length two
 specifying the dimension of \code{x}, essential when x is a

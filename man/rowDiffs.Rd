@@ -10,19 +10,25 @@
 \title{Calculates the difference between each element of a row (column) of a
 matrix-like object}
 \usage{
-rowDiffs(x, rows = NULL, cols = NULL, lag = 1L, differences = 1L, ...)
+rowDiffs(x, rows = NULL, cols = NULL, lag = 1L, differences = 1L, ...,
+  useNames = NA)
 
 \S4method{rowDiffs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
-  cols = NULL, lag = 1L, differences = 1L, dim. = dim(x), ...)
+  cols = NULL, lag = 1L, differences = 1L, dim. = dim(x), ...,
+  useNames = NA)
 
-\S4method{rowDiffs}{ANY}(x, rows = NULL, cols = NULL, lag = 1L, differences = 1L, ...)
+\S4method{rowDiffs}{ANY}(x, rows = NULL, cols = NULL, lag = 1L,
+  differences = 1L, ..., useNames = NA)
 
-colDiffs(x, rows = NULL, cols = NULL, lag = 1L, differences = 1L, ...)
+colDiffs(x, rows = NULL, cols = NULL, lag = 1L, differences = 1L, ...,
+  useNames = NA)
 
 \S4method{colDiffs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
-  cols = NULL, lag = 1L, differences = 1L, dim. = dim(x), ...)
+  cols = NULL, lag = 1L, differences = 1L, dim. = dim(x), ...,
+  useNames = NA)
 
-\S4method{colDiffs}{ANY}(x, rows = NULL, cols = NULL, lag = 1L, differences = 1L, ...)
+\S4method{colDiffs}{ANY}(x, rows = NULL, cols = NULL, lag = 1L,
+  differences = 1L, ..., useNames = NA)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
@@ -36,6 +42,8 @@ done.}
 \item{differences}{An integer specifying the order of difference.}
 
 \item{...}{Additional arguments passed to specific methods.}
+
+\item{useNames}{If \code{\link{NA}}, the default behavior of the function about naming support is remained. If \code{\link{FALSE}}, no naming support is done. Else if \code{\link{TRUE}}, names attributes of result are set.}
 
 \item{dim.}{An \code{\link{integer}} \code{\link{vector}} of length two
 specifying the dimension of \code{x}, essential when x is a

@@ -17,6 +17,7 @@
 #' @template standardParameters
 #' @template diff_trimParameters
 #' @template na_rmParameter
+#' @template useNamesParameter
 #'
 #' @template returnVector
 #'
@@ -31,12 +32,12 @@
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-setGeneric("rowVarDiffs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0,  ...) standardGeneric("rowVarDiffs"),
+setGeneric("rowVarDiffs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ..., useNames = NA) standardGeneric("rowVarDiffs"),
            signature = "x"
 )
 
-.matrixStats_rowVarDiffs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...){
-  matrixStats::rowVarDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff = diff, trim = trim, ...)
+.matrixStats_rowVarDiffs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ..., useNames = NA){
+  matrixStats::rowVarDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff = diff, trim = trim, ..., useNames = NA)
 }
 
 #' @export
@@ -52,12 +53,12 @@ setMethod("rowVarDiffs", "ANY", make_default_method_def("rowVarDiffs"))
 
 #' @export
 #' @rdname rowVarDiffs
-setGeneric("colVarDiffs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...) standardGeneric("colVarDiffs"),
+setGeneric("colVarDiffs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ..., useNames = NA) standardGeneric("colVarDiffs"),
            signature = "x"
 )
 
-.matrixStats_colVarDiffs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...){
-  matrixStats::colVarDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff = diff, trim = trim, ...)
+.matrixStats_colVarDiffs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ..., useNames = NA){
+  matrixStats::colVarDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff = diff, trim = trim, ..., useNames = NA)
 }
 
 #' @export

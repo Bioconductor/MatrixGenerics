@@ -8,16 +8,16 @@
 #'
 #' @export
 #' @name rowWeightedSds
-#' 
+#'
 #' @templateVar rowName rowWeightedSds
 #' @templateVar colName colWeightedSds
-#' 
+#'
 #' @template matrixStatsLink
-#' 
+#'
 #' @template standardParameters
 #' @template weightParam
 #' @template na_rmParameter
-#' 
+#' @template useNamesParameter
 #'
 #' @template returnVector
 #'
@@ -28,16 +28,16 @@
 #'   which are used when the input is a \code{matrix} or \code{numeric} vector.
 #' \item See also [rowSds] for the corresponding unweighted function.
 #' }
-#' 
+#'
 #' @template weightedExamples
-#' 
+#'
 #' @keywords array iteration robust univar
-setGeneric("rowWeightedSds", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("rowWeightedSds"),
+setGeneric("rowWeightedSds", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA) standardGeneric("rowWeightedSds"),
            signature = "x"
 )
 
-.matrixStats_rowWeightedSds <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...){
-  matrixStats::rowWeightedSds(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ...)
+.matrixStats_rowWeightedSds <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA){
+  matrixStats::rowWeightedSds(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ..., useNames = NA)
 }
 
 #' @export
@@ -53,11 +53,11 @@ setMethod("rowWeightedSds", "ANY", make_default_method_def("rowWeightedSds"))
 
 #' @export
 #' @rdname rowWeightedSds
-setGeneric("colWeightedSds", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("colWeightedSds"),
+setGeneric("colWeightedSds", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA) standardGeneric("colWeightedSds"),
            signature = "x"
 )
 
-.matrixStats_colWeightedSds <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...){
+.matrixStats_colWeightedSds <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA){
   matrixStats::colWeightedSds(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ...)
 }
 

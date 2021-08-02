@@ -1,7 +1,7 @@
 #' Calculates the median for each row (column) of a matrix-like object
 #'
 #' Calculates the median for each row (column) of a matrix-like object.
-#' 
+#'
 #' @include MatrixGenerics-package.R
 #'
 #' @export
@@ -9,12 +9,13 @@
 #'
 #' @templateVar rowName rowMedians
 #' @templateVar colName colMedians
-#' 
+#'
 #' @template matrixStatsLink
-#' 
+#'
 #' @template standardParameters
 #' @template na_rmParameter
 #' @template dimParameter
+#' @template useNamesParameter
 #'
 #' @template returnVector
 #'
@@ -26,16 +27,16 @@
 #' \item For mean estimates, see \code{\link{rowMeans2}()} and
 #'   \code{\link[base:colSums]{rowMeans}()}.
 #' }
-#' 
+#'
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-setGeneric("rowMedians", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("rowMedians"),
+setGeneric("rowMedians", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA) standardGeneric("rowMedians"),
            signature = "x"
 )
 
-.matrixStats_rowMedians <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...){
-  matrixStats::rowMedians(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
+.matrixStats_rowMedians <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = NA){
+  matrixStats::rowMedians(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ..., useNames = NA)
 }
 
 #' @export
@@ -51,12 +52,12 @@ setMethod("rowMedians", "ANY", make_default_method_def("rowMedians"))
 
 #' @export
 #' @rdname rowMedians
-setGeneric("colMedians", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("colMedians"),
+setGeneric("colMedians", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA) standardGeneric("colMedians"),
            signature = "x"
 )
 
-.matrixStats_colMedians <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...){
-  matrixStats::colMedians(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
+.matrixStats_colMedians <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = NA){
+  matrixStats::colMedians(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ..., useNames = NA)
 }
 
 #' @export

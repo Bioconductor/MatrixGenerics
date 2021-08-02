@@ -3,7 +3,7 @@
 #'
 #' Calculates the interquartile range for each row (column) of a matrix-like
 #' object.
-#' 
+#'
 #' @include MatrixGenerics-package.R
 #'
 #' @export
@@ -11,11 +11,12 @@
 #'
 #' @templateVar rowName rowIQRs
 #' @templateVar colName colIQRs
-#' 
+#'
 #' @template matrixStatsLink
-#' 
+#'
 #' @template standardParameters
 #' @template na_rmParameter
+#' @template useNamesParameter
 #'
 #' @template returnVector
 #'
@@ -28,16 +29,16 @@
 #'  robust version see [rowMads()]
 #' \item \code{stats::\link[stats]{IQR}()}.
 #' }
-#' 
+#'
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-setGeneric("rowIQRs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("rowIQRs"),
+setGeneric("rowIQRs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA) standardGeneric("rowIQRs"),
            signature = "x"
 )
 
-.matrixStats_rowIQRs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...){
-  matrixStats::rowIQRs(x, rows = rows, cols = cols, na.rm = na.rm, ...)
+.matrixStats_rowIQRs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA){
+  matrixStats::rowIQRs(x, rows = rows, cols = cols, na.rm = na.rm, ..., useNames = NA)
 }
 
 #' @export
@@ -53,12 +54,12 @@ setMethod("rowIQRs", "ANY", make_default_method_def("rowIQRs"))
 
 #' @export
 #' @rdname rowIQRs
-setGeneric("colIQRs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("colIQRs"),
+setGeneric("colIQRs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA) standardGeneric("colIQRs"),
            signature = "x"
 )
 
-.matrixStats_colIQRs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...){
-  matrixStats::colIQRs(x, rows = rows, cols = cols, na.rm = na.rm, ...)
+.matrixStats_colIQRs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA){
+  matrixStats::colIQRs(x, rows = rows, cols = cols, na.rm = na.rm, ..., useNames = NA)
 }
 
 #' @export

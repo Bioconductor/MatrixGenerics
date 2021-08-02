@@ -10,17 +10,21 @@
 \title{Accurately calculates the logarithm of the sum of exponentials for each row
 (column) of a matrix-like object}
 \usage{
-rowLogSumExps(lx, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+rowLogSumExps(lx, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA)
 
-\S4method{rowLogSumExps}{matrix_OR_array_OR_table_OR_numeric}(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx), ...)
+\S4method{rowLogSumExps}{matrix_OR_array_OR_table_OR_numeric}(lx,
+  rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx), ...,
+  useNames = NA)
 
-\S4method{rowLogSumExps}{ANY}(lx, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+\S4method{rowLogSumExps}{ANY}(lx, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA)
 
-colLogSumExps(lx, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+colLogSumExps(lx, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA)
 
-\S4method{colLogSumExps}{matrix_OR_array_OR_table_OR_numeric}(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx), ...)
+\S4method{colLogSumExps}{matrix_OR_array_OR_table_OR_numeric}(lx,
+  rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx), ...,
+  useNames = NA)
 
-\S4method{colLogSumExps}{ANY}(lx, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+\S4method{colLogSumExps}{ANY}(lx, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA)
 }
 \arguments{
 \item{lx}{An NxK matrix-like object. Typically \code{lx} are \code{log(x)} values.}
@@ -32,6 +36,8 @@ columns) to operate over. If \code{\link{NULL}}, no subsetting is done.}
 are excluded first, otherwise not.}
 
 \item{...}{Additional arguments passed to specific methods.}
+
+\item{useNames}{If \code{\link{NA}}, the default behavior of the function about naming support is remained. If \code{\link{FALSE}}, no naming support is done. Else if \code{\link{TRUE}}, names attributes of result are set.}
 
 \item{dim.}{An \code{\link{integer}} \code{\link{vector}} of length two
 specifying the dimension of \code{x}, essential when x is a

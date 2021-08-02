@@ -9,17 +9,17 @@
 \alias{colAnyNAs,ANY-method}
 \title{Check if any elements in a row (column) of a matrix-like object is missing}
 \usage{
-rowAnyNAs(x, rows = NULL, cols = NULL, ...)
+rowAnyNAs(x, rows = NULL, cols = NULL, ..., useNames = NA)
 
-\S4method{rowAnyNAs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, ...)
+\S4method{rowAnyNAs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, ..., useNames = NA)
 
-\S4method{rowAnyNAs}{ANY}(x, rows = NULL, cols = NULL, ...)
+\S4method{rowAnyNAs}{ANY}(x, rows = NULL, cols = NULL, ..., useNames = NA)
 
-colAnyNAs(x, rows = NULL, cols = NULL, ...)
+colAnyNAs(x, rows = NULL, cols = NULL, ..., useNames = NA)
 
-\S4method{colAnyNAs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, ...)
+\S4method{colAnyNAs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, ..., useNames = NA)
 
-\S4method{colAnyNAs}{ANY}(x, rows = NULL, cols = NULL, ...)
+\S4method{colAnyNAs}{ANY}(x, rows = NULL, cols = NULL, ..., useNames = NA)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
@@ -29,6 +29,8 @@ colAnyNAs(x, rows = NULL, cols = NULL, ...)
 done.}
 
 \item{...}{Additional arguments passed to specific methods.}
+
+\item{useNames}{If \code{\link{NA}}, the default behavior of the function about naming support is remained. If \code{\link{FALSE}}, no naming support is done. Else if \code{\link{TRUE}}, names attributes of result are set.}
 }
 \value{
 Returns a \code{\link{logical}} \code{\link{vector}} of length N (K).

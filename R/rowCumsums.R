@@ -1,7 +1,7 @@
 #' Calculates the cumulative sum for each row (column) of a matrix-like object
 #'
 #' Calculates the cumulative sum for each row (column) of a matrix-like object.
-#' 
+#'
 #' @include MatrixGenerics-package.R
 #'
 #' @export
@@ -9,11 +9,12 @@
 #'
 #' @templateVar rowName rowCumsums
 #' @templateVar colName colCumsums
-#' 
+#'
 #' @template matrixStatsLink
-#' 
+#'
 #' @template standardParameters
 #' @template dimParameter
+#' @template useNamesParameter
 #'
 #' @template returnMatrix_SameDimX
 #'
@@ -24,16 +25,16 @@
 #'   used when the input is a \code{matrix} or \code{numeric} vector.
 #' \item \code{base::\link{cumsum}()}.
 #' }
-#' 
+#'
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-setGeneric("rowCumsums", function(x, rows = NULL, cols = NULL,  ...) standardGeneric("rowCumsums"),
+setGeneric("rowCumsums", function(x, rows = NULL, cols = NULL,  ..., useNames = NA) standardGeneric("rowCumsums"),
            signature = "x"
 )
 
-.matrixStats_rowCumsums <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ...){
-  matrixStats::rowCumsums(x, rows = rows, cols = cols, dim. = dim., ...)
+.matrixStats_rowCumsums <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = NA){
+  matrixStats::rowCumsums(x, rows = rows, cols = cols, dim. = dim., ..., useNames = NA)
 }
 
 #' @export
@@ -53,8 +54,8 @@ setGeneric("colCumsums", function(x, rows = NULL, cols = NULL, ...) standardGene
            signature = "x"
 )
 
-.matrixStats_colCumsums <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ...){
-  matrixStats::colCumsums(x, rows = rows, cols = cols, dim. = dim., ...)
+.matrixStats_colCumsums <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = NA){
+  matrixStats::colCumsums(x, rows = rows, cols = cols, dim. = dim., ..., useNames = NA)
 }
 
 #' @export

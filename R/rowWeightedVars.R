@@ -11,13 +11,14 @@
 #'
 #' @templateVar rowName rowWeightedVars
 #' @templateVar colName colWeightedVars
-#' 
+#'
 #' @template matrixStatsLink
-#' 
+#'
 #' @template standardParameters
 #' @template weightParam
 #' @template na_rmParameter
-#' 
+#' @template useNamesParameter
+#'
 #' @template returnVector
 #'
 #' @seealso
@@ -27,16 +28,16 @@
 #'   which are used when the input is a \code{matrix} or \code{numeric} vector.
 #' \item See also [rowVars] for the corresponding unweighted function.
 #' }
-#' 
+#'
 #' @template weightedExamples
-#'   
+#'
 #' @keywords array iteration robust univar
-setGeneric("rowWeightedVars", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("rowWeightedVars"),
+setGeneric("rowWeightedVars", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA) standardGeneric("rowWeightedVars"),
            signature = "x"
 )
 
-.matrixStats_rowWeightedVars <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...){
-  matrixStats::rowWeightedVars(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ...)
+.matrixStats_rowWeightedVars <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA){
+  matrixStats::rowWeightedVars(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ..., useNames = NA)
 }
 
 #' @export
@@ -52,12 +53,12 @@ setMethod("rowWeightedVars", "ANY", make_default_method_def("rowWeightedVars"))
 
 #' @export
 #' @rdname rowWeightedVars
-setGeneric("colWeightedVars", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("colWeightedVars"),
+setGeneric("colWeightedVars", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA) standardGeneric("colWeightedVars"),
            signature = "x"
 )
 
-.matrixStats_colWeightedVars <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...){
-  matrixStats::colWeightedVars(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ...)
+.matrixStats_colWeightedVars <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA){
+  matrixStats::colWeightedVars(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ..., useNames = NA)
 }
 
 #' @export

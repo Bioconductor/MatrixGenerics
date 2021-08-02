@@ -9,17 +9,19 @@
 \alias{colOrderStats,ANY-method}
 \title{Calculates an order statistic for each row (column) of a matrix-like object}
 \usage{
-rowOrderStats(x, rows = NULL, cols = NULL, which, ...)
+rowOrderStats(x, rows = NULL, cols = NULL, which, ..., useNames = NA)
 
-\S4method{rowOrderStats}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, which, dim. = dim(x), ...)
+\S4method{rowOrderStats}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
+  cols = NULL, which, dim. = dim(x), ..., useNames = NA)
 
-\S4method{rowOrderStats}{ANY}(x, rows = NULL, cols = NULL, which, ...)
+\S4method{rowOrderStats}{ANY}(x, rows = NULL, cols = NULL, which, ..., useNames = NA)
 
-colOrderStats(x, rows = NULL, cols = NULL, which, ...)
+colOrderStats(x, rows = NULL, cols = NULL, which, ..., useNames = NA)
 
-\S4method{colOrderStats}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, which, dim. = dim(x), ...)
+\S4method{colOrderStats}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
+  cols = NULL, which, dim. = dim(x), ..., useNames = NA)
 
-\S4method{colOrderStats}{ANY}(x, rows = NULL, cols = NULL, which, ...)
+\S4method{colOrderStats}{ANY}(x, rows = NULL, cols = NULL, which, ..., useNames = NA)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
@@ -32,6 +34,8 @@ done.}
 statistic to be returned}
 
 \item{...}{Additional arguments passed to specific methods.}
+
+\item{useNames}{If \code{\link{NA}}, the default behavior of the function about naming support is remained. If \code{\link{FALSE}}, no naming support is done. Else if \code{\link{TRUE}}, names attributes of result are set.}
 
 \item{dim.}{An \code{\link{integer}} \code{\link{vector}} of length two
 specifying the dimension of \code{x}, essential when x is a
@@ -55,9 +59,9 @@ The S4 methods for \code{x} of type \code{\link{matrix}},
     mat[2, 1] <- 2
     mat[3, 3] <- Inf
     mat[4, 1] <- 0
-    
+
     print(mat)
-    
+
     rowOrderStats(mat, which = 1)
     colOrderStats(mat, which = 3)
 
