@@ -8,18 +8,20 @@
 #'
 #' @export
 #' @name rowWeightedMads
-#' 
+#'
 #' @templateVar rowName rowWeightedMads
 #' @templateVar colName colWeightedMads
-#' 
+#'
 #' @template matrixStatsLink
-#' 
+#'
 #' @template standardParameters
 #' @template weightParam
 #' @template na_rmParameter
+#' @template useNamesParameter
 #' @param center (optional) the center, defaults to the row means
 #' @param constant A scale factor. See \code{stats::\link[stats]{mad}()} for
 #'   details.
+#' @template useNamesParameter
 #'
 #' @template returnVector
 #'
@@ -30,16 +32,16 @@
 #'   which are used when the input is a \code{matrix} or \code{numeric} vector.
 #' \item See also [rowMads] for the corresponding unweighted function.
 #' }
-#' 
+#'
 #' @template weightedExamples
-#' 
+#'
 #' @keywords array iteration robust univar
 setGeneric("rowWeightedMads", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, constant = 1.4826, center = NULL, ...) standardGeneric("rowWeightedMads"),
            signature = "x"
 )
 
-.matrixStats_rowWeightedMads <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE,  constant = 1.4826, center = NULL, ...){
-  matrixStats::rowWeightedMads(x, w = w, rows = rows, cols = cols, na.rm = na.rm, constant = constant, center = center, ...)
+.matrixStats_rowWeightedMads <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE,  constant = 1.4826, center = NULL, ..., useNames = NA){
+  matrixStats::rowWeightedMads(x, w = w, rows = rows, cols = cols, na.rm = na.rm, constant = constant, center = center, ..., useNames = NA)
 }
 
 #' @export
@@ -55,12 +57,12 @@ setMethod("rowWeightedMads", "ANY", make_default_method_def("rowWeightedMads"))
 
 #' @export
 #' @rdname rowWeightedMads
-setGeneric("colWeightedMads", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, constant = 1.4826, center = NULL, ...) standardGeneric("colWeightedMads"),
+setGeneric("colWeightedMads", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, constant = 1.4826, center = NULL, ..., useNames = NA) standardGeneric("colWeightedMads"),
            signature = "x"
 )
 
-.matrixStats_colWeightedMads <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE,  constant = 1.4826, center = NULL, ...){
-  matrixStats::colWeightedMads(x, w = w, rows = rows, cols = cols, na.rm = na.rm, constant = constant, center = center, ...)
+.matrixStats_colWeightedMads <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE,  constant = 1.4826, center = NULL, ..., useNames = NA){
+  matrixStats::colWeightedMads(x, w = w, rows = rows, cols = cols, na.rm = na.rm, constant = constant, center = center, ..., useNames = NA)
 }
 
 #' @export

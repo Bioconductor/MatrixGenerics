@@ -2,6 +2,10 @@
 \title{News for Package \pkg{MatrixGenerics}}
 \encoding{UTF-8}
 
+\section{Version 1.5.2}{\itemize{
+  \item Sync API with \pkg{matrixStats} \code{v0.60.0}.
+}}
+
 \section{Version 1.5.1}{\itemize{
   \item Fix problem with function environment of fallback mechanism (\url{https://github.com/Bioconductor/MatrixGenerics/issues/25} and \url{https://github.com/Bioconductor/MatrixGenerics/pull/26}). Make sure that packages can use MatrixGenerics with the \code{::} notation to call functions from \pkg{sparseMatrixStats} and \pkg{DelayedMatrixStats}.
 }}

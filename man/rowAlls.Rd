@@ -10,19 +10,25 @@
 \title{Check if all elements in a row (column) of a matrix-like object are equal to
 a value}
 \usage{
-rowAlls(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...)
+rowAlls(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...,
+  useNames = NA)
 
 \S4method{rowAlls}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
-  cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ...)
+  cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ...,
+  useNames = NA)
 
-\S4method{rowAlls}{ANY}(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...)
+\S4method{rowAlls}{ANY}(x, rows = NULL, cols = NULL, value = TRUE,
+  na.rm = FALSE, ..., useNames = NA)
 
-colAlls(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...)
+colAlls(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...,
+  useNames = NA)
 
 \S4method{colAlls}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
-  cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ...)
+  cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ...,
+  useNames = NA)
 
-\S4method{colAlls}{ANY}(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...)
+\S4method{colAlls}{ANY}(x, rows = NULL, cols = NULL, value = TRUE,
+  na.rm = FALSE, ..., useNames = NA)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
@@ -37,6 +43,8 @@ done.}
 are excluded first, otherwise not.}
 
 \item{...}{Additional arguments passed to specific methods.}
+
+\item{useNames}{If \code{\link{NA}}, the default behavior of the function about naming support is remained. If \code{\link{FALSE}}, no naming support is done. Else if \code{\link{TRUE}}, names attributes of result are set.}
 
 \item{dim.}{An \code{\link{integer}} \code{\link{vector}} of length two
 specifying the dimension of \code{x}, essential when x is a

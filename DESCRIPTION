@@ -21,7 +21,7 @@ Authors@R: c(person("Constantin", "Ahlmann-Eltze",
                 comment = c(ORCID = "0000-0002-8153-6258")),
             person("Hervé", "Pagès", email = "hpages.on.github@gmail.com",
                 role = "aut"))
-Depends: matrixStats (> 0.57.0)
+Depends: matrixStats (>= 0.60.0)
 Imports: methods
 Suggests:
     sparseMatrixStats,

@@ -6,16 +6,17 @@
 #'
 #' @export
 #' @name rowWeightedMedians
-#' 
+#'
 #' @templateVar rowName rowWeightedMedians
 #' @templateVar colName colWeightedMedians
-#' 
+#'
 #' @template matrixStatsLink
-#' 
+#'
 #' @template standardParameters
 #' @template weightParam
 #' @template na_rmParameter
-#' 
+#' @template useNamesParameter
+#'
 #'
 #' @template returnVector
 #'
@@ -26,16 +27,16 @@
 #'   which are used when the input is a \code{matrix} or \code{numeric} vector.
 #' \item See also [rowMedians] for the corresponding unweighted function.
 #' }
-#' 
+#'
 #' @template weightedExamples
-#' 
+#'
 #' @keywords array iteration robust univar
-setGeneric("rowWeightedMedians", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("rowWeightedMedians"),
+setGeneric("rowWeightedMedians", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA) standardGeneric("rowWeightedMedians"),
            signature = "x"
 )
 
-.matrixStats_rowWeightedMedians <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...){
-  matrixStats::rowWeightedMedians(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ...)
+.matrixStats_rowWeightedMedians <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA){
+  matrixStats::rowWeightedMedians(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ..., useNames = NA)
 }
 
 #' @export
@@ -51,12 +52,12 @@ setMethod("rowWeightedMedians", "ANY", make_default_method_def("rowWeightedMedia
 
 #' @export
 #' @rdname rowWeightedMedians
-setGeneric("colWeightedMedians", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("colWeightedMedians"),
+setGeneric("colWeightedMedians", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA) standardGeneric("colWeightedMedians"),
            signature = "x"
 )
 
-.matrixStats_colWeightedMedians <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...){
-  matrixStats::colWeightedMedians(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ...)
+.matrixStats_colWeightedMedians <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA){
+  matrixStats::colWeightedMedians(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ..., useNames = NA)
 }
 
 #' @export

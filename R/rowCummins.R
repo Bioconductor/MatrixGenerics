@@ -3,7 +3,7 @@
 #'
 #' Calculates the cumulative minima for each row (column) of a matrix-like
 #' object.
-#' 
+#'
 #' @include MatrixGenerics-package.R
 #'
 #' @export
@@ -11,11 +11,12 @@
 #'
 #' @templateVar rowName rowCummins
 #' @templateVar colName colCummins
-#' 
+#'
 #' @template matrixStatsLink
-#' 
+#'
 #' @template standardParameters
 #' @template dimParameter
+#' @template useNamesParameter
 #'
 #' @template returnMatrix_SameDimX
 #'
@@ -27,16 +28,16 @@
 #' \item For single minimum estimates, see \code{\link{rowMins}()}.
 #' \item \code{base::\link{cummin}()}.
 #' }
-#' 
+#'
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-setGeneric("rowCummins", function(x, rows = NULL, cols = NULL,  ...) standardGeneric("rowCummins"),
+setGeneric("rowCummins", function(x, rows = NULL, cols = NULL, ..., useNames = NA) standardGeneric("rowCummins"),
            signature = "x"
 )
 
-.matrixStats_rowCummins <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ...){
-  matrixStats::rowCummins(x, rows = rows, cols = cols, dim. = dim., ...)
+.matrixStats_rowCummins <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = NA){
+  matrixStats::rowCummins(x, rows = rows, cols = cols, dim. = dim., ..., useNames = NA)
 }
 
 #' @export
@@ -52,12 +53,12 @@ setMethod("rowCummins", "ANY", make_default_method_def("rowCummins"))
 
 #' @export
 #' @rdname rowCummins
-setGeneric("colCummins", function(x, rows = NULL, cols = NULL, ...) standardGeneric("colCummins"),
+setGeneric("colCummins", function(x, rows = NULL, cols = NULL, ..., useNames = NA) standardGeneric("colCummins"),
            signature = "x"
 )
 
-.matrixStats_colCummins <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ...){
-  matrixStats::colCummins(x, rows = rows, cols = cols, dim. = dim., ...)
+.matrixStats_colCummins <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = NA){
+  matrixStats::colCummins(x, rows = rows, cols = cols, dim. = dim., ..., useNames = NA)
 }
 
 #' @export

@@ -3,7 +3,7 @@
 #'
 #' Calculates the cumulative maxima for each row (column) of a matrix-like
 #' object.
-#' 
+#'
 #' @include MatrixGenerics-package.R
 #'
 #' @export
@@ -11,11 +11,12 @@
 #'
 #' @templateVar rowName rowCummaxs
 #' @templateVar colName colCummaxs
-#' 
+#'
 #' @template matrixStatsLink
-#' 
+#'
 #' @template standardParameters
 #' @template dimParameter
+#' @template useNamesParameter
 #'
 #' @template returnMatrix_SameDimX
 #'
@@ -27,16 +28,16 @@
 #' \item For single maximum estimates, see \code{\link{rowMaxs}()}.
 #' \item \code{base::\link{cummax}()}.
 #' }
-#' 
+#'
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-setGeneric("rowCummaxs", function(x, rows = NULL, cols = NULL,  ...) standardGeneric("rowCummaxs"),
+setGeneric("rowCummaxs", function(x, rows = NULL, cols = NULL, ..., useNames = NA) standardGeneric("rowCummaxs"),
            signature = "x"
 )
 
-.matrixStats_rowCummaxs <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ...){
-  matrixStats::rowCummaxs(x, rows = rows, cols = cols, dim. = dim., ...)
+.matrixStats_rowCummaxs <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = NA){
+  matrixStats::rowCummaxs(x, rows = rows, cols = cols, dim. = dim., ..., useNames = NA)
 }
 
 #' @export
@@ -52,12 +53,12 @@ setMethod("rowCummaxs", "ANY", make_default_method_def("rowCummaxs"))
 
 #' @export
 #' @rdname rowCummaxs
-setGeneric("colCummaxs", function(x, rows = NULL, cols = NULL, ...) standardGeneric("colCummaxs"),
+setGeneric("colCummaxs", function(x, rows = NULL, cols = NULL, ..., useNames = NA) standardGeneric("colCummaxs"),
            signature = "x"
 )
 
-.matrixStats_colCummaxs <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ...){
-  matrixStats::colCummaxs(x, rows = rows, cols = cols, dim. = dim., ...)
+.matrixStats_colCummaxs <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = NA){
+  matrixStats::colCummaxs(x, rows = rows, cols = cols, dim. = dim., ..., useNames = NA)
 }
 
 #' @export

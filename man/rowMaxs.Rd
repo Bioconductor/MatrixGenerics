@@ -9,17 +9,19 @@
 \alias{colMaxs,ANY-method}
 \title{Calculates the maximum for each row (column) of a matrix-like object}
 \usage{
-rowMaxs(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+rowMaxs(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA)
 
-\S4method{rowMaxs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
+\S4method{rowMaxs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
+  cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = NA)
 
-\S4method{rowMaxs}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+\S4method{rowMaxs}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA)
 
-colMaxs(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+colMaxs(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA)
 
-\S4method{colMaxs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
+\S4method{colMaxs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
+  cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = NA)
 
-\S4method{colMaxs}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+\S4method{colMaxs}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
@@ -32,6 +34,8 @@ done.}
 are excluded first, otherwise not.}
 
 \item{...}{Additional arguments passed to specific methods.}
+
+\item{useNames}{If \code{\link{NA}}, the default behavior of the function about naming support is remained. If \code{\link{FALSE}}, no naming support is done. Else if \code{\link{TRUE}}, names attributes of result are set.}
 
 \item{dim.}{An \code{\link{integer}} \code{\link{vector}} of length two
 specifying the dimension of \code{x}, essential when x is a

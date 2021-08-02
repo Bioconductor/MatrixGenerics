@@ -9,17 +9,17 @@
 \alias{colCollapse,ANY-method}
 \title{Extract one cell from each row (column) of a matrix-like object}
 \usage{
-rowCollapse(x, idxs, rows = NULL, ...)
+rowCollapse(x, idxs, rows = NULL, ..., useNames = NA)
 
-\S4method{rowCollapse}{matrix_OR_array_OR_table_OR_numeric}(x, idxs, rows = NULL, dim. = dim(x), ...)
+\S4method{rowCollapse}{matrix_OR_array_OR_table_OR_numeric}(x, idxs, rows = NULL, dim. = dim(x), ..., useNames = NA)
 
-\S4method{rowCollapse}{ANY}(x, idxs, rows = NULL, ...)
+\S4method{rowCollapse}{ANY}(x, idxs, rows = NULL, ..., useNames = NA)
 
-colCollapse(x, idxs = idxs, cols = NULL, ...)
+colCollapse(x, idxs = idxs, cols = NULL, ..., useNames = NA)
 
-\S4method{colCollapse}{matrix_OR_array_OR_table_OR_numeric}(x, idxs, cols = NULL, dim. = dim(x), ...)
+\S4method{colCollapse}{matrix_OR_array_OR_table_OR_numeric}(x, idxs, cols = NULL, dim. = dim(x), ..., useNames = NA)
 
-\S4method{colCollapse}{ANY}(x, idxs = idxs, cols = NULL, ...)
+\S4method{colCollapse}{ANY}(x, idxs = idxs, cols = NULL, ..., useNames = NA)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
@@ -32,6 +32,8 @@ It is recycled to match the number of rows (column)}
 done.}
 
 \item{...}{Additional arguments passed to specific methods.}
+
+\item{useNames}{If \code{\link{NA}}, the default behavior of the function about naming support is remained. If \code{\link{FALSE}}, no naming support is done. Else if \code{\link{TRUE}}, names attributes of result are set.}
 
 \item{dim.}{An \code{\link{integer}} \code{\link{vector}} of length two
 specifying the dimension of \code{x}, essential when x is a
@@ -55,12 +57,12 @@ The S4 methods for \code{x} of type \code{\link{matrix}},
   mat[2, 1] <- NA
   mat[3, 3] <- Inf
   mat[4, 1] <- 0
-  
+
   print(mat)
-  
+
   rowCollapse(mat, idxs = 2)
   rowCollapse(mat, idxs = c(1,1,2,3,2))
-  
+
   colCollapse (mat, idxs = 4)
 
 }

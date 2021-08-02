@@ -11,24 +11,24 @@
 matrix-like object}
 \usage{
 rowMads(x, rows = NULL, cols = NULL, center = NULL, constant = 1.4826,
-  na.rm = FALSE, ...)
+  na.rm = FALSE, ..., useNames = NA)
 
 \S4method{rowMads}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
   cols = NULL, center = NULL, constant = 1.4826, na.rm = FALSE,
-  dim. = dim(x), ...)
+  dim. = dim(x), ..., useNames = NA)
 
 \S4method{rowMads}{ANY}(x, rows = NULL, cols = NULL, center = NULL,
-  constant = 1.4826, na.rm = FALSE, ...)
+  constant = 1.4826, na.rm = FALSE, ..., useNames = NA)
 
 colMads(x, rows = NULL, cols = NULL, center = NULL, constant = 1.4826,
-  na.rm = FALSE, ...)
+  na.rm = FALSE, ..., useNames = NA)
 
 \S4method{colMads}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
   cols = NULL, center = NULL, constant = 1.4826, na.rm = FALSE,
-  dim. = dim(x), ...)
+  dim. = dim(x), ..., useNames = NA)
 
 \S4method{colMads}{ANY}(x, rows = NULL, cols = NULL, center = NULL,
-  constant = 1.4826, na.rm = FALSE, ...)
+  constant = 1.4826, na.rm = FALSE, ..., useNames = NA)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
@@ -46,6 +46,8 @@ details.}
 are excluded first, otherwise not.}
 
 \item{...}{Additional arguments passed to specific methods.}
+
+\item{useNames}{If \code{\link{NA}}, the default behavior of the function about naming support is remained. If \code{\link{FALSE}}, no naming support is done. Else if \code{\link{TRUE}}, names attributes of result are set.}
 
 \item{dim.}{An \code{\link{integer}} \code{\link{vector}} of length two
 specifying the dimension of \code{x}, essential when x is a

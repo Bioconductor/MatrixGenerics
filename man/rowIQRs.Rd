@@ -10,17 +10,17 @@
 \title{Calculates the interquartile range for each row (column) of a matrix-like
 object}
 \usage{
-rowIQRs(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+rowIQRs(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA)
 
-\S4method{rowIQRs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+\S4method{rowIQRs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA)
 
-\S4method{rowIQRs}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+\S4method{rowIQRs}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA)
 
-colIQRs(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+colIQRs(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA)
 
-\S4method{colIQRs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+\S4method{colIQRs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA)
 
-\S4method{colIQRs}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+\S4method{colIQRs}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
@@ -33,6 +33,8 @@ done.}
 are excluded first, otherwise not.}
 
 \item{...}{Additional arguments passed to specific methods.}
+
+\item{useNames}{If \code{\link{NA}}, the default behavior of the function about naming support is remained. If \code{\link{FALSE}}, no naming support is done. Else if \code{\link{TRUE}}, names attributes of result are set.}
 }
 \value{
 Returns a \code{\link{numeric}} \code{\link{vector}} of length N (K).

@@ -1,7 +1,7 @@
 #' Calculates the minimum for each row (column) of a matrix-like object
 #'
 #' Calculates the minimum for each row (column) of a matrix-like object.
-#' 
+#'
 #' @include MatrixGenerics-package.R
 #'
 #' @export
@@ -9,12 +9,13 @@
 #'
 #' @templateVar rowName rowMins
 #' @templateVar colName colMins
-#' 
+#'
 #' @template matrixStatsLink
-#' 
+#'
 #' @template standardParameters
 #' @template na_rmParameter
 #' @template dimParameter
+#' @template useNamesParameter
 #'
 #' @template returnVector
 #'
@@ -25,16 +26,16 @@
 #'   when the input is a \code{matrix} or \code{numeric} vector.
 #' \item For max estimates, see \code{\link{rowMaxs}()}.
 #' }
-#' 
+#'
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-setGeneric("rowMins", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("rowMins"),
+setGeneric("rowMins", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA) standardGeneric("rowMins"),
            signature = "x"
 )
 
-.matrixStats_rowMins <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...){
-  matrixStats::rowMins(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
+.matrixStats_rowMins <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = NA){
+  matrixStats::rowMins(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ..., useNames = NA)
 }
 
 #' @export
@@ -50,12 +51,12 @@ setMethod("rowMins", "ANY", make_default_method_def("rowMins"))
 
 #' @export
 #' @rdname rowMins
-setGeneric("colMins", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("colMins"),
+setGeneric("colMins", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA) standardGeneric("colMins"),
            signature = "x"
 )
 
-.matrixStats_colMins <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...){
-  matrixStats::colMins(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
+.matrixStats_colMins <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = NA){
+  matrixStats::colMins(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ..., useNames = NA)
 }
 
 #' @export

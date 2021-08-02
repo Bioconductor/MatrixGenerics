@@ -11,22 +11,24 @@
 element of a row (column) of a matrix-like object}
 \usage{
 rowMadDiffs(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L,
-  trim = 0, ...)
+  trim = 0, ..., useNames = NA)
 
 \S4method{rowMadDiffs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
-  cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...)
+  cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...,
+  useNames = NA)
 
 \S4method{rowMadDiffs}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE,
-  diff = 1L, trim = 0, ...)
+  diff = 1L, trim = 0, ..., useNames = NA)
 
 colMadDiffs(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L,
-  trim = 0, ...)
+  trim = 0, ..., useNames = NA)
 
 \S4method{colMadDiffs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
-  cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...)
+  cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...,
+  useNames = NA)
 
 \S4method{colMadDiffs}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE,
-  diff = 1L, trim = 0, ...)
+  diff = 1L, trim = 0, ..., useNames = NA)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
@@ -44,6 +46,8 @@ are excluded first, otherwise not.}
 be trimmed from each end of (sorted) x before estimation.}
 
 \item{...}{Additional arguments passed to specific methods.}
+
+\item{useNames}{If \code{\link{NA}}, the default behavior of the function about naming support is remained. If \code{\link{FALSE}}, no naming support is done. Else if \code{\link{TRUE}}, names attributes of result are set.}
 }
 \value{
 Returns a \code{\link{numeric}} \code{\link{vector}} of length N (K).

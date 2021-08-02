@@ -9,17 +9,23 @@
 \alias{colWeightedMeans,ANY-method}
 \title{Calculates the weighted mean for each row (column) of a matrix-like object}
 \usage{
-rowWeightedMeans(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+rowWeightedMeans(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE,
+  ..., useNames = NA)
 
-\S4method{rowWeightedMeans}{matrix_OR_array_OR_table_OR_numeric}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+\S4method{rowWeightedMeans}{matrix_OR_array_OR_table_OR_numeric}(x, w = NULL,
+  rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA)
 
-\S4method{rowWeightedMeans}{ANY}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+\S4method{rowWeightedMeans}{ANY}(x, w = NULL, rows = NULL, cols = NULL,
+  na.rm = FALSE, ..., useNames = NA)
 
-colWeightedMeans(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+colWeightedMeans(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE,
+  ..., useNames = NA)
 
-\S4method{colWeightedMeans}{matrix_OR_array_OR_table_OR_numeric}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+\S4method{colWeightedMeans}{matrix_OR_array_OR_table_OR_numeric}(x, w = NULL,
+  rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA)
 
-\S4method{colWeightedMeans}{ANY}(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+\S4method{colWeightedMeans}{ANY}(x, w = NULL, rows = NULL, cols = NULL,
+  na.rm = FALSE, ..., useNames = NA)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
@@ -35,6 +41,8 @@ done.}
 are excluded first, otherwise not.}
 
 \item{...}{Additional arguments passed to specific methods.}
+
+\item{useNames}{If \code{\link{NA}}, the default behavior of the function about naming support is remained. If \code{\link{FALSE}}, no naming support is done. Else if \code{\link{TRUE}}, names attributes of result are set.}
 }
 \value{
 Returns a \code{\link{numeric}} \code{\link{vector}} of length N (K).

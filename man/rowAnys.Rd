@@ -10,19 +10,25 @@
 \title{Check if any elements in a row (column) of a matrix-like object is equal to
 a value}
 \usage{
-rowAnys(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...)
+rowAnys(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...,
+  useNames = NA)
 
 \S4method{rowAnys}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
-  cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ...)
+  cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ...,
+  useNames = NA)
 
-\S4method{rowAnys}{ANY}(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...)
+\S4method{rowAnys}{ANY}(x, rows = NULL, cols = NULL, value = TRUE,
+  na.rm = FALSE, ..., useNames = NA)
 
-colAnys(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...)
+colAnys(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...,
+  useNames = NA)
 
 \S4method{colAnys}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
-  cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ...)
+  cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ...,
+  useNames = NA)
 
-\S4method{colAnys}{ANY}(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...)
+\S4method{colAnys}{ANY}(x, rows = NULL, cols = NULL, value = TRUE,
+  na.rm = FALSE, ..., useNames = NA)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
@@ -37,6 +43,8 @@ done.}
 are excluded first, otherwise not.}
 
 \item{...}{Additional arguments passed to specific methods.}
+
+\item{useNames}{If \code{\link{NA}}, the default behavior of the function about naming support is remained. If \code{\link{FALSE}}, no naming support is done. Else if \code{\link{TRUE}}, names attributes of result are set.}
 
 \item{dim.}{An \code{\link{integer}} \code{\link{vector}} of length two
 specifying the dimension of \code{x}, essential when x is a

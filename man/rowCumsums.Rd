@@ -9,15 +9,15 @@
 \alias{colCumsums,ANY-method}
 \title{Calculates the cumulative sum for each row (column) of a matrix-like object}
 \usage{
-rowCumsums(x, rows = NULL, cols = NULL, ...)
+rowCumsums(x, rows = NULL, cols = NULL, ..., useNames = NA)
 
-\S4method{rowCumsums}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
+\S4method{rowCumsums}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = NA)
 
-\S4method{rowCumsums}{ANY}(x, rows = NULL, cols = NULL, ...)
+\S4method{rowCumsums}{ANY}(x, rows = NULL, cols = NULL, ..., useNames = NA)
 
 colCumsums(x, rows = NULL, cols = NULL, ...)
 
-\S4method{colCumsums}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ...)
+\S4method{colCumsums}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = NA)
 
 \S4method{colCumsums}{ANY}(x, rows = NULL, cols = NULL, ...)
 }
@@ -29,6 +29,8 @@ colCumsums(x, rows = NULL, cols = NULL, ...)
 done.}
 
 \item{...}{Additional arguments passed to specific methods.}
+
+\item{useNames}{If \code{\link{NA}}, the default behavior of the function about naming support is remained. If \code{\link{FALSE}}, no naming support is done. Else if \code{\link{TRUE}}, names attributes of result are set.}
 
 \item{dim.}{An \code{\link{integer}} \code{\link{vector}} of length two
 specifying the dimension of \code{x}, essential when x is a

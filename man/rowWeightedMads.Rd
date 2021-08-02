@@ -15,20 +15,20 @@ rowWeightedMads(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE,
 
 \S4method{rowWeightedMads}{matrix_OR_array_OR_table_OR_numeric}(x, w = NULL,
   rows = NULL, cols = NULL, na.rm = FALSE, constant = 1.4826,
-  center = NULL, ...)
+  center = NULL, ..., useNames = NA)
 
 \S4method{rowWeightedMads}{ANY}(x, w = NULL, rows = NULL, cols = NULL,
   na.rm = FALSE, constant = 1.4826, center = NULL, ...)
 
 colWeightedMads(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE,
-  constant = 1.4826, center = NULL, ...)
+  constant = 1.4826, center = NULL, ..., useNames = NA)
 
 \S4method{colWeightedMads}{matrix_OR_array_OR_table_OR_numeric}(x, w = NULL,
   rows = NULL, cols = NULL, na.rm = FALSE, constant = 1.4826,
-  center = NULL, ...)
+  center = NULL, ..., useNames = NA)
 
 \S4method{colWeightedMads}{ANY}(x, w = NULL, rows = NULL, cols = NULL,
-  na.rm = FALSE, constant = 1.4826, center = NULL, ...)
+  na.rm = FALSE, constant = 1.4826, center = NULL, ..., useNames = NA)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
@@ -49,6 +49,8 @@ details.}
 \item{center}{(optional) the center, defaults to the row means}
 
 \item{...}{Additional arguments passed to specific methods.}
+
+\item{useNames}{If \code{\link{NA}}, the default behavior of the function about naming support is remained. If \code{\link{FALSE}}, no naming support is done. Else if \code{\link{TRUE}}, names attributes of result are set.}
 }
 \value{
 Returns a \code{\link{numeric}} \code{\link{vector}} of length N (K).

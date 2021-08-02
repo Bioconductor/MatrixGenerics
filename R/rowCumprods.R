@@ -3,7 +3,7 @@
 #'
 #' Calculates the cumulative product for each row (column) of a matrix-like
 #' object.
-#' 
+#'
 #' @include MatrixGenerics-package.R
 #'
 #' @export
@@ -11,11 +11,12 @@
 #'
 #' @templateVar rowName rowCumprods
 #' @templateVar colName colCumprods
-#' 
+#'
 #' @template matrixStatsLink
-#' 
+#'
 #' @template standardParameters
 #' @template dimParameter
+#' @template useNamesParameter
 #'
 #' @template returnMatrix_SameDimX
 #'
@@ -26,16 +27,16 @@
 #'   are used when the input is a \code{matrix} or \code{numeric} vector.
 #'  \item \code{base::\link{cumprod}()}.
 #' }
-#' 
+#'
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-setGeneric("rowCumprods", function(x, rows = NULL, cols = NULL,  ...) standardGeneric("rowCumprods"),
+setGeneric("rowCumprods", function(x, rows = NULL, cols = NULL, ..., useNames = NA) standardGeneric("rowCumprods"),
            signature = "x"
 )
 
-.matrixStats_rowCumprods <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ...){
-  matrixStats::rowCumprods(x, rows = rows, cols = cols, dim. = dim., ...)
+.matrixStats_rowCumprods <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = NA){
+  matrixStats::rowCumprods(x, rows = rows, cols = cols, dim. = dim., ..., useNames = NA)
 }
 
 #' @export
@@ -51,12 +52,12 @@ setMethod("rowCumprods", "ANY", make_default_method_def("rowCumprods"))
 
 #' @export
 #' @rdname rowCumprods
-setGeneric("colCumprods", function(x, rows = NULL, cols = NULL, ...) standardGeneric("colCumprods"),
+setGeneric("colCumprods", function(x, rows = NULL, cols = NULL, ..., useNames = NA) standardGeneric("colCumprods"),
            signature = "x"
 )
 
-.matrixStats_colCumprods <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ...){
-  matrixStats::colCumprods(x, rows = rows, cols = cols, dim. = dim., ...)
+.matrixStats_colCumprods <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = NA){
+  matrixStats::colCumprods(x, rows = rows, cols = cols, dim. = dim., ..., useNames = NA)
 }
 
 #' @export

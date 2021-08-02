@@ -3,7 +3,7 @@
 #'
 #' Calculates the minimum and maximum for each row (column) of a matrix-like
 #' object.
-#' 
+#'
 #' @include MatrixGenerics-package.R
 #'
 #' @export
@@ -11,13 +11,14 @@
 #'
 #' @templateVar rowName rowRanges
 #' @templateVar colName colRanges
-#' 
+#'
 #' @template matrixStatsLink
-#' 
+#'
 #' @template standardParameters
 #' @template na_rmParameter
 #' @template dimParameter
-#' 
+#' @template useNamesParameter
+#'
 #' @return a \code{\link{numeric}} \code{Nx2} (\code{Kx2})
 #'   \code{\link{matrix}}, where N (K) is the number of rows (columns) for
 #'   which the ranges are calculated.
@@ -38,14 +39,14 @@
 #' \item For min estimates, see \code{\link{rowMins}()}.
 #' \item \code{base::\link{range}()}.
 #' }
-#' 
+#'
 #' @template standardExamples
 #'
 #' @keywords array iteration robust
 setGeneric("rowRanges", function(x, ...) standardGeneric("rowRanges"))
 
-.matrixStats_rowRanges <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...){
-  matrixStats::rowRanges(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
+.matrixStats_rowRanges <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = NA){
+  matrixStats::rowRanges(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ..., useNames = NA)
 }
 
 #' @export
@@ -78,12 +79,12 @@ setMethod("rowRanges", "ANY", make_default_method_def("rowRanges"))
 
 #' @export
 #' @rdname rowRanges
-setGeneric("colRanges", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...) standardGeneric("colRanges"),
+setGeneric("colRanges", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA) standardGeneric("colRanges"),
            signature = "x"
 )
 
-.matrixStats_colRanges <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...){
-  matrixStats::colRanges(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ...)
+.matrixStats_colRanges <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = NA){
+  matrixStats::colRanges(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ..., useNames = NA)
 }
 
 #' @export

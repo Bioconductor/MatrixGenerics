@@ -12,15 +12,17 @@ object}
 \usage{
 rowRanges(x, ...)
 
-\S4method{rowRanges}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
+\S4method{rowRanges}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
+  cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = NA)
 
 \S4method{rowRanges}{ANY}(x, ...)
 
-colRanges(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+colRanges(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA)
 
-\S4method{colRanges}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ...)
+\S4method{colRanges}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
+  cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = NA)
 
-\S4method{colRanges}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...)
+\S4method{colRanges}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
@@ -38,6 +40,8 @@ are excluded first, otherwise not.}
 specifying the dimension of \code{x}, essential when x is a
 \code{\link{numeric}} vector. Note, that this is not a generic
 argument and not all methods need provide it.}
+
+\item{useNames}{If \code{\link{NA}}, the default behavior of the function about naming support is remained. If \code{\link{FALSE}}, no naming support is done. Else if \code{\link{TRUE}}, names attributes of result are set.}
 }
 \value{
 a \code{\link{numeric}} \code{Nx2} (\code{Kx2})
