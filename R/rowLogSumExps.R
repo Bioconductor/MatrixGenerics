@@ -40,7 +40,7 @@ setGeneric("rowLogSumExps", function(lx, rows = NULL, cols = NULL, na.rm = FALSE
 )
 
 .matrixStats_rowLogSumExps <- function(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx), ..., useNames = NA){
-  matrixStats::rowLogSumExps(lx, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ..., useNames = NA)
+  matrixStats::rowLogSumExps(lx, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ..., useNames = useNames)
 }
 
 #' @export
@@ -61,7 +61,7 @@ setGeneric("colLogSumExps", function(lx, rows = NULL, cols = NULL, na.rm = FALSE
 )
 
 .matrixStats_colLogSumExps <- function(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx), ..., useNames = NA){
-  matrixStats::colLogSumExps(lx, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ..., useNames = NA)
+  matrixStats::colLogSumExps(lx, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ..., useNames = useNames)
 }
 
 #' @export

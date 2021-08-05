@@ -37,7 +37,7 @@ setGeneric("rowSdDiffs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, di
 )
 
 .matrixStats_rowSdDiffs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ..., useNames = NA){
-  matrixStats::rowSdDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff = diff, trim = trim, ...)
+  matrixStats::rowSdDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff = diff, trim = trim, ..., useNames = useNames)
 }
 
 #' @export
@@ -58,7 +58,7 @@ setGeneric("colSdDiffs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, di
 )
 
 .matrixStats_colSdDiffs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ..., useNames = NA){
-  matrixStats::colSdDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff = diff, trim = trim, ..., useNames = NA)
+  matrixStats::colSdDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff = diff, trim = trim, ..., useNames = useNames)
 }
 
 #' @export

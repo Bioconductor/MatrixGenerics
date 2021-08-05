@@ -36,7 +36,7 @@ setGeneric("rowCumprods", function(x, rows = NULL, cols = NULL, ..., useNames = 
 )
 
 .matrixStats_rowCumprods <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = NA){
-  matrixStats::rowCumprods(x, rows = rows, cols = cols, dim. = dim., ..., useNames = NA)
+  matrixStats::rowCumprods(x, rows = rows, cols = cols, dim. = dim., ..., useNames = useNames)
 }
 
 #' @export
@@ -57,7 +57,7 @@ setGeneric("colCumprods", function(x, rows = NULL, cols = NULL, ..., useNames = 
 )
 
 .matrixStats_colCumprods <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = NA){
-  matrixStats::colCumprods(x, rows = rows, cols = cols, dim. = dim., ..., useNames = NA)
+  matrixStats::colCumprods(x, rows = rows, cols = cols, dim. = dim., ..., useNames = useNames)
 }
 
 #' @export

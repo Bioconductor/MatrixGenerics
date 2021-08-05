@@ -36,7 +36,7 @@ setGeneric("rowWeightedMedians", function(x, w = NULL, rows = NULL, cols = NULL,
 )
 
 .matrixStats_rowWeightedMedians <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA){
-  matrixStats::rowWeightedMedians(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ..., useNames = NA)
+  matrixStats::rowWeightedMedians(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ..., useNames = useNames)
 }
 
 #' @export
@@ -57,7 +57,7 @@ setGeneric("colWeightedMedians", function(x, w = NULL, rows = NULL, cols = NULL,
 )
 
 .matrixStats_colWeightedMedians <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA){
-  matrixStats::colWeightedMedians(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ..., useNames = NA)
+  matrixStats::colWeightedMedians(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ..., useNames = useNames)
 }
 
 #' @export

@@ -33,7 +33,7 @@ setGeneric("rowAnyNAs", function(x, rows = NULL, cols = NULL,  ..., useNames = N
 )
 
 .matrixStats_rowAnyNAs <- function(x, rows = NULL, cols = NULL, ..., useNames = NA){
-  matrixStats::rowAnyNAs(x, rows = rows, cols = cols, ...)
+  matrixStats::rowAnyNAs(x, rows = rows, cols = cols, ..., useNames = useNames)
 }
 
 #' @export
@@ -54,7 +54,7 @@ setGeneric("colAnyNAs", function(x, rows = NULL, cols = NULL, ..., useNames = NA
 )
 
 .matrixStats_colAnyNAs <- function(x, rows = NULL, cols = NULL, ..., useNames = NA){
-  matrixStats::colAnyNAs(x, rows = rows, cols = cols, ...)
+  matrixStats::colAnyNAs(x, rows = rows, cols = cols, ..., useNames = useNames)
 }
 
 #' @export

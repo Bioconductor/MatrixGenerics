@@ -36,7 +36,7 @@ setGeneric("rowMadDiffs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, d
 )
 
 .matrixStats_rowMadDiffs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ..., useNames = NA){
-  matrixStats::rowMadDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff = diff, trim = trim, ..., useNames = NA)
+  matrixStats::rowMadDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff = diff, trim = trim, ..., useNames = useNames)
 }
 
 #' @export
@@ -57,7 +57,7 @@ setGeneric("colMadDiffs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, d
 )
 
 .matrixStats_colMadDiffs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ..., useNames = NA){
-  matrixStats::colMadDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff =diff, trim = trim, ..., useNames = NA)
+  matrixStats::colMadDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff =diff, trim = trim, ..., useNames = useNames)
 }
 
 #' @export
