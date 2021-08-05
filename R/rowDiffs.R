@@ -39,7 +39,7 @@ setGeneric("rowDiffs", function(x, rows = NULL, cols = NULL, lag = 1L, differenc
 )
 
 .matrixStats_rowDiffs <- function(x, rows = NULL, cols = NULL, lag = 1L, differences = 1L, dim. = dim(x), ..., useNames = NA){
-  matrixStats::rowDiffs(x, rows = rows, cols = cols, lag = lag, differences = differences, dim. = dim., ..., useNames = NA)
+  matrixStats::rowDiffs(x, rows = rows, cols = cols, lag = lag, differences = differences, dim. = dim., ..., useNames = useNames)
 }
 
 #' @export
@@ -60,7 +60,7 @@ setGeneric("colDiffs", function(x, rows = NULL, cols = NULL, lag = 1L, differenc
 )
 
 .matrixStats_colDiffs <- function(x, rows = NULL, cols = NULL, lag = 1L, differences = 1L, dim. = dim(x), ..., useNames = NA){
-  matrixStats::colDiffs(x, rows = rows, cols = cols, lag = lag, differences = differences, dim. = dim., ..., useNames = NA)
+  matrixStats::colDiffs(x, rows = rows, cols = cols, lag = lag, differences = differences, dim. = dim., ..., useNames = useNames)
 }
 
 #' @export

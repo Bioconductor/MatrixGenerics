@@ -37,7 +37,7 @@ setGeneric("rowWeightedSds", function(x, w = NULL, rows = NULL, cols = NULL, na.
 )
 
 .matrixStats_rowWeightedSds <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA){
-  matrixStats::rowWeightedSds(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ..., useNames = NA)
+  matrixStats::rowWeightedSds(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ..., useNames = useNames)
 }
 
 #' @export
@@ -58,7 +58,7 @@ setGeneric("colWeightedSds", function(x, w = NULL, rows = NULL, cols = NULL, na.
 )
 
 .matrixStats_colWeightedSds <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA){
-  matrixStats::colWeightedSds(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ...)
+  matrixStats::colWeightedSds(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ..., useNames = useNames)
 }
 
 #' @export

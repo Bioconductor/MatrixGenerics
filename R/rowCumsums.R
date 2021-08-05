@@ -34,7 +34,7 @@ setGeneric("rowCumsums", function(x, rows = NULL, cols = NULL,  ..., useNames = 
 )
 
 .matrixStats_rowCumsums <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = NA){
-  matrixStats::rowCumsums(x, rows = rows, cols = cols, dim. = dim., ..., useNames = NA)
+  matrixStats::rowCumsums(x, rows = rows, cols = cols, dim. = dim., ..., useNames = useNames)
 }
 
 #' @export
@@ -50,12 +50,12 @@ setMethod("rowCumsums", "ANY", make_default_method_def("rowCumsums"))
 
 #' @export
 #' @rdname rowCumsums
-setGeneric("colCumsums", function(x, rows = NULL, cols = NULL, ...) standardGeneric("colCumsums"),
+setGeneric("colCumsums", function(x, rows = NULL, cols = NULL, ..., useNames = NA) standardGeneric("colCumsums"),
            signature = "x"
 )
 
 .matrixStats_colCumsums <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = NA){
-  matrixStats::colCumsums(x, rows = rows, cols = cols, dim. = dim., ..., useNames = NA)
+  matrixStats::colCumsums(x, rows = rows, cols = cols, dim. = dim., ..., useNames = useNames)
 }
 
 #' @export

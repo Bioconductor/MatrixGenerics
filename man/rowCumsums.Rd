@@ -15,11 +15,11 @@ rowCumsums(x, rows = NULL, cols = NULL, ..., useNames = NA)
 
 \S4method{rowCumsums}{ANY}(x, rows = NULL, cols = NULL, ..., useNames = NA)
 
-colCumsums(x, rows = NULL, cols = NULL, ...)
+colCumsums(x, rows = NULL, cols = NULL, ..., useNames = NA)
 
 \S4method{colCumsums}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = NA)
 
-\S4method{colCumsums}{ANY}(x, rows = NULL, cols = NULL, ...)
+\S4method{colCumsums}{ANY}(x, rows = NULL, cols = NULL, ..., useNames = NA)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

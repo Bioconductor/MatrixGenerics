@@ -38,7 +38,7 @@ setGeneric("rowIQRs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., 
 )
 
 .matrixStats_rowIQRs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA){
-  matrixStats::rowIQRs(x, rows = rows, cols = cols, na.rm = na.rm, ..., useNames = NA)
+  matrixStats::rowIQRs(x, rows = rows, cols = cols, na.rm = na.rm, ..., useNames = useNames)
 }
 
 #' @export
@@ -59,7 +59,7 @@ setGeneric("colIQRs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., 
 )
 
 .matrixStats_colIQRs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA){
-  matrixStats::colIQRs(x, rows = rows, cols = cols, na.rm = na.rm, ..., useNames = NA)
+  matrixStats::colIQRs(x, rows = rows, cols = cols, na.rm = na.rm, ..., useNames = useNames)
 }
 
 #' @export

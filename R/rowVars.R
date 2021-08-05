@@ -39,7 +39,7 @@ setGeneric("rowVars", function(x, rows = NULL, cols = NULL, na.rm = FALSE, cente
 )
 
 .matrixStats_rowVars <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, dim. = dim(x), ..., useNames = NA){
-  matrixStats::rowVars(x, rows = rows, cols = cols, na.rm = na.rm, center = center, dim. = dim., ..., useNames = NA)
+  matrixStats::rowVars(x, rows = rows, cols = cols, na.rm = na.rm, center = center, dim. = dim., ..., useNames = useNames)
 }
 
 #' @export
@@ -60,7 +60,7 @@ setGeneric("colVars", function(x, rows = NULL, cols = NULL, na.rm = FALSE, cente
 )
 
 .matrixStats_colVars <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, dim. = dim(x), ..., useNames = NA){
-  matrixStats::colVars(x, rows = rows, cols = cols, na.rm = na.rm, center = center, dim. = dim., ..., useNames = NA)
+  matrixStats::colVars(x, rows = rows, cols = cols, na.rm = na.rm, center = center, dim. = dim., ..., useNames = useNames)
 }
 
 #' @export

@@ -35,7 +35,7 @@ setGeneric("rowMins", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., 
 )
 
 .matrixStats_rowMins <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = NA){
-  matrixStats::rowMins(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ..., useNames = NA)
+  matrixStats::rowMins(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ..., useNames = useNames)
 }
 
 #' @export
@@ -56,7 +56,7 @@ setGeneric("colMins", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., 
 )
 
 .matrixStats_colMins <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = NA){
-  matrixStats::colMins(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ..., useNames = NA)
+  matrixStats::colMins(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ..., useNames = useNames)
 }
 
 #' @export

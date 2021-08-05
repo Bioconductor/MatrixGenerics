@@ -46,7 +46,7 @@
 setGeneric("rowRanges", function(x, ...) standardGeneric("rowRanges"))
 
 .matrixStats_rowRanges <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = NA){
-  matrixStats::rowRanges(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ..., useNames = NA)
+  matrixStats::rowRanges(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ..., useNames = useNames)
 }
 
 #' @export
@@ -84,7 +84,7 @@ setGeneric("colRanges", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...
 )
 
 .matrixStats_colRanges <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = NA){
-  matrixStats::colRanges(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ..., useNames = NA)
+  matrixStats::colRanges(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ..., useNames = useNames)
 }
 
 #' @export

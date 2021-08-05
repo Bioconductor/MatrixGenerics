@@ -46,7 +46,7 @@ setGeneric("rowTabulates", function(x, rows = NULL, cols = NULL, values = NULL, 
 )
 
 .matrixStats_rowTabulates <- function(x, rows = NULL, cols = NULL, values = NULL, ..., useNames = NA){
-  matrixStats::rowTabulates(x, rows = rows, cols = cols, values = values, ..., useNames = NA)
+  matrixStats::rowTabulates(x, rows = rows, cols = cols, values = values, ..., useNames = useNames)
 }
 
 #' @export
@@ -67,7 +67,7 @@ setGeneric("colTabulates", function(x, rows = NULL, cols = NULL, values = NULL, 
 )
 
 .matrixStats_colTabulates <- function(x, rows = NULL, cols = NULL, values = NULL, ..., useNames = NA){
-  matrixStats::colTabulates(x, rows = rows, cols = cols, values = values, ..., useNames = NA)
+  matrixStats::colTabulates(x, rows = rows, cols = cols, values = values, ..., useNames = useNames)
 }
 
 #' @export

@@ -37,7 +37,7 @@ setGeneric("rowWeightedVars", function(x, w = NULL, rows = NULL, cols = NULL, na
 )
 
 .matrixStats_rowWeightedVars <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA){
-  matrixStats::rowWeightedVars(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ..., useNames = NA)
+  matrixStats::rowWeightedVars(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ..., useNames = useNames)
 }
 
 #' @export
@@ -58,7 +58,7 @@ setGeneric("colWeightedVars", function(x, w = NULL, rows = NULL, cols = NULL, na
 )
 
 .matrixStats_colWeightedVars <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA){
-  matrixStats::colWeightedVars(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ..., useNames = NA)
+  matrixStats::colWeightedVars(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ..., useNames = useNames)
 }
 
 #' @export

@@ -37,7 +37,7 @@ setGeneric("rowCummaxs", function(x, rows = NULL, cols = NULL, ..., useNames = N
 )
 
 .matrixStats_rowCummaxs <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = NA){
-  matrixStats::rowCummaxs(x, rows = rows, cols = cols, dim. = dim., ..., useNames = NA)
+  matrixStats::rowCummaxs(x, rows = rows, cols = cols, dim. = dim., ..., useNames = useNames)
 }
 
 #' @export
@@ -58,7 +58,7 @@ setGeneric("colCummaxs", function(x, rows = NULL, cols = NULL, ..., useNames = N
 )
 
 .matrixStats_colCummaxs <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = NA){
-  matrixStats::colCummaxs(x, rows = rows, cols = cols, dim. = dim., ..., useNames = NA)
+  matrixStats::colCummaxs(x, rows = rows, cols = cols, dim. = dim., ..., useNames = useNames)
 }
 
 #' @export
