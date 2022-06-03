@@ -50,7 +50,10 @@ setMethod("rowLogSumExps", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_r
 #' @export
 #' @rdname rowLogSumExps
 ## Default method with user-friendly fallback mechanism.
-setMethod("rowLogSumExps", "ANY", make_default_method_def("rowLogSumExps"))
+setMethod("rowLogSumExps", "ANY", function (lx, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA){
+  MatrixGenerics:::.load_next_suggested_package_to_search(lx)
+  callGeneric()
+})
 
 
 
@@ -71,5 +74,8 @@ setMethod("colLogSumExps", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_c
 #' @export
 #' @rdname rowLogSumExps
 ## Default method with user-friendly fallback mechanism.
-setMethod("colLogSumExps", "ANY", make_default_method_def("colLogSumExps"))
+setMethod("colLogSumExps", "ANY", function (lx, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA){
+  MatrixGenerics:::.load_next_suggested_package_to_search(lx)
+  callGeneric()
+})
 
