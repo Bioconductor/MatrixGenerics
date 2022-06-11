@@ -70,7 +70,10 @@ setMethod("rowAvgsPerColSet", "matrix_OR_array_OR_table_OR_numeric", .matrixStat
 #' @export
 #' @rdname rowAvgsPerColSet
 ## Default method with user-friendly fallback mechanism.
-setMethod("rowAvgsPerColSet", "ANY", make_default_method_def("rowAvgsPerColSet"))
+setMethod("rowAvgsPerColSet", "ANY", function (X, W = NULL, rows = NULL, S, FUN = rowMeans, ..., na.rm = NA, tFUN = FALSE){
+  MatrixGenerics:::.load_next_suggested_package_to_search(X)
+  callGeneric()
+})
 
 
 
@@ -91,5 +94,8 @@ setMethod("colAvgsPerRowSet", "matrix_OR_array_OR_table_OR_numeric", .matrixStat
 #' @export
 #' @rdname rowAvgsPerColSet
 ## Default method with user-friendly fallback mechanism.
-setMethod("colAvgsPerRowSet", "ANY", make_default_method_def("colAvgsPerRowSet"))
+setMethod("colAvgsPerRowSet", "ANY", function (X, W = NULL, cols = NULL, S, FUN = colMeans, ..., na.rm = NA, tFUN = FALSE){
+  MatrixGenerics:::.load_next_suggested_package_to_search(X)
+  callGeneric()
+})
 
