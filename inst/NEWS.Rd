@@ -2,6 +2,10 @@
 \title{News for Package \pkg{MatrixGenerics}}
 \encoding{UTF-8}
 
+\section{Version 1.9.1}{\itemize{
+  \item Fix for functions whose first argument is not \code{x} (\url{https://github.com/Bioconductor/MatrixGenerics/issues/28} and \url{https://github.com/Bioconductor/MatrixGenerics/pull/29}).
+}}
+
 \section{Version 1.5.4}{\itemize{
   \item Sync API with \pkg{matrixStats} \code{v0.60.1}.
 }}
