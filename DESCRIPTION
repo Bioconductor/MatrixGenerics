@@ -27,7 +27,8 @@ Suggests:
     sparseMatrixStats,
     DelayedMatrixStats,
     SummarizedExperiment,
-    testthat (>= 2.1.0)
+    testthat (>= 2.1.0),
+    Matrix
 RoxygenNote: 7.2.0
 Roxygen: list(markdown = TRUE, old_usage = TRUE)
 Collate:
