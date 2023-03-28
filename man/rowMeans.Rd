@@ -2,32 +2,12 @@
 % Please edit documentation in R/rowMeans.R
 \name{rowMeans}
 \alias{rowMeans}
-\alias{rowMeans,matrix_OR_array_OR_table_OR_numeric-method}
-\alias{rowMeans,data.frame-method}
-\alias{rowMeans,ANY-method}
 \alias{colMeans}
-\alias{colMeans,matrix_OR_array_OR_table_OR_numeric-method}
-\alias{colMeans,data.frame-method}
-\alias{colMeans,ANY-method}
 \title{Calculates the mean for each row (column) of a matrix-like object}
 \usage{
 rowMeans(x, na.rm = FALSE, dims = 1, ...)
 
-\S4method{rowMeans}{matrix_OR_array_OR_table_OR_numeric}(x, na.rm = FALSE,
-  dims = 1, ...)
-
-\S4method{rowMeans}{data.frame}(x, na.rm = FALSE, dims = 1, ...)
-
-\S4method{rowMeans}{ANY}(x, na.rm = FALSE, dims = 1, ...)
-
 colMeans(x, na.rm = FALSE, dims = 1, ...)
-
-\S4method{colMeans}{matrix_OR_array_OR_table_OR_numeric}(x, na.rm = FALSE,
-  dims = 1, ...)
-
-\S4method{colMeans}{data.frame}(x, na.rm = FALSE, dims = 1, ...)
-
-\S4method{colMeans}{ANY}(x, na.rm = FALSE, dims = 1, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object, a numeric data frame, or an array-like
@@ -51,10 +31,10 @@ Returns a \code{\link{numeric}} \code{\link{vector}} of length N (K).
 Calculates the mean for each row (column) of a matrix-like object.
 }
 \details{
-The S4 methods for \code{x} of type \code{\link{matrix}},
-\code{\link{array}}, \code{\link{table}}, \code{\link{numeric}}, or
-\code{\link{data.frame}} call \code{base::\link[base]{rowMeans}} /
-\code{base::\link[base]{colMeans}}.
+This man page documents the \code{rowMeans} and \code{colMeans}
+\emph{S4 generic functions} defined in the \pkg{MatrixGenerics} package.
+See \code{?base::\link[base]{colMeans}} for the default methods (defined
+in the \pkg{base} package).
 }
 \examples{
 mat <- matrix(rnorm(15), nrow = 5, ncol = 3)

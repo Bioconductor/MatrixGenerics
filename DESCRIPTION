@@ -26,6 +26,7 @@ Imports: methods
 Suggests:
     Matrix,
     sparseMatrixStats,
+    DelayedArray,
     DelayedMatrixStats,
     SummarizedExperiment,
     testthat (>= 2.1.0)

@@ -2,32 +2,12 @@
 % Please edit documentation in R/rowSums.R
 \name{rowSums}
 \alias{rowSums}
-\alias{rowSums,matrix_OR_array_OR_table_OR_numeric-method}
-\alias{rowSums,data.frame-method}
-\alias{rowSums,ANY-method}
 \alias{colSums}
-\alias{colSums,matrix_OR_array_OR_table_OR_numeric-method}
-\alias{colSums,data.frame-method}
-\alias{colSums,ANY-method}
 \title{Calculates the sum for each row (column) of a matrix-like object}
 \usage{
 rowSums(x, na.rm = FALSE, dims = 1, ...)
 
-\S4method{rowSums}{matrix_OR_array_OR_table_OR_numeric}(x, na.rm = FALSE,
-  dims = 1, ...)
-
-\S4method{rowSums}{data.frame}(x, na.rm = FALSE, dims = 1, ...)
-
-\S4method{rowSums}{ANY}(x, na.rm = FALSE, dims = 1, ...)
-
 colSums(x, na.rm = FALSE, dims = 1, ...)
-
-\S4method{colSums}{matrix_OR_array_OR_table_OR_numeric}(x, na.rm = FALSE,
-  dims = 1, ...)
-
-\S4method{colSums}{data.frame}(x, na.rm = FALSE, dims = 1, ...)
-
-\S4method{colSums}{ANY}(x, na.rm = FALSE, dims = 1, ...)
 }
 \arguments{
 \item{x}{An NxK matrix-like object, a numeric data frame, or an array-like
@@ -51,10 +31,10 @@ Returns a \code{\link{numeric}} \code{\link{vector}} of length N (K).
 Calculates the sum for each row (column) of a matrix-like object.
 }
 \details{
-The S4 methods for \code{x} of type \code{\link{matrix}},
-\code{\link{array}}, \code{\link{table}}, \code{\link{numeric}}, or
-\code{\link{data.frame}} call \code{base::\link[base]{rowSums}} /
-\code{base::\link[base]{colSums}}.
+This man page documents the \code{rowSums} and \code{colSums}
+\emph{S4 generic functions} defined in the \pkg{MatrixGenerics} package.
+See \code{?base::\link[base]{colSums}} for the default methods (defined
+in the \pkg{base} package).
 }
 \examples{
 mat <- matrix(rnorm(15), nrow = 5, ncol = 3)

@@ -3,12 +3,7 @@
 #' The \pkg{MatrixGenerics} package defines S4 generic summary statistic
 #' functions that operate on matrix-Like objects.
 #'
-# NOTE: Import a single function to quieten R CMD check NOTE:
-#         Package in Depends field not imported from: ‘matrixStats’
-#           These packages need to be imported from (in the NAMESPACE file)
-#           for when this namespace is loaded but not attached.
-#' @importFrom matrixStats allocArray
-#' @import methods
+#' @import methods matrixStats
 #
 #' @name MatrixGenerics-package
 #' @exportClass matrix_OR_array_OR_table_OR_numeric
@@ -31,10 +26,17 @@ setClassUnion("matrix_OR_array_OR_table_OR_numeric",
 ## MatrixGenerics. No need to list matrixStats here as it is special and
 ## already imported by default.
 .SUGGESTED_PACKAGES_TO_SEARCH <- c(
-    "Matrix",  # defines row/colSums() and row/colMeans() methods
+    # Most row/col summarization methods for dgCMatrix objects are defined
+    # in the sparseMatrixStats package but a few of them are defined in the
+    # Matrix package.
+    "Matrix",
     "sparseMatrixStats",
+    # Most row/col summarization methods for DelayedMatrix objects are defined
+    # in the DelayedMatrixStats package but a few of them are defined in the
+    # DelayedArray package.
+    "DelayedArray",
     "DelayedMatrixStats"
-    # ... add more packages in the future
+    # ... add more packages in the future (e.g. SparseArray coming soon)
 )
 
 .long_and_fancy_errmsg <- function(short_errmsg, unloaded_pkgs)
@@ -80,7 +82,7 @@ setClassUnion("matrix_OR_array_OR_table_OR_numeric",
                "must be called from within a method body")
     }
     short_errmsg <- paste0("Failed to find a ", genericName,"() method ",
-                           "for ", class(x), " objects.")
+                           "for ", class(x)[[1L]], " objects.")
     is_loaded <- vapply(.SUGGESTED_PACKAGES_TO_SEARCH, isNamespaceLoaded,
                         logical(1))
     if (all(is_loaded))
