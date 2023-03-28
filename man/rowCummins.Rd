@@ -12,15 +12,19 @@ object}
 \usage{
 rowCummins(x, rows = NULL, cols = NULL, ..., useNames = NA)
 
-\S4method{rowCummins}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = NA)
+\S4method{rowCummins}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
+  cols = NULL, dim. = dim(x), ..., useNames = NA)
 
-\S4method{rowCummins}{ANY}(x, rows = NULL, cols = NULL, ..., useNames = NA)
+\S4method{rowCummins}{ANY}(x, rows = NULL, cols = NULL, ...,
+  useNames = NA)
 
 colCummins(x, rows = NULL, cols = NULL, ..., useNames = NA)
 
-\S4method{colCummins}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = NA)
+\S4method{colCummins}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
+  cols = NULL, dim. = dim(x), ..., useNames = NA)
 
-\S4method{colCummins}{ANY}(x, rows = NULL, cols = NULL, ..., useNames = NA)
+\S4method{colCummins}{ANY}(x, rows = NULL, cols = NULL, ...,
+  useNames = NA)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
@@ -48,21 +52,20 @@ object.
 }
 \details{
 The S4 methods for \code{x} of type \code{\link{matrix}},
-\code{\link{array}}, or \code{\link{numeric}} call
-\code{matrixStats::rowCummins}
-/ \code{matrixStats::colCummins}.
+\code{\link{array}}, \code{\link{table}}, or \code{\link{numeric}} call
+\code{matrixStats::\link[matrixStats]{rowCummins}} /
+\code{matrixStats::\link[matrixStats]{colCummins}}.
 }
 \examples{
-  mat <- matrix(rnorm(15), nrow = 5, ncol = 3)
-  mat[2, 1] <- NA
-  mat[3, 3] <- Inf
-  mat[4, 1] <- 0
-  
-  print(mat)
-  
-  rowCummins(mat)
-  colCummins(mat)
-  
+mat <- matrix(rnorm(15), nrow = 5, ncol = 3)
+mat[2, 1] <- NA
+mat[3, 3] <- Inf
+mat[4, 1] <- 0
+
+print(mat)
+
+rowCummins(mat)
+colCummins(mat)
 }
 \seealso{
 \itemize{

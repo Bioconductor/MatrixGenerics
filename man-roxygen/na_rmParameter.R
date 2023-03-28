@@ -1,2 +1,3 @@
-#' @param na.rm If \code{\link[base:logical]{TRUE}}, \code{\link{NA}}s
-#' are excluded first, otherwise not.
+#' @param na.rm If \code{\link[base]{TRUE}}, missing values
+#' (\code{\link[base]{NA}} or \code{\link[base]{NaN}}) are
+#' omitted from the calculations.

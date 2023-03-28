@@ -11,15 +11,18 @@
 \usage{
 rowCollapse(x, idxs, rows = NULL, ..., useNames = NA)
 
-\S4method{rowCollapse}{matrix_OR_array_OR_table_OR_numeric}(x, idxs, rows = NULL, dim. = dim(x), ..., useNames = NA)
+\S4method{rowCollapse}{matrix_OR_array_OR_table_OR_numeric}(x, idxs,
+  rows = NULL, dim. = dim(x), ..., useNames = NA)
 
 \S4method{rowCollapse}{ANY}(x, idxs, rows = NULL, ..., useNames = NA)
 
 colCollapse(x, idxs = idxs, cols = NULL, ..., useNames = NA)
 
-\S4method{colCollapse}{matrix_OR_array_OR_table_OR_numeric}(x, idxs, cols = NULL, dim. = dim(x), ..., useNames = NA)
+\S4method{colCollapse}{matrix_OR_array_OR_table_OR_numeric}(x, idxs,
+  cols = NULL, dim. = dim(x), ..., useNames = NA)
 
-\S4method{colCollapse}{ANY}(x, idxs = idxs, cols = NULL, ..., useNames = NA)
+\S4method{colCollapse}{ANY}(x, idxs = idxs, cols = NULL, ...,
+  useNames = NA)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
@@ -48,9 +51,9 @@ Extract one cell from each row (column) of a matrix-like object.
 }
 \details{
 The S4 methods for \code{x} of type \code{\link{matrix}},
-\code{\link{array}}, or \code{\link{numeric}} call
-\code{matrixStats::rowCollapse}
-/ \code{matrixStats::colCollapse}.
+\code{\link{array}}, \code{\link{table}}, or \code{\link{numeric}} call
+\code{matrixStats::\link[matrixStats]{rowCollapse}} /
+\code{matrixStats::\link[matrixStats]{colCollapse}}.
 }
 \examples{
   mat <- matrix(rnorm(15), nrow = 5, ncol = 3)

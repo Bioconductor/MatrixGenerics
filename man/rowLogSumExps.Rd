@@ -10,21 +10,25 @@
 \title{Accurately calculates the logarithm of the sum of exponentials for each row
 (column) of a matrix-like object}
 \usage{
-rowLogSumExps(lx, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA)
+rowLogSumExps(lx, rows = NULL, cols = NULL, na.rm = FALSE, ...,
+  useNames = NA)
 
 \S4method{rowLogSumExps}{matrix_OR_array_OR_table_OR_numeric}(lx,
   rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx), ...,
   useNames = NA)
 
-\S4method{rowLogSumExps}{ANY}(lx, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA)
+\S4method{rowLogSumExps}{ANY}(lx, rows = NULL, cols = NULL,
+  na.rm = FALSE, ..., useNames = NA)
 
-colLogSumExps(lx, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA)
+colLogSumExps(lx, rows = NULL, cols = NULL, na.rm = FALSE, ...,
+  useNames = NA)
 
 \S4method{colLogSumExps}{matrix_OR_array_OR_table_OR_numeric}(lx,
   rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx), ...,
   useNames = NA)
 
-\S4method{colLogSumExps}{ANY}(lx, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA)
+\S4method{colLogSumExps}{ANY}(lx, rows = NULL, cols = NULL,
+  na.rm = FALSE, ..., useNames = NA)
 }
 \arguments{
 \item{lx}{An NxK matrix-like object. Typically \code{lx} are \code{log(x)} values.}
@@ -32,8 +36,9 @@ colLogSumExps(lx, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA)
 \item{rows, cols}{A \code{\link{vector}} indicating the subset (and/or
 columns) to operate over. If \code{\link{NULL}}, no subsetting is done.}
 
-\item{na.rm}{If \code{\link[base:logical]{TRUE}}, \code{\link{NA}}s
-are excluded first, otherwise not.}
+\item{na.rm}{If \code{\link[base]{TRUE}}, missing values
+(\code{\link[base]{NA}} or \code{\link[base]{NaN}}) are
+omitted from the calculations.}
 
 \item{...}{Additional arguments passed to specific methods.}
 
@@ -53,21 +58,20 @@ Accurately calculates the logarithm of the sum of exponentials for each row
 }
 \details{
 The S4 methods for \code{x} of type \code{\link{matrix}},
-\code{\link{array}}, or \code{\link{numeric}} call
-\code{matrixStats::rowLogSumExps}
-/ \code{matrixStats::colLogSumExps}.
+\code{\link{array}}, \code{\link{table}}, or \code{\link{numeric}} call
+\code{matrixStats::\link[matrixStats]{rowLogSumExps}} /
+\code{matrixStats::\link[matrixStats]{colLogSumExps}}.
 }
 \examples{
-  mat <- matrix(rnorm(15), nrow = 5, ncol = 3)
-  mat[2, 1] <- NA
-  mat[3, 3] <- Inf
-  mat[4, 1] <- 0
-  
-  print(mat)
-  
-  rowLogSumExps(mat)
-  colLogSumExps(mat)
-  
+mat <- matrix(rnorm(15), nrow = 5, ncol = 3)
+mat[2, 1] <- NA
+mat[3, 3] <- Inf
+mat[4, 1] <- 0
+
+print(mat)
+
+rowLogSumExps(mat)
+colLogSumExps(mat)
 }
 \seealso{
 \itemize{

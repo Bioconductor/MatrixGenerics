@@ -9,17 +9,23 @@
 \alias{colTabulates,ANY-method}
 \title{Tabulates the values in a matrix-like object by row (column)}
 \usage{
-rowTabulates(x, rows = NULL, cols = NULL, values = NULL, ..., useNames = NA)
+rowTabulates(x, rows = NULL, cols = NULL, values = NULL, ...,
+  useNames = NA)
 
-\S4method{rowTabulates}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, values = NULL, ..., useNames = NA)
+\S4method{rowTabulates}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
+  cols = NULL, values = NULL, ..., useNames = NA)
 
-\S4method{rowTabulates}{ANY}(x, rows = NULL, cols = NULL, values = NULL, ..., useNames = NA)
+\S4method{rowTabulates}{ANY}(x, rows = NULL, cols = NULL, values = NULL,
+  ..., useNames = NA)
 
-colTabulates(x, rows = NULL, cols = NULL, values = NULL, ..., useNames = NA)
+colTabulates(x, rows = NULL, cols = NULL, values = NULL, ...,
+  useNames = NA)
 
-\S4method{colTabulates}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, values = NULL, ..., useNames = NA)
+\S4method{colTabulates}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
+  cols = NULL, values = NULL, ..., useNames = NA)
 
-\S4method{colTabulates}{ANY}(x, rows = NULL, cols = NULL, values = NULL, ..., useNames = NA)
+\S4method{colTabulates}{ANY}(x, rows = NULL, cols = NULL, values = NULL,
+  ..., useNames = NA)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
@@ -44,9 +50,9 @@ Tabulates the values in a matrix-like object by row (column).
 }
 \details{
 The S4 methods for \code{x} of type \code{\link{matrix}},
-\code{\link{array}}, or \code{\link{numeric}} call
-\code{matrixStats::rowTabulates}
-/ \code{matrixStats::colTabulates}.
+\code{\link{array}}, \code{\link{table}}, or \code{\link{numeric}} call
+\code{matrixStats::\link[matrixStats]{rowTabulates}} /
+\code{matrixStats::\link[matrixStats]{colTabulates}}.
 }
 \examples{
   mat <- matrix(rpois(15, lambda = 3), nrow = 5, ncol = 3)

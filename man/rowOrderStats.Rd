@@ -14,14 +14,16 @@ rowOrderStats(x, rows = NULL, cols = NULL, which, ..., useNames = NA)
 \S4method{rowOrderStats}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
   cols = NULL, which, dim. = dim(x), ..., useNames = NA)
 
-\S4method{rowOrderStats}{ANY}(x, rows = NULL, cols = NULL, which, ..., useNames = NA)
+\S4method{rowOrderStats}{ANY}(x, rows = NULL, cols = NULL, which, ...,
+  useNames = NA)
 
 colOrderStats(x, rows = NULL, cols = NULL, which, ..., useNames = NA)
 
 \S4method{colOrderStats}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
   cols = NULL, which, dim. = dim(x), ..., useNames = NA)
 
-\S4method{colOrderStats}{ANY}(x, rows = NULL, cols = NULL, which, ..., useNames = NA)
+\S4method{colOrderStats}{ANY}(x, rows = NULL, cols = NULL, which, ...,
+  useNames = NA)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
@@ -50,9 +52,9 @@ Calculates an order statistic for each row (column) of a matrix-like object.
 }
 \details{
 The S4 methods for \code{x} of type \code{\link{matrix}},
-\code{\link{array}}, or \code{\link{numeric}} call
-\code{matrixStats::rowOrderStats}
-/ \code{matrixStats::colOrderStats}.
+\code{\link{array}}, \code{\link{table}}, or \code{\link{numeric}} call
+\code{matrixStats::\link[matrixStats]{rowOrderStats}} /
+\code{matrixStats::\link[matrixStats]{colOrderStats}}.
 }
 \examples{
     mat <- matrix(rnorm(15), nrow = 5, ncol = 3)

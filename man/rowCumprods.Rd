@@ -12,15 +12,19 @@ object}
 \usage{
 rowCumprods(x, rows = NULL, cols = NULL, ..., useNames = NA)
 
-\S4method{rowCumprods}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = NA)
+\S4method{rowCumprods}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
+  cols = NULL, dim. = dim(x), ..., useNames = NA)
 
-\S4method{rowCumprods}{ANY}(x, rows = NULL, cols = NULL, ..., useNames = NA)
+\S4method{rowCumprods}{ANY}(x, rows = NULL, cols = NULL, ...,
+  useNames = NA)
 
 colCumprods(x, rows = NULL, cols = NULL, ..., useNames = NA)
 
-\S4method{colCumprods}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = NA)
+\S4method{colCumprods}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
+  cols = NULL, dim. = dim(x), ..., useNames = NA)
 
-\S4method{colCumprods}{ANY}(x, rows = NULL, cols = NULL, ..., useNames = NA)
+\S4method{colCumprods}{ANY}(x, rows = NULL, cols = NULL, ...,
+  useNames = NA)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
@@ -48,21 +52,20 @@ object.
 }
 \details{
 The S4 methods for \code{x} of type \code{\link{matrix}},
-\code{\link{array}}, or \code{\link{numeric}} call
-\code{matrixStats::rowCumprods}
-/ \code{matrixStats::colCumprods}.
+\code{\link{array}}, \code{\link{table}}, or \code{\link{numeric}} call
+\code{matrixStats::\link[matrixStats]{rowCumprods}} /
+\code{matrixStats::\link[matrixStats]{colCumprods}}.
 }
 \examples{
-  mat <- matrix(rnorm(15), nrow = 5, ncol = 3)
-  mat[2, 1] <- NA
-  mat[3, 3] <- Inf
-  mat[4, 1] <- 0
-  
-  print(mat)
-  
-  rowCumprods(mat)
-  colCumprods(mat)
-  
+mat <- matrix(rnorm(15), nrow = 5, ncol = 3)
+mat[2, 1] <- NA
+mat[3, 3] <- Inf
+mat[4, 1] <- 0
+
+print(mat)
+
+rowCumprods(mat)
+colCumprods(mat)
 }
 \seealso{
 \itemize{

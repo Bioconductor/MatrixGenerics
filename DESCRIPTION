@@ -10,7 +10,7 @@ Description: S4 generic functions modeled after the 'matrixStats' API
 biocViews: Infrastructure, Software
 URL: https://bioconductor.org/packages/MatrixGenerics
 BugReports: https://github.com/Bioconductor/MatrixGenerics/issues
-Version: 1.11.0
+Version: 1.11.1
 License: Artistic-2.0
 Encoding: UTF-8
 Authors@R: c(person("Constantin", "Ahlmann-Eltze",
@@ -24,12 +24,12 @@ Authors@R: c(person("Constantin", "Ahlmann-Eltze",
 Depends: matrixStats (>= 0.60.1)
 Imports: methods
 Suggests:
+    Matrix,
     sparseMatrixStats,
     DelayedMatrixStats,
     SummarizedExperiment,
-    testthat (>= 2.1.0),
-    Matrix
-RoxygenNote: 7.2.0
+    testthat (>= 2.1.0)
+RoxygenNote: 7.2.3
 Roxygen: list(markdown = TRUE, old_usage = TRUE)
 Collate:
     'MatrixGenerics-package.R'
@@ -50,6 +50,7 @@ Collate:
     'rowMadDiffs.R'
     'rowMads.R'
     'rowMaxs.R'
+    'rowMeans.R'
     'rowMeans2.R'
     'rowMedians.R'
     'rowMins.R'
@@ -60,6 +61,7 @@ Collate:
     'rowRanks.R'
     'rowSdDiffs.R'
     'rowSds.R'
+    'rowSums.R'
     'rowSums2.R'
     'rowTabulates.R'
     'rowVarDiffs.R'

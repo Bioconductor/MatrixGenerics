@@ -11,15 +11,19 @@
 \usage{
 rowAnyNAs(x, rows = NULL, cols = NULL, ..., useNames = NA)
 
-\S4method{rowAnyNAs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, ..., useNames = NA)
+\S4method{rowAnyNAs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
+  cols = NULL, ..., useNames = NA)
 
-\S4method{rowAnyNAs}{ANY}(x, rows = NULL, cols = NULL, ..., useNames = NA)
+\S4method{rowAnyNAs}{ANY}(x, rows = NULL, cols = NULL, ...,
+  useNames = NA)
 
 colAnyNAs(x, rows = NULL, cols = NULL, ..., useNames = NA)
 
-\S4method{colAnyNAs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, ..., useNames = NA)
+\S4method{colAnyNAs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
+  cols = NULL, ..., useNames = NA)
 
-\S4method{colAnyNAs}{ANY}(x, rows = NULL, cols = NULL, ..., useNames = NA)
+\S4method{colAnyNAs}{ANY}(x, rows = NULL, cols = NULL, ...,
+  useNames = NA)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
@@ -40,21 +44,20 @@ Check if any elements in a row (column) of a matrix-like object is missing.
 }
 \details{
 The S4 methods for \code{x} of type \code{\link{matrix}},
-\code{\link{array}}, or \code{\link{numeric}} call
-\code{matrixStats::rowAnyNAs}
-/ \code{matrixStats::colAnyNAs}.
+\code{\link{array}}, \code{\link{table}}, or \code{\link{numeric}} call
+\code{matrixStats::\link[matrixStats]{rowAnyNAs}} /
+\code{matrixStats::\link[matrixStats]{colAnyNAs}}.
 }
 \examples{
-  mat <- matrix(rnorm(15), nrow = 5, ncol = 3)
-  mat[2, 1] <- NA
-  mat[3, 3] <- Inf
-  mat[4, 1] <- 0
-  
-  print(mat)
-  
-  rowAnyNAs(mat)
-  colAnyNAs(mat)
-  
+mat <- matrix(rnorm(15), nrow = 5, ncol = 3)
+mat[2, 1] <- NA
+mat[3, 3] <- Inf
+mat[4, 1] <- 0
+
+print(mat)
+
+rowAnyNAs(mat)
+colAnyNAs(mat)
 }
 \seealso{
 \itemize{

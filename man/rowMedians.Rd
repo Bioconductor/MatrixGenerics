@@ -9,19 +9,23 @@
 \alias{colMedians,ANY-method}
 \title{Calculates the median for each row (column) of a matrix-like object}
 \usage{
-rowMedians(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA)
+rowMedians(x, rows = NULL, cols = NULL, na.rm = FALSE, ...,
+  useNames = NA)
 
 \S4method{rowMedians}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
   cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = NA)
 
-\S4method{rowMedians}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA)
+\S4method{rowMedians}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE,
+  ..., useNames = NA)
 
-colMedians(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA)
+colMedians(x, rows = NULL, cols = NULL, na.rm = FALSE, ...,
+  useNames = NA)
 
 \S4method{colMedians}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
   cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = NA)
 
-\S4method{colMedians}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA)
+\S4method{colMedians}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE,
+  ..., useNames = NA)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
@@ -30,8 +34,9 @@ colMedians(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA)
 (and/or columns) to operate over. If \code{\link{NULL}}, no subsetting is
 done.}
 
-\item{na.rm}{If \code{\link[base:logical]{TRUE}}, \code{\link{NA}}s
-are excluded first, otherwise not.}
+\item{na.rm}{If \code{\link[base]{TRUE}}, missing values
+(\code{\link[base]{NA}} or \code{\link[base]{NaN}}) are
+omitted from the calculations.}
 
 \item{...}{Additional arguments passed to specific methods.}
 
@@ -50,21 +55,20 @@ Calculates the median for each row (column) of a matrix-like object.
 }
 \details{
 The S4 methods for \code{x} of type \code{\link{matrix}},
-\code{\link{array}}, or \code{\link{numeric}} call
-\code{matrixStats::rowMedians}
-/ \code{matrixStats::colMedians}.
+\code{\link{array}}, \code{\link{table}}, or \code{\link{numeric}} call
+\code{matrixStats::\link[matrixStats]{rowMedians}} /
+\code{matrixStats::\link[matrixStats]{colMedians}}.
 }
 \examples{
-  mat <- matrix(rnorm(15), nrow = 5, ncol = 3)
-  mat[2, 1] <- NA
-  mat[3, 3] <- Inf
-  mat[4, 1] <- 0
-  
-  print(mat)
-  
-  rowMedians(mat)
-  colMedians(mat)
-  
+mat <- matrix(rnorm(15), nrow = 5, ncol = 3)
+mat[2, 1] <- NA
+mat[3, 3] <- Inf
+mat[4, 1] <- 0
+
+print(mat)
+
+rowMedians(mat)
+colMedians(mat)
 }
 \seealso{
 \itemize{

@@ -31,10 +31,8 @@ setClassUnion("matrix_OR_array_OR_table_OR_numeric",
 ## MatrixGenerics. No need to list matrixStats here as it is special and
 ## already imported by default.
 .SUGGESTED_PACKAGES_TO_SEARCH <- c(
+    "Matrix",  # defines row/colSums() and row/colMeans() methods
     "sparseMatrixStats",
-    ## We list DelayedMatrixStats even though the methods defined in it
-    ## won't be found by the generics in MatrixGenerics. This is because
-    ## DelayedMatrixStats defines its own matrixStats generics.
     "DelayedMatrixStats"
     # ... add more packages in the future
 )

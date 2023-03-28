@@ -11,15 +11,19 @@
 \usage{
 rowCumsums(x, rows = NULL, cols = NULL, ..., useNames = NA)
 
-\S4method{rowCumsums}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = NA)
+\S4method{rowCumsums}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
+  cols = NULL, dim. = dim(x), ..., useNames = NA)
 
-\S4method{rowCumsums}{ANY}(x, rows = NULL, cols = NULL, ..., useNames = NA)
+\S4method{rowCumsums}{ANY}(x, rows = NULL, cols = NULL, ...,
+  useNames = NA)
 
 colCumsums(x, rows = NULL, cols = NULL, ..., useNames = NA)
 
-\S4method{colCumsums}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = NA)
+\S4method{colCumsums}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
+  cols = NULL, dim. = dim(x), ..., useNames = NA)
 
-\S4method{colCumsums}{ANY}(x, rows = NULL, cols = NULL, ..., useNames = NA)
+\S4method{colCumsums}{ANY}(x, rows = NULL, cols = NULL, ...,
+  useNames = NA)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
@@ -46,21 +50,20 @@ Calculates the cumulative sum for each row (column) of a matrix-like object.
 }
 \details{
 The S4 methods for \code{x} of type \code{\link{matrix}},
-\code{\link{array}}, or \code{\link{numeric}} call
-\code{matrixStats::rowCumsums}
-/ \code{matrixStats::colCumsums}.
+\code{\link{array}}, \code{\link{table}}, or \code{\link{numeric}} call
+\code{matrixStats::\link[matrixStats]{rowCumsums}} /
+\code{matrixStats::\link[matrixStats]{colCumsums}}.
 }
 \examples{
-  mat <- matrix(rnorm(15), nrow = 5, ncol = 3)
-  mat[2, 1] <- NA
-  mat[3, 3] <- Inf
-  mat[4, 1] <- 0
-  
-  print(mat)
-  
-  rowCumsums(mat)
-  colCumsums(mat)
-  
+mat <- matrix(rnorm(15), nrow = 5, ncol = 3)
+mat[2, 1] <- NA
+mat[3, 3] <- Inf
+mat[4, 1] <- 0
+
+print(mat)
+
+rowCumsums(mat)
+colCumsums(mat)
 }
 \seealso{
 \itemize{
