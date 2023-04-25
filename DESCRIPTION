@@ -10,7 +10,7 @@ Description: S4 generic functions modeled after the 'matrixStats' API
 biocViews: Infrastructure, Software
 URL: https://bioconductor.org/packages/MatrixGenerics
 BugReports: https://github.com/Bioconductor/MatrixGenerics/issues
-Version: 1.11.1
+Version: 1.11.3
 License: Artistic-2.0
 Encoding: UTF-8
 Authors@R: c(person("Constantin", "Ahlmann-Eltze",
@@ -26,6 +26,7 @@ Imports: methods
 Suggests:
     Matrix,
     sparseMatrixStats,
+    SparseArray,
     DelayedArray,
     DelayedMatrixStats,
     SummarizedExperiment,

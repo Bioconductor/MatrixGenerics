@@ -31,12 +31,15 @@ setClassUnion("matrix_OR_array_OR_table_OR_numeric",
     # Matrix package.
     "Matrix",
     "sparseMatrixStats",
+    # The SparseArray package implements SVT_SparseMatrix objects and defines
+    # row/col summarization methods for them.
+    "SparseArray",
     # Most row/col summarization methods for DelayedMatrix objects are defined
     # in the DelayedMatrixStats package but a few of them are defined in the
     # DelayedArray package.
     "DelayedArray",
     "DelayedMatrixStats"
-    # ... add more packages in the future (e.g. SparseArray coming soon)
+    # ... add more packages in the future
 )
 
 .long_and_fancy_errmsg <- function(short_errmsg, unloaded_pkgs)
