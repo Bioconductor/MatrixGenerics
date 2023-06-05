@@ -36,7 +36,7 @@ setGeneric("rowMedians", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..
 )
 
 .matrixStats_rowMedians <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = NA){
-  matrixStats::rowMedians(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ..., useNames = useNames)
+  matrixStats::rowMedians(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ..., useNames = isTRUE(useNames))
 }
 
 #' @export
@@ -57,7 +57,7 @@ setGeneric("colMedians", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..
 )
 
 .matrixStats_colMedians <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = NA){
-  matrixStats::colMedians(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ..., useNames = useNames)
+  matrixStats::colMedians(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ..., useNames = isTRUE(useNames))
 }
 
 #' @export

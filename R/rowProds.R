@@ -39,7 +39,7 @@ setGeneric("rowProds", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...,
 )
 
 .matrixStats_rowProds <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, method = c("direct", "expSumLog"), ..., useNames = NA){
-  matrixStats::rowProds(x, rows = rows, cols = cols, na.rm = na.rm, method = method, ..., useNames = useNames)
+  matrixStats::rowProds(x, rows = rows, cols = cols, na.rm = na.rm, method = method, ..., useNames = isTRUE(useNames))
 }
 
 #' @export
@@ -60,7 +60,7 @@ setGeneric("colProds", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...,
 )
 
 .matrixStats_colProds <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, method = c("direct", "expSumLog"), ..., useNames = NA){
-  matrixStats::colProds(x, rows = rows, cols = cols, na.rm = na.rm, method = method, ..., useNames = useNames)
+  matrixStats::colProds(x, rows = rows, cols = cols, na.rm = na.rm, method = method, ..., useNames = isTRUE(useNames))
 }
 
 #' @export

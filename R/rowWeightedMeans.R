@@ -36,7 +36,7 @@ setGeneric("rowWeightedMeans", function(x, w = NULL, rows = NULL, cols = NULL, n
 )
 
 .matrixStats_rowWeightedMeans <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA){
-  matrixStats::rowWeightedMeans(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ..., useNames = useNames)
+  matrixStats::rowWeightedMeans(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ..., useNames = !isFALSE(useNames))
 }
 
 #' @export
@@ -57,7 +57,7 @@ setGeneric("colWeightedMeans", function(x, w = NULL, rows = NULL, cols = NULL, n
 )
 
 .matrixStats_colWeightedMeans <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA){
-  matrixStats::colWeightedMeans(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ..., useNames = useNames)
+  matrixStats::colWeightedMeans(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ..., useNames = !isFALSE(useNames))
 }
 
 #' @export

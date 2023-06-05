@@ -39,7 +39,7 @@ setGeneric("rowMeans2", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...
 )
 
 .matrixStats_rowMeans2 <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = NA){
-  matrixStats::rowMeans2(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ..., useNames = useNames)
+  matrixStats::rowMeans2(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ..., useNames = isTRUE(useNames))
 }
 
 #' @export
@@ -60,7 +60,7 @@ setGeneric("colMeans2", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ...
 )
 
 .matrixStats_colMeans2 <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = NA){
-  matrixStats::colMeans2(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ..., useNames = useNames)
+  matrixStats::colMeans2(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ..., useNames = isTRUE(useNames))
 }
 
 #' @export

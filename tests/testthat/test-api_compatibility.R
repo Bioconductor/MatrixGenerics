@@ -3,7 +3,7 @@
 
 
 # Make a matrix with different features
-mat <- matrix(rnorm(16 * 6), nrow = 16, ncol = 6)
+mat <- matrix(rnorm(16 * 6), nrow = 16, ncol = 6, dimnames = list(letters[1:16], LETTERS[1:6]))
 mat[1,1] <- 0
 mat[2,3] <- NA
 mat[3,3] <- -Inf
@@ -13,86 +13,108 @@ mat[6,2] <- 0
 mat[6,5] <- 0
 
 
+.check_formals <- function(fnc_name)
+{
+    if (fnc_name == "rowRanges")
+        return(invisible(NULL))
 
-test_that("colAlls works ", {
+    matrixStats_fun <- eval(parse(text=paste0("matrixStats::", fnc_name)))
+    MatrixGenerics_fun <- eval(parse(text=paste0("MatrixGenerics::", fnc_name)))
+    MatrixGenerics_matrixStats_method <- eval(parse(text=paste0("MatrixGenerics:::.matrixStats_", fnc_name)))
 
-	matrixStats_formals <- formals(matrixStats::colAlls)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colAlls)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+    matrixStats_formals <- formals(matrixStats_fun)
+    MatrixGenerics_matrixStats_method_formals <- formals(MatrixGenerics_matrixStats_method)
+    MatrixGenerics_matrixStats_method_formals$useNames <- matrixStats_formals$useNames <- NULL
+    if (fnc_name %in% c("rowMeans2", "colMeans2", "rowVars", "colVars", "rowSds", "colSds"))
+        matrixStats_formals$refine <- NULL
+    if (fnc_name %in% c("rowQuantiles", "colQuantiles"))
+        matrixStats_formals$digits <- NULL
+    expect_identical(MatrixGenerics_matrixStats_method_formals, matrixStats_formals)
 
-	mg_res_def_1 <- colAlls(x = mat)
+    MatrixGenerics_formals <- formals(MatrixGenerics_fun)
+    MatrixGenerics_matrixStats_method_formals <- formals(MatrixGenerics_matrixStats_method)
+    MatrixGenerics_matrixStats_method_formals$dim. <- NULL
+    if (fnc_name %in% c("rowProds", "colProds"))
+        MatrixGenerics_matrixStats_method_formals$method <- NULL
+    if (fnc_name %in% c("rowRanks", "colRanks"))
+        MatrixGenerics_matrixStats_method_formals$ties.method <- MatrixGenerics_formals$ties.method <- NULL
+    if (fnc_name == "colRanks")
+        MatrixGenerics_matrixStats_method_formals$preserveShape <- NULL
+    expect_identical(MatrixGenerics_matrixStats_method_formals, MatrixGenerics_formals)
+    invisible(NULL)
+}
+
+
+test_that("colAlls works", {
+
+	.check_formals("colAlls")
+
+	mg_res_def_1 <- colAlls(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::colAlls(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colAlls(x = mat, rows = NULL, cols = NULL, value = TRUE, na.rm = TRUE, dim. = dim(mat))
-	ms_res_1 <- matrixStats::colAlls(x = mat, rows = NULL, cols = NULL, value = TRUE, na.rm = TRUE, dim. = dim(mat))
+	mg_res_1 <- colAlls(x = mat, rows = NULL, cols = NULL, value = TRUE, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
+	ms_res_1 <- matrixStats::colAlls(x = mat, rows = NULL, cols = NULL, value = TRUE, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colAlls(x = mat, rows = 1:3, cols = 2, value = FALSE, na.rm = FALSE, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::colAlls(x = mat, rows = 1:3, cols = 2, value = FALSE, na.rm = FALSE, dim. = c(12L, 8L))
+	mg_res_2 <- colAlls(x = mat, rows = 1:3, cols = 2, value = FALSE, na.rm = FALSE, dim. = c(12L, 8L), useNames = FALSE)
+	ms_res_2 <- matrixStats::colAlls(x = mat, rows = 1:3, cols = 2, value = FALSE, na.rm = FALSE, dim. = c(12L, 8L), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 
-	mg_res_3 <- colAlls(x = mat, rows = NULL, cols = NULL, value = 0, na.rm = TRUE, dim. = dim(mat))
-	ms_res_3 <- matrixStats::colAlls(x = mat, rows = NULL, cols = NULL, value = 0, na.rm = TRUE, dim. = dim(mat))
+	mg_res_3 <- colAlls(x = mat, rows = NULL, cols = NULL, value = 0, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
+	ms_res_3 <- matrixStats::colAlls(x = mat, rows = NULL, cols = NULL, value = 0, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_3, ms_res_3)
 })
 
 
-test_that("colAnyNAs works ", {
+test_that("colAnyNAs works", {
 
-	matrixStats_formals <- formals(matrixStats::colAnyNAs)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colAnyNAs)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("colAnyNAs")
 
-	mg_res_def_1 <- colAnyNAs(x = mat)
+	mg_res_def_1 <- colAnyNAs(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::colAnyNAs(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colAnyNAs(x = mat, rows = NULL, cols = NULL)
-	ms_res_1 <- matrixStats::colAnyNAs(x = mat, rows = NULL, cols = NULL)
+	mg_res_1 <- colAnyNAs(x = mat, rows = NULL, cols = NULL, useNames = FALSE)
+	ms_res_1 <- matrixStats::colAnyNAs(x = mat, rows = NULL, cols = NULL, useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colAnyNAs(x = mat, rows = 1:3, cols = 2)
-	ms_res_2 <- matrixStats::colAnyNAs(x = mat, rows = 1:3, cols = 2)
+	mg_res_2 <- colAnyNAs(x = mat, rows = 1:3, cols = 2, useNames = FALSE)
+	ms_res_2 <- matrixStats::colAnyNAs(x = mat, rows = 1:3, cols = 2, useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("colAnys works ", {
+test_that("colAnys works", {
 
-	matrixStats_formals <- formals(matrixStats::colAnys)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colAnys)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("colAnys")
 
-	mg_res_def_1 <- colAnys(x = mat)
+	mg_res_def_1 <- colAnys(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::colAnys(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colAnys(x = mat, rows = NULL, cols = NULL, value = TRUE, na.rm = TRUE, dim. = dim(mat))
-	ms_res_1 <- matrixStats::colAnys(x = mat, rows = NULL, cols = NULL, value = TRUE, na.rm = TRUE, dim. = dim(mat))
+	mg_res_1 <- colAnys(x = mat, rows = NULL, cols = NULL, value = TRUE, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
+	ms_res_1 <- matrixStats::colAnys(x = mat, rows = NULL, cols = NULL, value = TRUE, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colAnys(x = mat, rows = 1:3, cols = 2, value = FALSE, na.rm = FALSE, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::colAnys(x = mat, rows = 1:3, cols = 2, value = FALSE, na.rm = FALSE, dim. = c(12L, 8L))
+	mg_res_2 <- colAnys(x = mat, rows = 1:3, cols = 2, value = FALSE, na.rm = FALSE, dim. = c(12L, 8L), useNames = FALSE)
+	ms_res_2 <- matrixStats::colAnys(x = mat, rows = 1:3, cols = 2, value = FALSE, na.rm = FALSE, dim. = c(12L, 8L), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 
-	mg_res_3 <- colAnys(x = mat, rows = NULL, cols = NULL, value = 0, na.rm = TRUE, dim. = dim(mat))
-	ms_res_3 <- matrixStats::colAnys(x = mat, rows = NULL, cols = NULL, value = 0, na.rm = TRUE, dim. = dim(mat))
+	mg_res_3 <- colAnys(x = mat, rows = NULL, cols = NULL, value = 0, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
+	ms_res_3 <- matrixStats::colAnys(x = mat, rows = NULL, cols = NULL, value = 0, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_3, ms_res_3)
 })
 
 
-test_that("colAvgsPerRowSet works ", {
+test_that("colAvgsPerRowSet works", {
 
-	matrixStats_formals <- formals(matrixStats::colAvgsPerRowSet)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colAvgsPerRowSet)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("colAvgsPerRowSet")
 
 	S <- matrix(1:nrow(mat), ncol = 2)
 	mg_res_def_1 <- colAvgsPerRowSet(X = mat, S = S, FUN = colMeans)
 	ms_res_def_1 <- matrixStats::colAvgsPerRowSet(X = mat, S = S, FUN = colMeans)
 	expect_equal(mg_res_def_1, ms_res_def_1)
-
 	mg_res_def_2 <- colAvgsPerRowSet(X = mat, S = S, FUN = colVars)
 	ms_res_def_2 <- matrixStats::colAvgsPerRowSet(X = mat, S = S, FUN = colVars)
 	expect_equal(mg_res_def_2, ms_res_def_2)
@@ -107,759 +129,684 @@ test_that("colAvgsPerRowSet works ", {
 })
 
 
-test_that("colCollapse works ", {
+test_that("colCollapse works", {
 
-	matrixStats_formals <- formals(matrixStats::colCollapse)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colCollapse)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("colCollapse")
 
-	mg_res_def_1 <- colCollapse(x = mat, idxs = 1)
+	mg_res_def_1 <- colCollapse(x = mat, idxs = 1, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::colCollapse(x = mat, idxs = 1)
 	expect_equal(mg_res_def_1, ms_res_def_1)
-
-	mg_res_def_2 <- colCollapse(x = mat, idxs = 2:3)
+	mg_res_def_2 <- colCollapse(x = mat, idxs = 2:3, useNames = TRUE)
 	ms_res_def_2 <- matrixStats::colCollapse(x = mat, idxs = 2:3)
 	expect_equal(mg_res_def_2, ms_res_def_2)
 
-	mg_res_1 <- colCollapse(x = mat, idxs = 1, cols = NULL, dim. = dim(mat))
-	ms_res_1 <- matrixStats::colCollapse(x = mat, idxs = 1, cols = NULL, dim. = dim(mat))
+	mg_res_1 <- colCollapse(x = mat, idxs = 1, cols = NULL, dim. = dim(mat), useNames = FALSE)
+	ms_res_1 <- matrixStats::colCollapse(x = mat, idxs = 1, cols = NULL, dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colCollapse(x = mat, idxs = 2:3, cols = 2, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::colCollapse(x = mat, idxs = 2:3, cols = 2, dim. = c(12L, 8L))
+	mg_res_2 <- colCollapse(x = mat, idxs = 2:3, cols = 2, dim. = c(12L, 8L), useNames = FALSE)
+	ms_res_2 <- matrixStats::colCollapse(x = mat, idxs = 2:3, cols = 2, dim. = c(12L, 8L), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("colCounts works ", {
+test_that("colCounts works", {
 
-	matrixStats_formals <- formals(matrixStats::colCounts)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colCounts)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("colCounts")
 
-	mg_res_def_1 <- colCounts(x = mat)
+	mg_res_def_1 <- colCounts(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::colCounts(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colCounts(x = mat, rows = NULL, cols = NULL, value = TRUE, na.rm = TRUE, dim. = dim(mat))
-	ms_res_1 <- matrixStats::colCounts(x = mat, rows = NULL, cols = NULL, value = TRUE, na.rm = TRUE, dim. = dim(mat))
+	mg_res_1 <- colCounts(x = mat, rows = NULL, cols = NULL, value = TRUE, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
+	ms_res_1 <- matrixStats::colCounts(x = mat, rows = NULL, cols = NULL, value = TRUE, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colCounts(x = mat, rows = 1:3, cols = 2, value = FALSE, na.rm = FALSE, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::colCounts(x = mat, rows = 1:3, cols = 2, value = FALSE, na.rm = FALSE, dim. = c(12L, 8L))
+	mg_res_2 <- colCounts(x = mat, rows = 1:3, cols = 2, value = FALSE, na.rm = FALSE, dim. = c(12L, 8L), useNames = FALSE)
+	ms_res_2 <- matrixStats::colCounts(x = mat, rows = 1:3, cols = 2, value = FALSE, na.rm = FALSE, dim. = c(12L, 8L), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 
-	mg_res_3 <- colCounts(x = mat, rows = NULL, cols = NULL, value = 0, na.rm = TRUE, dim. = dim(mat))
-	ms_res_3 <- matrixStats::colCounts(x = mat, rows = NULL, cols = NULL, value = 0, na.rm = TRUE, dim. = dim(mat))
+	mg_res_3 <- colCounts(x = mat, rows = NULL, cols = NULL, value = 0, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
+	ms_res_3 <- matrixStats::colCounts(x = mat, rows = NULL, cols = NULL, value = 0, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_3, ms_res_3)
 })
 
 
-test_that("colCummaxs works ", {
+test_that("colCummaxs works", {
 
-	matrixStats_formals <- formals(matrixStats::colCummaxs)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colCummaxs)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("colCummaxs")
 
-	mg_res_def_1 <- colCummaxs(x = mat)
+	mg_res_def_1 <- colCummaxs(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::colCummaxs(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colCummaxs(x = mat, rows = NULL, cols = NULL, dim. = dim(mat))
-	ms_res_1 <- matrixStats::colCummaxs(x = mat, rows = NULL, cols = NULL, dim. = dim(mat))
+	mg_res_1 <- colCummaxs(x = mat, rows = NULL, cols = NULL, dim. = dim(mat), useNames = FALSE)
+	ms_res_1 <- matrixStats::colCummaxs(x = mat, rows = NULL, cols = NULL, dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colCummaxs(x = mat, rows = 1:3, cols = 2, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::colCummaxs(x = mat, rows = 1:3, cols = 2, dim. = c(12L, 8L))
+	mg_res_2 <- colCummaxs(x = mat, rows = 1:3, cols = 2, dim. = c(12L, 8L), useNames = FALSE)
+	ms_res_2 <- matrixStats::colCummaxs(x = mat, rows = 1:3, cols = 2, dim. = c(12L, 8L), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("colCummins works ", {
+test_that("colCummins works", {
 
-	matrixStats_formals <- formals(matrixStats::colCummins)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colCummins)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("colCummins")
 
-	mg_res_def_1 <- colCummins(x = mat)
+	mg_res_def_1 <- colCummins(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::colCummins(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colCummins(x = mat, rows = NULL, cols = NULL, dim. = dim(mat))
-	ms_res_1 <- matrixStats::colCummins(x = mat, rows = NULL, cols = NULL, dim. = dim(mat))
+	mg_res_1 <- colCummins(x = mat, rows = NULL, cols = NULL, dim. = dim(mat), useNames = FALSE)
+	ms_res_1 <- matrixStats::colCummins(x = mat, rows = NULL, cols = NULL, dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colCummins(x = mat, rows = 1:3, cols = 2, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::colCummins(x = mat, rows = 1:3, cols = 2, dim. = c(12L, 8L))
+	mg_res_2 <- colCummins(x = mat, rows = 1:3, cols = 2, dim. = c(12L, 8L), useNames = FALSE)
+	ms_res_2 <- matrixStats::colCummins(x = mat, rows = 1:3, cols = 2, dim. = c(12L, 8L), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("colCumprods works ", {
+test_that("colCumprods works", {
 
-	matrixStats_formals <- formals(matrixStats::colCumprods)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colCumprods)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("colCumprods")
 
-	mg_res_def_1 <- colCumprods(x = mat)
+	mg_res_def_1 <- colCumprods(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::colCumprods(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colCumprods(x = mat, rows = NULL, cols = NULL, dim. = dim(mat))
-	ms_res_1 <- matrixStats::colCumprods(x = mat, rows = NULL, cols = NULL, dim. = dim(mat))
+	mg_res_1 <- colCumprods(x = mat, rows = NULL, cols = NULL, dim. = dim(mat), useNames = FALSE)
+	ms_res_1 <- matrixStats::colCumprods(x = mat, rows = NULL, cols = NULL, dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colCumprods(x = mat, rows = 1:3, cols = 2, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::colCumprods(x = mat, rows = 1:3, cols = 2, dim. = c(12L, 8L))
+	mg_res_2 <- colCumprods(x = mat, rows = 1:3, cols = 2, dim. = c(12L, 8L), useNames = FALSE)
+	ms_res_2 <- matrixStats::colCumprods(x = mat, rows = 1:3, cols = 2, dim. = c(12L, 8L), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("colCumsums works ", {
+test_that("colCumsums works", {
 
-	matrixStats_formals <- formals(matrixStats::colCumsums)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colCumsums)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("colCumsums")
 
-	mg_res_def_1 <- colCumsums(x = mat)
+	mg_res_def_1 <- colCumsums(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::colCumsums(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colCumsums(x = mat, rows = NULL, cols = NULL, dim. = dim(mat))
-	ms_res_1 <- matrixStats::colCumsums(x = mat, rows = NULL, cols = NULL, dim. = dim(mat))
+	mg_res_1 <- colCumsums(x = mat, rows = NULL, cols = NULL, dim. = dim(mat), useNames = FALSE)
+	ms_res_1 <- matrixStats::colCumsums(x = mat, rows = NULL, cols = NULL, dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colCumsums(x = mat, rows = 1:3, cols = 2, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::colCumsums(x = mat, rows = 1:3, cols = 2, dim. = c(12L, 8L))
+	mg_res_2 <- colCumsums(x = mat, rows = 1:3, cols = 2, dim. = c(12L, 8L), useNames = FALSE)
+	ms_res_2 <- matrixStats::colCumsums(x = mat, rows = 1:3, cols = 2, dim. = c(12L, 8L), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("colDiffs works ", {
+test_that("colDiffs works", {
 
-	matrixStats_formals <- formals(matrixStats::colDiffs)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colDiffs)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("colDiffs")
 
-	mg_res_def_1 <- colDiffs(x = mat)
+	mg_res_def_1 <- colDiffs(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::colDiffs(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colDiffs(x = mat, rows = NULL, cols = NULL, lag = 1, differences = 1, dim. = dim(mat))
-	ms_res_1 <- matrixStats::colDiffs(x = mat, rows = NULL, cols = NULL, lag = 1, differences = 1, dim. = dim(mat))
+	mg_res_1 <- colDiffs(x = mat, rows = NULL, cols = NULL, lag = 1, differences = 1, dim. = dim(mat), useNames = FALSE)
+	ms_res_1 <- matrixStats::colDiffs(x = mat, rows = NULL, cols = NULL, lag = 1, differences = 1, dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colDiffs(x = mat, rows = 1:3, cols = 2, lag = 3, differences = 2, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::colDiffs(x = mat, rows = 1:3, cols = 2, lag = 3, differences = 2, dim. = c(12L, 8L))
+	mg_res_2 <- colDiffs(x = mat, rows = 1:3, cols = 2, lag = 3, differences = 2, dim. = c(12L, 8L), useNames = FALSE)
+	ms_res_2 <- matrixStats::colDiffs(x = mat, rows = 1:3, cols = 2, lag = 3, differences = 2, dim. = c(12L, 8L), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("colIQRDiffs works ", {
+test_that("colIQRDiffs works", {
 
-	matrixStats_formals <- formals(matrixStats::colIQRDiffs)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colIQRDiffs)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("colIQRDiffs")
 
-	mg_res_def_1 <- colIQRDiffs(x = mat)
+	mg_res_def_1 <- colIQRDiffs(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::colIQRDiffs(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colIQRDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0)
-	ms_res_1 <- matrixStats::colIQRDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0)
+	mg_res_1 <- colIQRDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0, useNames = FALSE)
+	ms_res_1 <- matrixStats::colIQRDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0, useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colIQRDiffs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, diff = 2, trim = 0.333333333333333)
-	ms_res_2 <- matrixStats::colIQRDiffs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, diff = 2, trim = 0.333333333333333)
+	mg_res_2 <- colIQRDiffs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, diff = 2, trim = 0.333333333333333, useNames = FALSE)
+	ms_res_2 <- matrixStats::colIQRDiffs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, diff = 2, trim = 0.333333333333333, useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 
-	mg_res_3 <- colIQRDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0.5)
-	ms_res_3 <- matrixStats::colIQRDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0.5)
+	mg_res_3 <- colIQRDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0.5, useNames = FALSE)
+	ms_res_3 <- matrixStats::colIQRDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0.5, useNames = FALSE)
 	expect_equal(mg_res_3, ms_res_3)
 })
 
 
-test_that("colIQRs works ", {
+test_that("colIQRs works", {
 
-	matrixStats_formals <- formals(matrixStats::colIQRs)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colIQRs)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("colIQRs")
 
-	mg_res_def_1 <- colIQRs(x = mat)
+	mg_res_def_1 <- colIQRs(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::colIQRs(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colIQRs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE)
-	ms_res_1 <- matrixStats::colIQRs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE)
+	mg_res_1 <- colIQRs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, useNames = FALSE)
+	ms_res_1 <- matrixStats::colIQRs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colIQRs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE)
-	ms_res_2 <- matrixStats::colIQRs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE)
+	mg_res_2 <- colIQRs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, useNames = FALSE)
+	ms_res_2 <- matrixStats::colIQRs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("colLogSumExps works ", {
+test_that("colLogSumExps works", {
 
-	matrixStats_formals <- formals(matrixStats::colLogSumExps)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colLogSumExps)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("colLogSumExps")
 
-	mg_res_def_1 <- colLogSumExps(lx = mat)
+	mg_res_def_1 <- colLogSumExps(lx = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::colLogSumExps(lx = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colLogSumExps(lx = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat))
-	ms_res_1 <- matrixStats::colLogSumExps(lx = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat))
+	mg_res_1 <- colLogSumExps(lx = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
+	ms_res_1 <- matrixStats::colLogSumExps(lx = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colLogSumExps(lx = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::colLogSumExps(lx = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L))
+	mg_res_2 <- colLogSumExps(lx = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L), useNames = FALSE)
+	ms_res_2 <- matrixStats::colLogSumExps(lx = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("colMadDiffs works ", {
+test_that("colMadDiffs works", {
 
-	matrixStats_formals <- formals(matrixStats::colMadDiffs)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colMadDiffs)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("colMadDiffs")
 
-	mg_res_def_1 <- colMadDiffs(x = mat)
+	mg_res_def_1 <- colMadDiffs(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::colMadDiffs(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colMadDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0)
-	ms_res_1 <- matrixStats::colMadDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0)
+	mg_res_1 <- colMadDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0, useNames = FALSE)
+	ms_res_1 <- matrixStats::colMadDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0, useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colMadDiffs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, diff = 2, trim = 0.333333333333333)
-	ms_res_2 <- matrixStats::colMadDiffs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, diff = 2, trim = 0.333333333333333)
+	mg_res_2 <- colMadDiffs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, diff = 2, trim = 0.333333333333333, useNames = FALSE)
+	ms_res_2 <- matrixStats::colMadDiffs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, diff = 2, trim = 0.333333333333333, useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 
-	mg_res_3 <- colMadDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0.5)
-	ms_res_3 <- matrixStats::colMadDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0.5)
+	mg_res_3 <- colMadDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0.5, useNames = FALSE)
+	ms_res_3 <- matrixStats::colMadDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0.5, useNames = FALSE)
 	expect_equal(mg_res_3, ms_res_3)
 })
 
 
-test_that("colMads works ", {
+test_that("colMads works", {
 
-	matrixStats_formals <- formals(matrixStats::colMads)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colMads)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("colMads")
 
-	mg_res_def_1 <- colMads(x = mat)
+	mg_res_def_1 <- colMads(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::colMads(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colMads(x = mat, rows = NULL, cols = NULL, center = colMeans2(mat, na.rm=TRUE), constant = 1.4826, na.rm = TRUE, dim. = dim(mat))
-	ms_res_1 <- matrixStats::colMads(x = mat, rows = NULL, cols = NULL, center = colMeans2(mat, na.rm=TRUE), constant = 1.4826, na.rm = TRUE, dim. = dim(mat))
+	mg_res_1 <- colMads(x = mat, rows = NULL, cols = NULL, center = colMeans2(mat, na.rm=TRUE), constant = 1.4826, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
+	ms_res_1 <- matrixStats::colMads(x = mat, rows = NULL, cols = NULL, center = colMeans2(mat, na.rm=TRUE), constant = 1.4826, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colMads(x = mat, rows = 1:3, cols = 2, center = NULL, constant = 5, na.rm = FALSE, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::colMads(x = mat, rows = 1:3, cols = 2, center = NULL, constant = 5, na.rm = FALSE, dim. = c(12L, 8L))
+	mg_res_2 <- colMads(x = mat, rows = 1:3, cols = 2, center = NULL, constant = 5, na.rm = FALSE, dim. = c(12L, 8L), useNames = FALSE)
+	ms_res_2 <- matrixStats::colMads(x = mat, rows = 1:3, cols = 2, center = NULL, constant = 5, na.rm = FALSE, dim. = c(12L, 8L), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("colMaxs works ", {
+test_that("colMaxs works", {
 
-	matrixStats_formals <- formals(matrixStats::colMaxs)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colMaxs)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("colMaxs")
 
-	mg_res_def_1 <- colMaxs(x = mat)
+	mg_res_def_1 <- colMaxs(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::colMaxs(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colMaxs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat))
-	ms_res_1 <- matrixStats::colMaxs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat))
+	mg_res_1 <- colMaxs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
+	ms_res_1 <- matrixStats::colMaxs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colMaxs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::colMaxs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L))
+	mg_res_2 <- colMaxs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L), useNames = FALSE)
+	ms_res_2 <- matrixStats::colMaxs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("colMeans2 works ", {
+test_that("colMeans2 works", {
 
-	matrixStats_formals <- formals(matrixStats::colMeans2)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colMeans2)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("colMeans2")
 
-	mg_res_def_1 <- colMeans2(x = mat)
+	mg_res_def_1 <- colMeans2(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::colMeans2(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colMeans2(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat))
-	ms_res_1 <- matrixStats::colMeans2(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat))
+	mg_res_1 <- colMeans2(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, refine = , dim. = dim(mat), useNames = FALSE)
+	ms_res_1 <- matrixStats::colMeans2(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, refine = , dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colMeans2(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::colMeans2(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L))
+	mg_res_2 <- colMeans2(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, refine = , dim. = c(12L, 8L), useNames = FALSE)
+	ms_res_2 <- matrixStats::colMeans2(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, refine = , dim. = c(12L, 8L), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("colMedians works ", {
+test_that("colMedians works", {
 
-	matrixStats_formals <- formals(matrixStats::colMedians)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colMedians)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("colMedians")
 
-	mg_res_def_1 <- colMedians(x = mat)
+	mg_res_def_1 <- colMedians(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::colMedians(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colMedians(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat))
-	ms_res_1 <- matrixStats::colMedians(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat))
+	mg_res_1 <- colMedians(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
+	ms_res_1 <- matrixStats::colMedians(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colMedians(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::colMedians(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L))
+	mg_res_2 <- colMedians(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L), useNames = FALSE)
+	ms_res_2 <- matrixStats::colMedians(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("colMins works ", {
+test_that("colMins works", {
 
-	matrixStats_formals <- formals(matrixStats::colMins)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colMins)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("colMins")
 
-	mg_res_def_1 <- colMins(x = mat)
+	mg_res_def_1 <- colMins(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::colMins(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colMins(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat))
-	ms_res_1 <- matrixStats::colMins(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat))
+	mg_res_1 <- colMins(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
+	ms_res_1 <- matrixStats::colMins(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colMins(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::colMins(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L))
+	mg_res_2 <- colMins(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L), useNames = FALSE)
+	ms_res_2 <- matrixStats::colMins(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("colOrderStats works ", {
+test_that("colOrderStats works", {
 
-	matrixStats_formals <- formals(matrixStats::colOrderStats)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colOrderStats)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("colOrderStats")
 
 	mat[is.na(mat)] <- 4.1
-	mg_res_def_1 <- colOrderStats(x = mat, which = 2)
+	mg_res_def_1 <- colOrderStats(x = mat, which = 2, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::colOrderStats(x = mat, which = 2)
 	expect_equal(mg_res_def_1, ms_res_def_1)
-
-	mg_res_def_2 <- colOrderStats(x = mat, which = 1)
+	mg_res_def_2 <- colOrderStats(x = mat, which = 1, useNames = TRUE)
 	ms_res_def_2 <- matrixStats::colOrderStats(x = mat, which = 1)
 	expect_equal(mg_res_def_2, ms_res_def_2)
 
-	mg_res_1 <- colOrderStats(x = mat, rows = NULL, cols = NULL, which = 2, dim. = dim(mat))
-	ms_res_1 <- matrixStats::colOrderStats(x = mat, rows = NULL, cols = NULL, which = 2, dim. = dim(mat))
+	mg_res_1 <- colOrderStats(x = mat, rows = NULL, cols = NULL, which = 2, dim. = dim(mat), useNames = FALSE)
+	ms_res_1 <- matrixStats::colOrderStats(x = mat, rows = NULL, cols = NULL, which = 2, dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colOrderStats(x = mat, rows = 1:3, cols = 2, which = 1, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::colOrderStats(x = mat, rows = 1:3, cols = 2, which = 1, dim. = c(12L, 8L))
+	mg_res_2 <- colOrderStats(x = mat, rows = 1:3, cols = 2, which = 1, dim. = c(12L, 8L), useNames = FALSE)
+	ms_res_2 <- matrixStats::colOrderStats(x = mat, rows = 1:3, cols = 2, which = 1, dim. = c(12L, 8L), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("colProds works ", {
+test_that("colProds works", {
 
-	matrixStats_formals <- formals(matrixStats::colProds)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colProds)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("colProds")
 
-	mg_res_def_1 <- colProds(x = mat)
+	mg_res_def_1 <- colProds(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::colProds(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colProds(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, method = 'direct')
-	ms_res_1 <- matrixStats::colProds(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, method = 'direct')
+	mg_res_1 <- colProds(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, method = 'direct', useNames = FALSE)
+	ms_res_1 <- matrixStats::colProds(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, method = 'direct', useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colProds(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, method = 'expSumLog')
-	ms_res_2 <- matrixStats::colProds(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, method = 'expSumLog')
+	mg_res_2 <- colProds(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, method = 'expSumLog', useNames = FALSE)
+	ms_res_2 <- matrixStats::colProds(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, method = 'expSumLog', useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("colQuantiles works ", {
+test_that("colQuantiles works", {
 
-	matrixStats_formals <- formals(matrixStats::colQuantiles)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colQuantiles)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("colQuantiles")
 
-	mg_res_def_1 <- colQuantiles(x = mat)
+	mg_res_def_1 <- colQuantiles(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::colQuantiles(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colQuantiles(x = mat, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), na.rm = TRUE, type = 7, drop = TRUE)
-	ms_res_1 <- matrixStats::colQuantiles(x = mat, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), na.rm = TRUE, type = 7, drop = TRUE)
+	mg_res_1 <- colQuantiles(x = mat, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), na.rm = TRUE, type = 7, digits = , useNames = FALSE, drop = TRUE)
+	ms_res_1 <- matrixStats::colQuantiles(x = mat, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), na.rm = TRUE, type = 7, digits = , useNames = FALSE, drop = TRUE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colQuantiles(x = mat, rows = 1:3, cols = 2, probs = 0.1, na.rm = FALSE, type = 3, drop = FALSE)
-	ms_res_2 <- matrixStats::colQuantiles(x = mat, rows = 1:3, cols = 2, probs = 0.1, na.rm = FALSE, type = 3, drop = FALSE)
+	mg_res_2 <- colQuantiles(x = mat, rows = 1:3, cols = 2, probs = 0.1, na.rm = FALSE, type = 3, digits = , useNames = FALSE, drop = FALSE)
+	ms_res_2 <- matrixStats::colQuantiles(x = mat, rows = 1:3, cols = 2, probs = 0.1, na.rm = FALSE, type = 3, digits = , useNames = FALSE, drop = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("colRanges works ", {
+test_that("colRanges works", {
 
-	matrixStats_formals <- formals(matrixStats::colRanges)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colRanges)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("colRanges")
 
-	mg_res_def_1 <- colRanges(x = mat)
+	mg_res_def_1 <- colRanges(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::colRanges(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colRanges(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat))
-	ms_res_1 <- matrixStats::colRanges(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat))
+	mg_res_1 <- colRanges(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
+	ms_res_1 <- matrixStats::colRanges(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colRanges(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::colRanges(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L))
+	mg_res_2 <- colRanges(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L), useNames = FALSE)
+	ms_res_2 <- matrixStats::colRanges(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("colRanks works ", {
+test_that("colRanks works", {
 
-	matrixStats_formals <- formals(matrixStats::colRanks)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colRanks)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("colRanks")
 
-	mg_res_def_1 <- colRanks(x = mat)
+	mg_res_def_1 <- colRanks(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::colRanks(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colRanks(x = mat, rows = NULL, cols = NULL, ties.method = 'max', dim. = dim(mat), preserveShape = FALSE)
-	ms_res_1 <- matrixStats::colRanks(x = mat, rows = NULL, cols = NULL, ties.method = 'max', dim. = dim(mat), preserveShape = FALSE)
+	mg_res_1 <- colRanks(x = mat, rows = NULL, cols = NULL, ties.method = 'max', dim. = dim(mat), preserveShape = FALSE, useNames = FALSE)
+	ms_res_1 <- matrixStats::colRanks(x = mat, rows = NULL, cols = NULL, ties.method = 'max', dim. = dim(mat), preserveShape = FALSE, useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colRanks(x = mat, rows = 1:3, cols = 2, ties.method = 'first', dim. = c(12L, 8L), preserveShape = TRUE)
-	ms_res_2 <- matrixStats::colRanks(x = mat, rows = 1:3, cols = 2, ties.method = 'first', dim. = c(12L, 8L), preserveShape = TRUE)
+	mg_res_2 <- colRanks(x = mat, rows = 1:3, cols = 2, ties.method = 'first', dim. = c(12L, 8L), preserveShape = TRUE, useNames = FALSE)
+	ms_res_2 <- matrixStats::colRanks(x = mat, rows = 1:3, cols = 2, ties.method = 'first', dim. = c(12L, 8L), preserveShape = TRUE, useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 
-	mg_res_3 <- colRanks(x = mat, rows = NULL, cols = NULL, ties.method = 'dense', dim. = dim(mat), preserveShape = FALSE)
-	ms_res_3 <- matrixStats::colRanks(x = mat, rows = NULL, cols = NULL, ties.method = 'dense', dim. = dim(mat), preserveShape = FALSE)
+	mg_res_3 <- colRanks(x = mat, rows = NULL, cols = NULL, ties.method = 'dense', dim. = dim(mat), preserveShape = FALSE, useNames = FALSE)
+	ms_res_3 <- matrixStats::colRanks(x = mat, rows = NULL, cols = NULL, ties.method = 'dense', dim. = dim(mat), preserveShape = FALSE, useNames = FALSE)
 	expect_equal(mg_res_3, ms_res_3)
 })
 
 
-test_that("colSdDiffs works ", {
+test_that("colSdDiffs works", {
 
-	matrixStats_formals <- formals(matrixStats::colSdDiffs)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colSdDiffs)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("colSdDiffs")
 
-	mg_res_def_1 <- colSdDiffs(x = mat)
+	mg_res_def_1 <- colSdDiffs(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::colSdDiffs(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colSdDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0)
-	ms_res_1 <- matrixStats::colSdDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0)
+	mg_res_1 <- colSdDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0, useNames = FALSE)
+	ms_res_1 <- matrixStats::colSdDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0, useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colSdDiffs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, diff = 2, trim = 0.333333333333333)
-	ms_res_2 <- matrixStats::colSdDiffs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, diff = 2, trim = 0.333333333333333)
+	mg_res_2 <- colSdDiffs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, diff = 2, trim = 0.333333333333333, useNames = FALSE)
+	ms_res_2 <- matrixStats::colSdDiffs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, diff = 2, trim = 0.333333333333333, useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 
-	mg_res_3 <- colSdDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0.5)
-	ms_res_3 <- matrixStats::colSdDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0.5)
+	mg_res_3 <- colSdDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0.5, useNames = FALSE)
+	ms_res_3 <- matrixStats::colSdDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0.5, useNames = FALSE)
 	expect_equal(mg_res_3, ms_res_3)
 })
 
 
-test_that("colSds works ", {
+test_that("colSds works", {
 
-	matrixStats_formals <- formals(matrixStats::colSds)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colSds)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("colSds")
 
-	mg_res_def_1 <- colSds(x = mat)
+	mg_res_def_1 <- colSds(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::colSds(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colSds(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, center = colMeans2(mat, na.rm=TRUE), dim. = dim(mat))
-	ms_res_1 <- matrixStats::colSds(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, center = colMeans2(mat, na.rm=TRUE), dim. = dim(mat))
+	mg_res_1 <- colSds(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, refine = , center = colMeans2(mat, na.rm=TRUE), dim. = dim(mat), useNames = FALSE)
+	ms_res_1 <- matrixStats::colSds(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, refine = , center = colMeans2(mat, na.rm=TRUE), dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colSds(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, center = NULL, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::colSds(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, center = NULL, dim. = c(12L, 8L))
+	mg_res_2 <- colSds(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, refine = , center = NULL, dim. = c(12L, 8L), useNames = FALSE)
+	ms_res_2 <- matrixStats::colSds(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, refine = , center = NULL, dim. = c(12L, 8L), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("colSums2 works ", {
+test_that("colSums2 works", {
 
-	matrixStats_formals <- formals(matrixStats::colSums2)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colSums2)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("colSums2")
 
-	mg_res_def_1 <- colSums2(x = mat)
+	mg_res_def_1 <- colSums2(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::colSums2(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colSums2(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat))
-	ms_res_1 <- matrixStats::colSums2(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat))
+	mg_res_1 <- colSums2(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
+	ms_res_1 <- matrixStats::colSums2(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colSums2(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::colSums2(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L))
+	mg_res_2 <- colSums2(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L), useNames = FALSE)
+	ms_res_2 <- matrixStats::colSums2(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("colTabulates works ", {
+test_that("colTabulates works", {
 
-	matrixStats_formals <- formals(matrixStats::colTabulates)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colTabulates)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("colTabulates")
 
 	mat <- array(suppressWarnings(as.integer(mat)), dim(mat))
-	mg_res_def_1 <- colTabulates(x = mat)
+	mg_res_def_1 <- colTabulates(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::colTabulates(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colTabulates(x = mat, rows = NULL, cols = NULL, values = 0)
-	ms_res_1 <- matrixStats::colTabulates(x = mat, rows = NULL, cols = NULL, values = 0)
+	mg_res_1 <- colTabulates(x = mat, rows = NULL, cols = NULL, values = 0, useNames = FALSE)
+	ms_res_1 <- matrixStats::colTabulates(x = mat, rows = NULL, cols = NULL, values = 0, useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colTabulates(x = mat, rows = 1:3, cols = 2, values = c(0, 1))
-	ms_res_2 <- matrixStats::colTabulates(x = mat, rows = 1:3, cols = 2, values = c(0, 1))
+	mg_res_2 <- colTabulates(x = mat, rows = 1:3, cols = 2, values = c(0, 1), useNames = FALSE)
+	ms_res_2 <- matrixStats::colTabulates(x = mat, rows = 1:3, cols = 2, values = c(0, 1), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("colVarDiffs works ", {
+test_that("colVarDiffs works", {
 
-	matrixStats_formals <- formals(matrixStats::colVarDiffs)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colVarDiffs)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("colVarDiffs")
 
-	mg_res_def_1 <- colVarDiffs(x = mat)
+	mg_res_def_1 <- colVarDiffs(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::colVarDiffs(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colVarDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0)
-	ms_res_1 <- matrixStats::colVarDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0)
+	mg_res_1 <- colVarDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0, useNames = FALSE)
+	ms_res_1 <- matrixStats::colVarDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0, useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colVarDiffs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, diff = 2, trim = 0.333333333333333)
-	ms_res_2 <- matrixStats::colVarDiffs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, diff = 2, trim = 0.333333333333333)
+	mg_res_2 <- colVarDiffs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, diff = 2, trim = 0.333333333333333, useNames = FALSE)
+	ms_res_2 <- matrixStats::colVarDiffs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, diff = 2, trim = 0.333333333333333, useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 
-	mg_res_3 <- colVarDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0.5)
-	ms_res_3 <- matrixStats::colVarDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0.5)
+	mg_res_3 <- colVarDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0.5, useNames = FALSE)
+	ms_res_3 <- matrixStats::colVarDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0.5, useNames = FALSE)
 	expect_equal(mg_res_3, ms_res_3)
 })
 
 
-test_that("colVars works ", {
+test_that("colVars works", {
 
-	matrixStats_formals <- formals(matrixStats::colVars)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colVars)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("colVars")
 
-	mg_res_def_1 <- colVars(x = mat)
+	mg_res_def_1 <- colVars(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::colVars(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colVars(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, center = colMeans2(mat, na.rm=TRUE), dim. = dim(mat))
-	ms_res_1 <- matrixStats::colVars(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, center = colMeans2(mat, na.rm=TRUE), dim. = dim(mat))
+	mg_res_1 <- colVars(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, refine = , center = colMeans2(mat, na.rm=TRUE), dim. = dim(mat), useNames = FALSE)
+	ms_res_1 <- matrixStats::colVars(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, refine = , center = colMeans2(mat, na.rm=TRUE), dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colVars(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, center = NULL, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::colVars(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, center = NULL, dim. = c(12L, 8L))
+	mg_res_2 <- colVars(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, refine = , center = NULL, dim. = c(12L, 8L), useNames = FALSE)
+	ms_res_2 <- matrixStats::colVars(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, refine = , center = NULL, dim. = c(12L, 8L), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("colWeightedMads works ", {
+test_that("colWeightedMads works", {
 
-	matrixStats_formals <- formals(matrixStats::colWeightedMads)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colWeightedMads)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("colWeightedMads")
 
-	mg_res_def_1 <- colWeightedMads(x = mat)
+	mg_res_def_1 <- colWeightedMads(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::colWeightedMads(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colWeightedMads(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE, constant = 1.4826, center = colMeans2(mat, na.rm=TRUE))
-	ms_res_1 <- matrixStats::colWeightedMads(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE, constant = 1.4826, center = colMeans2(mat, na.rm=TRUE))
+	mg_res_1 <- colWeightedMads(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE, constant = 1.4826, center = colMeans2(mat, na.rm=TRUE), useNames = FALSE)
+	ms_res_1 <- matrixStats::colWeightedMads(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE, constant = 1.4826, center = colMeans2(mat, na.rm=TRUE), useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colWeightedMads(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE, constant = 5, center = rep(6, ncol(mat)))
-	ms_res_2 <- matrixStats::colWeightedMads(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE, constant = 5, center = rep(6, ncol(mat)))
+	mg_res_2 <- colWeightedMads(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE, constant = 5, center = rep(6, ncol(mat)), useNames = FALSE)
+	ms_res_2 <- matrixStats::colWeightedMads(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE, constant = 5, center = rep(6, ncol(mat)), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("colWeightedMeans works ", {
+test_that("colWeightedMeans works", {
 
-	matrixStats_formals <- formals(matrixStats::colWeightedMeans)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colWeightedMeans)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("colWeightedMeans")
 
-	mg_res_def_1 <- colWeightedMeans(x = mat)
+	mg_res_def_1 <- colWeightedMeans(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::colWeightedMeans(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colWeightedMeans(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE)
-	ms_res_1 <- matrixStats::colWeightedMeans(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE)
+	mg_res_1 <- colWeightedMeans(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE, useNames = FALSE)
+	ms_res_1 <- matrixStats::colWeightedMeans(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE, useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colWeightedMeans(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE)
-	ms_res_2 <- matrixStats::colWeightedMeans(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE)
+	mg_res_2 <- colWeightedMeans(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE, useNames = FALSE)
+	ms_res_2 <- matrixStats::colWeightedMeans(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE, useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("colWeightedMedians works ", {
+test_that("colWeightedMedians works", {
 
-	matrixStats_formals <- formals(matrixStats::colWeightedMedians)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colWeightedMedians)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("colWeightedMedians")
 
-	mg_res_def_1 <- colWeightedMedians(x = mat)
+	mg_res_def_1 <- colWeightedMedians(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::colWeightedMedians(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colWeightedMedians(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE)
-	ms_res_1 <- matrixStats::colWeightedMedians(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE)
+	mg_res_1 <- colWeightedMedians(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE, useNames = FALSE)
+	ms_res_1 <- matrixStats::colWeightedMedians(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE, useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colWeightedMedians(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE)
-	ms_res_2 <- matrixStats::colWeightedMedians(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE)
+	mg_res_2 <- colWeightedMedians(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE, useNames = FALSE)
+	ms_res_2 <- matrixStats::colWeightedMedians(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE, useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("colWeightedSds works ", {
+test_that("colWeightedSds works", {
 
-	matrixStats_formals <- formals(matrixStats::colWeightedSds)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colWeightedSds)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("colWeightedSds")
 
-	mg_res_def_1 <- colWeightedSds(x = mat)
+	mg_res_def_1 <- colWeightedSds(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::colWeightedSds(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colWeightedSds(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE)
-	ms_res_1 <- matrixStats::colWeightedSds(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE)
+	mg_res_1 <- colWeightedSds(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE, useNames = FALSE)
+	ms_res_1 <- matrixStats::colWeightedSds(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE, useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colWeightedSds(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE)
-	ms_res_2 <- matrixStats::colWeightedSds(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE)
+	mg_res_2 <- colWeightedSds(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE, useNames = FALSE)
+	ms_res_2 <- matrixStats::colWeightedSds(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE, useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("colWeightedVars works ", {
+test_that("colWeightedVars works", {
 
-	matrixStats_formals <- formals(matrixStats::colWeightedVars)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_colWeightedVars)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("colWeightedVars")
 
-	mg_res_def_1 <- colWeightedVars(x = mat)
+	mg_res_def_1 <- colWeightedVars(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::colWeightedVars(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colWeightedVars(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE)
-	ms_res_1 <- matrixStats::colWeightedVars(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE)
+	mg_res_1 <- colWeightedVars(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE, useNames = FALSE)
+	ms_res_1 <- matrixStats::colWeightedVars(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE, useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colWeightedVars(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE)
-	ms_res_2 <- matrixStats::colWeightedVars(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE)
+	mg_res_2 <- colWeightedVars(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE, useNames = FALSE)
+	ms_res_2 <- matrixStats::colWeightedVars(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE, useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("rowAlls works ", {
+test_that("rowAlls works", {
 
-	matrixStats_formals <- formals(matrixStats::rowAlls)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowAlls)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("rowAlls")
 
-	mg_res_def_1 <- rowAlls(x = mat)
+	mg_res_def_1 <- rowAlls(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::rowAlls(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowAlls(x = mat, rows = NULL, cols = NULL, value = TRUE, na.rm = TRUE, dim. = dim(mat))
-	ms_res_1 <- matrixStats::rowAlls(x = mat, rows = NULL, cols = NULL, value = TRUE, na.rm = TRUE, dim. = dim(mat))
+	mg_res_1 <- rowAlls(x = mat, rows = NULL, cols = NULL, value = TRUE, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
+	ms_res_1 <- matrixStats::rowAlls(x = mat, rows = NULL, cols = NULL, value = TRUE, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowAlls(x = mat, rows = 1:3, cols = 2, value = FALSE, na.rm = FALSE, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::rowAlls(x = mat, rows = 1:3, cols = 2, value = FALSE, na.rm = FALSE, dim. = c(12L, 8L))
+	mg_res_2 <- rowAlls(x = mat, rows = 1:3, cols = 2, value = FALSE, na.rm = FALSE, dim. = c(12L, 8L), useNames = FALSE)
+	ms_res_2 <- matrixStats::rowAlls(x = mat, rows = 1:3, cols = 2, value = FALSE, na.rm = FALSE, dim. = c(12L, 8L), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 
-	mg_res_3 <- rowAlls(x = mat, rows = NULL, cols = NULL, value = 0, na.rm = TRUE, dim. = dim(mat))
-	ms_res_3 <- matrixStats::rowAlls(x = mat, rows = NULL, cols = NULL, value = 0, na.rm = TRUE, dim. = dim(mat))
+	mg_res_3 <- rowAlls(x = mat, rows = NULL, cols = NULL, value = 0, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
+	ms_res_3 <- matrixStats::rowAlls(x = mat, rows = NULL, cols = NULL, value = 0, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_3, ms_res_3)
 })
 
 
-test_that("rowAnyNAs works ", {
+test_that("rowAnyNAs works", {
 
-	matrixStats_formals <- formals(matrixStats::rowAnyNAs)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowAnyNAs)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("rowAnyNAs")
 
-	mg_res_def_1 <- rowAnyNAs(x = mat)
+	mg_res_def_1 <- rowAnyNAs(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::rowAnyNAs(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowAnyNAs(x = mat, rows = NULL, cols = NULL)
-	ms_res_1 <- matrixStats::rowAnyNAs(x = mat, rows = NULL, cols = NULL)
+	mg_res_1 <- rowAnyNAs(x = mat, rows = NULL, cols = NULL, useNames = FALSE)
+	ms_res_1 <- matrixStats::rowAnyNAs(x = mat, rows = NULL, cols = NULL, useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowAnyNAs(x = mat, rows = 1:3, cols = 2)
-	ms_res_2 <- matrixStats::rowAnyNAs(x = mat, rows = 1:3, cols = 2)
+	mg_res_2 <- rowAnyNAs(x = mat, rows = 1:3, cols = 2, useNames = FALSE)
+	ms_res_2 <- matrixStats::rowAnyNAs(x = mat, rows = 1:3, cols = 2, useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("rowAnys works ", {
+test_that("rowAnys works", {
 
-	matrixStats_formals <- formals(matrixStats::rowAnys)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowAnys)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("rowAnys")
 
-	mg_res_def_1 <- rowAnys(x = mat)
+	mg_res_def_1 <- rowAnys(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::rowAnys(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowAnys(x = mat, rows = NULL, cols = NULL, value = TRUE, na.rm = TRUE, dim. = dim(mat))
-	ms_res_1 <- matrixStats::rowAnys(x = mat, rows = NULL, cols = NULL, value = TRUE, na.rm = TRUE, dim. = dim(mat))
+	mg_res_1 <- rowAnys(x = mat, rows = NULL, cols = NULL, value = TRUE, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
+	ms_res_1 <- matrixStats::rowAnys(x = mat, rows = NULL, cols = NULL, value = TRUE, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowAnys(x = mat, rows = 1:3, cols = 2, value = FALSE, na.rm = FALSE, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::rowAnys(x = mat, rows = 1:3, cols = 2, value = FALSE, na.rm = FALSE, dim. = c(12L, 8L))
+	mg_res_2 <- rowAnys(x = mat, rows = 1:3, cols = 2, value = FALSE, na.rm = FALSE, dim. = c(12L, 8L), useNames = FALSE)
+	ms_res_2 <- matrixStats::rowAnys(x = mat, rows = 1:3, cols = 2, value = FALSE, na.rm = FALSE, dim. = c(12L, 8L), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 
-	mg_res_3 <- rowAnys(x = mat, rows = NULL, cols = NULL, value = 0, na.rm = TRUE, dim. = dim(mat))
-	ms_res_3 <- matrixStats::rowAnys(x = mat, rows = NULL, cols = NULL, value = 0, na.rm = TRUE, dim. = dim(mat))
+	mg_res_3 <- rowAnys(x = mat, rows = NULL, cols = NULL, value = 0, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
+	ms_res_3 <- matrixStats::rowAnys(x = mat, rows = NULL, cols = NULL, value = 0, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_3, ms_res_3)
 })
 
 
-test_that("rowAvgsPerColSet works ", {
+test_that("rowAvgsPerColSet works", {
 
-	matrixStats_formals <- formals(matrixStats::rowAvgsPerColSet)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowAvgsPerColSet)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("rowAvgsPerColSet")
 
 	S <- matrix(1:ncol(mat), ncol = 2)
 	mg_res_def_1 <- rowAvgsPerColSet(X = mat, S = S, FUN = rowMeans)
 	ms_res_def_1 <- matrixStats::rowAvgsPerColSet(X = mat, S = S, FUN = rowMeans)
 	expect_equal(mg_res_def_1, ms_res_def_1)
-
 	mg_res_def_2 <- rowAvgsPerColSet(X = mat, S = S, FUN = rowVars)
 	ms_res_def_2 <- matrixStats::rowAvgsPerColSet(X = mat, S = S, FUN = rowVars)
 	expect_equal(mg_res_def_2, ms_res_def_2)
@@ -874,680 +821,615 @@ test_that("rowAvgsPerColSet works ", {
 })
 
 
-test_that("rowCollapse works ", {
+test_that("rowCollapse works", {
 
-	matrixStats_formals <- formals(matrixStats::rowCollapse)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowCollapse)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("rowCollapse")
 
-	mg_res_def_1 <- rowCollapse(x = mat, idxs = 1)
+	mg_res_def_1 <- rowCollapse(x = mat, idxs = 1, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::rowCollapse(x = mat, idxs = 1)
 	expect_equal(mg_res_def_1, ms_res_def_1)
-
-	mg_res_def_2 <- rowCollapse(x = mat, idxs = 2:3)
+	mg_res_def_2 <- rowCollapse(x = mat, idxs = 2:3, useNames = TRUE)
 	ms_res_def_2 <- matrixStats::rowCollapse(x = mat, idxs = 2:3)
 	expect_equal(mg_res_def_2, ms_res_def_2)
 
-	mg_res_1 <- rowCollapse(x = mat, idxs = 1, rows = NULL, dim. = dim(mat))
-	ms_res_1 <- matrixStats::rowCollapse(x = mat, idxs = 1, rows = NULL, dim. = dim(mat))
+	mg_res_1 <- rowCollapse(x = mat, idxs = 1, rows = NULL, dim. = dim(mat), useNames = FALSE)
+	ms_res_1 <- matrixStats::rowCollapse(x = mat, idxs = 1, rows = NULL, dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowCollapse(x = mat, idxs = 2:3, rows = 1:3, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::rowCollapse(x = mat, idxs = 2:3, rows = 1:3, dim. = c(12L, 8L))
+	mg_res_2 <- rowCollapse(x = mat, idxs = 2:3, rows = 1:3, dim. = c(12L, 8L), useNames = FALSE)
+	ms_res_2 <- matrixStats::rowCollapse(x = mat, idxs = 2:3, rows = 1:3, dim. = c(12L, 8L), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("rowCounts works ", {
+test_that("rowCounts works", {
 
-	matrixStats_formals <- formals(matrixStats::rowCounts)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowCounts)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("rowCounts")
 
-	mg_res_def_1 <- rowCounts(x = mat)
+	mg_res_def_1 <- rowCounts(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::rowCounts(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowCounts(x = mat, rows = NULL, cols = NULL, value = TRUE, na.rm = TRUE, dim. = dim(mat))
-	ms_res_1 <- matrixStats::rowCounts(x = mat, rows = NULL, cols = NULL, value = TRUE, na.rm = TRUE, dim. = dim(mat))
+	mg_res_1 <- rowCounts(x = mat, rows = NULL, cols = NULL, value = TRUE, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
+	ms_res_1 <- matrixStats::rowCounts(x = mat, rows = NULL, cols = NULL, value = TRUE, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowCounts(x = mat, rows = 1:3, cols = 2, value = FALSE, na.rm = FALSE, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::rowCounts(x = mat, rows = 1:3, cols = 2, value = FALSE, na.rm = FALSE, dim. = c(12L, 8L))
+	mg_res_2 <- rowCounts(x = mat, rows = 1:3, cols = 2, value = FALSE, na.rm = FALSE, dim. = c(12L, 8L), useNames = FALSE)
+	ms_res_2 <- matrixStats::rowCounts(x = mat, rows = 1:3, cols = 2, value = FALSE, na.rm = FALSE, dim. = c(12L, 8L), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 
-	mg_res_3 <- rowCounts(x = mat, rows = NULL, cols = NULL, value = 0, na.rm = TRUE, dim. = dim(mat))
-	ms_res_3 <- matrixStats::rowCounts(x = mat, rows = NULL, cols = NULL, value = 0, na.rm = TRUE, dim. = dim(mat))
+	mg_res_3 <- rowCounts(x = mat, rows = NULL, cols = NULL, value = 0, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
+	ms_res_3 <- matrixStats::rowCounts(x = mat, rows = NULL, cols = NULL, value = 0, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_3, ms_res_3)
 })
 
 
-test_that("rowCummaxs works ", {
+test_that("rowCummaxs works", {
 
-	matrixStats_formals <- formals(matrixStats::rowCummaxs)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowCummaxs)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("rowCummaxs")
 
-	mg_res_def_1 <- rowCummaxs(x = mat)
+	mg_res_def_1 <- rowCummaxs(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::rowCummaxs(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowCummaxs(x = mat, rows = NULL, cols = NULL, dim. = dim(mat))
-	ms_res_1 <- matrixStats::rowCummaxs(x = mat, rows = NULL, cols = NULL, dim. = dim(mat))
+	mg_res_1 <- rowCummaxs(x = mat, rows = NULL, cols = NULL, dim. = dim(mat), useNames = FALSE)
+	ms_res_1 <- matrixStats::rowCummaxs(x = mat, rows = NULL, cols = NULL, dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowCummaxs(x = mat, rows = 1:3, cols = 2, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::rowCummaxs(x = mat, rows = 1:3, cols = 2, dim. = c(12L, 8L))
+	mg_res_2 <- rowCummaxs(x = mat, rows = 1:3, cols = 2, dim. = c(12L, 8L), useNames = FALSE)
+	ms_res_2 <- matrixStats::rowCummaxs(x = mat, rows = 1:3, cols = 2, dim. = c(12L, 8L), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("rowCummins works ", {
+test_that("rowCummins works", {
 
-	matrixStats_formals <- formals(matrixStats::rowCummins)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowCummins)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("rowCummins")
 
-	mg_res_def_1 <- rowCummins(x = mat)
+	mg_res_def_1 <- rowCummins(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::rowCummins(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowCummins(x = mat, rows = NULL, cols = NULL, dim. = dim(mat))
-	ms_res_1 <- matrixStats::rowCummins(x = mat, rows = NULL, cols = NULL, dim. = dim(mat))
+	mg_res_1 <- rowCummins(x = mat, rows = NULL, cols = NULL, dim. = dim(mat), useNames = FALSE)
+	ms_res_1 <- matrixStats::rowCummins(x = mat, rows = NULL, cols = NULL, dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowCummins(x = mat, rows = 1:3, cols = 2, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::rowCummins(x = mat, rows = 1:3, cols = 2, dim. = c(12L, 8L))
+	mg_res_2 <- rowCummins(x = mat, rows = 1:3, cols = 2, dim. = c(12L, 8L), useNames = FALSE)
+	ms_res_2 <- matrixStats::rowCummins(x = mat, rows = 1:3, cols = 2, dim. = c(12L, 8L), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("rowCumprods works ", {
+test_that("rowCumprods works", {
 
-	matrixStats_formals <- formals(matrixStats::rowCumprods)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowCumprods)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("rowCumprods")
 
-	mg_res_def_1 <- rowCumprods(x = mat)
+	mg_res_def_1 <- rowCumprods(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::rowCumprods(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowCumprods(x = mat, rows = NULL, cols = NULL, dim. = dim(mat))
-	ms_res_1 <- matrixStats::rowCumprods(x = mat, rows = NULL, cols = NULL, dim. = dim(mat))
+	mg_res_1 <- rowCumprods(x = mat, rows = NULL, cols = NULL, dim. = dim(mat), useNames = FALSE)
+	ms_res_1 <- matrixStats::rowCumprods(x = mat, rows = NULL, cols = NULL, dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowCumprods(x = mat, rows = 1:3, cols = 2, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::rowCumprods(x = mat, rows = 1:3, cols = 2, dim. = c(12L, 8L))
+	mg_res_2 <- rowCumprods(x = mat, rows = 1:3, cols = 2, dim. = c(12L, 8L), useNames = FALSE)
+	ms_res_2 <- matrixStats::rowCumprods(x = mat, rows = 1:3, cols = 2, dim. = c(12L, 8L), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("rowCumsums works ", {
+test_that("rowCumsums works", {
 
-	matrixStats_formals <- formals(matrixStats::rowCumsums)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowCumsums)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("rowCumsums")
 
-	mg_res_def_1 <- rowCumsums(x = mat)
+	mg_res_def_1 <- rowCumsums(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::rowCumsums(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowCumsums(x = mat, rows = NULL, cols = NULL, dim. = dim(mat))
-	ms_res_1 <- matrixStats::rowCumsums(x = mat, rows = NULL, cols = NULL, dim. = dim(mat))
+	mg_res_1 <- rowCumsums(x = mat, rows = NULL, cols = NULL, dim. = dim(mat), useNames = FALSE)
+	ms_res_1 <- matrixStats::rowCumsums(x = mat, rows = NULL, cols = NULL, dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowCumsums(x = mat, rows = 1:3, cols = 2, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::rowCumsums(x = mat, rows = 1:3, cols = 2, dim. = c(12L, 8L))
+	mg_res_2 <- rowCumsums(x = mat, rows = 1:3, cols = 2, dim. = c(12L, 8L), useNames = FALSE)
+	ms_res_2 <- matrixStats::rowCumsums(x = mat, rows = 1:3, cols = 2, dim. = c(12L, 8L), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("rowDiffs works ", {
+test_that("rowDiffs works", {
 
-	matrixStats_formals <- formals(matrixStats::rowDiffs)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowDiffs)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("rowDiffs")
 
-	mg_res_def_1 <- rowDiffs(x = mat)
+	mg_res_def_1 <- rowDiffs(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::rowDiffs(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowDiffs(x = mat, rows = NULL, cols = NULL, lag = 1, differences = 1, dim. = dim(mat))
-	ms_res_1 <- matrixStats::rowDiffs(x = mat, rows = NULL, cols = NULL, lag = 1, differences = 1, dim. = dim(mat))
+	mg_res_1 <- rowDiffs(x = mat, rows = NULL, cols = NULL, lag = 1, differences = 1, dim. = dim(mat), useNames = FALSE)
+	ms_res_1 <- matrixStats::rowDiffs(x = mat, rows = NULL, cols = NULL, lag = 1, differences = 1, dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowDiffs(x = mat, rows = 1:3, cols = 2, lag = 3, differences = 2, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::rowDiffs(x = mat, rows = 1:3, cols = 2, lag = 3, differences = 2, dim. = c(12L, 8L))
+	mg_res_2 <- rowDiffs(x = mat, rows = 1:3, cols = 2, lag = 3, differences = 2, dim. = c(12L, 8L), useNames = FALSE)
+	ms_res_2 <- matrixStats::rowDiffs(x = mat, rows = 1:3, cols = 2, lag = 3, differences = 2, dim. = c(12L, 8L), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("rowIQRDiffs works ", {
+test_that("rowIQRDiffs works", {
 
-	matrixStats_formals <- formals(matrixStats::rowIQRDiffs)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowIQRDiffs)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("rowIQRDiffs")
 
-	mg_res_def_1 <- rowIQRDiffs(x = mat)
+	mg_res_def_1 <- rowIQRDiffs(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::rowIQRDiffs(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowIQRDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0)
-	ms_res_1 <- matrixStats::rowIQRDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0)
+	mg_res_1 <- rowIQRDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0, useNames = FALSE)
+	ms_res_1 <- matrixStats::rowIQRDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0, useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowIQRDiffs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, diff = 2, trim = 0.333333333333333)
-	ms_res_2 <- matrixStats::rowIQRDiffs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, diff = 2, trim = 0.333333333333333)
+	mg_res_2 <- rowIQRDiffs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, diff = 2, trim = 0.333333333333333, useNames = FALSE)
+	ms_res_2 <- matrixStats::rowIQRDiffs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, diff = 2, trim = 0.333333333333333, useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 
-	mg_res_3 <- rowIQRDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0.5)
-	ms_res_3 <- matrixStats::rowIQRDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0.5)
+	mg_res_3 <- rowIQRDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0.5, useNames = FALSE)
+	ms_res_3 <- matrixStats::rowIQRDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0.5, useNames = FALSE)
 	expect_equal(mg_res_3, ms_res_3)
 })
 
 
-test_that("rowIQRs works ", {
+test_that("rowIQRs works", {
 
-	matrixStats_formals <- formals(matrixStats::rowIQRs)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowIQRs)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("rowIQRs")
 
-	mg_res_def_1 <- rowIQRs(x = mat)
+	mg_res_def_1 <- rowIQRs(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::rowIQRs(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowIQRs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE)
-	ms_res_1 <- matrixStats::rowIQRs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE)
+	mg_res_1 <- rowIQRs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, useNames = FALSE)
+	ms_res_1 <- matrixStats::rowIQRs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowIQRs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE)
-	ms_res_2 <- matrixStats::rowIQRs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE)
+	mg_res_2 <- rowIQRs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, useNames = FALSE)
+	ms_res_2 <- matrixStats::rowIQRs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("rowLogSumExps works ", {
+test_that("rowLogSumExps works", {
 
-	matrixStats_formals <- formals(matrixStats::rowLogSumExps)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowLogSumExps)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("rowLogSumExps")
 
-	mg_res_def_1 <- rowLogSumExps(lx = mat)
+	mg_res_def_1 <- rowLogSumExps(lx = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::rowLogSumExps(lx = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowLogSumExps(lx = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat))
-	ms_res_1 <- matrixStats::rowLogSumExps(lx = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat))
+	mg_res_1 <- rowLogSumExps(lx = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
+	ms_res_1 <- matrixStats::rowLogSumExps(lx = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowLogSumExps(lx = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::rowLogSumExps(lx = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L))
+	mg_res_2 <- rowLogSumExps(lx = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L), useNames = FALSE)
+	ms_res_2 <- matrixStats::rowLogSumExps(lx = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("rowMadDiffs works ", {
+test_that("rowMadDiffs works", {
 
-	matrixStats_formals <- formals(matrixStats::rowMadDiffs)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowMadDiffs)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("rowMadDiffs")
 
-	mg_res_def_1 <- rowMadDiffs(x = mat)
+	mg_res_def_1 <- rowMadDiffs(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::rowMadDiffs(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowMadDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0)
-	ms_res_1 <- matrixStats::rowMadDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0)
+	mg_res_1 <- rowMadDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0, useNames = FALSE)
+	ms_res_1 <- matrixStats::rowMadDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0, useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowMadDiffs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, diff = 2, trim = 0.333333333333333)
-	ms_res_2 <- matrixStats::rowMadDiffs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, diff = 2, trim = 0.333333333333333)
+	mg_res_2 <- rowMadDiffs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, diff = 2, trim = 0.333333333333333, useNames = FALSE)
+	ms_res_2 <- matrixStats::rowMadDiffs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, diff = 2, trim = 0.333333333333333, useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 
-	mg_res_3 <- rowMadDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0.5)
-	ms_res_3 <- matrixStats::rowMadDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0.5)
+	mg_res_3 <- rowMadDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0.5, useNames = FALSE)
+	ms_res_3 <- matrixStats::rowMadDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0.5, useNames = FALSE)
 	expect_equal(mg_res_3, ms_res_3)
 })
 
 
-test_that("rowMads works ", {
+test_that("rowMads works", {
 
-	matrixStats_formals <- formals(matrixStats::rowMads)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowMads)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("rowMads")
 
-	mg_res_def_1 <- rowMads(x = mat)
+	mg_res_def_1 <- rowMads(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::rowMads(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowMads(x = mat, rows = NULL, cols = NULL, center = rowMeans2(mat, na.rm=TRUE), constant = 1.4826, na.rm = TRUE, dim. = dim(mat))
-	ms_res_1 <- matrixStats::rowMads(x = mat, rows = NULL, cols = NULL, center = rowMeans2(mat, na.rm=TRUE), constant = 1.4826, na.rm = TRUE, dim. = dim(mat))
+	mg_res_1 <- rowMads(x = mat, rows = NULL, cols = NULL, center = rowMeans2(mat, na.rm=TRUE), constant = 1.4826, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
+	ms_res_1 <- matrixStats::rowMads(x = mat, rows = NULL, cols = NULL, center = rowMeans2(mat, na.rm=TRUE), constant = 1.4826, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowMads(x = mat, rows = 1:3, cols = 2, center = NULL, constant = 5, na.rm = FALSE, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::rowMads(x = mat, rows = 1:3, cols = 2, center = NULL, constant = 5, na.rm = FALSE, dim. = c(12L, 8L))
+	mg_res_2 <- rowMads(x = mat, rows = 1:3, cols = 2, center = NULL, constant = 5, na.rm = FALSE, dim. = c(12L, 8L), useNames = FALSE)
+	ms_res_2 <- matrixStats::rowMads(x = mat, rows = 1:3, cols = 2, center = NULL, constant = 5, na.rm = FALSE, dim. = c(12L, 8L), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("rowMaxs works ", {
+test_that("rowMaxs works", {
 
-	matrixStats_formals <- formals(matrixStats::rowMaxs)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowMaxs)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("rowMaxs")
 
-	mg_res_def_1 <- rowMaxs(x = mat)
+	mg_res_def_1 <- rowMaxs(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::rowMaxs(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowMaxs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat))
-	ms_res_1 <- matrixStats::rowMaxs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat))
+	mg_res_1 <- rowMaxs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
+	ms_res_1 <- matrixStats::rowMaxs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowMaxs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::rowMaxs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L))
+	mg_res_2 <- rowMaxs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L), useNames = FALSE)
+	ms_res_2 <- matrixStats::rowMaxs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("rowMeans2 works ", {
+test_that("rowMeans2 works", {
 
-	matrixStats_formals <- formals(matrixStats::rowMeans2)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowMeans2)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("rowMeans2")
 
-	mg_res_def_1 <- rowMeans2(x = mat)
+	mg_res_def_1 <- rowMeans2(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::rowMeans2(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowMeans2(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat))
-	ms_res_1 <- matrixStats::rowMeans2(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat))
+	mg_res_1 <- rowMeans2(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, refine = , dim. = dim(mat), useNames = FALSE)
+	ms_res_1 <- matrixStats::rowMeans2(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, refine = , dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowMeans2(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::rowMeans2(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L))
+	mg_res_2 <- rowMeans2(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, refine = , dim. = c(12L, 8L), useNames = FALSE)
+	ms_res_2 <- matrixStats::rowMeans2(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, refine = , dim. = c(12L, 8L), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("rowMedians works ", {
+test_that("rowMedians works", {
 
-	matrixStats_formals <- formals(matrixStats::rowMedians)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowMedians)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("rowMedians")
 
-	mg_res_def_1 <- rowMedians(x = mat)
+	mg_res_def_1 <- rowMedians(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::rowMedians(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowMedians(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat))
-	ms_res_1 <- matrixStats::rowMedians(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat))
+	mg_res_1 <- rowMedians(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
+	ms_res_1 <- matrixStats::rowMedians(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowMedians(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::rowMedians(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L))
+	mg_res_2 <- rowMedians(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L), useNames = FALSE)
+	ms_res_2 <- matrixStats::rowMedians(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("rowMins works ", {
+test_that("rowMins works", {
 
-	matrixStats_formals <- formals(matrixStats::rowMins)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowMins)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("rowMins")
 
-	mg_res_def_1 <- rowMins(x = mat)
+	mg_res_def_1 <- rowMins(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::rowMins(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowMins(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat))
-	ms_res_1 <- matrixStats::rowMins(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat))
+	mg_res_1 <- rowMins(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
+	ms_res_1 <- matrixStats::rowMins(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowMins(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::rowMins(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L))
+	mg_res_2 <- rowMins(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L), useNames = FALSE)
+	ms_res_2 <- matrixStats::rowMins(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("rowOrderStats works ", {
+test_that("rowOrderStats works", {
 
-	matrixStats_formals <- formals(matrixStats::rowOrderStats)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowOrderStats)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("rowOrderStats")
 
 	mat[is.na(mat)] <- 4.1
-	mg_res_def_1 <- rowOrderStats(x = mat, which = 2)
+	mg_res_def_1 <- rowOrderStats(x = mat, which = 2, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::rowOrderStats(x = mat, which = 2)
 	expect_equal(mg_res_def_1, ms_res_def_1)
-
-	mg_res_def_2 <- rowOrderStats(x = mat, which = 1)
+	mg_res_def_2 <- rowOrderStats(x = mat, which = 1, useNames = TRUE)
 	ms_res_def_2 <- matrixStats::rowOrderStats(x = mat, which = 1)
 	expect_equal(mg_res_def_2, ms_res_def_2)
 
-	mg_res_1 <- rowOrderStats(x = mat, rows = NULL, cols = NULL, which = 2, dim. = dim(mat))
-	ms_res_1 <- matrixStats::rowOrderStats(x = mat, rows = NULL, cols = NULL, which = 2, dim. = dim(mat))
+	mg_res_1 <- rowOrderStats(x = mat, rows = NULL, cols = NULL, which = 2, dim. = dim(mat), useNames = FALSE)
+	ms_res_1 <- matrixStats::rowOrderStats(x = mat, rows = NULL, cols = NULL, which = 2, dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowOrderStats(x = mat, rows = 1:3, cols = 2, which = 1, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::rowOrderStats(x = mat, rows = 1:3, cols = 2, which = 1, dim. = c(12L, 8L))
+	mg_res_2 <- rowOrderStats(x = mat, rows = 1:3, cols = 2, which = 1, dim. = c(12L, 8L), useNames = FALSE)
+	ms_res_2 <- matrixStats::rowOrderStats(x = mat, rows = 1:3, cols = 2, which = 1, dim. = c(12L, 8L), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("rowProds works ", {
+test_that("rowProds works", {
 
-	matrixStats_formals <- formals(matrixStats::rowProds)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowProds)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("rowProds")
 
-	mg_res_def_1 <- rowProds(x = mat)
+	mg_res_def_1 <- rowProds(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::rowProds(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowProds(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, method = 'direct')
-	ms_res_1 <- matrixStats::rowProds(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, method = 'direct')
+	mg_res_1 <- rowProds(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, method = 'direct', useNames = FALSE)
+	ms_res_1 <- matrixStats::rowProds(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, method = 'direct', useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowProds(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, method = 'expSumLog')
-	ms_res_2 <- matrixStats::rowProds(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, method = 'expSumLog')
+	mg_res_2 <- rowProds(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, method = 'expSumLog', useNames = FALSE)
+	ms_res_2 <- matrixStats::rowProds(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, method = 'expSumLog', useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("rowQuantiles works ", {
+test_that("rowQuantiles works", {
 
-	matrixStats_formals <- formals(matrixStats::rowQuantiles)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowQuantiles)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("rowQuantiles")
 
-	mg_res_def_1 <- rowQuantiles(x = mat)
+	mg_res_def_1 <- rowQuantiles(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::rowQuantiles(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowQuantiles(x = mat, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), na.rm = TRUE, type = 7, drop = TRUE)
-	ms_res_1 <- matrixStats::rowQuantiles(x = mat, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), na.rm = TRUE, type = 7, drop = TRUE)
+	mg_res_1 <- rowQuantiles(x = mat, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), na.rm = TRUE, type = 7, digits = , useNames = FALSE, drop = TRUE)
+	ms_res_1 <- matrixStats::rowQuantiles(x = mat, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), na.rm = TRUE, type = 7, digits = , useNames = FALSE, drop = TRUE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowQuantiles(x = mat, rows = 1:3, cols = 2, probs = 0.1, na.rm = FALSE, type = 3, drop = FALSE)
-	ms_res_2 <- matrixStats::rowQuantiles(x = mat, rows = 1:3, cols = 2, probs = 0.1, na.rm = FALSE, type = 3, drop = FALSE)
+	mg_res_2 <- rowQuantiles(x = mat, rows = 1:3, cols = 2, probs = 0.1, na.rm = FALSE, type = 3, digits = , useNames = FALSE, drop = FALSE)
+	ms_res_2 <- matrixStats::rowQuantiles(x = mat, rows = 1:3, cols = 2, probs = 0.1, na.rm = FALSE, type = 3, digits = , useNames = FALSE, drop = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("rowRanges works ", {
+test_that("rowRanges works", {
 
-	matrixStats_formals <- formals(matrixStats::rowRanges)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowRanges)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("rowRanges")
 
-	mg_res_def_1 <- rowRanges(x = mat)
+	mg_res_def_1 <- rowRanges(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::rowRanges(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowRanges(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat))
-	ms_res_1 <- matrixStats::rowRanges(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat))
+	mg_res_1 <- rowRanges(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
+	ms_res_1 <- matrixStats::rowRanges(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowRanges(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::rowRanges(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L))
+	mg_res_2 <- rowRanges(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L), useNames = FALSE)
+	ms_res_2 <- matrixStats::rowRanges(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("rowRanks works ", {
+test_that("rowRanks works", {
 
-	matrixStats_formals <- formals(matrixStats::rowRanks)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowRanks)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("rowRanks")
 
-	mg_res_def_1 <- rowRanks(x = mat)
+	mg_res_def_1 <- rowRanks(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::rowRanks(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowRanks(x = mat, rows = NULL, cols = NULL, ties.method = 'max', dim. = dim(mat))
-	ms_res_1 <- matrixStats::rowRanks(x = mat, rows = NULL, cols = NULL, ties.method = 'max', dim. = dim(mat))
+	mg_res_1 <- rowRanks(x = mat, rows = NULL, cols = NULL, ties.method = 'max', dim. = dim(mat), useNames = FALSE)
+	ms_res_1 <- matrixStats::rowRanks(x = mat, rows = NULL, cols = NULL, ties.method = 'max', dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowRanks(x = mat, rows = 1:3, cols = 2, ties.method = 'first', dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::rowRanks(x = mat, rows = 1:3, cols = 2, ties.method = 'first', dim. = c(12L, 8L))
+	mg_res_2 <- rowRanks(x = mat, rows = 1:3, cols = 2, ties.method = 'first', dim. = c(12L, 8L), useNames = FALSE)
+	ms_res_2 <- matrixStats::rowRanks(x = mat, rows = 1:3, cols = 2, ties.method = 'first', dim. = c(12L, 8L), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 
-	mg_res_3 <- rowRanks(x = mat, rows = NULL, cols = NULL, ties.method = 'dense', dim. = dim(mat))
-	ms_res_3 <- matrixStats::rowRanks(x = mat, rows = NULL, cols = NULL, ties.method = 'dense', dim. = dim(mat))
+	mg_res_3 <- rowRanks(x = mat, rows = NULL, cols = NULL, ties.method = 'dense', dim. = dim(mat), useNames = FALSE)
+	ms_res_3 <- matrixStats::rowRanks(x = mat, rows = NULL, cols = NULL, ties.method = 'dense', dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_3, ms_res_3)
 })
 
 
-test_that("rowSdDiffs works ", {
+test_that("rowSdDiffs works", {
 
-	matrixStats_formals <- formals(matrixStats::rowSdDiffs)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowSdDiffs)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("rowSdDiffs")
 
-	mg_res_def_1 <- rowSdDiffs(x = mat)
+	mg_res_def_1 <- rowSdDiffs(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::rowSdDiffs(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowSdDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0)
-	ms_res_1 <- matrixStats::rowSdDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0)
+	mg_res_1 <- rowSdDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0, useNames = FALSE)
+	ms_res_1 <- matrixStats::rowSdDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0, useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowSdDiffs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, diff = 2, trim = 0.333333333333333)
-	ms_res_2 <- matrixStats::rowSdDiffs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, diff = 2, trim = 0.333333333333333)
+	mg_res_2 <- rowSdDiffs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, diff = 2, trim = 0.333333333333333, useNames = FALSE)
+	ms_res_2 <- matrixStats::rowSdDiffs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, diff = 2, trim = 0.333333333333333, useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 
-	mg_res_3 <- rowSdDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0.5)
-	ms_res_3 <- matrixStats::rowSdDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0.5)
+	mg_res_3 <- rowSdDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0.5, useNames = FALSE)
+	ms_res_3 <- matrixStats::rowSdDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0.5, useNames = FALSE)
 	expect_equal(mg_res_3, ms_res_3)
 })
 
 
-test_that("rowSds works ", {
+test_that("rowSds works", {
 
-	matrixStats_formals <- formals(matrixStats::rowSds)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowSds)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("rowSds")
 
-	mg_res_def_1 <- rowSds(x = mat)
+	mg_res_def_1 <- rowSds(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::rowSds(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowSds(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, center = rowMeans2(mat, na.rm=TRUE), dim. = dim(mat))
-	ms_res_1 <- matrixStats::rowSds(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, center = rowMeans2(mat, na.rm=TRUE), dim. = dim(mat))
+	mg_res_1 <- rowSds(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, refine = , center = rowMeans2(mat, na.rm=TRUE), dim. = dim(mat), useNames = FALSE)
+	ms_res_1 <- matrixStats::rowSds(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, refine = , center = rowMeans2(mat, na.rm=TRUE), dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowSds(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, center = NULL, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::rowSds(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, center = NULL, dim. = c(12L, 8L))
+	mg_res_2 <- rowSds(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, refine = , center = NULL, dim. = c(12L, 8L), useNames = FALSE)
+	ms_res_2 <- matrixStats::rowSds(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, refine = , center = NULL, dim. = c(12L, 8L), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("rowSums2 works ", {
+test_that("rowSums2 works", {
 
-	matrixStats_formals <- formals(matrixStats::rowSums2)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowSums2)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("rowSums2")
 
-	mg_res_def_1 <- rowSums2(x = mat)
+	mg_res_def_1 <- rowSums2(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::rowSums2(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowSums2(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat))
-	ms_res_1 <- matrixStats::rowSums2(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat))
+	mg_res_1 <- rowSums2(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
+	ms_res_1 <- matrixStats::rowSums2(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowSums2(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::rowSums2(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L))
+	mg_res_2 <- rowSums2(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L), useNames = FALSE)
+	ms_res_2 <- matrixStats::rowSums2(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, dim. = c(12L, 8L), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("rowTabulates works ", {
+test_that("rowTabulates works", {
 
-	matrixStats_formals <- formals(matrixStats::rowTabulates)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowTabulates)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("rowTabulates")
 
 	mat <- array(suppressWarnings(as.integer(mat)), dim(mat))
-	mg_res_def_1 <- rowTabulates(x = mat)
+	mg_res_def_1 <- rowTabulates(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::rowTabulates(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowTabulates(x = mat, rows = NULL, cols = NULL, values = 0)
-	ms_res_1 <- matrixStats::rowTabulates(x = mat, rows = NULL, cols = NULL, values = 0)
+	mg_res_1 <- rowTabulates(x = mat, rows = NULL, cols = NULL, values = 0, useNames = FALSE)
+	ms_res_1 <- matrixStats::rowTabulates(x = mat, rows = NULL, cols = NULL, values = 0, useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowTabulates(x = mat, rows = 1:3, cols = 2, values = c(0, 1))
-	ms_res_2 <- matrixStats::rowTabulates(x = mat, rows = 1:3, cols = 2, values = c(0, 1))
+	mg_res_2 <- rowTabulates(x = mat, rows = 1:3, cols = 2, values = c(0, 1), useNames = FALSE)
+	ms_res_2 <- matrixStats::rowTabulates(x = mat, rows = 1:3, cols = 2, values = c(0, 1), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("rowVarDiffs works ", {
+test_that("rowVarDiffs works", {
 
-	matrixStats_formals <- formals(matrixStats::rowVarDiffs)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowVarDiffs)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("rowVarDiffs")
 
-	mg_res_def_1 <- rowVarDiffs(x = mat)
+	mg_res_def_1 <- rowVarDiffs(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::rowVarDiffs(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowVarDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0)
-	ms_res_1 <- matrixStats::rowVarDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0)
+	mg_res_1 <- rowVarDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0, useNames = FALSE)
+	ms_res_1 <- matrixStats::rowVarDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0, useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowVarDiffs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, diff = 2, trim = 0.333333333333333)
-	ms_res_2 <- matrixStats::rowVarDiffs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, diff = 2, trim = 0.333333333333333)
+	mg_res_2 <- rowVarDiffs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, diff = 2, trim = 0.333333333333333, useNames = FALSE)
+	ms_res_2 <- matrixStats::rowVarDiffs(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, diff = 2, trim = 0.333333333333333, useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 
-	mg_res_3 <- rowVarDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0.5)
-	ms_res_3 <- matrixStats::rowVarDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0.5)
+	mg_res_3 <- rowVarDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0.5, useNames = FALSE)
+	ms_res_3 <- matrixStats::rowVarDiffs(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, diff = 1, trim = 0.5, useNames = FALSE)
 	expect_equal(mg_res_3, ms_res_3)
 })
 
 
-test_that("rowVars works ", {
+test_that("rowVars works", {
 
-	matrixStats_formals <- formals(matrixStats::rowVars)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowVars)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("rowVars")
 
-	mg_res_def_1 <- rowVars(x = mat)
+	mg_res_def_1 <- rowVars(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::rowVars(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowVars(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, center = rowMeans2(mat, na.rm=TRUE), dim. = dim(mat))
-	ms_res_1 <- matrixStats::rowVars(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, center = rowMeans2(mat, na.rm=TRUE), dim. = dim(mat))
+	mg_res_1 <- rowVars(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, refine = , center = rowMeans2(mat, na.rm=TRUE), dim. = dim(mat), useNames = FALSE)
+	ms_res_1 <- matrixStats::rowVars(x = mat, rows = NULL, cols = NULL, na.rm = TRUE, refine = , center = rowMeans2(mat, na.rm=TRUE), dim. = dim(mat), useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowVars(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, center = NULL, dim. = c(12L, 8L))
-	ms_res_2 <- matrixStats::rowVars(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, center = NULL, dim. = c(12L, 8L))
+	mg_res_2 <- rowVars(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, refine = , center = NULL, dim. = c(12L, 8L), useNames = FALSE)
+	ms_res_2 <- matrixStats::rowVars(x = mat, rows = 1:3, cols = 2, na.rm = FALSE, refine = , center = NULL, dim. = c(12L, 8L), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("rowWeightedMads works ", {
+test_that("rowWeightedMads works", {
 
-	matrixStats_formals <- formals(matrixStats::rowWeightedMads)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowWeightedMads)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("rowWeightedMads")
 
 	mat <- array(mat, dim(t(mat)))
-	mg_res_def_1 <- rowWeightedMads(x = mat)
+	mg_res_def_1 <- rowWeightedMads(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::rowWeightedMads(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowWeightedMads(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE, constant = 1.4826, center = rowMeans2(mat, na.rm=TRUE))
-	ms_res_1 <- matrixStats::rowWeightedMads(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE, constant = 1.4826, center = rowMeans2(mat, na.rm=TRUE))
+	mg_res_1 <- rowWeightedMads(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE, constant = 1.4826, center = rowMeans2(mat, na.rm=TRUE), useNames = FALSE)
+	ms_res_1 <- matrixStats::rowWeightedMads(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE, constant = 1.4826, center = rowMeans2(mat, na.rm=TRUE), useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowWeightedMads(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE, constant = 5, center = rep(6, nrow(mat)))
-	ms_res_2 <- matrixStats::rowWeightedMads(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE, constant = 5, center = rep(6, nrow(mat)))
+	mg_res_2 <- rowWeightedMads(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE, constant = 5, center = rep(6, nrow(mat)), useNames = FALSE)
+	ms_res_2 <- matrixStats::rowWeightedMads(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE, constant = 5, center = rep(6, nrow(mat)), useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("rowWeightedMeans works ", {
+test_that("rowWeightedMeans works", {
 
-	matrixStats_formals <- formals(matrixStats::rowWeightedMeans)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowWeightedMeans)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("rowWeightedMeans")
 
 	mat <- array(mat, dim(t(mat)))
-	mg_res_def_1 <- rowWeightedMeans(x = mat)
+	mg_res_def_1 <- rowWeightedMeans(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::rowWeightedMeans(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowWeightedMeans(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE)
-	ms_res_1 <- matrixStats::rowWeightedMeans(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE)
+	mg_res_1 <- rowWeightedMeans(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE, useNames = FALSE)
+	ms_res_1 <- matrixStats::rowWeightedMeans(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE, useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowWeightedMeans(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE)
-	ms_res_2 <- matrixStats::rowWeightedMeans(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE)
+	mg_res_2 <- rowWeightedMeans(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE, useNames = FALSE)
+	ms_res_2 <- matrixStats::rowWeightedMeans(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE, useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("rowWeightedMedians works ", {
+test_that("rowWeightedMedians works", {
 
-	matrixStats_formals <- formals(matrixStats::rowWeightedMedians)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowWeightedMedians)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("rowWeightedMedians")
 
 	mat <- array(mat, dim(t(mat)))
-	mg_res_def_1 <- rowWeightedMedians(x = mat)
+	mg_res_def_1 <- rowWeightedMedians(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::rowWeightedMedians(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowWeightedMedians(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE)
-	ms_res_1 <- matrixStats::rowWeightedMedians(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE)
+	mg_res_1 <- rowWeightedMedians(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE, useNames = FALSE)
+	ms_res_1 <- matrixStats::rowWeightedMedians(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE, useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowWeightedMedians(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE)
-	ms_res_2 <- matrixStats::rowWeightedMedians(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE)
+	mg_res_2 <- rowWeightedMedians(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE, useNames = FALSE)
+	ms_res_2 <- matrixStats::rowWeightedMedians(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE, useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("rowWeightedSds works ", {
+test_that("rowWeightedSds works", {
 
-	matrixStats_formals <- formals(matrixStats::rowWeightedSds)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowWeightedSds)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("rowWeightedSds")
 
 	mat <- array(mat, dim(t(mat)))
-	mg_res_def_1 <- rowWeightedSds(x = mat)
+	mg_res_def_1 <- rowWeightedSds(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::rowWeightedSds(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowWeightedSds(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE)
-	ms_res_1 <- matrixStats::rowWeightedSds(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE)
+	mg_res_1 <- rowWeightedSds(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE, useNames = FALSE)
+	ms_res_1 <- matrixStats::rowWeightedSds(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE, useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowWeightedSds(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE)
-	ms_res_2 <- matrixStats::rowWeightedSds(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE)
+	mg_res_2 <- rowWeightedSds(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE, useNames = FALSE)
+	ms_res_2 <- matrixStats::rowWeightedSds(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE, useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
 
-test_that("rowWeightedVars works ", {
+test_that("rowWeightedVars works", {
 
-	matrixStats_formals <- formals(matrixStats::rowWeightedVars)
-	MatrixGenerics_default_method_formals <- formals(MatrixGenerics:::.matrixStats_rowWeightedVars)
-	expect_identical(matrixStats_formals, MatrixGenerics_default_method_formals)
+	.check_formals("rowWeightedVars")
 
 	mat <- array(mat, dim(t(mat)))
-	mg_res_def_1 <- rowWeightedVars(x = mat)
+	mg_res_def_1 <- rowWeightedVars(x = mat, useNames = TRUE)
 	ms_res_def_1 <- matrixStats::rowWeightedVars(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowWeightedVars(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE)
-	ms_res_1 <- matrixStats::rowWeightedVars(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE)
+	mg_res_1 <- rowWeightedVars(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE, useNames = FALSE)
+	ms_res_1 <- matrixStats::rowWeightedVars(x = mat, w = 1:16, rows = NULL, cols = NULL, na.rm = TRUE, useNames = FALSE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowWeightedVars(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE)
-	ms_res_2 <- matrixStats::rowWeightedVars(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE)
+	mg_res_2 <- rowWeightedVars(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE, useNames = FALSE)
+	ms_res_2 <- matrixStats::rowWeightedVars(x = mat, w = NULL, rows = 1:3, cols = 2, na.rm = FALSE, useNames = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
+

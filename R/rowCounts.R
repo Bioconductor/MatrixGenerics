@@ -42,7 +42,7 @@ setGeneric("rowCounts", function(x, rows = NULL, cols = NULL, value = TRUE, na.r
 )
 
 .matrixStats_rowCounts <- function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ..., useNames = NA){
-  matrixStats::rowCounts(x, rows = rows, cols = cols, value = value, na.rm = na.rm, dim. = dim., ..., useNames = useNames)
+  matrixStats::rowCounts(x, rows = rows, cols = cols, value = value, na.rm = na.rm, dim. = dim., ..., useNames = isTRUE(useNames))
 }
 
 #' @export
@@ -63,7 +63,7 @@ setGeneric("colCounts", function(x, rows = NULL, cols = NULL, value = TRUE, na.r
 )
 
 .matrixStats_colCounts <- function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ..., useNames = NA){
-  matrixStats::colCounts(x, rows = rows, cols = cols, value = value, na.rm = na.rm, dim. = dim., ..., useNames = useNames)
+  matrixStats::colCounts(x, rows = rows, cols = cols, value = value, na.rm = na.rm, dim. = dim., ..., useNames = isTRUE(useNames))
 }
 
 #' @export

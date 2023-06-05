@@ -46,7 +46,7 @@ setGeneric("rowCollapse", function(x, idxs, rows = NULL, ..., useNames = NA) sta
 )
 
 .matrixStats_rowCollapse <- function(x, idxs, rows = NULL, dim. = dim(x), ..., useNames = NA){
-  matrixStats::rowCollapse(x, idxs = idxs, rows = rows, dim. = dim., ..., useNames = useNames)
+  matrixStats::rowCollapse(x, idxs = idxs, rows = rows, dim. = dim., ..., useNames = isTRUE(useNames))
 }
 
 #' @export
@@ -62,12 +62,12 @@ setMethod("rowCollapse", "ANY", make_default_method_def("rowCollapse"))
 
 #' @export
 #' @rdname rowCollapse
-setGeneric("colCollapse", function(x, idxs = idxs, cols = NULL, ..., useNames = NA) standardGeneric("colCollapse"),
+setGeneric("colCollapse", function(x, idxs, cols = NULL, ..., useNames = NA) standardGeneric("colCollapse"),
            signature = "x"
 )
 
 .matrixStats_colCollapse <- function(x, idxs, cols = NULL, dim. = dim(x), ..., useNames = NA){
-  matrixStats::colCollapse(x, idxs = idxs, cols = cols, dim. = dim., ..., useNames = useNames)
+  matrixStats::colCollapse(x, idxs = idxs, cols = cols, dim. = dim., ..., useNames = isTRUE(useNames))
 }
 
 #' @export

@@ -16,13 +16,12 @@ rowCollapse(x, idxs, rows = NULL, ..., useNames = NA)
 
 \S4method{rowCollapse}{ANY}(x, idxs, rows = NULL, ..., useNames = NA)
 
-colCollapse(x, idxs = idxs, cols = NULL, ..., useNames = NA)
+colCollapse(x, idxs, cols = NULL, ..., useNames = NA)
 
 \S4method{colCollapse}{matrix_OR_array_OR_table_OR_numeric}(x, idxs,
   cols = NULL, dim. = dim(x), ..., useNames = NA)
 
-\S4method{colCollapse}{ANY}(x, idxs = idxs, cols = NULL, ...,
-  useNames = NA)
+\S4method{colCollapse}{ANY}(x, idxs, cols = NULL, ..., useNames = NA)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

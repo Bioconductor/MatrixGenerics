@@ -39,7 +39,7 @@ setGeneric("rowQuantiles", function(x, rows = NULL, cols = NULL, probs = seq(fro
 
 .matrixStats_rowQuantiles <- function(x, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25),
                                   na.rm = FALSE, type = 7L, ..., useNames = NA, drop = TRUE) {
-  matrixStats::rowQuantiles(x = x, rows = rows, cols = cols, probs = probs, na.rm = na.rm, type = type, ..., useNames = useNames, drop = drop)
+  matrixStats::rowQuantiles(x = x, rows = rows, cols = cols, probs = probs, na.rm = na.rm, type = type, ..., useNames = !isFALSE(useNames), drop = drop)
 }
 
 #' @export
@@ -61,7 +61,7 @@ setGeneric("colQuantiles", function(x, rows = NULL, cols = NULL, probs = seq(fro
 
 .matrixStats_colQuantiles <- function(x, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25),
                                   na.rm = FALSE, type = 7L, ..., useNames = NA, drop = TRUE) {
-  matrixStats::colQuantiles(x = x, rows = rows, cols = cols, probs = probs, na.rm = na.rm, type = type, ..., useNames = useNames, drop = drop)
+  matrixStats::colQuantiles(x = x, rows = rows, cols = cols, probs = probs, na.rm = na.rm, type = type, ..., useNames = !isFALSE(useNames), drop = drop)
 }
 
 #' @export

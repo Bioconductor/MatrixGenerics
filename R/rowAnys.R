@@ -38,7 +38,7 @@ setGeneric("rowAnys", function(x, rows = NULL, cols = NULL, value = TRUE, na.rm 
 )
 
 .matrixStats_rowAnys <- function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ..., useNames = NA){
-  matrixStats::rowAnys(x, rows = rows, cols = cols, value = value, na.rm = na.rm, dim. = dim., ..., useNames = useNames)
+  matrixStats::rowAnys(x, rows = rows, cols = cols, value = value, na.rm = na.rm, dim. = dim., ..., useNames = isTRUE(useNames))
 }
 
 #' @export
@@ -59,7 +59,7 @@ setGeneric("colAnys", function(x, rows = NULL, cols = NULL, value = TRUE, na.rm 
 )
 
 .matrixStats_colAnys <- function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ..., useNames = NA){
-  matrixStats::colAnys(x, rows = rows, cols = cols, value = value, na.rm = na.rm, dim. = dim., ..., useNames = useNames)
+  matrixStats::colAnys(x, rows = rows, cols = cols, value = value, na.rm = na.rm, dim. = dim., ..., useNames = isTRUE(useNames))
 }
 
 #' @export

@@ -44,7 +44,7 @@ setGeneric("rowOrderStats", function(x, rows = NULL, cols = NULL, which, ..., us
 )
 
 .matrixStats_rowOrderStats <- function(x, rows = NULL, cols = NULL, which, dim. = dim(x), ..., useNames = NA){
-  matrixStats::rowOrderStats(x, rows = rows, cols = cols, which = which, dim. = dim., ..., useNames = useNames)
+  matrixStats::rowOrderStats(x, rows = rows, cols = cols, which = which, dim. = dim., ..., useNames = isTRUE(useNames))
 }
 
 #' @export
@@ -65,7 +65,7 @@ setGeneric("colOrderStats", function(x, rows = NULL, cols = NULL, which, ..., us
 )
 
 .matrixStats_colOrderStats <- function(x, rows = NULL, cols = NULL, which, dim. = dim(x), ..., useNames = NA){
-  matrixStats::colOrderStats(x, rows = rows, cols = cols, which = which, dim. = dim., ..., useNames = useNames)
+  matrixStats::colOrderStats(x, rows = rows, cols = cols, which = which, dim. = dim., ..., useNames = isTRUE(useNames))
 }
 
 #' @export
