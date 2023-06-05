@@ -34,11 +34,11 @@
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-setGeneric("rowProds", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA) standardGeneric("rowProds"),
+setGeneric("rowProds", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = TRUE) standardGeneric("rowProds"),
            signature = "x"
 )
 
-.matrixStats_rowProds <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, method = c("direct", "expSumLog"), ..., useNames = NA){
+.matrixStats_rowProds <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, method = c("direct", "expSumLog"), ..., useNames = TRUE){
   matrixStats::rowProds(x, rows = rows, cols = cols, na.rm = na.rm, method = method, ..., useNames = useNames)
 }
 
@@ -55,11 +55,11 @@ setMethod("rowProds", "ANY", make_default_method_def("rowProds"))
 
 #' @export
 #' @rdname rowProds
-setGeneric("colProds", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA) standardGeneric("colProds"),
+setGeneric("colProds", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = TRUE) standardGeneric("colProds"),
            signature = "x"
 )
 
-.matrixStats_colProds <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, method = c("direct", "expSumLog"), ..., useNames = NA){
+.matrixStats_colProds <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, method = c("direct", "expSumLog"), ..., useNames = TRUE){
   matrixStats::colProds(x, rows = rows, cols = cols, na.rm = na.rm, method = method, ..., useNames = useNames)
 }
 

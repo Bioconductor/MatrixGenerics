@@ -11,25 +11,25 @@
 object}
 \usage{
 rowRanks(x, rows = NULL, cols = NULL, ties.method = c("max", "average"),
-  ..., useNames = NA)
+  ..., useNames = TRUE)
 
 \S4method{rowRanks}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
   cols = NULL, ties.method = c("max", "average", "first", "last", "random",
-  "max", "min", "dense"), dim. = dim(x), ..., useNames = NA)
+  "max", "min", "dense"), dim. = dim(x), ..., useNames = TRUE)
 
 \S4method{rowRanks}{ANY}(x, rows = NULL, cols = NULL,
-  ties.method = c("max", "average"), ..., useNames = NA)
+  ties.method = c("max", "average"), ..., useNames = TRUE)
 
 colRanks(x, rows = NULL, cols = NULL, ties.method = c("max", "average"),
-  ..., useNames = NA)
+  ..., useNames = TRUE)
 
 \S4method{colRanks}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
   cols = NULL, ties.method = c("max", "average", "first", "last", "random",
   "max", "min", "dense"), dim. = dim(x), preserveShape = FALSE, ...,
-  useNames = NA)
+  useNames = TRUE)
 
 \S4method{colRanks}{ANY}(x, rows = NULL, cols = NULL,
-  ties.method = c("max", "average"), ..., useNames = NA)
+  ties.method = c("max", "average"), ..., useNames = TRUE)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

@@ -32,11 +32,11 @@
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-setGeneric("rowSdDiffs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0,  ..., useNames = NA) standardGeneric("rowSdDiffs"),
+setGeneric("rowSdDiffs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0,  ..., useNames = TRUE) standardGeneric("rowSdDiffs"),
            signature = "x"
 )
 
-.matrixStats_rowSdDiffs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ..., useNames = NA){
+.matrixStats_rowSdDiffs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ..., useNames = TRUE){
   matrixStats::rowSdDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff = diff, trim = trim, ..., useNames = useNames)
 }
 
@@ -53,11 +53,11 @@ setMethod("rowSdDiffs", "ANY", make_default_method_def("rowSdDiffs"))
 
 #' @export
 #' @rdname rowSdDiffs
-setGeneric("colSdDiffs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ..., useNames = NA) standardGeneric("colSdDiffs"),
+setGeneric("colSdDiffs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ..., useNames = TRUE) standardGeneric("colSdDiffs"),
            signature = "x"
 )
 
-.matrixStats_colSdDiffs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ..., useNames = NA){
+.matrixStats_colSdDiffs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ..., useNames = TRUE){
   matrixStats::colSdDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff = diff, trim = trim, ..., useNames = useNames)
 }
 

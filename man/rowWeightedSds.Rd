@@ -11,22 +11,22 @@
 matrix-like object}
 \usage{
 rowWeightedSds(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE,
-  ..., useNames = NA)
+  ..., useNames = TRUE)
 
 \S4method{rowWeightedSds}{matrix_OR_array_OR_table_OR_numeric}(x, w = NULL,
-  rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA)
+  rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = TRUE)
 
 \S4method{rowWeightedSds}{ANY}(x, w = NULL, rows = NULL, cols = NULL,
-  na.rm = FALSE, ..., useNames = NA)
+  na.rm = FALSE, ..., useNames = TRUE)
 
 colWeightedSds(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE,
-  ..., useNames = NA)
+  ..., useNames = TRUE)
 
 \S4method{colWeightedSds}{matrix_OR_array_OR_table_OR_numeric}(x, w = NULL,
-  rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA)
+  rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = TRUE)
 
 \S4method{colWeightedSds}{ANY}(x, w = NULL, rows = NULL, cols = NULL,
-  na.rm = FALSE, ..., useNames = NA)
+  na.rm = FALSE, ..., useNames = TRUE)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

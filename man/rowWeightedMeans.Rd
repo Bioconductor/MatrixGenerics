@@ -10,22 +10,22 @@
 \title{Calculates the weighted mean for each row (column) of a matrix-like object}
 \usage{
 rowWeightedMeans(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE,
-  ..., useNames = NA)
+  ..., useNames = TRUE)
 
 \S4method{rowWeightedMeans}{matrix_OR_array_OR_table_OR_numeric}(x, w = NULL,
-  rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA)
+  rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = TRUE)
 
 \S4method{rowWeightedMeans}{ANY}(x, w = NULL, rows = NULL, cols = NULL,
-  na.rm = FALSE, ..., useNames = NA)
+  na.rm = FALSE, ..., useNames = TRUE)
 
 colWeightedMeans(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE,
-  ..., useNames = NA)
+  ..., useNames = TRUE)
 
 \S4method{colWeightedMeans}{matrix_OR_array_OR_table_OR_numeric}(x, w = NULL,
-  rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA)
+  rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = TRUE)
 
 \S4method{colWeightedMeans}{ANY}(x, w = NULL, rows = NULL, cols = NULL,
-  na.rm = FALSE, ..., useNames = NA)
+  na.rm = FALSE, ..., useNames = TRUE)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

@@ -35,11 +35,11 @@
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-setGeneric("rowSds", function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, ..., useNames = NA) standardGeneric("rowSds"),
+setGeneric("rowSds", function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, ..., useNames = TRUE) standardGeneric("rowSds"),
            signature = "x"
 )
 
-.matrixStats_rowSds <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, dim. = dim(x), ..., useNames = NA){
+.matrixStats_rowSds <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, dim. = dim(x), ..., useNames = TRUE){
   matrixStats::rowSds(x, rows = rows, cols = cols, na.rm = na.rm, center = center, dim. = dim., ..., useNames = useNames)
 }
 
@@ -56,11 +56,11 @@ setMethod("rowSds", "ANY", make_default_method_def("rowSds"))
 
 #' @export
 #' @rdname rowSds
-setGeneric("colSds", function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, ..., useNames = NA) standardGeneric("colSds"),
+setGeneric("colSds", function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, ..., useNames = TRUE) standardGeneric("colSds"),
            signature = "x"
 )
 
-.matrixStats_colSds <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, dim. = dim(x), ..., useNames = NA){
+.matrixStats_colSds <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, dim. = dim(x), ..., useNames = TRUE){
   matrixStats::colSds(x, rows = rows, cols = cols, na.rm = na.rm, center = center, dim. = dim., ..., useNames = useNames)
 }
 

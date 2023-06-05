@@ -10,22 +10,22 @@
 \title{Tabulates the values in a matrix-like object by row (column)}
 \usage{
 rowTabulates(x, rows = NULL, cols = NULL, values = NULL, ...,
-  useNames = NA)
+  useNames = TRUE)
 
 \S4method{rowTabulates}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
-  cols = NULL, values = NULL, ..., useNames = NA)
+  cols = NULL, values = NULL, ..., useNames = TRUE)
 
 \S4method{rowTabulates}{ANY}(x, rows = NULL, cols = NULL, values = NULL,
-  ..., useNames = NA)
+  ..., useNames = TRUE)
 
 colTabulates(x, rows = NULL, cols = NULL, values = NULL, ...,
-  useNames = NA)
+  useNames = TRUE)
 
 \S4method{colTabulates}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
-  cols = NULL, values = NULL, ..., useNames = NA)
+  cols = NULL, values = NULL, ..., useNames = TRUE)
 
 \S4method{colTabulates}{ANY}(x, rows = NULL, cols = NULL, values = NULL,
-  ..., useNames = NA)
+  ..., useNames = TRUE)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

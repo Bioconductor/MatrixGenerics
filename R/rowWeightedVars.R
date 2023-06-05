@@ -32,11 +32,11 @@
 #' @template weightedExamples
 #'
 #' @keywords array iteration robust univar
-setGeneric("rowWeightedVars", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA) standardGeneric("rowWeightedVars"),
+setGeneric("rowWeightedVars", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = TRUE) standardGeneric("rowWeightedVars"),
            signature = "x"
 )
 
-.matrixStats_rowWeightedVars <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA){
+.matrixStats_rowWeightedVars <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = TRUE){
   matrixStats::rowWeightedVars(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ..., useNames = useNames)
 }
 
@@ -53,11 +53,11 @@ setMethod("rowWeightedVars", "ANY", make_default_method_def("rowWeightedVars"))
 
 #' @export
 #' @rdname rowWeightedVars
-setGeneric("colWeightedVars", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA) standardGeneric("colWeightedVars"),
+setGeneric("colWeightedVars", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = TRUE) standardGeneric("colWeightedVars"),
            signature = "x"
 )
 
-.matrixStats_colWeightedVars <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA){
+.matrixStats_colWeightedVars <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = TRUE){
   matrixStats::colWeightedVars(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ..., useNames = useNames)
 }
 

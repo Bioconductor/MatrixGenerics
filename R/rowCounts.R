@@ -37,11 +37,11 @@
 #' @examples
 #'   rowCounts(mat, value = 0)
 #'   colCounts(mat, value = Inf, na.rm = TRUE)
-setGeneric("rowCounts", function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ..., useNames = NA) standardGeneric("rowCounts"),
+setGeneric("rowCounts", function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ..., useNames = TRUE) standardGeneric("rowCounts"),
            signature = "x"
 )
 
-.matrixStats_rowCounts <- function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ..., useNames = NA){
+.matrixStats_rowCounts <- function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ..., useNames = TRUE){
   matrixStats::rowCounts(x, rows = rows, cols = cols, value = value, na.rm = na.rm, dim. = dim., ..., useNames = useNames)
 }
 
@@ -58,11 +58,11 @@ setMethod("rowCounts", "ANY", make_default_method_def("rowCounts"))
 
 #' @export
 #' @rdname rowCounts
-setGeneric("colCounts", function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ..., useNames = NA) standardGeneric("colCounts"),
+setGeneric("colCounts", function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ..., useNames = TRUE) standardGeneric("colCounts"),
            signature = "x"
 )
 
-.matrixStats_colCounts <- function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ..., useNames = NA){
+.matrixStats_colCounts <- function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ..., useNames = TRUE){
   matrixStats::colCounts(x, rows = rows, cols = cols, value = value, na.rm = na.rm, dim. = dim., ..., useNames = useNames)
 }
 

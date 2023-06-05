@@ -10,22 +10,22 @@
 \title{Calculates the sum for each row (column) of a matrix-like object}
 \usage{
 rowSums2(x, rows = NULL, cols = NULL, na.rm = FALSE, ...,
-  useNames = NA)
+  useNames = TRUE)
 
 \S4method{rowSums2}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
-  cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = NA)
+  cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = TRUE)
 
 \S4method{rowSums2}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...,
-  useNames = NA)
+  useNames = TRUE)
 
 colSums2(x, rows = NULL, cols = NULL, na.rm = FALSE, ...,
-  useNames = NA)
+  useNames = TRUE)
 
 \S4method{colSums2}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
-  cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = NA)
+  cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = TRUE)
 
 \S4method{colSums2}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...,
-  useNames = NA)
+  useNames = TRUE)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

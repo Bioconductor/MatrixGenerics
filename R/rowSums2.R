@@ -32,11 +32,11 @@
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-setGeneric("rowSums2", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA) standardGeneric("rowSums2"),
+setGeneric("rowSums2", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = TRUE) standardGeneric("rowSums2"),
            signature = "x"
 )
 
-.matrixStats_rowSums2 <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = NA){
+.matrixStats_rowSums2 <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = TRUE){
   matrixStats::rowSums2(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ..., useNames = useNames)
 }
 
@@ -53,11 +53,11 @@ setMethod("rowSums2", "ANY", make_default_method_def("rowSums2"))
 
 #' @export
 #' @rdname rowSums2
-setGeneric("colSums2", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA) standardGeneric("colSums2"),
+setGeneric("colSums2", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = TRUE) standardGeneric("colSums2"),
            signature = "x"
 )
 
-.matrixStats_colSums2 <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = NA){
+.matrixStats_colSums2 <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = TRUE){
   matrixStats::colSums2(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ..., useNames = useNames)
 }
 

@@ -30,11 +30,11 @@
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-setGeneric("rowMins", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA) standardGeneric("rowMins"),
+setGeneric("rowMins", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = TRUE) standardGeneric("rowMins"),
            signature = "x"
 )
 
-.matrixStats_rowMins <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = NA){
+.matrixStats_rowMins <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = TRUE){
   matrixStats::rowMins(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ..., useNames = useNames)
 }
 
@@ -51,11 +51,11 @@ setMethod("rowMins", "ANY", make_default_method_def("rowMins"))
 
 #' @export
 #' @rdname rowMins
-setGeneric("colMins", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA) standardGeneric("colMins"),
+setGeneric("colMins", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = TRUE) standardGeneric("colMins"),
            signature = "x"
 )
 
-.matrixStats_colMins <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = NA){
+.matrixStats_colMins <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = TRUE){
   matrixStats::colMins(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ..., useNames = useNames)
 }
 

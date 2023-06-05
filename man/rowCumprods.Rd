@@ -10,21 +10,21 @@
 \title{Calculates the cumulative product for each row (column) of a matrix-like
 object}
 \usage{
-rowCumprods(x, rows = NULL, cols = NULL, ..., useNames = NA)
+rowCumprods(x, rows = NULL, cols = NULL, ..., useNames = TRUE)
 
 \S4method{rowCumprods}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
-  cols = NULL, dim. = dim(x), ..., useNames = NA)
+  cols = NULL, dim. = dim(x), ..., useNames = TRUE)
 
 \S4method{rowCumprods}{ANY}(x, rows = NULL, cols = NULL, ...,
-  useNames = NA)
+  useNames = TRUE)
 
-colCumprods(x, rows = NULL, cols = NULL, ..., useNames = NA)
+colCumprods(x, rows = NULL, cols = NULL, ..., useNames = TRUE)
 
 \S4method{colCumprods}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
-  cols = NULL, dim. = dim(x), ..., useNames = NA)
+  cols = NULL, dim. = dim(x), ..., useNames = TRUE)
 
 \S4method{colCumprods}{ANY}(x, rows = NULL, cols = NULL, ...,
-  useNames = NA)
+  useNames = TRUE)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

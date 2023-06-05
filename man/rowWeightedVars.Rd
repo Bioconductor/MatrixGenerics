@@ -11,22 +11,22 @@
 object}
 \usage{
 rowWeightedVars(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE,
-  ..., useNames = NA)
+  ..., useNames = TRUE)
 
 \S4method{rowWeightedVars}{matrix_OR_array_OR_table_OR_numeric}(x, w = NULL,
-  rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA)
+  rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = TRUE)
 
 \S4method{rowWeightedVars}{ANY}(x, w = NULL, rows = NULL, cols = NULL,
-  na.rm = FALSE, ..., useNames = NA)
+  na.rm = FALSE, ..., useNames = TRUE)
 
 colWeightedVars(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE,
-  ..., useNames = NA)
+  ..., useNames = TRUE)
 
 \S4method{colWeightedVars}{matrix_OR_array_OR_table_OR_numeric}(x, w = NULL,
-  rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA)
+  rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = TRUE)
 
 \S4method{colWeightedVars}{ANY}(x, w = NULL, rows = NULL, cols = NULL,
-  na.rm = FALSE, ..., useNames = NA)
+  na.rm = FALSE, ..., useNames = TRUE)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

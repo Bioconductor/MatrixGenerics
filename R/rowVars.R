@@ -34,11 +34,11 @@
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-setGeneric("rowVars", function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, ..., useNames = NA) standardGeneric("rowVars"),
+setGeneric("rowVars", function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, ..., useNames = TRUE) standardGeneric("rowVars"),
            signature = "x"
 )
 
-.matrixStats_rowVars <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, dim. = dim(x), ..., useNames = NA){
+.matrixStats_rowVars <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, dim. = dim(x), ..., useNames = TRUE){
   matrixStats::rowVars(x, rows = rows, cols = cols, na.rm = na.rm, center = center, dim. = dim., ..., useNames = useNames)
 }
 
@@ -55,11 +55,11 @@ setMethod("rowVars", "ANY", make_default_method_def("rowVars"))
 
 #' @export
 #' @rdname rowVars
-setGeneric("colVars", function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, ..., useNames = NA) standardGeneric("colVars"),
+setGeneric("colVars", function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, ..., useNames = TRUE) standardGeneric("colVars"),
            signature = "x"
 )
 
-.matrixStats_colVars <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, dim. = dim(x), ..., useNames = NA){
+.matrixStats_colVars <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, dim. = dim(x), ..., useNames = TRUE){
   matrixStats::colVars(x, rows = rows, cols = cols, na.rm = na.rm, center = center, dim. = dim., ..., useNames = useNames)
 }
 

@@ -31,11 +31,11 @@
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-setGeneric("rowMedians", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA) standardGeneric("rowMedians"),
+setGeneric("rowMedians", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = TRUE) standardGeneric("rowMedians"),
            signature = "x"
 )
 
-.matrixStats_rowMedians <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = NA){
+.matrixStats_rowMedians <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = TRUE){
   matrixStats::rowMedians(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ..., useNames = useNames)
 }
 
@@ -52,11 +52,11 @@ setMethod("rowMedians", "ANY", make_default_method_def("rowMedians"))
 
 #' @export
 #' @rdname rowMedians
-setGeneric("colMedians", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA) standardGeneric("colMedians"),
+setGeneric("colMedians", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = TRUE) standardGeneric("colMedians"),
            signature = "x"
 )
 
-.matrixStats_colMedians <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = NA){
+.matrixStats_colMedians <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = TRUE){
   matrixStats::colMedians(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ..., useNames = useNames)
 }
 

@@ -9,21 +9,21 @@
 \alias{colCumsums,ANY-method}
 \title{Calculates the cumulative sum for each row (column) of a matrix-like object}
 \usage{
-rowCumsums(x, rows = NULL, cols = NULL, ..., useNames = NA)
+rowCumsums(x, rows = NULL, cols = NULL, ..., useNames = TRUE)
 
 \S4method{rowCumsums}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
-  cols = NULL, dim. = dim(x), ..., useNames = NA)
+  cols = NULL, dim. = dim(x), ..., useNames = TRUE)
 
 \S4method{rowCumsums}{ANY}(x, rows = NULL, cols = NULL, ...,
-  useNames = NA)
+  useNames = TRUE)
 
-colCumsums(x, rows = NULL, cols = NULL, ..., useNames = NA)
+colCumsums(x, rows = NULL, cols = NULL, ..., useNames = TRUE)
 
 \S4method{colCumsums}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
-  cols = NULL, dim. = dim(x), ..., useNames = NA)
+  cols = NULL, dim. = dim(x), ..., useNames = TRUE)
 
 \S4method{colCumsums}{ANY}(x, rows = NULL, cols = NULL, ...,
-  useNames = NA)
+  useNames = TRUE)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

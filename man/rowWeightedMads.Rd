@@ -11,24 +11,26 @@
 matrix-like object}
 \usage{
 rowWeightedMads(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE,
-  constant = 1.4826, center = NULL, ...)
+  constant = 1.4826, center = NULL, ..., useNames = TRUE)
 
 \S4method{rowWeightedMads}{matrix_OR_array_OR_table_OR_numeric}(x, w = NULL,
   rows = NULL, cols = NULL, na.rm = FALSE, constant = 1.4826,
-  center = NULL, ..., useNames = NA)
+  center = NULL, ..., useNames = TRUE)
 
 \S4method{rowWeightedMads}{ANY}(x, w = NULL, rows = NULL, cols = NULL,
-  na.rm = FALSE, constant = 1.4826, center = NULL, ...)
+  na.rm = FALSE, constant = 1.4826, center = NULL, ...,
+  useNames = TRUE)
 
 colWeightedMads(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE,
-  constant = 1.4826, center = NULL, ..., useNames = NA)
+  constant = 1.4826, center = NULL, ..., useNames = TRUE)
 
 \S4method{colWeightedMads}{matrix_OR_array_OR_table_OR_numeric}(x, w = NULL,
   rows = NULL, cols = NULL, na.rm = FALSE, constant = 1.4826,
-  center = NULL, ..., useNames = NA)
+  center = NULL, ..., useNames = TRUE)
 
 \S4method{colWeightedMads}{ANY}(x, w = NULL, rows = NULL, cols = NULL,
-  na.rm = FALSE, constant = 1.4826, center = NULL, ..., useNames = NA)
+  na.rm = FALSE, constant = 1.4826, center = NULL, ...,
+  useNames = TRUE)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

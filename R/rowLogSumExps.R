@@ -35,11 +35,11 @@
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-setGeneric("rowLogSumExps", function(lx, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA) standardGeneric("rowLogSumExps"),
+setGeneric("rowLogSumExps", function(lx, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = TRUE) standardGeneric("rowLogSumExps"),
            signature = "lx"
 )
 
-.matrixStats_rowLogSumExps <- function(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx), ..., useNames = NA){
+.matrixStats_rowLogSumExps <- function(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx), ..., useNames = TRUE){
   matrixStats::rowLogSumExps(lx, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ..., useNames = useNames)
 }
 
@@ -50,7 +50,7 @@ setMethod("rowLogSumExps", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_r
 #' @export
 #' @rdname rowLogSumExps
 ## Default method with user-friendly fallback mechanism.
-setMethod("rowLogSumExps", "ANY", function (lx, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA){
+setMethod("rowLogSumExps", "ANY", function (lx, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = TRUE){
   MatrixGenerics:::.load_next_suggested_package_to_search(lx)
   callGeneric()
 })
@@ -59,11 +59,11 @@ setMethod("rowLogSumExps", "ANY", function (lx, rows = NULL, cols = NULL, na.rm 
 
 #' @export
 #' @rdname rowLogSumExps
-setGeneric("colLogSumExps", function(lx, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA) standardGeneric("colLogSumExps"),
+setGeneric("colLogSumExps", function(lx, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = TRUE) standardGeneric("colLogSumExps"),
            signature = "lx"
 )
 
-.matrixStats_colLogSumExps <- function(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx), ..., useNames = NA){
+.matrixStats_colLogSumExps <- function(lx, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx), ..., useNames = TRUE){
   matrixStats::colLogSumExps(lx, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ..., useNames = useNames)
 }
 
@@ -74,7 +74,7 @@ setMethod("colLogSumExps", "matrix_OR_array_OR_table_OR_numeric", .matrixStats_c
 #' @export
 #' @rdname rowLogSumExps
 ## Default method with user-friendly fallback mechanism.
-setMethod("colLogSumExps", "ANY", function (lx, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA){
+setMethod("colLogSumExps", "ANY", function (lx, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = TRUE){
   MatrixGenerics:::.load_next_suggested_package_to_search(lx)
   callGeneric()
 })

@@ -32,11 +32,11 @@
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-setGeneric("rowCummins", function(x, rows = NULL, cols = NULL, ..., useNames = NA) standardGeneric("rowCummins"),
+setGeneric("rowCummins", function(x, rows = NULL, cols = NULL, ..., useNames = TRUE) standardGeneric("rowCummins"),
            signature = "x"
 )
 
-.matrixStats_rowCummins <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = NA){
+.matrixStats_rowCummins <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = TRUE){
   matrixStats::rowCummins(x, rows = rows, cols = cols, dim. = dim., ..., useNames = useNames)
 }
 
@@ -53,11 +53,11 @@ setMethod("rowCummins", "ANY", make_default_method_def("rowCummins"))
 
 #' @export
 #' @rdname rowCummins
-setGeneric("colCummins", function(x, rows = NULL, cols = NULL, ..., useNames = NA) standardGeneric("colCummins"),
+setGeneric("colCummins", function(x, rows = NULL, cols = NULL, ..., useNames = TRUE) standardGeneric("colCummins"),
            signature = "x"
 )
 
-.matrixStats_colCummins <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = NA){
+.matrixStats_colCummins <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = TRUE){
   matrixStats::colCummins(x, rows = rows, cols = cols, dim. = dim., ..., useNames = useNames)
 }
 

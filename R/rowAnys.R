@@ -33,11 +33,11 @@
 #' }
 #'
 #' @template standardExamples
-setGeneric("rowAnys", function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ..., useNames = NA) standardGeneric("rowAnys"),
+setGeneric("rowAnys", function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ..., useNames = TRUE) standardGeneric("rowAnys"),
            signature = "x"
 )
 
-.matrixStats_rowAnys <- function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ..., useNames = NA){
+.matrixStats_rowAnys <- function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ..., useNames = TRUE){
   matrixStats::rowAnys(x, rows = rows, cols = cols, value = value, na.rm = na.rm, dim. = dim., ..., useNames = useNames)
 }
 
@@ -54,11 +54,11 @@ setMethod("rowAnys", "ANY", make_default_method_def("rowAnys"))
 
 #' @export
 #' @rdname rowAnys
-setGeneric("colAnys", function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ..., useNames = NA) standardGeneric("colAnys"),
+setGeneric("colAnys", function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ..., useNames = TRUE) standardGeneric("colAnys"),
            signature = "x"
 )
 
-.matrixStats_colAnys <- function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ..., useNames = NA){
+.matrixStats_colAnys <- function(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ..., useNames = TRUE){
   matrixStats::colAnys(x, rows = rows, cols = cols, value = value, na.rm = na.rm, dim. = dim., ..., useNames = useNames)
 }
 

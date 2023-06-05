@@ -11,24 +11,24 @@
 (column) of a matrix-like object}
 \usage{
 rowLogSumExps(lx, rows = NULL, cols = NULL, na.rm = FALSE, ...,
-  useNames = NA)
+  useNames = TRUE)
 
 \S4method{rowLogSumExps}{matrix_OR_array_OR_table_OR_numeric}(lx,
   rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx), ...,
-  useNames = NA)
+  useNames = TRUE)
 
 \S4method{rowLogSumExps}{ANY}(lx, rows = NULL, cols = NULL,
-  na.rm = FALSE, ..., useNames = NA)
+  na.rm = FALSE, ..., useNames = TRUE)
 
 colLogSumExps(lx, rows = NULL, cols = NULL, na.rm = FALSE, ...,
-  useNames = NA)
+  useNames = TRUE)
 
 \S4method{colLogSumExps}{matrix_OR_array_OR_table_OR_numeric}(lx,
   rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(lx), ...,
-  useNames = NA)
+  useNames = TRUE)
 
 \S4method{colLogSumExps}{ANY}(lx, rows = NULL, cols = NULL,
-  na.rm = FALSE, ..., useNames = NA)
+  na.rm = FALSE, ..., useNames = TRUE)
 }
 \arguments{
 \item{lx}{An NxK matrix-like object. Typically \code{lx} are \code{log(x)} values.}
