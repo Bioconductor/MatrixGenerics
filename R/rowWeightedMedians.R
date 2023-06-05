@@ -31,11 +31,11 @@
 #' @template weightedExamples
 #'
 #' @keywords array iteration robust univar
-setGeneric("rowWeightedMedians", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA) standardGeneric("rowWeightedMedians"),
+setGeneric("rowWeightedMedians", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = TRUE) standardGeneric("rowWeightedMedians"),
            signature = "x"
 )
 
-.matrixStats_rowWeightedMedians <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA){
+.matrixStats_rowWeightedMedians <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = TRUE){
   matrixStats::rowWeightedMedians(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ..., useNames = useNames)
 }
 
@@ -52,11 +52,11 @@ setMethod("rowWeightedMedians", "ANY", make_default_method_def("rowWeightedMedia
 
 #' @export
 #' @rdname rowWeightedMedians
-setGeneric("colWeightedMedians", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA) standardGeneric("colWeightedMedians"),
+setGeneric("colWeightedMedians", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = TRUE) standardGeneric("colWeightedMedians"),
            signature = "x"
 )
 
-.matrixStats_colWeightedMedians <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA){
+.matrixStats_colWeightedMedians <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = TRUE){
   matrixStats::colWeightedMedians(x, w = w, rows = rows, cols = cols, na.rm = na.rm, ..., useNames = useNames)
 }
 

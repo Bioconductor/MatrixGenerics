@@ -31,11 +31,11 @@
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-setGeneric("rowCumprods", function(x, rows = NULL, cols = NULL, ..., useNames = NA) standardGeneric("rowCumprods"),
+setGeneric("rowCumprods", function(x, rows = NULL, cols = NULL, ..., useNames = TRUE) standardGeneric("rowCumprods"),
            signature = "x"
 )
 
-.matrixStats_rowCumprods <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = NA){
+.matrixStats_rowCumprods <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = TRUE){
   matrixStats::rowCumprods(x, rows = rows, cols = cols, dim. = dim., ..., useNames = useNames)
 }
 
@@ -52,11 +52,11 @@ setMethod("rowCumprods", "ANY", make_default_method_def("rowCumprods"))
 
 #' @export
 #' @rdname rowCumprods
-setGeneric("colCumprods", function(x, rows = NULL, cols = NULL, ..., useNames = NA) standardGeneric("colCumprods"),
+setGeneric("colCumprods", function(x, rows = NULL, cols = NULL, ..., useNames = TRUE) standardGeneric("colCumprods"),
            signature = "x"
 )
 
-.matrixStats_colCumprods <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = NA){
+.matrixStats_colCumprods <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = TRUE){
   matrixStats::colCumprods(x, rows = rows, cols = cols, dim. = dim., ..., useNames = useNames)
 }
 

@@ -33,12 +33,12 @@
 #' @template standardExamples
 #'
 #' @keywords array iteration robust
-setGeneric("rowQuantiles", function(x, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE, type = 7L, ..., useNames = NA, drop = TRUE) standardGeneric("rowQuantiles"),
+setGeneric("rowQuantiles", function(x, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE, type = 7L, ..., useNames = TRUE, drop = TRUE) standardGeneric("rowQuantiles"),
            signature = "x"
 )
 
 .matrixStats_rowQuantiles <- function(x, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25),
-                                  na.rm = FALSE, type = 7L, ..., useNames = NA, drop = TRUE) {
+                                  na.rm = FALSE, type = 7L, ..., useNames = TRUE, drop = TRUE) {
   matrixStats::rowQuantiles(x = x, rows = rows, cols = cols, probs = probs, na.rm = na.rm, type = type, ..., useNames = useNames, drop = drop)
 }
 
@@ -55,12 +55,12 @@ setMethod("rowQuantiles", "ANY", make_default_method_def("rowQuantiles"))
 
 #' @export
 #' @rdname rowQuantiles
-setGeneric("colQuantiles", function(x, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE, type = 7L, ..., useNames = NA, drop = TRUE) standardGeneric("colQuantiles"),
+setGeneric("colQuantiles", function(x, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE, type = 7L, ..., useNames = TRUE, drop = TRUE) standardGeneric("colQuantiles"),
            signature = "x"
 )
 
 .matrixStats_colQuantiles <- function(x, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25),
-                                  na.rm = FALSE, type = 7L, ..., useNames = NA, drop = TRUE) {
+                                  na.rm = FALSE, type = 7L, ..., useNames = TRUE, drop = TRUE) {
   matrixStats::colQuantiles(x = x, rows = rows, cols = cols, probs = probs, na.rm = na.rm, type = type, ..., useNames = useNames, drop = drop)
 }
 

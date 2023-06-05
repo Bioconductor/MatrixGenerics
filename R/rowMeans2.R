@@ -34,11 +34,11 @@
 #'
 #'
 #' @keywords array iteration robust univar
-setGeneric("rowMeans2", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA) standardGeneric("rowMeans2"),
+setGeneric("rowMeans2", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = TRUE) standardGeneric("rowMeans2"),
            signature = "x"
 )
 
-.matrixStats_rowMeans2 <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = NA){
+.matrixStats_rowMeans2 <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = TRUE){
   matrixStats::rowMeans2(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ..., useNames = useNames)
 }
 
@@ -55,11 +55,11 @@ setMethod("rowMeans2", "ANY", make_default_method_def("rowMeans2"))
 
 #' @export
 #' @rdname rowMeans2
-setGeneric("colMeans2", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA) standardGeneric("colMeans2"),
+setGeneric("colMeans2", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = TRUE) standardGeneric("colMeans2"),
            signature = "x"
 )
 
-.matrixStats_colMeans2 <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = NA){
+.matrixStats_colMeans2 <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = TRUE){
   matrixStats::colMeans2(x, rows = rows, cols = cols, na.rm = na.rm, dim. = dim., ..., useNames = useNames)
 }
 

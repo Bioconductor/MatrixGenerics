@@ -39,11 +39,11 @@
 #'     colOrderStats(mat, which = 3)
 #'
 #' @keywords array iteration robust univar
-setGeneric("rowOrderStats", function(x, rows = NULL, cols = NULL, which, ..., useNames = NA) standardGeneric("rowOrderStats"),
+setGeneric("rowOrderStats", function(x, rows = NULL, cols = NULL, which, ..., useNames = TRUE) standardGeneric("rowOrderStats"),
            signature = "x"
 )
 
-.matrixStats_rowOrderStats <- function(x, rows = NULL, cols = NULL, which, dim. = dim(x), ..., useNames = NA){
+.matrixStats_rowOrderStats <- function(x, rows = NULL, cols = NULL, which, dim. = dim(x), ..., useNames = TRUE){
   matrixStats::rowOrderStats(x, rows = rows, cols = cols, which = which, dim. = dim., ..., useNames = useNames)
 }
 
@@ -60,11 +60,11 @@ setMethod("rowOrderStats", "ANY", make_default_method_def("rowOrderStats"))
 
 #' @export
 #' @rdname rowOrderStats
-setGeneric("colOrderStats", function(x, rows = NULL, cols = NULL, which, ..., useNames = NA) standardGeneric("colOrderStats"),
+setGeneric("colOrderStats", function(x, rows = NULL, cols = NULL, which, ..., useNames = TRUE) standardGeneric("colOrderStats"),
            signature = "x"
 )
 
-.matrixStats_colOrderStats <- function(x, rows = NULL, cols = NULL, which, dim. = dim(x), ..., useNames = NA){
+.matrixStats_colOrderStats <- function(x, rows = NULL, cols = NULL, which, dim. = dim(x), ..., useNames = TRUE){
   matrixStats::colOrderStats(x, rows = rows, cols = cols, which = which, dim. = dim., ..., useNames = useNames)
 }
 

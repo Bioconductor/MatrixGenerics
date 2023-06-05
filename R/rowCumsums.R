@@ -29,11 +29,11 @@
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-setGeneric("rowCumsums", function(x, rows = NULL, cols = NULL,  ..., useNames = NA) standardGeneric("rowCumsums"),
+setGeneric("rowCumsums", function(x, rows = NULL, cols = NULL,  ..., useNames = TRUE) standardGeneric("rowCumsums"),
            signature = "x"
 )
 
-.matrixStats_rowCumsums <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = NA){
+.matrixStats_rowCumsums <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = TRUE){
   matrixStats::rowCumsums(x, rows = rows, cols = cols, dim. = dim., ..., useNames = useNames)
 }
 
@@ -50,11 +50,11 @@ setMethod("rowCumsums", "ANY", make_default_method_def("rowCumsums"))
 
 #' @export
 #' @rdname rowCumsums
-setGeneric("colCumsums", function(x, rows = NULL, cols = NULL, ..., useNames = NA) standardGeneric("colCumsums"),
+setGeneric("colCumsums", function(x, rows = NULL, cols = NULL, ..., useNames = TRUE) standardGeneric("colCumsums"),
            signature = "x"
 )
 
-.matrixStats_colCumsums <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = NA){
+.matrixStats_colCumsums <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = TRUE){
   matrixStats::colCumsums(x, rows = rows, cols = cols, dim. = dim., ..., useNames = useNames)
 }
 

@@ -38,11 +38,11 @@
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-setGeneric("rowMads", function(x, rows = NULL, cols = NULL, center = NULL, constant = 1.4826, na.rm = FALSE, ..., useNames = NA) standardGeneric("rowMads"),
+setGeneric("rowMads", function(x, rows = NULL, cols = NULL, center = NULL, constant = 1.4826, na.rm = FALSE, ..., useNames = TRUE) standardGeneric("rowMads"),
            signature = "x"
 )
 
-.matrixStats_rowMads <- function(x, rows = NULL, cols = NULL, center = NULL, constant = 1.4826, na.rm = FALSE, dim. = dim(x), ..., useNames = NA){
+.matrixStats_rowMads <- function(x, rows = NULL, cols = NULL, center = NULL, constant = 1.4826, na.rm = FALSE, dim. = dim(x), ..., useNames = TRUE){
   matrixStats::rowMads(x, rows = rows, cols = cols, center = center, constant = constant, na.rm = na.rm, dim. = dim., ..., useNames = useNames)
 }
 
@@ -59,11 +59,11 @@ setMethod("rowMads", "ANY", make_default_method_def("rowMads"))
 
 #' @export
 #' @rdname rowMads
-setGeneric("colMads", function(x, rows = NULL, cols = NULL, center = NULL, constant = 1.4826, na.rm = FALSE, ..., useNames = NA) standardGeneric("colMads"),
+setGeneric("colMads", function(x, rows = NULL, cols = NULL, center = NULL, constant = 1.4826, na.rm = FALSE, ..., useNames = TRUE) standardGeneric("colMads"),
            signature = "x"
 )
 
-.matrixStats_colMads <- function(x, rows = NULL, cols = NULL, center = NULL, constant = 1.4826, na.rm = FALSE, dim. = dim(x), ..., useNames = NA){
+.matrixStats_colMads <- function(x, rows = NULL, cols = NULL, center = NULL, constant = 1.4826, na.rm = FALSE, dim. = dim(x), ..., useNames = TRUE){
   matrixStats::colMads(x, rows = rows, cols = cols, center = center, constant = constant, na.rm = na.rm, dim. = dim., ..., useNames = useNames)
 }
 

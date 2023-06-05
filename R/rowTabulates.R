@@ -41,11 +41,11 @@
 #'   colTabulates(mat, values = 0)
 #'
 #' @keywords array iteration robust univar
-setGeneric("rowTabulates", function(x, rows = NULL, cols = NULL, values = NULL, ..., useNames = NA) standardGeneric("rowTabulates"),
+setGeneric("rowTabulates", function(x, rows = NULL, cols = NULL, values = NULL, ..., useNames = TRUE) standardGeneric("rowTabulates"),
            signature = "x"
 )
 
-.matrixStats_rowTabulates <- function(x, rows = NULL, cols = NULL, values = NULL, ..., useNames = NA){
+.matrixStats_rowTabulates <- function(x, rows = NULL, cols = NULL, values = NULL, ..., useNames = TRUE){
   matrixStats::rowTabulates(x, rows = rows, cols = cols, values = values, ..., useNames = useNames)
 }
 
@@ -62,11 +62,11 @@ setMethod("rowTabulates", "ANY", make_default_method_def("rowTabulates"))
 
 #' @export
 #' @rdname rowTabulates
-setGeneric("colTabulates", function(x, rows = NULL, cols = NULL, values = NULL, ..., useNames = NA) standardGeneric("colTabulates"),
+setGeneric("colTabulates", function(x, rows = NULL, cols = NULL, values = NULL, ..., useNames = TRUE) standardGeneric("colTabulates"),
            signature = "x"
 )
 
-.matrixStats_colTabulates <- function(x, rows = NULL, cols = NULL, values = NULL, ..., useNames = NA){
+.matrixStats_colTabulates <- function(x, rows = NULL, cols = NULL, values = NULL, ..., useNames = TRUE){
   matrixStats::colTabulates(x, rows = rows, cols = cols, values = values, ..., useNames = useNames)
 }
 

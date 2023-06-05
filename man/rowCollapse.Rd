@@ -9,20 +9,19 @@
 \alias{colCollapse,ANY-method}
 \title{Extract one cell from each row (column) of a matrix-like object}
 \usage{
-rowCollapse(x, idxs, rows = NULL, ..., useNames = NA)
+rowCollapse(x, idxs, rows = NULL, ..., useNames = TRUE)
 
 \S4method{rowCollapse}{matrix_OR_array_OR_table_OR_numeric}(x, idxs,
-  rows = NULL, dim. = dim(x), ..., useNames = NA)
+  rows = NULL, dim. = dim(x), ..., useNames = TRUE)
 
-\S4method{rowCollapse}{ANY}(x, idxs, rows = NULL, ..., useNames = NA)
+\S4method{rowCollapse}{ANY}(x, idxs, rows = NULL, ..., useNames = TRUE)
 
-colCollapse(x, idxs = idxs, cols = NULL, ..., useNames = NA)
+colCollapse(x, idxs, cols = NULL, ..., useNames = TRUE)
 
 \S4method{colCollapse}{matrix_OR_array_OR_table_OR_numeric}(x, idxs,
-  cols = NULL, dim. = dim(x), ..., useNames = NA)
+  cols = NULL, dim. = dim(x), ..., useNames = TRUE)
 
-\S4method{colCollapse}{ANY}(x, idxs = idxs, cols = NULL, ...,
-  useNames = NA)
+\S4method{colCollapse}{ANY}(x, idxs, cols = NULL, ..., useNames = TRUE)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

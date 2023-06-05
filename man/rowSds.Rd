@@ -11,24 +11,24 @@
 object}
 \usage{
 rowSds(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, ...,
-  useNames = NA)
+  useNames = TRUE)
 
 \S4method{rowSds}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
   cols = NULL, na.rm = FALSE, center = NULL, dim. = dim(x), ...,
-  useNames = NA)
+  useNames = TRUE)
 
 \S4method{rowSds}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE,
-  center = NULL, ..., useNames = NA)
+  center = NULL, ..., useNames = TRUE)
 
 colSds(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, ...,
-  useNames = NA)
+  useNames = TRUE)
 
 \S4method{colSds}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
   cols = NULL, na.rm = FALSE, center = NULL, dim. = dim(x), ...,
-  useNames = NA)
+  useNames = TRUE)
 
 \S4method{colSds}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE,
-  center = NULL, ..., useNames = NA)
+  center = NULL, ..., useNames = TRUE)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

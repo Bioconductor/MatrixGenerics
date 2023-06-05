@@ -10,21 +10,21 @@
 \title{Calculates the cumulative maxima for each row (column) of a matrix-like
 object}
 \usage{
-rowCummaxs(x, rows = NULL, cols = NULL, ..., useNames = NA)
+rowCummaxs(x, rows = NULL, cols = NULL, ..., useNames = TRUE)
 
 \S4method{rowCummaxs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
-  cols = NULL, dim. = dim(x), ..., useNames = NA)
+  cols = NULL, dim. = dim(x), ..., useNames = TRUE)
 
 \S4method{rowCummaxs}{ANY}(x, rows = NULL, cols = NULL, ...,
-  useNames = NA)
+  useNames = TRUE)
 
-colCummaxs(x, rows = NULL, cols = NULL, ..., useNames = NA)
+colCummaxs(x, rows = NULL, cols = NULL, ..., useNames = TRUE)
 
 \S4method{colCummaxs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
-  cols = NULL, dim. = dim(x), ..., useNames = NA)
+  cols = NULL, dim. = dim(x), ..., useNames = TRUE)
 
 \S4method{colCummaxs}{ANY}(x, rows = NULL, cols = NULL, ...,
-  useNames = NA)
+  useNames = TRUE)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

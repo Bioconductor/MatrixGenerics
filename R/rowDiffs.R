@@ -34,11 +34,11 @@
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-setGeneric("rowDiffs", function(x, rows = NULL, cols = NULL, lag = 1L, differences = 1L,  ..., useNames = NA) standardGeneric("rowDiffs"),
+setGeneric("rowDiffs", function(x, rows = NULL, cols = NULL, lag = 1L, differences = 1L,  ..., useNames = TRUE) standardGeneric("rowDiffs"),
            signature = "x"
 )
 
-.matrixStats_rowDiffs <- function(x, rows = NULL, cols = NULL, lag = 1L, differences = 1L, dim. = dim(x), ..., useNames = NA){
+.matrixStats_rowDiffs <- function(x, rows = NULL, cols = NULL, lag = 1L, differences = 1L, dim. = dim(x), ..., useNames = TRUE){
   matrixStats::rowDiffs(x, rows = rows, cols = cols, lag = lag, differences = differences, dim. = dim., ..., useNames = useNames)
 }
 
@@ -55,11 +55,11 @@ setMethod("rowDiffs", "ANY", make_default_method_def("rowDiffs"))
 
 #' @export
 #' @rdname rowDiffs
-setGeneric("colDiffs", function(x, rows = NULL, cols = NULL, lag = 1L, differences = 1L, ..., useNames = NA) standardGeneric("colDiffs"),
+setGeneric("colDiffs", function(x, rows = NULL, cols = NULL, lag = 1L, differences = 1L, ..., useNames = TRUE) standardGeneric("colDiffs"),
            signature = "x"
 )
 
-.matrixStats_colDiffs <- function(x, rows = NULL, cols = NULL, lag = 1L, differences = 1L, dim. = dim(x), ..., useNames = NA){
+.matrixStats_colDiffs <- function(x, rows = NULL, cols = NULL, lag = 1L, differences = 1L, dim. = dim(x), ..., useNames = TRUE){
   matrixStats::colDiffs(x, rows = rows, cols = cols, lag = lag, differences = differences, dim. = dim., ..., useNames = useNames)
 }
 

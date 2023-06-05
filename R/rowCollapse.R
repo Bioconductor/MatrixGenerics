@@ -41,11 +41,11 @@
 #'   colCollapse (mat, idxs = 4)
 #'
 #' @keywords array iteration robust univar
-setGeneric("rowCollapse", function(x, idxs, rows = NULL, ..., useNames = NA) standardGeneric("rowCollapse"),
+setGeneric("rowCollapse", function(x, idxs, rows = NULL, ..., useNames = TRUE) standardGeneric("rowCollapse"),
            signature = "x"
 )
 
-.matrixStats_rowCollapse <- function(x, idxs, rows = NULL, dim. = dim(x), ..., useNames = NA){
+.matrixStats_rowCollapse <- function(x, idxs, rows = NULL, dim. = dim(x), ..., useNames = TRUE){
   matrixStats::rowCollapse(x, idxs = idxs, rows = rows, dim. = dim., ..., useNames = useNames)
 }
 
@@ -62,11 +62,11 @@ setMethod("rowCollapse", "ANY", make_default_method_def("rowCollapse"))
 
 #' @export
 #' @rdname rowCollapse
-setGeneric("colCollapse", function(x, idxs = idxs, cols = NULL, ..., useNames = NA) standardGeneric("colCollapse"),
+setGeneric("colCollapse", function(x, idxs, cols = NULL, ..., useNames = TRUE) standardGeneric("colCollapse"),
            signature = "x"
 )
 
-.matrixStats_colCollapse <- function(x, idxs, cols = NULL, dim. = dim(x), ..., useNames = NA){
+.matrixStats_colCollapse <- function(x, idxs, cols = NULL, dim. = dim(x), ..., useNames = TRUE){
   matrixStats::colCollapse(x, idxs = idxs, cols = cols, dim. = dim., ..., useNames = useNames)
 }
 

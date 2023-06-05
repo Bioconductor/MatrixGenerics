@@ -33,11 +33,11 @@
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-setGeneric("rowIQRs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA) standardGeneric("rowIQRs"),
+setGeneric("rowIQRs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = TRUE) standardGeneric("rowIQRs"),
            signature = "x"
 )
 
-.matrixStats_rowIQRs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA){
+.matrixStats_rowIQRs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = TRUE){
   matrixStats::rowIQRs(x, rows = rows, cols = cols, na.rm = na.rm, ..., useNames = useNames)
 }
 
@@ -54,11 +54,11 @@ setMethod("rowIQRs", "ANY", make_default_method_def("rowIQRs"))
 
 #' @export
 #' @rdname rowIQRs
-setGeneric("colIQRs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA) standardGeneric("colIQRs"),
+setGeneric("colIQRs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = TRUE) standardGeneric("colIQRs"),
            signature = "x"
 )
 
-.matrixStats_colIQRs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA){
+.matrixStats_colIQRs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = TRUE){
   matrixStats::colIQRs(x, rows = rows, cols = cols, na.rm = na.rm, ..., useNames = useNames)
 }
 

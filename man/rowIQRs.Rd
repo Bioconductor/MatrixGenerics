@@ -10,21 +10,23 @@
 \title{Calculates the interquartile range for each row (column) of a matrix-like
 object}
 \usage{
-rowIQRs(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA)
+rowIQRs(x, rows = NULL, cols = NULL, na.rm = FALSE, ...,
+  useNames = TRUE)
 
 \S4method{rowIQRs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
-  cols = NULL, na.rm = FALSE, ..., useNames = NA)
+  cols = NULL, na.rm = FALSE, ..., useNames = TRUE)
 
 \S4method{rowIQRs}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...,
-  useNames = NA)
+  useNames = TRUE)
 
-colIQRs(x, rows = NULL, cols = NULL, na.rm = FALSE, ..., useNames = NA)
+colIQRs(x, rows = NULL, cols = NULL, na.rm = FALSE, ...,
+  useNames = TRUE)
 
 \S4method{colIQRs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
-  cols = NULL, na.rm = FALSE, ..., useNames = NA)
+  cols = NULL, na.rm = FALSE, ..., useNames = TRUE)
 
 \S4method{colIQRs}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...,
-  useNames = NA)
+  useNames = TRUE)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

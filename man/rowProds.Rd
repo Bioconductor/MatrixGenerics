@@ -10,24 +10,24 @@
 \title{Calculates the product for each row (column) of a matrix-like object}
 \usage{
 rowProds(x, rows = NULL, cols = NULL, na.rm = FALSE, ...,
-  useNames = NA)
+  useNames = TRUE)
 
 \S4method{rowProds}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
   cols = NULL, na.rm = FALSE, method = c("direct", "expSumLog"), ...,
-  useNames = NA)
+  useNames = TRUE)
 
 \S4method{rowProds}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...,
-  useNames = NA)
+  useNames = TRUE)
 
 colProds(x, rows = NULL, cols = NULL, na.rm = FALSE, ...,
-  useNames = NA)
+  useNames = TRUE)
 
 \S4method{colProds}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
   cols = NULL, na.rm = FALSE, method = c("direct", "expSumLog"), ...,
-  useNames = NA)
+  useNames = TRUE)
 
 \S4method{colProds}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE, ...,
-  useNames = NA)
+  useNames = TRUE)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

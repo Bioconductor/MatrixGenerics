@@ -11,24 +11,24 @@
 (column) of a matrix-like object}
 \usage{
 rowVarDiffs(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L,
-  trim = 0, ..., useNames = NA)
+  trim = 0, ..., useNames = TRUE)
 
 \S4method{rowVarDiffs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
   cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...,
-  useNames = NA)
+  useNames = TRUE)
 
 \S4method{rowVarDiffs}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE,
-  diff = 1L, trim = 0, ..., useNames = NA)
+  diff = 1L, trim = 0, ..., useNames = TRUE)
 
 colVarDiffs(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L,
-  trim = 0, ..., useNames = NA)
+  trim = 0, ..., useNames = TRUE)
 
 \S4method{colVarDiffs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
   cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ...,
-  useNames = NA)
+  useNames = TRUE)
 
 \S4method{colVarDiffs}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE,
-  diff = 1L, trim = 0, ..., useNames = NA)
+  diff = 1L, trim = 0, ..., useNames = TRUE)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

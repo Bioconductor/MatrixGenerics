@@ -10,22 +10,22 @@
 \title{Calculates the median for each row (column) of a matrix-like object}
 \usage{
 rowMedians(x, rows = NULL, cols = NULL, na.rm = FALSE, ...,
-  useNames = NA)
+  useNames = TRUE)
 
 \S4method{rowMedians}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
-  cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = NA)
+  cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = TRUE)
 
 \S4method{rowMedians}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE,
-  ..., useNames = NA)
+  ..., useNames = TRUE)
 
 colMedians(x, rows = NULL, cols = NULL, na.rm = FALSE, ...,
-  useNames = NA)
+  useNames = TRUE)
 
 \S4method{colMedians}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
-  cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = NA)
+  cols = NULL, na.rm = FALSE, dim. = dim(x), ..., useNames = TRUE)
 
 \S4method{colMedians}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE,
-  ..., useNames = NA)
+  ..., useNames = TRUE)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

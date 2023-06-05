@@ -11,24 +11,24 @@
 matrix-like object}
 \usage{
 rowMads(x, rows = NULL, cols = NULL, center = NULL, constant = 1.4826,
-  na.rm = FALSE, ..., useNames = NA)
+  na.rm = FALSE, ..., useNames = TRUE)
 
 \S4method{rowMads}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
   cols = NULL, center = NULL, constant = 1.4826, na.rm = FALSE,
-  dim. = dim(x), ..., useNames = NA)
+  dim. = dim(x), ..., useNames = TRUE)
 
 \S4method{rowMads}{ANY}(x, rows = NULL, cols = NULL, center = NULL,
-  constant = 1.4826, na.rm = FALSE, ..., useNames = NA)
+  constant = 1.4826, na.rm = FALSE, ..., useNames = TRUE)
 
 colMads(x, rows = NULL, cols = NULL, center = NULL, constant = 1.4826,
-  na.rm = FALSE, ..., useNames = NA)
+  na.rm = FALSE, ..., useNames = TRUE)
 
 \S4method{colMads}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
   cols = NULL, center = NULL, constant = 1.4826, na.rm = FALSE,
-  dim. = dim(x), ..., useNames = NA)
+  dim. = dim(x), ..., useNames = TRUE)
 
 \S4method{colMads}{ANY}(x, rows = NULL, cols = NULL, center = NULL,
-  constant = 1.4826, na.rm = FALSE, ..., useNames = NA)
+  constant = 1.4826, na.rm = FALSE, ..., useNames = TRUE)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

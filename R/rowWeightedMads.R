@@ -36,11 +36,11 @@
 #' @template weightedExamples
 #'
 #' @keywords array iteration robust univar
-setGeneric("rowWeightedMads", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, constant = 1.4826, center = NULL, ...) standardGeneric("rowWeightedMads"),
+setGeneric("rowWeightedMads", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, constant = 1.4826, center = NULL, ..., useNames = TRUE) standardGeneric("rowWeightedMads"),
            signature = "x"
 )
 
-.matrixStats_rowWeightedMads <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE,  constant = 1.4826, center = NULL, ..., useNames = NA){
+.matrixStats_rowWeightedMads <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE,  constant = 1.4826, center = NULL, ..., useNames = TRUE){
   matrixStats::rowWeightedMads(x, w = w, rows = rows, cols = cols, na.rm = na.rm, constant = constant, center = center, ..., useNames = useNames)
 }
 
@@ -57,11 +57,11 @@ setMethod("rowWeightedMads", "ANY", make_default_method_def("rowWeightedMads"))
 
 #' @export
 #' @rdname rowWeightedMads
-setGeneric("colWeightedMads", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, constant = 1.4826, center = NULL, ..., useNames = NA) standardGeneric("colWeightedMads"),
+setGeneric("colWeightedMads", function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, constant = 1.4826, center = NULL, ..., useNames = TRUE) standardGeneric("colWeightedMads"),
            signature = "x"
 )
 
-.matrixStats_colWeightedMads <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE,  constant = 1.4826, center = NULL, ..., useNames = NA){
+.matrixStats_colWeightedMads <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE,  constant = 1.4826, center = NULL, ..., useNames = TRUE){
   matrixStats::colWeightedMads(x, w = w, rows = rows, cols = cols, na.rm = na.rm, constant = constant, center = center, ..., useNames = useNames)
 }
 

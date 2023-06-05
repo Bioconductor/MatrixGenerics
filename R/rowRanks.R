@@ -53,13 +53,13 @@
 #' @template standardExamples
 #'
 #' @keywords array iteration robust
-setGeneric("rowRanks", function(x, rows = NULL, cols = NULL, ties.method = c("max", "average"), ..., useNames = NA) standardGeneric("rowRanks"),
+setGeneric("rowRanks", function(x, rows = NULL, cols = NULL, ties.method = c("max", "average"), ..., useNames = TRUE) standardGeneric("rowRanks"),
            signature = "x"
 )
 
 .matrixStats_rowRanks <-  function(x, rows = NULL, cols = NULL,
                                ties.method = c("max", "average", "first", "last", "random", "max", "min", "dense"),
-                               dim. = dim(x), ..., useNames = NA){
+                               dim. = dim(x), ..., useNames = TRUE){
   matrixStats::rowRanks(x = x, rows = rows, cols = cols, ties.method = ties.method, dim. = dim., ..., useNames = useNames)
 }
 
@@ -76,13 +76,13 @@ setMethod("rowRanks", "ANY", make_default_method_def("rowRanks"))
 
 #' @export
 #' @rdname rowRanks
-setGeneric("colRanks", function(x, rows = NULL, cols = NULL, ties.method = c("max", "average"), ..., useNames = NA) standardGeneric("colRanks"),
+setGeneric("colRanks", function(x, rows = NULL, cols = NULL, ties.method = c("max", "average"), ..., useNames = TRUE) standardGeneric("colRanks"),
            signature = "x"
 )
 
 .matrixStats_colRanks <-  function(x, rows = NULL, cols = NULL,
                                ties.method = c("max", "average", "first", "last", "random", "max", "min", "dense"),
-                               dim. = dim(x), preserveShape = FALSE, ..., useNames = NA){
+                               dim. = dim(x), preserveShape = FALSE, ..., useNames = TRUE){
   matrixStats::colRanks(x = x, rows = rows, cols = cols, ties.method = ties.method, dim. = dim., preserveShape = preserveShape, ..., useNames = useNames)
 }
 

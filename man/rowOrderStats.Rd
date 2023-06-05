@@ -9,21 +9,21 @@
 \alias{colOrderStats,ANY-method}
 \title{Calculates an order statistic for each row (column) of a matrix-like object}
 \usage{
-rowOrderStats(x, rows = NULL, cols = NULL, which, ..., useNames = NA)
+rowOrderStats(x, rows = NULL, cols = NULL, which, ..., useNames = TRUE)
 
 \S4method{rowOrderStats}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
-  cols = NULL, which, dim. = dim(x), ..., useNames = NA)
+  cols = NULL, which, dim. = dim(x), ..., useNames = TRUE)
 
 \S4method{rowOrderStats}{ANY}(x, rows = NULL, cols = NULL, which, ...,
-  useNames = NA)
+  useNames = TRUE)
 
-colOrderStats(x, rows = NULL, cols = NULL, which, ..., useNames = NA)
+colOrderStats(x, rows = NULL, cols = NULL, which, ..., useNames = TRUE)
 
 \S4method{colOrderStats}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
-  cols = NULL, which, dim. = dim(x), ..., useNames = NA)
+  cols = NULL, which, dim. = dim(x), ..., useNames = TRUE)
 
 \S4method{colOrderStats}{ANY}(x, rows = NULL, cols = NULL, which, ...,
-  useNames = NA)
+  useNames = TRUE)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

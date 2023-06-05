@@ -10,24 +10,24 @@
 \title{Calculates the weighted median for each row (column) of a matrix-like object}
 \usage{
 rowWeightedMedians(x, w = NULL, rows = NULL, cols = NULL,
-  na.rm = FALSE, ..., useNames = NA)
+  na.rm = FALSE, ..., useNames = TRUE)
 
 \S4method{rowWeightedMedians}{matrix_OR_array_OR_table_OR_numeric}(x,
   w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...,
-  useNames = NA)
+  useNames = TRUE)
 
 \S4method{rowWeightedMedians}{ANY}(x, w = NULL, rows = NULL, cols = NULL,
-  na.rm = FALSE, ..., useNames = NA)
+  na.rm = FALSE, ..., useNames = TRUE)
 
 colWeightedMedians(x, w = NULL, rows = NULL, cols = NULL,
-  na.rm = FALSE, ..., useNames = NA)
+  na.rm = FALSE, ..., useNames = TRUE)
 
 \S4method{colWeightedMedians}{matrix_OR_array_OR_table_OR_numeric}(x,
   w = NULL, rows = NULL, cols = NULL, na.rm = FALSE, ...,
-  useNames = NA)
+  useNames = TRUE)
 
 \S4method{colWeightedMedians}{ANY}(x, w = NULL, rows = NULL, cols = NULL,
-  na.rm = FALSE, ..., useNames = NA)
+  na.rm = FALSE, ..., useNames = TRUE)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

@@ -11,24 +11,24 @@
 a value}
 \usage{
 rowAnys(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...,
-  useNames = NA)
+  useNames = TRUE)
 
 \S4method{rowAnys}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
   cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ...,
-  useNames = NA)
+  useNames = TRUE)
 
 \S4method{rowAnys}{ANY}(x, rows = NULL, cols = NULL, value = TRUE,
-  na.rm = FALSE, ..., useNames = NA)
+  na.rm = FALSE, ..., useNames = TRUE)
 
 colAnys(x, rows = NULL, cols = NULL, value = TRUE, na.rm = FALSE, ...,
-  useNames = NA)
+  useNames = TRUE)
 
 \S4method{colAnys}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
   cols = NULL, value = TRUE, na.rm = FALSE, dim. = dim(x), ...,
-  useNames = NA)
+  useNames = TRUE)
 
 \S4method{colAnys}{ANY}(x, rows = NULL, cols = NULL, value = TRUE,
-  na.rm = FALSE, ..., useNames = NA)
+  na.rm = FALSE, ..., useNames = TRUE)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

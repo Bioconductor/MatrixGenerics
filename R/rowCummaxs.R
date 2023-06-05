@@ -32,11 +32,11 @@
 #' @template standardExamples
 #'
 #' @keywords array iteration robust univar
-setGeneric("rowCummaxs", function(x, rows = NULL, cols = NULL, ..., useNames = NA) standardGeneric("rowCummaxs"),
+setGeneric("rowCummaxs", function(x, rows = NULL, cols = NULL, ..., useNames = TRUE) standardGeneric("rowCummaxs"),
            signature = "x"
 )
 
-.matrixStats_rowCummaxs <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = NA){
+.matrixStats_rowCummaxs <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = TRUE){
   matrixStats::rowCummaxs(x, rows = rows, cols = cols, dim. = dim., ..., useNames = useNames)
 }
 
@@ -53,11 +53,11 @@ setMethod("rowCummaxs", "ANY", make_default_method_def("rowCummaxs"))
 
 #' @export
 #' @rdname rowCummaxs
-setGeneric("colCummaxs", function(x, rows = NULL, cols = NULL, ..., useNames = NA) standardGeneric("colCummaxs"),
+setGeneric("colCummaxs", function(x, rows = NULL, cols = NULL, ..., useNames = TRUE) standardGeneric("colCummaxs"),
            signature = "x"
 )
 
-.matrixStats_colCummaxs <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = NA){
+.matrixStats_colCummaxs <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = TRUE){
   matrixStats::colCummaxs(x, rows = rows, cols = cols, dim. = dim., ..., useNames = useNames)
 }
 

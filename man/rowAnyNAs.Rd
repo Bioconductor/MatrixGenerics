@@ -9,21 +9,21 @@
 \alias{colAnyNAs,ANY-method}
 \title{Check if any elements in a row (column) of a matrix-like object is missing}
 \usage{
-rowAnyNAs(x, rows = NULL, cols = NULL, ..., useNames = NA)
+rowAnyNAs(x, rows = NULL, cols = NULL, ..., useNames = TRUE)
 
 \S4method{rowAnyNAs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
-  cols = NULL, ..., useNames = NA)
+  cols = NULL, ..., useNames = TRUE)
 
 \S4method{rowAnyNAs}{ANY}(x, rows = NULL, cols = NULL, ...,
-  useNames = NA)
+  useNames = TRUE)
 
-colAnyNAs(x, rows = NULL, cols = NULL, ..., useNames = NA)
+colAnyNAs(x, rows = NULL, cols = NULL, ..., useNames = TRUE)
 
 \S4method{colAnyNAs}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
-  cols = NULL, ..., useNames = NA)
+  cols = NULL, ..., useNames = TRUE)
 
 \S4method{colAnyNAs}{ANY}(x, rows = NULL, cols = NULL, ...,
-  useNames = NA)
+  useNames = TRUE)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}

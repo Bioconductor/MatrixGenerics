@@ -10,24 +10,24 @@
 \title{Calculates the variance for each row (column) of a matrix-like object}
 \usage{
 rowVars(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, ...,
-  useNames = NA)
+  useNames = TRUE)
 
 \S4method{rowVars}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
   cols = NULL, na.rm = FALSE, center = NULL, dim. = dim(x), ...,
-  useNames = NA)
+  useNames = TRUE)
 
 \S4method{rowVars}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE,
-  center = NULL, ..., useNames = NA)
+  center = NULL, ..., useNames = TRUE)
 
 colVars(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, ...,
-  useNames = NA)
+  useNames = TRUE)
 
 \S4method{colVars}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
   cols = NULL, na.rm = FALSE, center = NULL, dim. = dim(x), ...,
-  useNames = NA)
+  useNames = TRUE)
 
 \S4method{colVars}{ANY}(x, rows = NULL, cols = NULL, na.rm = FALSE,
-  center = NULL, ..., useNames = NA)
+  center = NULL, ..., useNames = TRUE)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
