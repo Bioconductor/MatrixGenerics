@@ -37,7 +37,7 @@ setGeneric("rowCummins", function(x, rows = NULL, cols = NULL, ..., useNames = N
 )
 
 .matrixStats_rowCummins <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = NA){
-  matrixStats::rowCummins(x, rows = rows, cols = cols, dim. = dim., ..., useNames = useNames)
+  matrixStats::rowCummins(x, rows = rows, cols = cols, dim. = dim., ..., useNames = isTRUE(useNames))
 }
 
 #' @export
@@ -58,7 +58,7 @@ setGeneric("colCummins", function(x, rows = NULL, cols = NULL, ..., useNames = N
 )
 
 .matrixStats_colCummins <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = NA){
-  matrixStats::colCummins(x, rows = rows, cols = cols, dim. = dim., ..., useNames = useNames)
+  matrixStats::colCummins(x, rows = rows, cols = cols, dim. = dim., ..., useNames = isTRUE(useNames))
 }
 
 #' @export

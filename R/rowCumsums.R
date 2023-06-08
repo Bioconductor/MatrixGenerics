@@ -34,7 +34,7 @@ setGeneric("rowCumsums", function(x, rows = NULL, cols = NULL,  ..., useNames = 
 )
 
 .matrixStats_rowCumsums <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = NA){
-  matrixStats::rowCumsums(x, rows = rows, cols = cols, dim. = dim., ..., useNames = useNames)
+  matrixStats::rowCumsums(x, rows = rows, cols = cols, dim. = dim., ..., useNames = isTRUE(useNames))
 }
 
 #' @export
@@ -55,7 +55,7 @@ setGeneric("colCumsums", function(x, rows = NULL, cols = NULL, ..., useNames = N
 )
 
 .matrixStats_colCumsums <- function(x, rows = NULL, cols = NULL, dim. = dim(x), ..., useNames = NA){
-  matrixStats::colCumsums(x, rows = rows, cols = cols, dim. = dim., ..., useNames = useNames)
+  matrixStats::colCumsums(x, rows = rows, cols = cols, dim. = dim., ..., useNames = isTRUE(useNames))
 }
 
 #' @export

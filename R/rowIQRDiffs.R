@@ -37,7 +37,7 @@ setGeneric("rowIQRDiffs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, d
 )
 
 .matrixStats_rowIQRDiffs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ..., useNames = NA){
-  matrixStats::rowIQRDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff = diff, trim = trim, ..., useNames = useNames)
+  matrixStats::rowIQRDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff = diff, trim = trim, ..., useNames = !isFALSE(useNames))
 }
 
 #' @export
@@ -58,7 +58,7 @@ setGeneric("colIQRDiffs", function(x, rows = NULL, cols = NULL, na.rm = FALSE, d
 )
 
 .matrixStats_colIQRDiffs <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, diff = 1L, trim = 0, ..., useNames = NA){
-  matrixStats::colIQRDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff = diff, trim = trim, ..., useNames = useNames)
+  matrixStats::colIQRDiffs(x, rows = rows, cols = cols, na.rm = na.rm, diff = diff, trim = trim, ..., useNames = !isFALSE(useNames))
 }
 
 #' @export

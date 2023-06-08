@@ -11,14 +11,14 @@
 matrix-like object}
 \usage{
 rowWeightedMads(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE,
-  constant = 1.4826, center = NULL, ...)
+  constant = 1.4826, center = NULL, ..., useNames = NA)
 
 \S4method{rowWeightedMads}{matrix_OR_array_OR_table_OR_numeric}(x, w = NULL,
   rows = NULL, cols = NULL, na.rm = FALSE, constant = 1.4826,
   center = NULL, ..., useNames = NA)
 
 \S4method{rowWeightedMads}{ANY}(x, w = NULL, rows = NULL, cols = NULL,
-  na.rm = FALSE, constant = 1.4826, center = NULL, ...)
+  na.rm = FALSE, constant = 1.4826, center = NULL, ..., useNames = NA)
 
 colWeightedMads(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE,
   constant = 1.4826, center = NULL, ..., useNames = NA)

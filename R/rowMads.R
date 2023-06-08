@@ -43,7 +43,7 @@ setGeneric("rowMads", function(x, rows = NULL, cols = NULL, center = NULL, const
 )
 
 .matrixStats_rowMads <- function(x, rows = NULL, cols = NULL, center = NULL, constant = 1.4826, na.rm = FALSE, dim. = dim(x), ..., useNames = NA){
-  matrixStats::rowMads(x, rows = rows, cols = cols, center = center, constant = constant, na.rm = na.rm, dim. = dim., ..., useNames = useNames)
+  matrixStats::rowMads(x, rows = rows, cols = cols, center = center, constant = constant, na.rm = na.rm, dim. = dim., ..., useNames = isTRUE(useNames))
 }
 
 #' @export
@@ -64,7 +64,7 @@ setGeneric("colMads", function(x, rows = NULL, cols = NULL, center = NULL, const
 )
 
 .matrixStats_colMads <- function(x, rows = NULL, cols = NULL, center = NULL, constant = 1.4826, na.rm = FALSE, dim. = dim(x), ..., useNames = NA){
-  matrixStats::colMads(x, rows = rows, cols = cols, center = center, constant = constant, na.rm = na.rm, dim. = dim., ..., useNames = useNames)
+  matrixStats::colMads(x, rows = rows, cols = cols, center = center, constant = constant, na.rm = na.rm, dim. = dim., ..., useNames = isTRUE(useNames))
 }
 
 #' @export
