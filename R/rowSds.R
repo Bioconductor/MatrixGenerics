@@ -40,7 +40,7 @@ setGeneric("rowSds", function(x, rows = NULL, cols = NULL, na.rm = FALSE, center
 )
 
 .matrixStats_rowSds <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, dim. = dim(x), ..., useNames = NA){
-  matrixStats::rowSds(x, rows = rows, cols = cols, na.rm = na.rm, center = center, dim. = dim., ..., useNames = isTRUE(useNames))
+  matrixStats::rowSds(x, rows = rows, cols = cols, na.rm = na.rm, center = center, dim. = dim., ..., useNames = (isTRUE(useNames) || !(is.null(center) || isFALSE(useNames))))
 }
 
 #' @export
@@ -61,7 +61,7 @@ setGeneric("colSds", function(x, rows = NULL, cols = NULL, na.rm = FALSE, center
 )
 
 .matrixStats_colSds <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, dim. = dim(x), ..., useNames = NA){
-  matrixStats::colSds(x, rows = rows, cols = cols, na.rm = na.rm, center = center, dim. = dim., ..., useNames = isTRUE(useNames))
+  matrixStats::colSds(x, rows = rows, cols = cols, na.rm = na.rm, center = center, dim. = dim., ..., useNames = (isTRUE(useNames) || !(is.null(center) || isFALSE(useNames))))
 }
 
 #' @export
