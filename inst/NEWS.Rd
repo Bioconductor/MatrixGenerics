@@ -2,15 +2,15 @@
 \title{News for Package \pkg{MatrixGenerics}}
 \encoding{UTF-8}
 
-\section{Version 1.13.1{\itemize{
+\section{Version 1.13.1}{\itemize{
   \item Apply matrixStats 1.0.0 breaking change for \code{useNames}'s default: All generic functions and methods defined in \pkg{MatrixGenerics} now set the \code{useNames} argument to \code{TRUE} instead of \code{NA} by default. See https://github.com/Bioconductor/MatrixGenerics/issues/31 for a discussion of this change.
 }}
 
-\section{Version 1.11.3{\itemize{
+\section{Version 1.11.3}{\itemize{
   \item Add \pkg{SparseArray} to Suggests.
 }}
 
-\section{Version 1.11.1{\itemize{
+\section{Version 1.11.1}{\itemize{
   \item Move \code{row/colSums()} and \code{row/colMeans()} generics from \pkg{BiocGenerics}.
 }}
 
