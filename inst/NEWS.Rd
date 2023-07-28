@@ -2,15 +2,15 @@
 \title{News for Package \pkg{MatrixGenerics}}
 \encoding{UTF-8}
 
-\section{Version 1.12.1{\itemize{
+\section{Version 1.12.1}{\itemize{
   \item Modify calls to \pkg{matrixStats} functions to mitigate non-backward comptible changes in \pkg{matrixStats} 1.0.0. More precisely: (1) \code{useNames=NA} became deprecated in \pkg{matrixStats} 1.0.0 so we make sure to never pass \code{useNames=NA} when calling a \pkg{matrixStats} function; (2) furthermore, we make sure to pass a \code{useNames} value that preserves the pre-\pkg{matrixStats} 1.0.0 behavior in order to avoid disruption. See https://github.com/Bioconductor/MatrixGenerics/issues/31 for a discussion of these changes.
 }}
 
-\section{Version 1.11.3{\itemize{
+\section{Version 1.11.3}{\itemize{
   \item Add \pkg{SparseArray} to Suggests.
 }}
 
-\section{Version 1.11.1{\itemize{
+\section{Version 1.11.1}{\itemize{
   \item Move \code{rowSum()}/\code{colSums()} and \code{rowMeans()}/\code{colMeans()} generics from \pkg{BiocGenerics}.
 }}
 
