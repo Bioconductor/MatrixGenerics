@@ -44,7 +44,7 @@ specifying the dimension of \code{x}, essential when x is a
 \code{\link{numeric}} vector. Note, that this is not a generic
 argument and not all methods need provide it.}
 
-\item{useNames}{If \code{\link{NA}}, the default behavior of the function about naming support is remained. If \code{\link{FALSE}}, no naming support is done. Else if \code{\link{TRUE}}, names attributes of result are set.}
+\item{useNames}{If \code{\link{TRUE}} (default), names attributes of result are set. Else if \code{\link{FALSE}}, no naming support is done.}
 }
 \value{
 a \code{\link{numeric}} \code{Nx2} (\code{Kx2})
