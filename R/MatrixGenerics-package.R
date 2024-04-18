@@ -16,6 +16,7 @@ setClassUnion("matrix_OR_array_OR_table_OR_numeric",
     c("array", "table", "numeric")
 )
 
+
 ## - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 ## make_default_method_def()
 ##
