@@ -4,7 +4,7 @@
 #' functions that operate on matrix-Like objects.
 #'
 #' @import methods matrixStats
-#
+#'
 #' @name MatrixGenerics-package
 #' @exportClass matrix_OR_array_OR_table_OR_numeric
 #' @aliases class:matrix_OR_array_OR_table_OR_numeric
@@ -15,7 +15,6 @@
 setClassUnion("matrix_OR_array_OR_table_OR_numeric",
     c("array", "table", "numeric")
 )
-
 
 ## - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 ## make_default_method_def()
@@ -107,6 +106,7 @@ setClassUnion("matrix_OR_array_OR_table_OR_numeric",
     stop(.long_and_fancy_errmsg(short_errmsg, unloaded_pkgs))
 }
 
+## Not exported (for internal use only).
 make_default_method_def <- function(genericName)
 {
     def <- function() { }
@@ -116,5 +116,31 @@ make_default_method_def <- function(genericName)
     body(def) <- as.call(c(as.name("{"), e))
     environment(def) <- getNamespace("MatrixGenerics")
     def
+}
+
+
+## - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+## normarg_center()
+##
+## Check and normalize 'center' argument.
+## Supplied 'center' must be either NULL or a numeric vector of length 'n'
+## or 1. Normalized value is guaranteed to be NULL or a numeric vector of
+## length 'n'.
+
+#' @export
+#' @name internal-helpers
+#' @title Internal helpers
+#' @description Not for end users
+#' @keywords internal utilities
+normarg_center <- function(center, n, what)
+{
+    if (is.null(center))
+        return(center)
+    stopifnot(is.numeric(center))
+    if (length(center) == 1L)
+        return(rep.int(center, n))
+    if (length(center) != n)
+        stop("'center' must be of length '", what, "' (", n, ") or 1")
+    center
 }
 
