@@ -10,7 +10,7 @@ Description: S4 generic functions modeled after the 'matrixStats' API
 biocViews: Infrastructure, Software
 URL: https://bioconductor.org/packages/MatrixGenerics
 BugReports: https://github.com/Bioconductor/MatrixGenerics/issues
-Version: 1.15.0
+Version: 1.15.1
 License: Artistic-2.0
 Encoding: UTF-8
 Authors@R: c(person("Constantin", "Ahlmann-Eltze",
@@ -31,7 +31,7 @@ Suggests:
     DelayedMatrixStats,
     SummarizedExperiment,
     testthat (>= 2.1.0)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.1
 Roxygen: list(markdown = TRUE, old_usage = TRUE)
 Collate:
     'MatrixGenerics-package.R'

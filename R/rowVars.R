@@ -39,6 +39,7 @@ setGeneric("rowVars", function(x, rows = NULL, cols = NULL, na.rm = FALSE, cente
 )
 
 .matrixStats_rowVars <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, dim. = dim(x), ..., useNames = TRUE){
+  center <- normarg_center(center, nrow(x), "nrow(x)")
   matrixStats::rowVars(x, rows = rows, cols = cols, na.rm = na.rm, center = center, dim. = dim., ..., useNames = useNames)
 }
 
@@ -60,6 +61,7 @@ setGeneric("colVars", function(x, rows = NULL, cols = NULL, na.rm = FALSE, cente
 )
 
 .matrixStats_colVars <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, dim. = dim(x), ..., useNames = TRUE){
+  center <- normarg_center(center, ncol(x), "ncol(x)")
   matrixStats::colVars(x, rows = rows, cols = cols, na.rm = na.rm, center = center, dim. = dim., ..., useNames = useNames)
 }
 

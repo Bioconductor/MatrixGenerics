@@ -43,6 +43,7 @@ setGeneric("rowMads", function(x, rows = NULL, cols = NULL, center = NULL, const
 )
 
 .matrixStats_rowMads <- function(x, rows = NULL, cols = NULL, center = NULL, constant = 1.4826, na.rm = FALSE, dim. = dim(x), ..., useNames = TRUE){
+  center <- normarg_center(center, nrow(x), "nrow(x)")
   matrixStats::rowMads(x, rows = rows, cols = cols, center = center, constant = constant, na.rm = na.rm, dim. = dim., ..., useNames = useNames)
 }
 
@@ -64,6 +65,7 @@ setGeneric("colMads", function(x, rows = NULL, cols = NULL, center = NULL, const
 )
 
 .matrixStats_colMads <- function(x, rows = NULL, cols = NULL, center = NULL, constant = 1.4826, na.rm = FALSE, dim. = dim(x), ..., useNames = TRUE){
+  center <- normarg_center(center, ncol(x), "ncol(x)")
   matrixStats::colMads(x, rows = rows, cols = cols, center = center, constant = constant, na.rm = na.rm, dim. = dim., ..., useNames = useNames)
 }
 

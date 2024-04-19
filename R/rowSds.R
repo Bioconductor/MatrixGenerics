@@ -40,6 +40,7 @@ setGeneric("rowSds", function(x, rows = NULL, cols = NULL, na.rm = FALSE, center
 )
 
 .matrixStats_rowSds <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, dim. = dim(x), ..., useNames = TRUE){
+  center <- normarg_center(center, nrow(x), "nrow(x)")
   matrixStats::rowSds(x, rows = rows, cols = cols, na.rm = na.rm, center = center, dim. = dim., ..., useNames = useNames)
 }
 
@@ -61,6 +62,7 @@ setGeneric("colSds", function(x, rows = NULL, cols = NULL, na.rm = FALSE, center
 )
 
 .matrixStats_colSds <- function(x, rows = NULL, cols = NULL, na.rm = FALSE, center = NULL, dim. = dim(x), ..., useNames = TRUE){
+  center <- normarg_center(center, ncol(x), "ncol(x)")
   matrixStats::colSds(x, rows = rows, cols = cols, na.rm = na.rm, center = center, dim. = dim., ..., useNames = useNames)
 }
 
