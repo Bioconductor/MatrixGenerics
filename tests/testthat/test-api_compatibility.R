@@ -26,8 +26,6 @@ mat[6,5] <- 0
     MatrixGenerics_matrixStats_method_formals <- formals(MatrixGenerics_matrixStats_method)
     if (fnc_name %in% c("rowMeans2", "colMeans2", "rowVars", "colVars", "rowSds", "colSds"))
         matrixStats_formals$refine <- NULL
-    if (fnc_name %in% c("rowQuantiles", "colQuantiles"))
-        matrixStats_formals$digits <- NULL
     expect_identical(MatrixGenerics_matrixStats_method_formals, matrixStats_formals)
 
     MatrixGenerics_formals <- formals(MatrixGenerics_fun)
@@ -479,12 +477,12 @@ test_that("colQuantiles works", {
 	ms_res_def_1 <- matrixStats::colQuantiles(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- colQuantiles(x = mat, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), na.rm = TRUE, type = 7, digits = , useNames = TRUE, drop = TRUE)
-	ms_res_1 <- matrixStats::colQuantiles(x = mat, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), na.rm = TRUE, type = 7, digits = , useNames = TRUE, drop = TRUE)
+	mg_res_1 <- colQuantiles(x = mat, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), na.rm = TRUE, type = 7, digits = 7, useNames = TRUE, drop = TRUE)
+	ms_res_1 <- matrixStats::colQuantiles(x = mat, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), na.rm = TRUE, type = 7, digits = 7, useNames = TRUE, drop = TRUE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- colQuantiles(x = mat, rows = 1:3, cols = 2, probs = 0.1, na.rm = FALSE, type = 3, digits = , useNames = FALSE, drop = FALSE)
-	ms_res_2 <- matrixStats::colQuantiles(x = mat, rows = 1:3, cols = 2, probs = 0.1, na.rm = FALSE, type = 3, digits = , useNames = FALSE, drop = FALSE)
+	mg_res_2 <- colQuantiles(x = mat, rows = 1:3, cols = 2, probs = 0.1, na.rm = FALSE, type = 3, digits = 7, useNames = FALSE, drop = FALSE)
+	ms_res_2 <- matrixStats::colQuantiles(x = mat, rows = 1:3, cols = 2, probs = 0.1, na.rm = FALSE, type = 3, digits = 7, useNames = FALSE, drop = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 
@@ -1171,12 +1169,12 @@ test_that("rowQuantiles works", {
 	ms_res_def_1 <- matrixStats::rowQuantiles(x = mat)
 	expect_equal(mg_res_def_1, ms_res_def_1)
 
-	mg_res_1 <- rowQuantiles(x = mat, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), na.rm = TRUE, type = 7, digits = , useNames = TRUE, drop = TRUE)
-	ms_res_1 <- matrixStats::rowQuantiles(x = mat, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), na.rm = TRUE, type = 7, digits = , useNames = TRUE, drop = TRUE)
+	mg_res_1 <- rowQuantiles(x = mat, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), na.rm = TRUE, type = 7, digits = 7, useNames = TRUE, drop = TRUE)
+	ms_res_1 <- matrixStats::rowQuantiles(x = mat, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), na.rm = TRUE, type = 7, digits = 7, useNames = TRUE, drop = TRUE)
 	expect_equal(mg_res_1, ms_res_1)
 
-	mg_res_2 <- rowQuantiles(x = mat, rows = 1:3, cols = 2, probs = 0.1, na.rm = FALSE, type = 3, digits = , useNames = FALSE, drop = FALSE)
-	ms_res_2 <- matrixStats::rowQuantiles(x = mat, rows = 1:3, cols = 2, probs = 0.1, na.rm = FALSE, type = 3, digits = , useNames = FALSE, drop = FALSE)
+	mg_res_2 <- rowQuantiles(x = mat, rows = 1:3, cols = 2, probs = 0.1, na.rm = FALSE, type = 3, digits = 7, useNames = FALSE, drop = FALSE)
+	ms_res_2 <- matrixStats::rowQuantiles(x = mat, rows = 1:3, cols = 2, probs = 0.1, na.rm = FALSE, type = 3, digits = 7, useNames = FALSE, drop = FALSE)
 	expect_equal(mg_res_2, ms_res_2)
 })
 

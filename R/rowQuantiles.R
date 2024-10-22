@@ -16,7 +16,9 @@
 #' @param probs A numeric vector of J probabilities in \[0, 1\].
 #' @template na_rmParameter
 #' @param type An integer specifying the type of estimator. See
-#'   \code{stats::\link[stats]{quantile}()}. for more details.
+#'   \code{stats::\link[stats]{quantile}()} for more details.
+#' @param digits An integer specifying the precision of the formatted
+#'   percentages. See \code{stats::\link[stats]{quantile}()} for more details.
 #' @param drop If `TRUE` a vector is returned if `J == 1`.
 #' @template useNamesParameter
 #'
@@ -33,13 +35,12 @@
 #' @template standardExamples
 #'
 #' @keywords array iteration robust
-setGeneric("rowQuantiles", function(x, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE, type = 7L, ..., useNames = TRUE, drop = TRUE) standardGeneric("rowQuantiles"),
+setGeneric("rowQuantiles", function(x, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE, type = 7L, digits = 7L, ..., useNames = TRUE, drop = TRUE) standardGeneric("rowQuantiles"),
            signature = "x"
 )
 
-.matrixStats_rowQuantiles <- function(x, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25),
-                                  na.rm = FALSE, type = 7L, ..., useNames = TRUE, drop = TRUE) {
-  matrixStats::rowQuantiles(x = x, rows = rows, cols = cols, probs = probs, na.rm = na.rm, type = type, ..., useNames = useNames, drop = drop)
+.matrixStats_rowQuantiles <- function(x, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE, type = 7L, digits = 7L, ..., useNames = TRUE, drop = TRUE) {
+  matrixStats::rowQuantiles(x = x, rows = rows, cols = cols, probs = probs, na.rm = na.rm, type = type, digits = digits, ..., useNames = useNames, drop = drop)
 }
 
 #' @export
@@ -55,13 +56,12 @@ setMethod("rowQuantiles", "ANY", make_default_method_def("rowQuantiles"))
 
 #' @export
 #' @rdname rowQuantiles
-setGeneric("colQuantiles", function(x, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE, type = 7L, ..., useNames = TRUE, drop = TRUE) standardGeneric("colQuantiles"),
+setGeneric("colQuantiles", function(x, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE, type = 7L, digits = 7L, ..., useNames = TRUE, drop = TRUE) standardGeneric("colQuantiles"),
            signature = "x"
 )
 
-.matrixStats_colQuantiles <- function(x, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25),
-                                  na.rm = FALSE, type = 7L, ..., useNames = TRUE, drop = TRUE) {
-  matrixStats::colQuantiles(x = x, rows = rows, cols = cols, probs = probs, na.rm = na.rm, type = type, ..., useNames = useNames, drop = drop)
+.matrixStats_colQuantiles <- function(x, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE, type = 7L, digits = 7L, ..., useNames = TRUE, drop = TRUE) {
+  matrixStats::colQuantiles(x = x, rows = rows, cols = cols, probs = probs, na.rm = na.rm, type = type, digits = digits, ..., useNames = useNames, drop = drop)
 }
 
 #' @export

@@ -10,28 +10,28 @@
 \title{Calculates quantiles for each row (column) of a matrix-like object}
 \usage{
 rowQuantiles(x, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1,
-  by = 0.25), na.rm = FALSE, type = 7L, ..., useNames = TRUE,
-  drop = TRUE)
+  by = 0.25), na.rm = FALSE, type = 7L, digits = 7L, ...,
+  useNames = TRUE, drop = TRUE)
 
 \S4method{rowQuantiles}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
   cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE,
-  type = 7L, ..., useNames = TRUE, drop = TRUE)
+  type = 7L, digits = 7L, ..., useNames = TRUE, drop = TRUE)
 
 \S4method{rowQuantiles}{ANY}(x, rows = NULL, cols = NULL,
   probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE, type = 7L,
-  ..., useNames = TRUE, drop = TRUE)
+  digits = 7L, ..., useNames = TRUE, drop = TRUE)
 
 colQuantiles(x, rows = NULL, cols = NULL, probs = seq(from = 0, to = 1,
-  by = 0.25), na.rm = FALSE, type = 7L, ..., useNames = TRUE,
-  drop = TRUE)
+  by = 0.25), na.rm = FALSE, type = 7L, digits = 7L, ...,
+  useNames = TRUE, drop = TRUE)
 
 \S4method{colQuantiles}{matrix_OR_array_OR_table_OR_numeric}(x, rows = NULL,
   cols = NULL, probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE,
-  type = 7L, ..., useNames = TRUE, drop = TRUE)
+  type = 7L, digits = 7L, ..., useNames = TRUE, drop = TRUE)
 
 \S4method{colQuantiles}{ANY}(x, rows = NULL, cols = NULL,
   probs = seq(from = 0, to = 1, by = 0.25), na.rm = FALSE, type = 7L,
-  ..., useNames = TRUE, drop = TRUE)
+  digits = 7L, ..., useNames = TRUE, drop = TRUE)
 }
 \arguments{
 \item{x}{An NxK matrix-like object.}
@@ -47,7 +47,10 @@ done.}
 omitted from the calculations.}
 
 \item{type}{An integer specifying the type of estimator. See
-\code{stats::\link[stats]{quantile}()}. for more details.}
+\code{stats::\link[stats]{quantile}()} for more details.}
+
+\item{digits}{An integer specifying the precision of the formatted
+percentages. See \code{stats::\link[stats]{quantile}()} for more details.}
 
 \item{...}{Additional arguments passed to specific methods.}
 

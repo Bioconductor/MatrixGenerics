@@ -49,6 +49,7 @@ function_args <- list(x = list("mat"),
                       method = list("'direct'", "'expSumLog'"),
                       probs = list("seq(from = 0, to = 1, by = 0.25)", "0.1"),
                       type = list(7L, 3L),  # Type of quantile estimator see  `?quantile`
+                      digits = list(7L),
                       drop = list(TRUE, FALSE),
                       ties.method = list("'max'", "'first'", "'dense'"),
                       preserveShape = list(FALSE, TRUE),
@@ -185,8 +186,6 @@ mat[6,5] <- 0
     MatrixGenerics_matrixStats_method_formals <- formals(MatrixGenerics_matrixStats_method)
     if (fnc_name %in% c(\"rowMeans2\", \"colMeans2\", \"rowVars\", \"colVars\", \"rowSds\", \"colSds\"))
         matrixStats_formals$refine <- NULL
-    if (fnc_name %in% c(\"rowQuantiles\", \"colQuantiles\"))
-        matrixStats_formals$digits <- NULL
     expect_identical(MatrixGenerics_matrixStats_method_formals, matrixStats_formals)
 
     MatrixGenerics_formals <- formals(MatrixGenerics_fun)
