@@ -24,10 +24,19 @@
 #'   implementation of this function have to provide it.
 #' @template useNamesParameter
 #'
-#' @return a matrix of type \code{\link{integer}} is returned unless
-#'   `ties.method = "average"`. Ithas dimensions` \code{NxJ} (\code{KxJ})
-#'   \code{\link{matrix}}, where N (K) is the number of rows (columns) of the
-#'   input x.
+#' @return A \code{\link[base]{matrix}} of type \code{\link[base]{integer}} is
+#' returned, unless \code{ties.method = "average"} when it is of type
+#' \code{\link[base]{numeric}}.
+#'
+#' The \code{rowRanks()} function always returns an NxK
+#' \code{\link[base]{matrix}}, where N (K) is the number of rows (columns)
+#' whose ranks are calculated.
+#'
+#' The \code{colRanks()} function returns an NxK \code{\link[base]{matrix}}, if
+#' \code{preserveShape = TRUE}, otherwise a KxN \code{\link[base]{matrix}}.
+#'
+#' Any \code{\link[base]{names}} of \code{x} are ignored and absent in the
+#' result.
 #'
 #' @details
 #'    The `matrixStats::rowRanks()` function can handle a lot of different
